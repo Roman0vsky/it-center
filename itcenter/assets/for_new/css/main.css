@@ -14004,13 +14004,13 @@ a.full-width-icon:hover .social-text {
 	flex-direction: column;
 	align-items: center;
 	background: #E6E6E6;
-	max-width: 325px;
+	max-width: 275px;
 	width: 100%;
 	min-height: 500px;
 	border-radius: 15px;
 	padding: 10px;
 	box-shadow: 6px 6px 0 0 rgba(86, 69, 255, 0.2);
-	margin: 40px;
+	margin: 50px;
 }
 .person__avatar {
 	max-width: 300px;
@@ -14026,6 +14026,7 @@ a.full-width-icon:hover .social-text {
 .person__specialization {
 	font-size: 20px;
 	line-height: 1.5;
+	text-align: center;
 }
 @media screen and (max-width: 910px) {
 	.persons {
@@ -14079,5 +14080,66 @@ a.full-width-icon:hover .social-text {
 @media screen and (max-width: 990px) {
 	.slider-main-title {
 		margin: 0;
+	}
+}
+
+/* --------------------NEWS--------------------------- */
+.news {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-bottom: 40px;
+}
+.news__img {
+	max-width: 400px;
+	max-height: 300px;
+}
+.news__content {
+	display: flex;
+	flex-direction: column;
+	padding: 40px 20px;
+	width: 100%;
+}
+.news__title {
+	font-size: 22px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.news__text {
+	font-size: 18px;
+}
+@media screen and (max-width: 990px) {
+	.news__img {
+		max-width: 200px;
+		max-height: 150px;
+	}
+	.news__content {
+		padding: 20px 10px;
+	}
+	.news__title {
+		font-size: 16px;
+	}
+	.news__text {
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.news {
+		flex-wrap: wrap;
+		margin-bottom: 10px;
+	}
+	.news__content {
+		padding: 20px 15px;
+	}
+	.news__title {
+		text-align: center;
+	}
+}
+@media screen and (max-width: 400px) {
+	.news__title {
+		font-size: 14px;
+	}
+	.news__text {
+		font-size: 12px;
 	}
 }
