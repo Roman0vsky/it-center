@@ -10,21 +10,22 @@ namespace ITCenterBack.Data
     {
         public DbSet<Course> Courses { get; set; }
         public DbSet<News> News { get; set; } 
+        public DbSet<Teacher> Teachers { get; set; }
 
         public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
             //Database.EnsureCreated();
         }
 
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    DataSeed.Seed(builder);
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            
+            DataSeed.Seed(builder);
 
-        //    base.OnModelCreating(builder);
+            //var roles = AccountsRoles.Roles;
 
-        //    //var roles = AccountsRoles.Roles;
-
-        //    //builder.Entity<IdentityRole<Guid>>().HasData(roles);
-        //}
+            //builder.Entity<IdentityRole<Guid>>().HasData(roles);
+        }
     }
 }

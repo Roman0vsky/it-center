@@ -19,10 +19,19 @@ builder.Services.AddDbContext<ITCenterContext>(opt =>
 
 //Repositories
 builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
+builder.Services.AddScoped<IRepository<Teacher>, TeacherRepository>();
+builder.Services.AddScoped<IRepository<News>, NewsRepository>();
 
 //Services
+builder.Services.AddAutoMapper(typeof(MapperProfiles));
 builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
+builder.Services.AddMvc();
 
 //Auth section
 builder.Services.Configure<JwtConfigurationModel>(builder.Configuration.GetSection("Authentication").GetSection("Jwt"));
@@ -108,6 +117,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
+
+app.UseStaticFiles();
 
 app.UseRouting();
 

@@ -12,6 +12,22 @@ build_property.RootNamespace = ITCenterBack
 build_property.ProjectDir = C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Course/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ291cnNlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

@@ -26,14 +26,14 @@ namespace ITCenterBack.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public Task<List<Course>> GetAllAsync()
+        public async Task<List<Course>> GetAllAsync()
         {
-            return _context.Courses.ToListAsync();
+            return await _context.Courses.ToListAsync();
         }
 
-        public Task<Course> GetByIdAsync(long id)
+        public async Task<Course> GetByIdAsync(long id)
         {
-            return _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
         }
 
         public async Task UpdateAsync(Course item)
