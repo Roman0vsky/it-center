@@ -14143,3 +14143,105 @@ a.full-width-icon:hover .social-text {
 		font-size: 12px;
 	}
 }
+
+/* --------------------CONTACTS--------------------------- */
+.contact__wrapper {
+	display: flex;
+	justify-content: center;
+}
+.contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 600px;
+	width: 100%;
+	text-align: center;
+	line-height: 1.5;
+}
+.contact__title,
+.contact__parents-title,
+.contact__choose-courses-title {
+	font-size: 34px;
+}
+.contact__fio {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__choose-school {
+	font-size: 18px;
+}
+.choose-school {
+	font-size: 18px;
+}
+.choose-school__select {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	height: 40px;
+}
+.choose-school__option {
+}
+.contact__write-school-text {
+	font-size: 18px;
+}
+.contact__write-school-input {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.contact__choose-grade {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__parents-text {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.contact__parents-phone {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.contact__parents-phone::-webkit-outer-spin-button,
+.contact__parents-phone::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.contact__parents-phone[type="number"] {
+	-moz-appearance: textfield;
+}
+.contact__parents-fio {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__choose-courses-text {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+.contact__courses {
+	font-size: 18px;
+	width: 100%;
+}
+.contact__course {
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+}
+.table_schedule {
+	font-size: 18px;
+}
+.table_schedule td {
+	border: 1px solid black;
+}
+.check_td {
+	background: #d5d5d5;
+	position: relative;
+}
+.contact__submit {
+	font-size: 18px;
+}

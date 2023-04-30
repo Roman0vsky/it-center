@@ -160,54 +160,282 @@
                         </div>
                     </div>
                 </section>
-                <!--/visual/banner of the page -->
-                <!-- main content wrapper -->
-                <div class="content-wrapper">
+                <div class="contact__wrapper">
+                    <form class="contact">
+                        <div class="contact__title">Информация о слушателе</div>
+                        <input required placeholder="ФИО" type="text" class="contact__fio">
+                        <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
+                        <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
+                            <option class="choose-school__option" value=" "></option>
+                            <option class="choose-school__option" value="1">Гимназия № 1</option>
+                            <option class="choose-school__option" value="2">Гимназия № 2</option>
+                            <option class="choose-school__option" value="3">Гимназия № 3 г.Витебска имени А.С.Пушкина
+                            </option>
+                            <option class="choose-school__option" value="4">Гимназия № 4</option>
+                            <option class="choose-school__option" value="5">Гимназия № 5</option>
+                            <option class="choose-school__option" value="6">Гимназия № 6</option>
+                            <option class="choose-school__option" value="7">Гимназия № 7</option>
+                            <option class="choose-school__option" value="8">Гимназия № 8</option>
+                            <option class="choose-school__option" value="9">Гимназия № 9</option>
+                            <option class="choose-school__option" value="10">Средняя школа № 2</option>
+                            <option class="choose-school__option" value="11">Средняя школа № 3</option>
+                            <option class="choose-school__option" value="12">Средняя школа № 4</option>
+                            <option class="choose-school__option" value="13">Средняя школа № 5</option>
+                            <option class="choose-school__option" value="14">Средняя школа № 6</option>
+                            <option class="choose-school__option" value="15">Средняя школа № 7</option>
+                            <option class="choose-school__option" value="16">Средняя школа № 8</option>
+                            <option class="choose-school__option" value="17">Средняя школа № 9</option>
+                            <option class="choose-school__option" value="18">Средняя школа № 10</option>
+                            <option class="choose-school__option" value="19">Средняя школа № 11</option>
+                            <option class="choose-school__option" value="20">Средняя школа № 12</option>
+                            <option class="choose-school__option" value="21">Средняя школа № 14</option>
+                            <option class="choose-school__option" value="22">Средняя школа № 15</option>
+                            <option class="choose-school__option" value="23">Средняя школа № 16</option>
+                            <option class="choose-school__option" value="24">Средняя школа № 17</option>
+                            <option class="choose-school__option" value="25">Средняя школа № 18</option>
+                            <option class="choose-school__option" value="26">Средняя школа № 19</option>
+                            <option class="choose-school__option" value="27">Средняя школа № 21</option>
+                            <option class="choose-school__option" value="28">Средняя школа № 22</option>
+                            <option class="choose-school__option" value="29">Средняя школа № 23</option>
+                            <option class="choose-school__option" value="30">Средняя школа № 24</option>
+                            <option class="choose-school__option" value="31">Средняя школа № 25</option>
+                            <option class="choose-school__option" value="32">Вспомогательная школа № 26</option>
+                            <option class="choose-school__option" value="33">Средняя школа № 27</option>
+                            <option class="choose-school__option" value="34">Средняя школа № 28</option>
+                            <option class="choose-school__option" value="35">Средняя школа № 29 г.Витебска имени
+                                В.В.Пименова</option>
+                            <option class="choose-school__option" value="36">Средняя школа № 30</option>
+                            <option class="choose-school__option" value="37">Средняя школа № 31</option>
+                            <option class="choose-school__option" value="38">Средняя школа № 33</option>
+                            <option class="choose-school__option" value="39">Средняя школа № 34</option>
+                            <option class="choose-school__option" value="40">Средняя школа № 35</option>
+                            <option class="choose-school__option" value="41">Средняя школа № 38</option>
+                            <option class="choose-school__option" value="42">Средняя школа № 40</option>
+                            <option class="choose-school__option" value="43">Средняя школа № 42</option>
+                            <option class="choose-school__option" value="44">Средняя школа № 43 г.Витебска имени
+                                М.Ф.Шмырёва
+                            </option>
+                            <option class="choose-school__option" value="45">Средняя школа № 44</option>
+                            <option class="choose-school__option" value="46">Средняя школа № 45</option>
+                            <option class="choose-school__option" value="47">Средняя школа № 46</option>
+                            <option class="choose-school__option" value="48">Средняя школа № 47</option>
+                        </select>
+                        <div class="contact__write-school-text">Или напишите ниже самостоятельно, если не нашли в списке
+                        </div>
+                        <input placeholder="Введите Номер школы/гимназии" type="text"
+                            class="contact__write-school-input">
+                        <input placeholder="Введите Класс" type="number" min="1" max="11" class="contact__choose-grade">
+                        <div class="contact__parents-title">Информация о законном представителе</div>
+                        <div class="contact__parents-text">Представитель - это родственник, на кого будет оформляться
+                            договор. <br>Это может быть мама, папа, бабушка или дедушка</div>
+                        <input required placeholder="Введите Телефон представителя" type="number"
+                            class="contact__parents-phone">
+                        <input required placeholder="Введите ФИО представителя" type="text"
+                            class="contact__parents-fio">
+                        <div class="contact__choose-courses-title">Запись на курсы</div>
+                        <div class="contact__choose-courses-text">Необходимо выбрать время для интересующих Вас курсов.
+                            <br>
+                            Если дисциплина Вас не интересует, то можно просто пропустить. <br>
+                            При выборе курсов обращайте внимание на рекомендованные классы (на 2021/2022 уч. год)!
+                        </div>
+                        <div class="contact__courses">
+                            <div class="contact__course">
+                                <label for="contact__course-input">Математика (5-9 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="2">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Робототехника LEGO WeDo (2-4 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="3">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Scratch-программирование (5-6 кл., продвинутый
+                                    уровень)</label>
+                                <input type="checkbox" id="contact__course-input" value="4">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Java для начинающих (8-11 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="5">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Компьютерная графика и веб-дизайн (6-7
+                                    классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="6">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Подготовка к ЦТ по математике (9-11 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="8">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Подготовка к ЦТ по физике (9-11 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="9">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Web-программирование (7-9 классы, для
+                                    начинающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="10">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Алгоритмизация и программирование (8-11 кл., для
+                                    начин.)</label>
+                                <input type="checkbox" id="contact__course-input" value="11">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Робототехника LEGO EV3 (5-7 классы, для
+                                    начинающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="14">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Робототехника Arduino (7-9 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="15">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Робототехника LEGO+Scratch (3-4 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="18">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Python для начинающих (6-7 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="19">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Python для продолжающих (разработка игр, 7-9
+                                    классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="20">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Scratch-программирование (3-4 кл., для
+                                    продолжающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="21">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Web-программирование (8-11кл., для
+                                    продолжающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="24">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Робототехника LEGO EV3 (6-8 кл.,для
+                                    продолжающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="25">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Scratch-программирование (3-4 классы, для
+                                    начинающих)</label>
+                                <input type="checkbox" id="contact__course-input" value="27">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Английский для IT (5-7 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="30">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">3D-моделирование и 3D-печать (8-10 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="31">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Виртуальная и дополненная реальность (7-8
+                                    классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="32">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Java для продолжающих (9-11 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="33">
+                            </div>
+                            <div class="contact__course">
+                                <label for="contact__course-input">Математика (3-4 классы)</label>
+                                <input type="checkbox" id="contact__course-input" value="34">
+                            </div>
+                        </div>
+                        <section id="schedule_want">
+                            <br>
+                            <p>Мы предлагаем Вам указать возможное время посещения занятий.</p>
+                            <table class="table_schedule">
+                                <tbody>
+                                    <tr>
+                                        <td>Время</td>
+                                        <td>Пн</td>
+                                        <td>Вт</td>
+                                        <td>Ср</td>
+                                        <td>Чт</td>
+                                        <td>Пт</td>
+                                        <td>Сб</td>
+                                        <td>Вс</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8.00 - 9.25</td>
+                                        <td class="check_td"><input disabled id="input00" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input01" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input02" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input03" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input04" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input05" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input06" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>9.35 - 11.00</td>
+                                        <td class="check_td"><input disabled id="input10" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input11" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input12" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input13" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input14" type="checkbox"></td>
+                                        <td class="check_td"><input id="input15" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input16" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11.30 - 12.55</td>
+                                        <td class="check_td"><input disabled id="input20" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input21" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input22" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input23" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input24" type="checkbox"></td>
+                                        <td class="check_td"><input id="input25" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input26" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>13.05 - 14.30</td>
+                                        <td class="check_td"><input disabled id="input30" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input31" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input32" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input33" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input34" type="checkbox"></td>
+                                        <td class="check_td"><input id="input35" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input36" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14.40 - 16.05</td>
+                                        <td class="check_td"><input disabled id="input40" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input41" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input42" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input43" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input44" type="checkbox"></td>
+                                        <td class="check_td"><input id="input45" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input46" type="checkbox"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>16.35 - 18.00</td>
+                                        <td class="check_td"><input disabled id="input50" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input51" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input52" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input53" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input54" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input55" type="checkbox"></td>
+                                        <td class="check_td"><input disabled id="input56" type="checkbox"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </section>
+                        <button class="contact__submit" type="submit">Записаться</button>
+                    </form>
+                </div>
+                <!-- <div class="content-wrapper">
                     <section class="content-block pb-0">
                         <div class="container">
                             <div class="contact-container">
                                 <h6 class="content-title contact-title">ОСТАВИТЬ ЗАЯВКУ:</h6>
                                 <div class="row align-items-start">
                                     <div class="col-lg-6">
-                                        <!-- contact form -->
-                                        <!--<form action="#" method="post" id="contact_form" class="waituk_contact-form">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" placeholder="Имя *" id="con_fname" name="con_fname" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" placeholder="Фамилия *" id="con_lname" name="con_lname" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="tel" placeholder="Номер телефона" id="con_phone" name="con_phone" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="email" placeholder="Email *" id="con_email" name="con_email" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" placeholder="Примечания *" id="con_message" name="con_message"></textarea>
-                                            </div>
-                                            <div class="btn-container">
-                                                <button id="btn_sent" class="btn btn-primary btn-arrow">Отправить</button>
-                                                <p id="error_message"> </p>
-                                            </div>
-                                        </form>-->
                                         <form action="#" method="post" class="ajax_form af_example">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <!--<label class="control-label" for="af_name">Имя</label>-->
                                                         <div class="controls">
                                                             <input type="text" id="af_name" name="name" value=""
                                                                 placeholder="Имя *" class="form-control" />
@@ -217,7 +445,6 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <!--<label class="control-label" for="af_sname">af_label_sname</label>-->
                                                         <div class="controls">
                                                             <input type="text" id="af_sname" name="sname" value=""
                                                                 placeholder="Фамилия *" class="form-control" />
@@ -229,7 +456,6 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <!--<label class="control-label" for="af_tel">af_label_tel</label>-->
                                                         <div class="controls">
                                                             <input type="text" id="af_tel" name="tel" value=""
                                                                 placeholder="Номер телефона *" class="form-control" />
@@ -239,9 +465,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <!--<label class="control-label" for="af_email">E-mail</label>-->
                                                         <div class="controls">
-                                                            <!--<input type="email" id="af_email" name="email" value="" placeholder="Email *" class="form-control"/>-->
                                                             <select id="af_club" name="club"
                                                                 placeholder="Выберите направления *"
                                                                 class="form-control">
@@ -272,7 +496,6 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <!--<label class="control-label" for="af_message">Сообщение</label>-->
                                                 <div class="controls">
                                                     <textarea id="af_message" name="message" class="form-control"
                                                         placeholder="Примечание" rows="5"></textarea>
@@ -325,68 +548,61 @@
                             </div>
                         </div>
                     </section>
-                    <!--<div class="map-holder embed-responsive-21by9 grayscaled-map">
-                        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0605547231917!2d-0.33554378354576586!3d51.47540277962994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760cf99dee6c25%3A0xc9d2780dbbcbb933!2sLondon+Rd%2C+Isleworth+TW7%2C+UK!5e0!3m2!1sen!2snp!4v1473394388477" height="450" style="border:0"></iframe>
-                    </div>-->
+
                     <aside class="content-block">
                         <div class="container">
-                            <div class="logo-container">
+                            <div class="logo-container"></div>
+                        </div>
+                    </aside>
+                </div> -->
+            </main>
+        </div>
+        <!-- footer of the pagse -->
 
-                                <!--<div class="slide-item">
-                                        <img src="assets/for_new/img/logo-03.png" alt="images description">
-                                    </div>-->
+        <footer class="footer footer-v1">
+            <div class="footer-main" style="padding-top:1rem; padding-bottom:0px">
+                <div class="container">
+                    <div class="row align-center">
+                        <div class="col-md-4 flexmid">
+                            <div class="footer-logo alcentr">
+                                <img src="images/gllg.png" alt="image-description">
                             </div>
                         </div>
-                </div>
-                </aside>
-        </div>
-        <!--/main content wrapper -->
-        </main>
-    </div>
-    <!-- footer of the pagse -->
-
-    <footer class="footer footer-v1">
-        <div class="footer-main" style="padding-top:1rem; padding-bottom:0px">
-            <div class="container">
-                <div class="row align-center">
-                    <div class="col-md-4 flexmid">
-                        <div class="footer-logo alcentr">
-                            <img src="images/gllg.png" alt="image-description">
+                        <div class="col-md-4 flexmid">
+                            <div class="footer-nav inline-nav text-center">
+                                <ul>
+                                    <li><a class="formula" href="index.html">IT-центр</a></li>
+                                    <li><a href="kontakty.html">Контакты</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 flexmid">
-                        <div class="footer-nav inline-nav text-center">
-                            <ul>
-                                <li><a class="formula" href="index.html">IT-центр</a></li>
-                                <li><a href="kontakty.html">Контакты</a></li>
+                        <div class="col-md-4 text-right flexmid">
+                            <ul class="social-network with-text">
+                                <li><a href="https://vk.com/abiturvsu"><ion-icon name="logo-vk"></ion-icon> ВКонтакте
+                                    </a>
+                                </li>
+                                <li><a href="https://www.instagram.com/tvu.vsu/"><ion-icon
+                                            name="logo-instagram"></ion-icon>
+                                        Instagram </a></li>
+                                <li><a href="https://www.youtube.com/channel/UCo18_krqqaEWSb6_cbHnupQ"><ion-icon
+                                            name="logo-youtube"></ion-icon> Youtube </a></li>
+                                <li><a href="https://www.facebook.com/vsu.by"><ion-icon name="logo-facebook"></ion-icon>
+                                        Facebook </a></li>
+                                <!--<li><a href="#"><span class="icon-dribbble"></span> </a></li>-->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 text-right flexmid">
-                        <ul class="social-network with-text">
-                            <li><a href="https://vk.com/abiturvsu"><ion-icon name="logo-vk"></ion-icon> ВКонтакте </a>
-                            </li>
-                            <li><a href="https://www.instagram.com/tvu.vsu/"><ion-icon name="logo-instagram"></ion-icon>
-                                    Instagram </a></li>
-                            <li><a href="https://www.youtube.com/channel/UCo18_krqqaEWSb6_cbHnupQ"><ion-icon
-                                        name="logo-youtube"></ion-icon> Youtube </a></li>
-                            <li><a href="https://www.facebook.com/vsu.by"><ion-icon name="logo-facebook"></ion-icon>
-                                    Facebook </a></li>
-                            <!--<li><a href="#"><span class="icon-dribbble"></span> </a></li>-->
-                        </ul>
-                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom text-center">
-            <div class="container">
-                <p class="text-center">Республика Беларусь 210038, г. Витебск, Московский проспект 33 <span
-                        class="formula"> </p>
-                <p class="text-center">ВГУ имени П.М.Машерова. Все права защищены. <span class="formula"></p>
+            <div class="footer-bottom text-center">
+                <div class="container">
+                    <p class="text-center">Республика Беларусь 210038, г. Витебск, Московский проспект 33 <span
+                            class="formula"> </p>
+                    <p class="text-center">ВГУ имени П.М.Машерова. Все права защищены. <span class="formula"></p>
+                </div>
             </div>
-        </div>
-    </footer>
-    <!--/footer of the page -->
+        </footer>
+        <!--/footer of the page -->
     </div>
     <!-- search form wrapper -->
     <div class="search-form-wrapper">
