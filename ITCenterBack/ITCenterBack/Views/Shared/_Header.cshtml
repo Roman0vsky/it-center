@@ -32,7 +32,7 @@
                                 @foreach (var t in Model.Courses)
                                 {
                                     <li class="dropdown_third colored">
-                                        <a asp-page="/Course/Details/" + @t.Id>
+                                        <a href=@Url.Content("/api/Course/Details/" + @t.Id)>
                                             @t.Name
                                         </a>
                                     </li>

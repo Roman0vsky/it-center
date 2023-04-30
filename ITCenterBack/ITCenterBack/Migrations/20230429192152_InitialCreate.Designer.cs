@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITCenterBack.Migrations
 {
     [DbContext(typeof(ITCenterContext))]
-    [Migration("20230429183509_InitialCreate")]
+    [Migration("20230429192152_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,13 +78,6 @@ namespace ITCenterBack.Migrations
                             Image = "/assets/for_new/img/courses/3d/graphics-3d.svg",
                             Name = "3D графика, анимация и рендеринг",
                             Requirements = "предварительное прохождение курса \"Компьютерная графика\""
-                        },
-                        new
-                        {
-                            Id = 1L,
-                            Description = "Робототехника LEGO EV3",
-                            Image = "/images/Shpakov.jpg",
-                            Name = "Шпаков С А"
                         });
                 });
 
@@ -130,6 +123,15 @@ namespace ITCenterBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teachers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Description = "Робототехника LEGO EV3",
+                            Image = "/images/Shpakov.jpg",
+                            Name = "Шпаков С А"
+                        });
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.User", b =>

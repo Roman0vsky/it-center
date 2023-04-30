@@ -55,7 +55,7 @@ namespace ITCenterBack.Data
                 );
 
             //Teachers
-            modelBuilder.Entity<Course>().HasData(
+            modelBuilder.Entity<Teacher>().HasData(
                 new Teacher
                 {
                     Id = 1,

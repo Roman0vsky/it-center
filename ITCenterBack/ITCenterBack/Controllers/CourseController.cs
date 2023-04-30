@@ -32,19 +32,32 @@ namespace ITCenterBack.Controllers
             if (course is not null)
             {
                 var courseVM = _mapper.Map<CourseViewModel>(course);
-                return View(courseVM);
+
+                var courses = await _courseService.GetAllCoursesAsync();
+                var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+
+                var page = new CourseDetailsViewModel
+                {
+                    Header = new HeaderViewModel
+                    {
+                        Courses = coursesVM
+                    },
+                    Course = courseVM
+                };
+
+                return View(page);
             }
 
             return NotFound();
         }
 
-        public async Task<IActionResult> AllCoursesAsync()
-        {
-            var courses = await _courseService.GetAllCoursesAsync();
-            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+        //public async Task<IActionResult> AllCoursesAsync()
+        //{
+        //    var courses = await _courseService.GetAllCoursesAsync();
+        //    var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-            return View();
-        }
+        //    return View();
+        //}
 
         //public async Task<IActionResult> _HeaderAsync()
         //{
