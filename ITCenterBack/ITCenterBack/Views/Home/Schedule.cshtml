@@ -1,6 +1,10 @@
-﻿@{
+﻿@model ITCenterBack.ViewModels.SchelduleViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Расписание | IT - центр";
 }
 
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
 <main class="no-banner">
     <!-- visual/banner of the page -->
     <section class="visual visual-sub visual-no-bg">
@@ -33,9 +37,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </section>

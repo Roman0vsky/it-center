@@ -31,7 +31,18 @@ namespace ITCenterBack.Controllers
                 }
             };
 
-            return View();
+            return View(page);
         }
+
+        //to do
+        //public Task<IActionResult> ContactsAsync()
+        //{
+
+        //}
+
+        //public Task<IActionResult> SchelduleAsync()
+        //{
+
+        //}
     }
 }
