@@ -14148,6 +14148,7 @@ a.full-width-icon:hover .social-text {
 .contact__wrapper {
 	display: flex;
 	justify-content: center;
+	padding: 20px;
 }
 .contact {
 	display: flex;
@@ -14162,6 +14163,7 @@ a.full-width-icon:hover .social-text {
 .contact__parents-title,
 .contact__choose-courses-title {
 	font-size: 34px;
+	margin: 10px 0;
 }
 .contact__fio {
 	font-size: 18px;
@@ -14170,6 +14172,7 @@ a.full-width-icon:hover .social-text {
 }
 .contact__choose-school {
 	font-size: 18px;
+	margin: 20px 0;
 }
 .choose-school {
 	font-size: 18px;
@@ -14184,6 +14187,7 @@ a.full-width-icon:hover .social-text {
 }
 .contact__write-school-text {
 	font-size: 18px;
+	margin: 20px 0;
 }
 .contact__write-school-input {
 	font-size: 18px;
@@ -14198,7 +14202,7 @@ a.full-width-icon:hover .social-text {
 }
 .contact__parents-text {
 	font-size: 18px;
-	margin-bottom: 15px;
+	margin: 20px 0;
 }
 .contact__parents-phone {
 	font-size: 18px;
@@ -14221,7 +14225,7 @@ a.full-width-icon:hover .social-text {
 }
 .contact__choose-courses-text {
 	font-size: 18px;
-	margin-bottom: 15px;
+	margin: 20px 0;
 }
 .contact__courses {
 	font-size: 18px;
@@ -14232,16 +14236,64 @@ a.full-width-icon:hover .social-text {
 	justify-content: space-between;
 	font-size: 18px;
 }
+#schedule_want {
+	display: flex;
+	flex-direction: column;
+}
 .table_schedule {
+	font-size: 18px;
+}
+.schedule__text {
 	font-size: 18px;
 }
 .table_schedule td {
 	border: 1px solid black;
 }
-.check_td {
-	background: #d5d5d5;
-	position: relative;
+.table_schedule tr td label input {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	width: 100%;
+	height: 20px;
 }
+.table_schedule tr td label {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.table_schedule tr td.disabled  {
+	background: #d5d5d5;
+  position: relative;
+}
+.table_schedule tr td label.active  {
+	background-color: green;
+  position: relative;
+}
+.table_schedule tr td label.passive  {
+	background-color: white;
+  position: relative;
+}
+.table_schedule tr td.disabled input {
+	display: none;
+}
+.check_td {}
 .contact__submit {
 	font-size: 18px;
+	margin: 20px 0;
+}
+@media screen and (max-width: 800px) {
+	.contact__fio,
+	.choose-school__select,
+	.contact__write-school-input,
+	.contact__choose-grade,
+	.contact__parents-phone,
+	.contact__parents-fio {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 339px) {
+	.table_schedule tr td label input {
+		height: 50px;
+	}
 }
