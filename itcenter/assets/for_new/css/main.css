@@ -176,7 +176,30 @@ u.formula{
 	-o-animation: steam 700ms linear infinite alternate;
 	animation: steam 700ms linear infinite alternate;
 }
+.container_slider_css{margin: auto;width: 245px;height:120px;position:relative}
+.photo_slider_css{position:absolute;animation:round 22s infinite;opacity:0;width:100%}
+@keyframes round {
+25%{opacity:1}
+40%{opacity:0}
+}
+img:nth-child(1){animation-duration: 6s;animation-delay:0s;animation-iteration-count: 1}
+img:nth-child(2){animation-duration: 6s;animation-delay:2s;animation-iteration-count: 1}
+img:nth-child(3){animation-duration: 6s;animation-delay:4s;animation-iteration-count: 1}
+img:nth-child(4){animation-duration: 6s;animation-delay:6s;animation-iteration-count: 1}
+img:nth-child(5){animation-duration: 6s;animation-delay:8s;animation-iteration-count: 1}
+img:nth-child(6){animation-duration: 6s;animation-delay:10s;animation-iteration-count: 1}
+img:nth-child(7){animation-duration: 6s;animation-delay:12s;animation-iteration-count: 1}
+img:nth-child(8){animation-duration: 6s;animation-delay:14s;animation-iteration-count: 1}
+img:nth-child(9){animation-duration: 6s;animation-delay:16s;animation-iteration-count: 1}
+img:nth-child(10){animation-duration: 6s;animation-delay:18s;animation-iteration-count: 1}
+img:nth-child(11){animation-duration: 6s;animation-delay:20s;animation-iteration-count: 1}
 
+@media(min-width:245px) and (max-width:245px) {
+.container_slider_css{width:80%;height:245px}
+}
+@media(min-width:245px) and (max-width:245px) {
+.container_slider_css{width:80%;height:245px}
+}
 .content-links,.filter-nav,.social-network,.content-list,.pricing-box-v1 .plan-features ul,.icon-lists ul,.nav-wrap ul.side-nav,.nav-wrap .header-links ul,.white-overlay .nav-wrap ul.side-nav,.white-overlay .nav-wrap .header-links ul,.tag-block ul,.blog-lists .blog-list-items,.instagram-widget ul,.footer-nav ul {
 	list-style: none;
 	margin: 0;
