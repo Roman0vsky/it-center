@@ -242,13 +242,13 @@ u.formula{
     object-fit: cover;
 }
 @keyframes slideanim {
-    12.5%{
+    1%{
         opacity: 1;
     }
-    25%{
+    50%{
         opacity: 0;
     }   
-    37.5%{
+    20%{
         opacity: 0;
     }
 }
