@@ -2,7 +2,7 @@
 
 namespace ITCenterBack.Models
 {
-    public class Schools
+    public class School
     {
         [Key]
         public long Id { get; set; }

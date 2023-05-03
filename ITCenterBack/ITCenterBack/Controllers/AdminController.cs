@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ITCenterBack.Controllers
 {
@@ -6,6 +7,6 @@ namespace ITCenterBack.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-
+        private readonly IMapper _mapper;
     }
 }

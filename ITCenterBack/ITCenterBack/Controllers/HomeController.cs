@@ -34,15 +34,79 @@ namespace ITCenterBack.Controllers
             return View(page);
         }
 
-        //to do
-        //public Task<IActionResult> ContactsAsync()
-        //{
+        [HttpGet]
+        [ActionName("Contacts")]
+        public async Task<IActionResult> ContactsAsync()
+        {
+            var courses = await _courseService.GetAllCoursesAsync();
+            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-        //}
+            var page = new ContactsViewModel
+            {
+                Header = new HeaderViewModel
+                {
+                    Courses = coursesVM
+                }
+            };
 
-        //public Task<IActionResult> SchelduleAsync()
-        //{
+            return View(page);
+        }
 
-        //}
+        [HttpPost]
+        [ActionName("Contacts")]
+        public IActionResult PostContactsAsync()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [ActionName("Scheldule")]
+        public async Task<IActionResult> SchelduleAsync()
+        {
+            var courses = await _courseService.GetAllCoursesAsync();
+            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+
+            var page = new SchelduleViewModel
+            {
+                Header = new HeaderViewModel
+                {
+                    Courses = coursesVM
+                }
+            };
+
+            return View(page);
+        }
+
+        [HttpPost]
+        [ActionName("Scheldule")]
+        public IActionResult PostSchelduleAsync()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [ActionName("Login")]
+        public async Task<IActionResult> LoginAsync()
+        {
+            var courses = await _courseService.GetAllCoursesAsync();
+            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+
+            var page = new SchelduleViewModel
+            {
+                Header = new HeaderViewModel
+                {
+                    Courses = coursesVM
+                }
+            };
+
+            return View(page);
+        }
+
+        [HttpPost]
+        [ActionName("Login")]
+        public IActionResult PostLoginAsync()
+        {
+            return View();
+        }
     }
 }
