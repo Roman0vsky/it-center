@@ -11,6 +11,7 @@ namespace ITCenterBack.Data
         public DbSet<Course> Courses { get; set; }
         public DbSet<News> News { get; set; } 
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<School> Schools { get; set; }
 
         public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
