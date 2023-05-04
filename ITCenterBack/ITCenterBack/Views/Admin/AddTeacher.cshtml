@@ -1,0 +1,32 @@
+﻿@model ITCenterBack.ViewModels.AddTeacherViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить преподавателя";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Преподавателя </h2>
+			</div>
+			<div class="admin-form__item">
+				<label class="input__label">
+					Введите Имя преподавателя </br>
+					<input class="input input--width-label" type="text" placeholder="Имя" asp-for="@Model.Name"/>
+				</label>
+				<label class="input__label">
+					Курсы, которые ведет преподаватель </br>
+					<input class="input input--width-label" type="text" placeholder="Курсы" asp-for="@Model.Description"/>
+				</label>
+			</div>
+
+			<div class="admin-form__item buttons">
+				<button class="primary-button" type="submit">Опубликовать</button>
+				<a class="secondary-button" href="#">Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

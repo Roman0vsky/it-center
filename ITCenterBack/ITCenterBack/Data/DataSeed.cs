@@ -1,4 +1,5 @@
 ﻿using ITCenterBack.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITCenterBack.Data
@@ -64,6 +65,22 @@ namespace ITCenterBack.Data
                     Image = "/images/Shpakov.jpg"
                 }
                 );
+
+            //Admin
+            var admin = new User
+            {
+                Id = 1
+            };
+			PasswordHasher<User> ph = new PasswordHasher<User>();
+			admin.PasswordHash = ph.HashPassword(admin, "Admin_123");
+
+			modelBuilder.Entity<User>().HasData(admin);
+
+            modelBuilder.Entity<IdentityUserRole<long>>().HasData(new IdentityUserRole<long>
+            {
+                RoleId = 1,
+                UserId = 1
+            });
         }
     }
 }

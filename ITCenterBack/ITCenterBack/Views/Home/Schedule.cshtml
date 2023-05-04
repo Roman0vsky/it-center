@@ -1,4 +1,8 @@
-﻿@model ITCenterBack.ViewModels.SchelduleViewModel
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+@model ITCenterBack.ViewModels.SchelduleViewModel
+
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Расписание | IT - центр";
@@ -35,6 +39,12 @@
                                 <div class="card-project__technology">New</div>
                             </a>
                         </div>
+
+                        @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
+                        {
+                            <button>Добавить</button>
+                        }
+
                     </div>
                 </div>
             </div>

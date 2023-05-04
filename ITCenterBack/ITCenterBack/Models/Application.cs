@@ -6,10 +6,9 @@ namespace ITCenterBack.Models
     {
         [Key]
         public long Id { get; set; }
-        public School School { get; set; }
-        public long SchoolId { get; set; }
-        public string ListenerFullName { get; set; }
-        public string RepresentativeFullName { get; set; }
-        public string RepresentativePhoneNumber { get; set; }
+        public Applicant Applicant { get; set; }
+        public long ApplicantId { get; set; }
+        public Course Course { get; set;}
+        public long CourseId { get; set; }
     }
 }

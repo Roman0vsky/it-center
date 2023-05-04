@@ -6,9 +6,9 @@ namespace ITCenterBack.Constants
     {
         public const string Administrator = "Administrator";
 
-        public static List<IdentityRole<Guid>> Roles { get; } = new()
+        public static List<IdentityRole<long>> Roles { get; } = new()
         {
-            new IdentityRole<Guid>(AccountRoles.Administrator) { Id = Guid.NewGuid(), NormalizedName = AccountRoles.Administrator.Normalize() }
+            new IdentityRole<long>(AccountRoles.Administrator) { Id = 1, NormalizedName = AccountRoles.Administrator.Normalize() }
         };
     }
 }

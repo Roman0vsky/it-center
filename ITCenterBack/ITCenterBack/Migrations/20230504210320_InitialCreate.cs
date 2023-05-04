@@ -83,6 +83,19 @@ namespace ITCenterBack.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Schools",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schools", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Teachers",
                 columns: table => new
                 {
@@ -203,6 +216,65 @@ namespace ITCenterBack.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Applicants",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SchoolId = table.Column<long>(type: "bigint", nullable: false),
+                    SchoolName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ListenerFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RepresentativeFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RepresentativePhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Applicants", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Applicants_Schools_SchoolId",
+                        column: x => x.SchoolId,
+                        principalTable: "Schools",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Applications",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicantId = table.Column<long>(type: "bigint", nullable: false),
+                    CourseId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Applications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Applications_Applicants_ApplicantId",
+                        column: x => x.ApplicantId,
+                        principalTable: "Applicants",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Applications_Courses_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Courses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { 1L, "5bcc7acd-3b31-4ef1-8b34-fe5e62c9ca12", "Administrator", "Administrator" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { 1L, 0, "525c77b5-6fe3-49ea-8f8b-692045671a10", null, false, false, null, null, null, "AQAAAAEAACcQAAAAEMs82jvACEkMuiiSV5aowMOUEezUrDPkgpTptpBQRgkjReSdhz65Sv2+easAjgIcYQ==", null, false, null, false, null });
+
             migrationBuilder.InsertData(
                 table: "Courses",
                 columns: new[] { "Id", "Age", "Description", "Image", "Name", "Requirements" },
@@ -217,6 +289,26 @@ namespace ITCenterBack.Migrations
                 table: "Teachers",
                 columns: new[] { "Id", "Description", "Image", "Name" },
                 values: new object[] { 1L, "Робототехника LEGO EV3", "/images/Shpakov.jpg", "Шпаков С А" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { 1L, 1L });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applicants_SchoolId",
+                table: "Applicants",
+                column: "SchoolId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applications_ApplicantId",
+                table: "Applications",
+                column: "ApplicantId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applications_CourseId",
+                table: "Applications",
+                column: "CourseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -261,6 +353,9 @@ namespace ITCenterBack.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Applications");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -276,19 +371,25 @@ namespace ITCenterBack.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Courses");
-
-            migrationBuilder.DropTable(
                 name: "News");
 
             migrationBuilder.DropTable(
                 name: "Teachers");
 
             migrationBuilder.DropTable(
+                name: "Applicants");
+
+            migrationBuilder.DropTable(
+                name: "Courses");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Schools");
         }
     }
 }

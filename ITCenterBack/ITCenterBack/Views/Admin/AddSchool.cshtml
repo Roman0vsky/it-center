@@ -1,0 +1,28 @@
+﻿@model ITCenterBack.ViewModels.AddSchoolViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить школу";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить школу </h2>
+			</div>
+			<div class="admin-form__item">
+				<label class="input__label">
+					Введите название школы или гимназии </br>
+					<input class="input input--width-label" type="text" placeholder="Название школы или гимназии" asp-for="@Model.Name" />
+				</label>
+			</div>
+
+			<div class="admin-form__item buttons">
+				<button class="primary-button" type="submit">Опубликовать</button>
+				<a class="secondary-button" href="#">Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

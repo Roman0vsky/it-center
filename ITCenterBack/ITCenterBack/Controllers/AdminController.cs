@@ -43,5 +43,20 @@ namespace ITCenterBack.Controllers
 
 			return View(schoolsVM);
 		}
+
+		[HttpGet]
+		[ActionName("AddSchool")]
+		[Route("AddSchool")]
+		public IActionResult AddSchool()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ActionName("AddSchool")]
+		public IActionResult PostAddSchoolAsync()
+		{
+			return View();
+		}
 	}
 }

@@ -2,16 +2,18 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ITCenterBack.Models;
+using ITCenterBack.Constants;
 
 namespace ITCenterBack.Data
 {
-    //to do
     public class ITCenterContext : IdentityDbContext<User, IdentityRole<long>, long>
     {
         public DbSet<Course> Courses { get; set; }
         public DbSet<News> News { get; set; } 
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<School> Schools { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<Application> Applications { get; set; }
 
         public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
@@ -21,12 +23,11 @@ namespace ITCenterBack.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
-            DataSeed.Seed(builder);
 
-            //var roles = AccountsRoles.Roles;
+            var roles = AccountRoles.Roles;
+            builder.Entity<IdentityRole<long>>().HasData(roles);
 
-            //builder.Entity<IdentityRole<Guid>>().HasData(roles);
-        }
+			DataSeed.Seed(builder);
+		}
     }
 }
