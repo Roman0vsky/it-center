@@ -1,0 +1,37 @@
+﻿@model List<ITCenterBack.ViewModels.TeacherViewModel>
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Преподаватели";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Преподаватели</h2>
+			</div>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr><th>ФИО Преподавателя</th><th>Должность</th></tr>
+				</thead>
+				<tbody>
+					@foreach (var t in Model)
+					{
+						<tr>
+							<td>@t.Name</td><td>@t.Description</td>
+								<td>
+									<button class="file-button" type="file">Удалить</button>
+									<button class="file-button" type="file">Редактировать</button>
+								</td>
+						</tr>
+					}
+					
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

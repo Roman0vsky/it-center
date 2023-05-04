@@ -10,6 +10,7 @@ namespace ITCenterBack.Utilities
         {
             CreateMap<Course, CourseViewModel>();
             CreateMap<Teacher, TeacherViewModel>();
+            CreateMap<School, SchoolViewModel>();
             //CreateMap<List<Teacher>, TeachersViewModel>();
         }
     }

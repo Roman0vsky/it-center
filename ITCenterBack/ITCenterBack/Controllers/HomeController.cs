@@ -62,9 +62,9 @@ namespace ITCenterBack.Controllers
         }
 
         [HttpGet]
-        [ActionName("Scheldule")]
-        [Route("Scheldule")]
-        public async Task<IActionResult> SchelduleAsync()
+        [ActionName("Schedule")]
+        [Route("Schedule")]
+        public async Task<IActionResult> ScheduleAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
@@ -81,15 +81,15 @@ namespace ITCenterBack.Controllers
         }
 
         [HttpPost]
-        [ActionName("Scheldule")]
-        public IActionResult PostSchelduleAsync()
+        [ActionName("Schedule")]
+        public IActionResult PostScheduleAsync()
         {
             return View();
         }
 
         [HttpGet]
         [ActionName("Login")]
-        [Route("Scheldule")]
+        [Route("Login")]
         public async Task<IActionResult> LoginAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
