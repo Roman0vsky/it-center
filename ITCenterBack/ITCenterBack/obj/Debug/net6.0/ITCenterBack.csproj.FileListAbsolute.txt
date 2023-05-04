@@ -395,3 +395,8 @@ C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Deb
 C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\ITCenterBack.staticwebassets.runtime.json
+C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack\bin\Debug\net6.0\refs\System.Diagnostics.DiagnosticSource.dll

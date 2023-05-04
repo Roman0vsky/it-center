@@ -18,6 +18,7 @@ namespace ITCenterBack.Controllers
             _mapper = mapper;
         }
 
+        [Route("Index")]
         public async Task<IActionResult> IndexAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
@@ -36,6 +37,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Contacts")]
+        [Route("Contacts")]
         public async Task<IActionResult> ContactsAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
@@ -61,6 +63,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Scheldule")]
+        [Route("Scheldule")]
         public async Task<IActionResult> SchelduleAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
@@ -86,6 +89,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Login")]
+        [Route("Scheldule")]
         public async Task<IActionResult> LoginAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();

@@ -177,6 +177,88 @@ u.formula{
 	animation: steam 700ms linear infinite alternate;
 }
 
+.container_slider_css{
+	width: 245px;
+	height:120px;
+	margin: auto;
+    position: relative;
+    overflow: hidden;
+}
+.photo_slider_css{
+	width: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: slideanim 55s infinite;
+}
+
+.photo_slider_css:nth-child(1),
+.photo_slider_css:nth-child(1) img {
+    animation-delay: 0;
+}
+.photo_slider_css:nth-child(2),
+.photo_slider_css:nth-child(2) img {
+    animation-delay: 5s;
+}
+.photo_slider_css:nth-child(3),
+.photo_slider_css:nth-child(3) img {
+    animation-delay: 10s;
+}
+.photo_slider_css:nth-child(4),
+.photo_slider_css:nth-child(4) img {
+    animation-delay: 15s;
+}
+.photo_slider_css:nth-child(5),
+.photo_slider_css:nth-child(5) img {
+    animation-delay: 20s;
+}
+.photo_slider_css:nth-child(6),
+.photo_slider_css:nth-child(6) img {
+    animation-delay: 25s;
+}
+.photo_slider_css:nth-child(7),
+.photo_slider_css:nth-child(7) img {
+    animation-delay: 30s;
+}
+.photo_slider_css:nth-child(8),
+.photo_slider_css:nth-child(8) img {
+    animation-delay: 35s;
+}
+.photo_slider_css:nth-child(9),
+.photo_slider_css:nth-child(9) img {
+    animation-delay: 40s;
+}
+.photo_slider_css:nth-child(10),
+.photo_slider_css:nth-child(10) img {
+    animation-delay: 45s;
+}
+.photo_slider_css:nth-child(11),
+.photo_slider_css:nth-child(11) img {
+    animation-delay: 50s;
+}
+
+.photo_slider_css img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@keyframes slideanim {
+    12.5%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0;
+    }   
+    37.5%{
+        opacity: 0;
+    }
+}
+@media(min-width:245px) and (max-width:245px) {
+	.container_slider_css{width:80%;height:245px}
+	}
+	@media(min-width:245px) and (max-width:245px) {
+	.container_slider_css{width:80%;height:245px}
+	} 
+
 .content-links,.filter-nav,.social-network,.content-list,.pricing-box-v1 .plan-features ul,.icon-lists ul,.nav-wrap ul.side-nav,.nav-wrap .header-links ul,.white-overlay .nav-wrap ul.side-nav,.white-overlay .nav-wrap .header-links ul,.tag-block ul,.blog-lists .blog-list-items,.instagram-widget ul,.footer-nav ul {
 	list-style: none;
 	margin: 0;
@@ -14141,5 +14223,159 @@ a.full-width-icon:hover .social-text {
 	}
 	.news__text {
 		font-size: 12px;
+	}
+}
+
+/* --------------------CONTACTS--------------------------- */
+.contact__wrapper {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+.contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 600px;
+	width: 100%;
+	text-align: center;
+	line-height: 1.5;
+}
+.contact__title,
+.contact__parents-title,
+.contact__choose-courses-title {
+	font-size: 34px;
+	margin: 10px 0;
+}
+.contact__fio {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__choose-school {
+	font-size: 18px;
+	margin: 20px 0;
+}
+.choose-school {
+	font-size: 18px;
+}
+.choose-school__select {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	height: 40px;
+}
+.choose-school__option {
+}
+.contact__write-school-text {
+	font-size: 18px;
+	margin: 20px 0;
+}
+.contact__write-school-input {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.contact__choose-grade {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__parents-text {
+	font-size: 18px;
+	margin: 20px 0;
+}
+.contact__parents-phone {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+	margin-bottom: 15px;
+}
+.contact__parents-phone::-webkit-outer-spin-button,
+.contact__parents-phone::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.contact__parents-phone[type="number"] {
+	-moz-appearance: textfield;
+}
+.contact__parents-fio {
+	font-size: 18px;
+	padding: 6px 12px;
+	width: 580px;
+}
+.contact__choose-courses-text {
+	font-size: 18px;
+	margin: 20px 0;
+}
+.contact__courses {
+	font-size: 18px;
+	width: 100%;
+}
+.contact__course {
+	display: flex;
+	justify-content: space-between;
+	font-size: 18px;
+}
+#schedule_want {
+	display: flex;
+	flex-direction: column;
+}
+.table_schedule {
+	font-size: 18px;
+}
+.schedule__text {
+	font-size: 18px;
+}
+.table_schedule td {
+	border: 1px solid black;
+}
+.table_schedule tr td label input {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	width: 100%;
+	height: 20px;
+}
+.table_schedule tr td label {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+.table_schedule tr td.disabled  {
+	background: #d5d5d5;
+  position: relative;
+}
+.table_schedule tr td label.active  {
+	background-color: green;
+  position: relative;
+}
+.table_schedule tr td label.passive  {
+	background-color: white;
+  position: relative;
+}
+.table_schedule tr td.disabled input {
+	display: none;
+}
+.check_td {}
+.contact__submit {
+	font-size: 18px;
+	margin: 20px 0;
+}
+@media screen and (max-width: 800px) {
+	.contact__fio,
+	.choose-school__select,
+	.contact__write-school-input,
+	.contact__choose-grade,
+	.contact__parents-phone,
+	.contact__parents-fio {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 339px) {
+	.table_schedule tr td label input {
+		height: 50px;
 	}
 }
