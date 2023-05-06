@@ -8717,114 +8717,20 @@ a.full-width-icon:hover .social-text {
 	-o-transition: .3s all linear;
 	transition: .3s all linear;
 }
-
+table {
+    border-collapse: collapse;
+   }
+   th {
+    background: #f7f7f7; 
+    text-align: left; 
+   }
+   td, th {
+    border: 1px solid #000; / Параметры границы /
+    padding: 4px; / Поля в ячейках */
+   }
 .no-gutter-slide .owl-dots .owl-dot.active span,.no-gutter-slide .owl-dots .owl-dot:hover span {
 	background: #575757;
 }
-
-/******* data table styles *******/
-
-.data-table {
-	border: 1px solid #ebedef;
-}
-
-.data-table .table {
-	border: none;
-	margin: 0;
-}
-
-.data-table .table > thead > tr > th {
-	border-width: 0;
-	font-size: .75rem;
-	line-height: 2.1;
-}
-
-.data-table .table > tbody > tr > td,.data-table .table > tbody > tr > th,.data-table .table > tfoot > tr > td,.data-table .table > tfoot > tr > th,.data-table .table > thead > tr > td,.data-table .table > thead > tr > th {
-	padding: .625rem;
-	border-color: #ebedef;
-	vertical-align: middle;
-}
-
-.data-table .table-striped tbody tr:nth-of-type(odd),.data-table .table-hover tbody tr:hover {
-	background-color: #f8f8f8;
-}
-
-.data-table .vertical-bordered.table > tbody > tr > td,.data-table .vertical-bordered.table > tbody > tr > th,.data-table .vertical-bordered.table > tfoot > tr > td,.data-table .vertical-bordered.table > tfoot > tr > th,.data-table .vertical-bordered.table > thead > tr > td,.data-table .vertical-bordered.table > thead > tr > th {
-	border-right: 1px solid #ebedef;
-	border-top: none;
-}
-
-.data-table .vertical-bordered.table > tbody > tr > td:last-child,.data-table .vertical-bordered.table > tbody > tr > th:last-child,.data-table .vertical-bordered.table > tfoot > tr > td:last-child,.data-table .vertical-bordered.table > tfoot > tr > th:last-child,.data-table .vertical-bordered.table > thead > tr > td:last-child,.data-table .vertical-bordered.table > thead > tr > th:last-child {
-	border-right: none;
-}
-
-.data-table .vertical-bordered.table th,.data-table .vertical-bordered.table td {
-	border-top: none;
-}
-
-.data-table .vertical-bordered > thead > tr > th {
-	border-width: 1px;
-}
-
-/******* icon list styles *******/
-
-.icon-lists ul li {
-	list-style-type: none;
-	display: block;
-	position: relative;
-	padding-left: 1.875rem;
-	color: #55565b;
-	margin: 0 0 .75rem;
-}
-
-.icon-lists ul li span {
-	width: 1.875rem;
-	height: 1.875rem;
-	position: absolute;
-	top: 0;
-	left: 0;
-	line-height: 2rem;
-}
-
-.icon-lists ul li a {
-	color: #55565b;
-}
-
-.icon-lists ul li a:hover {
-	color: #5645ff;
-}
-
-.icon-lists.round-icons ul li {
-	padding-left: 3.125rem;
-}
-
-.icon-lists.round-icons ul li span {
-	border-radius: 50%;
-	border: #55565b 1px solid;
-	text-align: center;
-}
-
-.icon-lists.square-icons ul li {
-	padding-left: 3.125rem;
-}
-
-.icon-lists.square-icons ul li span {
-	border: #55565b 1px solid;
-	text-align: center;
-}
-
-.icon-lists.solid-icons ul li {
-	padding-left: 3.125rem;
-}
-
-.icon-lists.solid-icons ul li span {
-	border: #55565b 1px solid;
-	background: #55565b;
-	color: #fff;
-	text-align: center;
-}
-
-/******* Pagination styles *******/
 
 .pagination-block .pagination {
 	margin: 0;
