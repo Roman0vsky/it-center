@@ -12,13 +12,18 @@ namespace ITCenterBack.Services
             _schoolRepository = schoolRepository;
         }
 
-        public async Task CreateSchoolAsync(School school)
+        public async Task CreateSchoolAsync(string name)
         {
-            if (school is not null)
+            if (!string.IsNullOrWhiteSpace(name))
             {
-                await _schoolRepository.CreateAsync(school);
-            }
+                var school1 = new School
+                {
+                    Name = name
+                };
 
+                await _schoolRepository.CreateAsync(school1);
+            }
+            
             //throw new Exception();
         }
 

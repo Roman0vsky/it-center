@@ -10,16 +10,22 @@
 			<div class="admin-form__item">
 				<h2 class="heading">Добавить школу </h2>
 			</div>
-			<div class="admin-form__item">
+			@using (Html.BeginForm("AddSchool", "Admin", FormMethod.Post))
+			{
+				<div class="admin-form__item">
 				<label class="input__label">
-					Введите название школы или гимназии </br>
-					<input class="input input--width-label" type="text" placeholder="Название школы или гимназии" asp-for="@Model.Name" />
+					Введите название школы или гимназии <hr/>
+					@Html.EditorFor(model => model.Name)
 				</label>
-			</div>
+				</div>
 
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="AddSchool" />
+				</div>
+			}
+			
 			<div class="admin-form__item buttons">
-				<button class="primary-button" type="submit">Опубликовать</button>
-				<a class="secondary-button" href="#">Отмена</a>
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Schools")>Отмена</a>
 			</div>
 			<div class="admin-form__item"></div>
 			<div class="admin-form__item"></div>

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Authorization
 @inject IAuthorizationService AuthorizationService
 
-@model ITCenterBack.ViewModels.SchelduleViewModel
+@model ITCenterBack.ViewModels.ScheduleViewModel
 
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
@@ -23,8 +23,7 @@
                             <ol class="breadcrumb">
 
                                 <li class="breadcrumb-item active">
-                                    АКТУАЛЬНОЕ РАСПИСАНИЕ ВСЕГДА МОЖНО НАЙТИ
-                                    НА СТЕНДЕ НАПРОТИВ ДЕКАНАТА (АУД. 316).
+                                    @Model.Description
                                 </li>
                             </ol>
                         </div>
@@ -34,16 +33,16 @@
 
                     <div class="card-project">
                         <div class="card-project__img-wrapper">
-                            <a href="./images/shedule.png">
-                                <img src="./images/shedule.png" />
+                            <a href=@Model.Image>
+                                <img src=@Model.Image />
                                 <div class="card-project__technology">New</div>
                             </a>
                         </div>
 
-                        @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
-                        {
-                            <button>Добавить</button>
-                        }
+                        @*@if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
+                        {*@
+                        <a class="secondary-button" href=@Url.Content("/api/Admin/UpdateSchedule")>Добавить</a>
+                        @*}*@
 
                     </div>
                 </div>

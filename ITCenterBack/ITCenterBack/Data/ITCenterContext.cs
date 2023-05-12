@@ -12,8 +12,9 @@ namespace ITCenterBack.Data
         public DbSet<News> News { get; set; } 
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<School> Schools { get; set; }
-        public DbSet<Applicant> Applicants { get; set; }
         public DbSet<Application> Applications { get; set; }
+        public DbSet<Schedule> Schedule { get; set; }
+        public DbSet<Time> Times { get; set; }
 
         public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {

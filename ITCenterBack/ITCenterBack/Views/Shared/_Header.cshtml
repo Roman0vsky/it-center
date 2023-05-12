@@ -11,7 +11,7 @@
                         data-target="#mega-menu">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand mr-auto m-sm-auto" href="#">
+                <a class="navbar-brand mr-auto m-sm-auto" href=@Url.Content("/api/Home/Index")>
                         <img class="mobile-logo"
                          src="/assets/for_new/img/icons/logo.svg" alt="IT-центр"> <img class="mobile-logo"
                                                                                        src="/assets/for_new/img/icons/logo.svg" alt="IT-центр">
@@ -19,10 +19,10 @@
                     <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
                         <ul class="nav navbar-nav">
                             <li class="dropdown dropdown_first" data-animation="fadeIn">
-                                <a class="dropdown-toggle formula" href="#" data-title="Home"> IT-центр </a>
+                            <a class="dropdown-toggle formula" href=@Url.Content("/api/Home/Index") data-title="Home"> IT-центр </a>
                             </li>
                             <li class="dropdown dropdown_second" data-animation="fadeIn">
-                                <a class="dropdown-toggle" href="#about-hr" data-title="Home"> О нас </a>
+                            <a class="dropdown-toggle" href=@Url.Content("/api/Home/Index#about-hr") data-title="Home"> О нас </a>
                             </li>
                             <li class="dropdown dropdown_third" data-animation="fadeIn">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home">
@@ -41,11 +41,11 @@
                             </li>
 
                             <li class="dropdown_fourth">
-                            <a href=@Url.Content("/api/Home/Scheldule")> Расписание</a>
+                            <a href=@Url.Content("/api/Home/Schedule")> Расписание</a>
                             </li>
 
                             <li class="dropdown_fifth">
-                            <a href=@Url.Content("/api/Teachers/AllTeachers")> Преподаватели</a>
+                            <a href=@Url.Content("/api/Teacher/AllTeachers")> Преподаватели</a>
                             </li>
 
                             <li class="dropdown_sixth">

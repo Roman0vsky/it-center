@@ -1,4 +1,6 @@
-﻿namespace ITCenterBack.ViewModels
+﻿using ITCenterBack.Models;
+
+namespace ITCenterBack.ViewModels
 {
     public class CourseViewModel
     {
@@ -8,5 +10,6 @@
         public string? Requirements { get; set; }
         public string? Description { get; set; }
         public string? Image { get; set; }
+        public CourseType CourseType { get; set; }
     }
 }

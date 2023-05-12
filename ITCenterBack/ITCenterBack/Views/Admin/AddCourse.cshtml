@@ -1,0 +1,52 @@
+﻿@model ITCenterBack.ViewModels.AddCourseViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить направление";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить направление </h2>
+			</div>
+			@using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Введите название направления <hr />
+						@Html.EditorFor(model => model.Name)
+					</label>
+					<label class="input__label">
+						Введите возраст <hr />
+						@Html.EditorFor(model => model.Age)
+					</label>
+					<label class="input__label">
+						Введите требования <hr />
+						@Html.EditorFor(model => model.Requirements)
+					</label>
+					<label class="input__label">
+						Введите описание <hr />
+						@Html.EditorFor(model => model.Description)
+					</label>
+					<label class="input__label">
+						Изображение <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="AddSchool" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Courses")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

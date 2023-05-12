@@ -12,10 +12,19 @@ namespace ITCenterBack.Services
             _courseRepository = courseRepository;
         }
 
-        public async Task CreateCourseAsync(Course course)
+        public async Task CreateCourseAsync(string name, string age, string requirements, string description, string image)
         {
-            if (course is not null)
+            if (string.IsNullOrWhiteSpace(name))
             {
+                var course = new Course()
+                {
+                    Name = name,
+                    Age = age,
+                    Requirements = requirements,
+                    Description = description,
+                    Image = image
+                };
+
                 await _courseRepository.CreateAsync(course);
             }
 

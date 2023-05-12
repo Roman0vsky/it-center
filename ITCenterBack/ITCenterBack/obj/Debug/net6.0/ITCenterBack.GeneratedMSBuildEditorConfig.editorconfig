@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\kyky225\Desktop\vsu diploma\it-center\ITCenterBack\ITCenterBack
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddCourse.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQ291cnNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddSchool.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU2Nob29sLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -24,12 +28,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkVGVhY2hlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/Courses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ291cnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/Schools.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Nob29scy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/Teachers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVGVhY2hlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/UpdateScheldule.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXBkYXRlU2NoZWxkdWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Course/Details.cshtml]

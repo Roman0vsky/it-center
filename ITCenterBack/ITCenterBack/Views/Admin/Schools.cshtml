@@ -1,4 +1,5 @@
 ﻿@model List<ITCenterBack.ViewModels.SchoolViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Школы";
@@ -8,9 +9,9 @@
 	<div class="admin-page__content-form">
 		<div class="admin-form">
 			<div class="admin-form__item">
-				<h2 class="heading">Школа</h2>
+				<h2 class="heading">Школы</h2>
 			</div>
-			<button>Добавить</button>
+			<a class="secondary-button" href=@Url.Content("/api/Admin/AddSchool")>Добавить</a>
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>

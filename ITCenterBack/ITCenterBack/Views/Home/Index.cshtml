@@ -1,4 +1,6 @@
-﻿@model ITCenterBack.ViewModels.IndexViewModel
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model ITCenterBack.ViewModels.IndexViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "IT - центр";
@@ -244,172 +246,37 @@
                 </div>
                 <ul class="filter-nav filter-nav-v2 text-center button-group filter-button-group">
                     <li>
-                        <button class="is-checked" data-filter="*">Все направления</button>
+                        <a asp-action="Index" asp-route-courseType="@(ITCenterBack.Models.CourseType.All)">Все направления</a>
                     </li>
                     <li>
-                        <button data-filter=".development">Разработка</button>
+                        <a asp-action="Index" asp-route-courseType="@(ITCenterBack.Models.CourseType.Development)">Разработка</a>
                     </li>
                     <li>
-                        <button data-filter=".design">Дизайн</button>
+                        <a asp-action="Index" asp-route-courseType="@(ITCenterBack.Models.CourseType.Design)">Дизайн</a>
                     </li>
                     <li>
-                        <button data-filter=".robots">Робототехника</button>
+                        <a asp-action="Index" asp-route-courseType="@(ITCenterBack.Models.CourseType.Robotics)">Робототехника</a>
                     </li>
                     <li>
-                        <button data-filter=".else">Прочее</button>
+                        <a asp-action="Index" asp-route-courseType="@(ITCenterBack.Models.CourseType.Other)">Прочее</a>
                     </li>
                 </ul>
                 <div class="container">
                     <div class="row masonary-block grid">
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 robots development design else">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="my-pc.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/pk/my-pc.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Мой компьютер - для начинающих</strong>
-                                </div>
 
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 design">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="grafic-design.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/design/starter-graphics.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Основы компьютерной графики</strong>
-                                </div>
+                        @foreach(var c in Model.Courses)
+                        {
+                            <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 robots development design else">
+                                <figure class="caption-hover-full">
+                                    <a class="fancy-pop" href=@Url.Content("/api/Course/Details/" + @c.Id)></a>
+                                    <div class="image-wrapper">
+                                        <img src=@c.Image>
+                                        <strong style="text-align:center" class="content-title mb-0">@c.Name</strong>
+                                    </div>
 
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 design">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="3d-graph.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/3d/graphics-3d.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">3D графика, анимация и рендеринг</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="scratch.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/scratch/scratch.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Разработка программ и игр на Scratch</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development design">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="web-design.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/web-design/web-design.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Разработка веб-сайтов (HTML/CSS)</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development robots">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="c-prog.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/c/c.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Основы программирования</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="python.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/python/python.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Программирование на языке Python</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 else">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="video-montage.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/video/video-editing.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Видеомонтаж и операторское искусство</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 else">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="english-it.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/english/english.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Технический и разговорный английский</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development robots">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="c-sh-prog.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/c-sharp/c-sharp.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Программирование на языке C#</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <!--<div class="gallery-item col-lg-6 col-xl-4 programming photography">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="moj-kompyuterrr.html"></a>
-                                <div class="image-wrapper"><img src="/assets/template/images/icons/icon-js.png" alt="images description">
-                                <strong style="text-align:center" class="content-title mb-0">JavaScript</strong></div>
-
-                            </figure>
-                        </div>-->
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="unity-dev.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/unity/unity.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Разработка игр на Unity3D</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="unity-lab.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/unity-lab/unity-lab.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Лаборатория разработки на Unity3D</strong>
-                                </div>
-
-                            </figure>
-                        </div>
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development robots">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="arduino-robots.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/arduino/arduino.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Arduino робототехника и схемотехника </strong>
-                                </div>
-
-                            </figure>
-                        </div>
-
-                        <div class="gallery-item col-lg-6 col-xl-4 col-md-6 col-sm-6 col-6 development">
-                            <figure class="caption-hover-full">
-                                <a class="fancy-pop" href="web-prog.html"></a>
-                                <div class="image-wrapper">
-                                    <img src="/assets/for_new/img/courses/web-dev/web-dev.svg" alt="images description">
-                                    <strong style="text-align:center" class="content-title mb-0">Веб-разработка на языке JavaScript </strong>
-                                </div>
-
-                            </figure>
-                        </div>
+                                </figure>
+                            </div>
+                        }
 
                     </div>
                 </div>

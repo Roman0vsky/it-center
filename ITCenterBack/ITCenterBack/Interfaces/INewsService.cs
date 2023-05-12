@@ -8,6 +8,6 @@ namespace ITCenterBack.Interfaces
         Task DeleteNewsAsync(long id);
         Task UpdateNewsAsync(News news);
         Task<News> GetNewsAsync(long id);
-        Task<List<News>> GetAllCoursesAsync();
+        Task<List<News>> GetAllNewsAsync();
     }
 }

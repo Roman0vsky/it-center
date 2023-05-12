@@ -3,5 +3,7 @@
     public class IndexViewModel
     {
         public HeaderViewModel Header { get; set; }
+        public List<CourseViewModel> Courses { get; set; }
+        public List<NewsViewModel> News { get; set; }
     }
 }

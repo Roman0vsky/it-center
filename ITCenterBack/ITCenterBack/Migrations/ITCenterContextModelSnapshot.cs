@@ -22,7 +22,7 @@ namespace ITCenterBack.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ITCenterBack.Models.Applicant", b =>
+            modelBuilder.Entity("ITCenterBack.Models.Application", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,7 +30,14 @@ namespace ITCenterBack.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
+                    b.Property<int>("Class")
+                        .HasColumnType("int");
+
                     b.Property<string>("ListenerFullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -42,7 +49,7 @@ namespace ITCenterBack.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("SchoolId")
+                    b.Property<long?>("SchoolId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("SchoolName")
@@ -51,29 +58,6 @@ namespace ITCenterBack.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SchoolId");
-
-                    b.ToTable("Applicants");
-                });
-
-            modelBuilder.Entity("ITCenterBack.Models.Application", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
-                    b.Property<long>("ApplicantId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("CourseId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicantId");
-
-                    b.HasIndex("CourseId");
 
                     b.ToTable("Applications");
                 });
@@ -88,6 +72,9 @@ namespace ITCenterBack.Migrations
 
                     b.Property<string>("Age")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CourseType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -110,6 +97,7 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 4L,
                             Age = "10-15 лет",
+                            CourseType = 2,
                             Description = "В индустрии компьютерной графики множество направлений: пространственный дизайн, обработка фотографий, дизайн логотипов, разработка трехмерных моделей, анимации и прочее. Цель данного курса – подготовить юных слушателей к знакомству с миром компьютерной графики, дизайна, композиции. Основным инструментом на курсе является всемирно известный редактор графики Adobe Photoshop, а также некоторые другие инструменты для творчества. Все эти навыки пригодятся для дальнейшей работы с самыми известными и полезными программами на других направлениях – Illustrator, Blender, Figma. В процессе обучения, слушатели смогут раскрыть в себе творческий потенциал и интерес к изучению определенной сферы графического дизайна. Знания, полученные на курсе «Основы компьютерной графики» обязательно пригодятся и в смежных сферах – разработке сайтов, игр, видеомонтаже, робототехнике",
                             Image = "/assets/for_new/img/courses/design/starter-graphics.svg",
                             Name = "Основы компьютерной графики",
@@ -119,6 +107,7 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 5L,
                             Age = "8-11 лет",
+                            CourseType = 1,
                             Description = "В современном мире, без навыков использования компьютера справиться с повседневными задачами в учебе и работе очень сложно. Курс «Мой компьютер» является первой ступеней в процессе подготовки будущего IT-специалиста, а также пригодится абсолютно любому современному человеку. На занятиях слушатели учатся уверенно использовать свой компьютер в качестве универсального инструмента для решения задач, обслуживать и настраивать операционную систему, изучают основные пакеты офисных программ. В рамках курса затрагиваются такие темы, как основы обработки графики, информационной безопасности и алгоритмизации",
                             Image = "/assets/for_new/img/courses/pk/my-pc.svg",
                             Name = "Мой компьютер - для начинающих",
@@ -128,6 +117,7 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 6L,
                             Age = "12-17 лет",
+                            CourseType = 2,
                             Description = "Мир трехмерной графики охватывает множество направлений - геймдизайн и разработка игр, архитектурная визуализация и рендеринг, анимация и визуальные эффекты, 3D - печать и . На направлении \"3D-графика\" студенты изучают один из самых известных и гибких редакторов - Blender. Редактор Blender - мощный инструмент для создания трехмерных моделей, обладающий огромным сообществом фанатов и профессионалов, а также наличием большого количества модулей и плагинов, которые позволяют решить абсолютно любую задачу - от симуляции трехмерной виртуальной одежды, до просчетов физики жидкостей! Навыки, полученные при прохождении курса, расширяют возможности юных дизайнеров в сфере графического дизайна, а также открывают двери в такие направления, как разработка игр, архитектурную визуализацию и создание видеороликов с использованием 3D графики!",
                             Image = "/assets/for_new/img/courses/3d/graphics-3d.svg",
                             Name = "3D графика, анимация и рендеринг",
@@ -155,6 +145,27 @@ namespace ITCenterBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
+                });
+
+            modelBuilder.Entity("ITCenterBack.Models.Schedule", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schedule");
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.School", b =>
@@ -202,6 +213,34 @@ namespace ITCenterBack.Migrations
                             Image = "/images/Shpakov.jpg",
                             Name = "Шпаков С А"
                         });
+                });
+
+            modelBuilder.Entity("ITCenterBack.Models.Time", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<long?>("ApplicationId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsAvaliable")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("TimeInterval")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationId");
+
+                    b.ToTable("Times");
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.User", b =>
@@ -276,12 +315,13 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "525c77b5-6fe3-49ea-8f8b-692045671a10",
+                            ConcurrencyStamp = "196aed1e-5db7-4493-acf8-d8c3e3ad2213",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEMs82jvACEkMuiiSV5aowMOUEezUrDPkgpTptpBQRgkjReSdhz65Sv2+easAjgIcYQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEC13kOdxM8VLN1pcSV/Pmk4BBGExpZewsLZi9YnxsjrzaZqj6+hckA5ySml6E1wZsw==",
                             PhoneNumberConfirmed = false,
-                            TwoFactorEnabled = false
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
                         });
                 });
 
@@ -318,7 +358,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "5bcc7acd-3b31-4ef1-8b34-fe5e62c9ca12",
+                            ConcurrencyStamp = "71cf5982-eb9b-400f-a2d9-809cef774426",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
@@ -434,34 +474,20 @@ namespace ITCenterBack.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ITCenterBack.Models.Applicant", b =>
+            modelBuilder.Entity("ITCenterBack.Models.Application", b =>
                 {
                     b.HasOne("ITCenterBack.Models.School", "School")
                         .WithMany()
-                        .HasForeignKey("SchoolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SchoolId");
 
                     b.Navigation("School");
                 });
 
-            modelBuilder.Entity("ITCenterBack.Models.Application", b =>
+            modelBuilder.Entity("ITCenterBack.Models.Time", b =>
                 {
-                    b.HasOne("ITCenterBack.Models.Applicant", "Applicant")
-                        .WithMany()
-                        .HasForeignKey("ApplicantId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITCenterBack.Models.Course", "Course")
-                        .WithMany()
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Applicant");
-
-                    b.Navigation("Course");
+                    b.HasOne("ITCenterBack.Models.Application", null)
+                        .WithMany("Times")
+                        .HasForeignKey("ApplicationId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
@@ -513,6 +539,11 @@ namespace ITCenterBack.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ITCenterBack.Models.Application", b =>
+                {
+                    b.Navigation("Times");
                 });
 #pragma warning restore 612, 618
         }

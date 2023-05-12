@@ -22,13 +22,16 @@ builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
 builder.Services.AddScoped<IRepository<Teacher>, TeacherRepository>();
 builder.Services.AddScoped<IRepository<News>, NewsRepository>();
 builder.Services.AddScoped<IRepository<School>, SchoolRepository>();
+builder.Services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ISchoolService, SchoolService>();
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages()

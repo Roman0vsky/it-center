@@ -12,7 +12,19 @@ namespace ITCenterBack.Services
             _teacherRepository = teacherRepository;
         }
 
-        public async Task<List<Teacher>> GetAllAsync()
+		public async Task CreateTeacherAsync(string name, string description, string image)
+		{
+            var teacher = new Teacher
+            {
+                Name = name,
+                Description = description,
+                Image = image
+            };
+
+            await _teacherRepository.CreateAsync(teacher);
+		}
+
+		public async Task<List<Teacher>> GetAllAsync()
         {
             var teachers = await _teacherRepository.GetAllAsync();
 

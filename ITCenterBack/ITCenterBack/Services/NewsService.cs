@@ -28,7 +28,7 @@ namespace ITCenterBack.Services
             await _newsRepository.DeleteAsync(id);
         }
 
-        public async Task<List<News>> GetAllCoursesAsync()
+        public async Task<List<News>> GetAllNewsAsync()
         {
             var courses = await _newsRepository.GetAllAsync();
 

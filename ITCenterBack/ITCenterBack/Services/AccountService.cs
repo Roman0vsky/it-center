@@ -48,9 +48,9 @@ namespace ITCenterBack.Services
                 signingCredentials: new SigningCredentials(symSecurityKey, SecurityAlgorithms.HmacSha256));
         }
 
-        public async Task<string> LoginAsync(string email, string password, IOptions<JwtConfigurationModel> securityConfig)
+        public async Task<string> LoginAsync(string userName, string password, IOptions<JwtConfigurationModel> securityConfig)
         {
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByNameAsync(userName);
             //if (user is null)
             //{
             //    throw new Exception($"User with provided email {email} was not found");

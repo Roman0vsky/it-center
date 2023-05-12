@@ -5,6 +5,7 @@
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
 <main class="no-banner">
     <!-- visual/banner of the page -->
     <section class="visual visual-sub visual-no-bg">
@@ -27,82 +28,29 @@
     <div class="contact__wrapper">
         <form class="contact">
             <div class="contact__title">Информация о слушателе</div>
-            <input required placeholder="ФИО" type="text" class="contact__fio">
+            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__fio", placeholder = "ФИО"}})
             <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
             <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
                 <option class="choose-school__option" value=" "></option>
-                <option class="choose-school__option" value="1">Гимназия № 1</option>
-                <option class="choose-school__option" value="2">Гимназия № 2</option>
-                <option class="choose-school__option" value="3">
-                    Гимназия № 3 г.Витебска имени А.С.Пушкина
-                </option>
-                <option class="choose-school__option" value="4">Гимназия № 4</option>
-                <option class="choose-school__option" value="5">Гимназия № 5</option>
-                <option class="choose-school__option" value="6">Гимназия № 6</option>
-                <option class="choose-school__option" value="7">Гимназия № 7</option>
-                <option class="choose-school__option" value="8">Гимназия № 8</option>
-                <option class="choose-school__option" value="9">Гимназия № 9</option>
-                <option class="choose-school__option" value="10">Средняя школа № 2</option>
-                <option class="choose-school__option" value="11">Средняя школа № 3</option>
-                <option class="choose-school__option" value="12">Средняя школа № 4</option>
-                <option class="choose-school__option" value="13">Средняя школа № 5</option>
-                <option class="choose-school__option" value="14">Средняя школа № 6</option>
-                <option class="choose-school__option" value="15">Средняя школа № 7</option>
-                <option class="choose-school__option" value="16">Средняя школа № 8</option>
-                <option class="choose-school__option" value="17">Средняя школа № 9</option>
-                <option class="choose-school__option" value="18">Средняя школа № 10</option>
-                <option class="choose-school__option" value="19">Средняя школа № 11</option>
-                <option class="choose-school__option" value="20">Средняя школа № 12</option>
-                <option class="choose-school__option" value="21">Средняя школа № 14</option>
-                <option class="choose-school__option" value="22">Средняя школа № 15</option>
-                <option class="choose-school__option" value="23">Средняя школа № 16</option>
-                <option class="choose-school__option" value="24">Средняя школа № 17</option>
-                <option class="choose-school__option" value="25">Средняя школа № 18</option>
-                <option class="choose-school__option" value="26">Средняя школа № 19</option>
-                <option class="choose-school__option" value="27">Средняя школа № 21</option>
-                <option class="choose-school__option" value="28">Средняя школа № 22</option>
-                <option class="choose-school__option" value="29">Средняя школа № 23</option>
-                <option class="choose-school__option" value="30">Средняя школа № 24</option>
-                <option class="choose-school__option" value="31">Средняя школа № 25</option>
-                <option class="choose-school__option" value="32">Вспомогательная школа № 26</option>
-                <option class="choose-school__option" value="33">Средняя школа № 27</option>
-                <option class="choose-school__option" value="34">Средняя школа № 28</option>
-                <option class="choose-school__option" value="35">
-                    Средняя школа № 29 г.Витебска имени
-                    В.В.Пименова
-                </option>
-                <option class="choose-school__option" value="36">Средняя школа № 30</option>
-                <option class="choose-school__option" value="37">Средняя школа № 31</option>
-                <option class="choose-school__option" value="38">Средняя школа № 33</option>
-                <option class="choose-school__option" value="39">Средняя школа № 34</option>
-                <option class="choose-school__option" value="40">Средняя школа № 35</option>
-                <option class="choose-school__option" value="41">Средняя школа № 38</option>
-                <option class="choose-school__option" value="42">Средняя школа № 40</option>
-                <option class="choose-school__option" value="43">Средняя школа № 42</option>
-                <option class="choose-school__option" value="44">
-                    Средняя школа № 43 г.Витебска имени
-                    М.Ф.Шмырёва
-                </option>
-                <option class="choose-school__option" value="45">Средняя школа № 44</option>
-                <option class="choose-school__option" value="46">Средняя школа № 45</option>
-                <option class="choose-school__option" value="47">Средняя школа № 46</option>
-                <option class="choose-school__option" value="48">Средняя школа № 47</option>
+
+                @foreach (var t in Model.Schools)
+                {
+                    <option class="choose-school__option" value=@t.Id>@t.Name</option>
+                }
+
             </select>
             <div class="contact__write-school-text">
                 Или напишите ниже самостоятельно, если не нашли в списке
             </div>
-            <input placeholder="Введите Номер школы/гимназии" type="text"
-                   class="contact__write-school-input">
-            <input placeholder="Введите Класс" type="number" min="1" max="11" class="contact__choose-grade">
+            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__write-school-input", placeholder = "Введите Номер школы/гимназии"}})
+            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__choose-grade", min="1", max="11", placeholder = "Введите Класс"}})
             <div class="contact__parents-title">Информация о законном представителе</div>
             <div class="contact__parents-text">
                 Представитель - это родственник, на кого будет оформляться
                 договор. <br>Это может быть мама, папа, бабушка или дедушка
             </div>
-            <input required placeholder="Введите Телефон представителя" type="number"
-                   class="contact__parents-phone">
-            <input required placeholder="Введите ФИО представителя" type="text"
-                   class="contact__parents-fio">
+            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__parents-phone", placeholder = "Введите Телефон представителя"}})
+            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__parents-fio", placeholder = "Введите ФИО представителя"}})
             <div class="contact__choose-courses-title">Запись на курсы</div>
             <div class="contact__choose-courses-text">
                 Необходимо выбрать время для интересующих Вас курсов.
@@ -111,131 +59,15 @@
                 При выборе курсов обращайте внимание на рекомендованные классы (на 2021/2022 уч. год)!
             </div>
             <div class="contact__courses">
-                <div class="contact__course">
-                    <label for="contact__course-input">Математика (5-9 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="2">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Робототехника LEGO WeDo (2-4 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="3">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Scratch-программирование (5-6 кл., продвинутый
-                        уровень)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="4">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Java для начинающих (8-11 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="5">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Компьютерная графика и веб-дизайн (6-7
-                        классы)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="6">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Подготовка к ЦТ по математике (9-11 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="8">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Подготовка к ЦТ по физике (9-11 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="9">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Web-программирование (7-9 классы, для
-                        начинающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="10">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Алгоритмизация и программирование (8-11 кл., для
-                        начин.)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="11">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Робототехника LEGO EV3 (5-7 классы, для
-                        начинающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="14">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Робототехника Arduino (7-9 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="15">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Робототехника LEGO+Scratch (3-4 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="18">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Python для начинающих (6-7 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="19">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Python для продолжающих (разработка игр, 7-9
-                        классы)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="20">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Scratch-программирование (3-4 кл., для
-                        продолжающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="21">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Web-программирование (8-11кл., для
-                        продолжающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="24">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Робототехника LEGO EV3 (6-8 кл.,для
-                        продолжающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="25">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Scratch-программирование (3-4 классы, для
-                        начинающих)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="27">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Английский для IT (5-7 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="30">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">3D-моделирование и 3D-печать (8-10 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="31">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">
-                        Виртуальная и дополненная реальность (7-8
-                        классы)
-                    </label>
-                    <input type="checkbox" id="contact__course-input" value="32">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Java для продолжающих (9-11 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="33">
-                </div>
-                <div class="contact__course">
-                    <label for="contact__course-input">Математика (3-4 классы)</label>
-                    <input type="checkbox" id="contact__course-input" value="34">
-                </div>
+
+                @foreach (var t in Model.Courses)
+                {
+                    <div class="contact__course">
+                        <label for="contact__course-input">@t.Name (@t.Age)</label>
+                        <input type="checkbox" id="contact__course-input" value="@t.Id">
+                    </div>
+                }
+
             </div>
             <section id="schedule_want">
                 <br>
