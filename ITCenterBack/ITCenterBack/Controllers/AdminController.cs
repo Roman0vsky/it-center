@@ -101,9 +101,42 @@ namespace ITCenterBack.Controllers
 		}
 
 		[HttpGet]
+		[ActionName("UpdateSchool")]
+		[Route("UpdateSchool")]
+		public async Task<IActionResult> GetUpdateSchoolAsync(long id)
+		{
+			var school = await _schoolService.GetSchoolAsync(id);
+
+			if (school is null)
+			{
+				return NotFound();
+			}
+
+			var schoolVM = _mapper.Map<SchoolViewModel>(school);
+
+			return View(schoolVM);
+		}
+
+		[HttpPost]
+		[Route("UpdateSchool")]
+		[ActionName("UpdateSchool")]
+		public async Task<IActionResult> UpdateSchoolAsync([FromForm] SchoolViewModel viewModel)
+		{
+			var school = await _schoolService.GetSchoolAsync(viewModel.Id);
+
+			if (school is null)
+			{
+				return NotFound();
+			}
+
+			await _schoolService.UpdateSchoolAsync(viewModel.Id, viewModel.Name);
+
+			return RedirectToAction("Schools");
+		}
+
+		[HttpGet]
 		[Route("DeleteSchool")]
 		[ActionName("DeleteSchool")]
-		//[HasPermission(Permissions.DeleteProfile)]
 		public async Task<IActionResult> DeleteSchoolGetAsync(long id)
 		{
 			var school = await _schoolService.GetSchoolAsync(id);
@@ -121,9 +154,9 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("DeleteSchool")]
 		[ActionName("DeleteSchool")]
-		public async Task<IActionResult> DeleteSchool(long id)
+		public async Task<IActionResult> DeleteSchoolAsync(long id)
 		{
-			await _schoolService.GetSchoolAsync(id);
+			await _schoolService.DeleteSchoolAsync(id);
 
 			return RedirectToAction("Schools");
 		}

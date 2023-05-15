@@ -44,10 +44,14 @@ namespace ITCenterBack.Services
             return await _schoolRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateSchoolAsync(School school)
+        public async Task UpdateSchoolAsync(long id, string name)
         {
+            var school = await _schoolRepository.GetByIdAsync(id);
+
             if (school is not null)
             {
+                school.Name = name;
+
                 await _schoolRepository.UpdateAsync(school);
             }
 

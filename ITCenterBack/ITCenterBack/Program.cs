@@ -25,6 +25,7 @@ builder.Services.AddScoped<IRepository<Teacher>, TeacherRepository>();
 builder.Services.AddScoped<IRepository<News>, NewsRepository>();
 builder.Services.AddScoped<IRepository<School>, SchoolRepository>();
 builder.Services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
+builder.Services.AddScoped<IRepository<SocialLink>, SocialLinkRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
