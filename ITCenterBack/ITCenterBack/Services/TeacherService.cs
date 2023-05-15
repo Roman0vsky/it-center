@@ -24,11 +24,26 @@ namespace ITCenterBack.Services
             await _teacherRepository.CreateAsync(teacher);
 		}
 
+		public async Task DeleteTeacherAsync(long id)
+		{
+            var teacher = await _teacherRepository.GetByIdAsync(id);
+
+            if(teacher is not null)
+            {
+                await _teacherRepository.DeleteAsync(id);
+            }
+		}
+
 		public async Task<List<Teacher>> GetAllAsync()
         {
             var teachers = await _teacherRepository.GetAllAsync();
 
             return teachers;
         }
-    }
+
+		public async Task<Teacher> GetTeacher(long id)
+		{
+			return await _teacherRepository.GetByIdAsync(id);
+		}
+	}
 }

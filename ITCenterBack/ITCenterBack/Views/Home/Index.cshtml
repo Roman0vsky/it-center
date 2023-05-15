@@ -214,27 +214,23 @@
                     </div>
                 </div>
 
-                <div class="news">
-                    <img class="news__img" src="/assets/for_new/img/home-clubs/news.jpeg" alt="news">
-                    <div class="news__content">
-                        <div class="news__title">Старт занятий будет 10 сентября!</div>
-                        <div class="news__text">Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября!</div>
+                @foreach(var news in Model.News)
+                {
+                    <div class="news">
+                        <img class="news__img" src=@news.Image alt="news">
+                        <div class="news__wrapp">
+                            <div class="news__content">
+                                <div class="news__title">@news.Title</div>
+                                <div class="news__text">@news.Text</div>
+                            </div>
+                            <div class="btn-container top-s-space news__btn">
+                                <a href=@Url.Content("/api/News/Details/" + @news.Id) class="btn btn-black has-radius-small">Читать далее</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="news">
-                    <img class="news__img" src="/assets/for_new/img/home-clubs/news.jpeg" alt="news">
-                    <div class="news__content">
-                        <div class="news__title">Старт занятий будет 10 сентября! Старт занятий будет 10 сентября!</div>
-                        <div class="news__text">Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября! Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября!</div>
-                    </div>
-                </div>
-                <div class="news">
-                    <img class="news__img" src="/assets/for_new/img/home-clubs/news.jpeg" alt="news">
-                    <div class="news__content">
-                        <div class="news__title">Старт занятий будет 10 сентября! Старт занятий будет 10 сентября! Старт занятий будет 10 сентября!</div>
-                        <div class="news__text">Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября! Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября! Уважаемые родители! Старт занятий будет в IT-академии 10 и 17 сентября!</div>
-                    </div>
-                </div>
+                }
+
+                
             </div>
         </section>
 

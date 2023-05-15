@@ -6,5 +6,7 @@ namespace ITCenterBack.Interfaces
     {
         Task<List<Teacher>> GetAllAsync();
         Task CreateTeacherAsync(string name, string description, string image);
+        Task DeleteTeacherAsync(long id);
+		Task<Teacher> GetTeacher(long id);
     }
 }

@@ -1,4 +1,6 @@
-﻿@model List<ITCenterBack.ViewModels.TeacherViewModel>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.TeacherViewModel>
 @{
     Layout = "/Views/Shared/_AdminLayout.cshtml";
     ViewBag.Title = "Преподаватели";
@@ -22,8 +24,8 @@
 						<tr>
 							<td>@t.Name</td><td>@t.Description</td>
 								<td>
-									<button class="file-button" type="file">Удалить</button>
-									<button class="file-button" type="file">Редактировать</button>
+								<a asp-action="DeleteTeacher" asp-route-id="@t.Id" class="file-button">Удалить</a> |
+								<a asp-action="UpdateTeacher" asp-route-id="@t.Id" class="file-button">Редактировать</a> 
 								</td>
 						</tr>
 					}

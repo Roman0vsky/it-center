@@ -17,6 +17,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ITCenterContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
+builder.Services.AddSession();
+
 //Repositories
 builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
 builder.Services.AddScoped<IRepository<Teacher>, TeacherRepository>();
@@ -122,6 +124,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
+
+app.UseSession();
+app.Use(async (context, next) =>
+{
+    var token = context.Session.GetString("Token");
+    if (!string.IsNullOrEmpty(token))
+    {
+        context.Request.Headers.Add("Authorization", "Bearer " + token);
+    }
+    await next();
+});
 
 app.UseStaticFiles();
 

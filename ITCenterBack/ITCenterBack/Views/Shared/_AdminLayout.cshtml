@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -84,7 +86,7 @@
 							</a>
 						</li>
 						<li class="control-panel__list-item">
-							<a class="control-panel__list-link" href="admin-yu.html">
+							<a class="control-panel__list-link" href=@Url.Content("/api/Admin/Applications")>
 								<div class="control-panel__list-img-wrapper">
 								</div>Заявки
 							</a>
@@ -93,9 +95,9 @@
 			</div>
 			<ul class="control-panel__list">
 				<li class="control-panel__list-item">
-					<a class="control-panel__list-link" href="index.html">
+					<a class="control-panel__list-link" href=@Url.Content("/api/Home/Index")>
 						<div class="control-panel__list-img-wrapper">
-						</div>Выход
+						</div>На главную
 					</a>
 				</li>
 			</ul>

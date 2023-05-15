@@ -1,0 +1,22 @@
+﻿@model ITCenterBack.ViewModels.NewsDetailsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Новости | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
+<main>
+
+    <div class="news-page__wrapper">
+        <div class="news-page__title">
+            @Model.News.Title
+        </div>
+        <img class="news-page__img" src=@Model.News.Image alt="news">
+        <div class="news-page__text">
+            @Model.News.Text
+        </div>
+    </div>
+
+</main>
+    </div>

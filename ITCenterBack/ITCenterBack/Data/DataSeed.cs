@@ -73,7 +73,8 @@ namespace ITCenterBack.Data
             var admin = new User
             {
                 Id = 1, 
-                UserName = "admin"
+                UserName = "admin",
+                NormalizedUserName = "ADMIN"
             };
 			PasswordHasher<User> ph = new PasswordHasher<User>();
 			admin.PasswordHash = ph.HashPassword(admin, "Admin_123");
@@ -85,6 +86,16 @@ namespace ITCenterBack.Data
                 RoleId = 1,
                 UserId = 1
             });
-        }
+
+			//Schedule
+			modelBuilder.Entity<Schedule>().HasData(
+				new Schedule
+				{
+					Id = 1,
+                    Description = "АКТУАЛЬНОЕ РАСПИСАНИЕ ВСЕГДА МОЖНО НАЙТИ\r\n НА СТЕНДЕ НАПРОТИВ ДЕКАНАТА (АУД. 316).",
+                    Image = "/images/shedule.png"
+				}
+				);
+		}
     }
 }

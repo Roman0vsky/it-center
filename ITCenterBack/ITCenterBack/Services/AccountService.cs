@@ -85,7 +85,7 @@ namespace ITCenterBack.Services
             //    throw new Exception(result.Errors.First<IdentityError>().Description);
             //}
 
-            //result = await _userManager.AddToRoleAsync(user, AccountRoles.Administrator);
+            result = await _userManager.AddToRoleAsync(user, AccountRoles.Administrator);
         }
 
         public async Task DeleteAsync(long id)

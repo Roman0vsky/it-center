@@ -22,8 +22,14 @@ namespace ITCenterBack.Repositories
 
         public async Task DeleteAsync(long id)
         {
-            _context.Remove(_context.News.FirstOrDefaultAsync(p => p.Id == id));
-            await _context.SaveChangesAsync();
+			var news = await _context.News.FirstOrDefaultAsync(p => p.Id == id);
+
+			if (news is not null)
+			{
+				_context.News.Remove(news);
+
+				await _context.SaveChangesAsync();
+			}
         }
 
         public async Task<List<News>> GetAllAsync()

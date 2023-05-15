@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ITCenterBack.Constants;
 using ITCenterBack.Interfaces;
+using ITCenterBack.Models;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,7 +10,7 @@ using System.IO;
 
 namespace ITCenterBack.Controllers
 {
-    //[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+    [Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : Controller
@@ -66,6 +67,17 @@ namespace ITCenterBack.Controllers
 		}
 
 		[HttpGet]
+		[Route("News")]
+		[ActionName("News")]
+		public async Task<IActionResult> NewsAsync()
+		{
+			var news = await _newsService.GetAllNewsAsync();
+			var newsVM = _mapper.Map<List<NewsViewModel>>(news);
+
+			return View(newsVM);
+		}
+
+		[HttpGet]
 		[ActionName("AddSchool")]
 		[Route("AddSchool")]
 		public IActionResult AddSchool()
@@ -89,6 +101,34 @@ namespace ITCenterBack.Controllers
 		}
 
 		[HttpGet]
+		[Route("DeleteSchool")]
+		[ActionName("DeleteSchool")]
+		//[HasPermission(Permissions.DeleteProfile)]
+		public async Task<IActionResult> DeleteSchoolGetAsync(long id)
+		{
+			var school = await _schoolService.GetSchoolAsync(id);
+
+			if (school is null)
+			{
+				return NotFound();
+			}
+
+			var schoolVM = _mapper.Map<SchoolViewModel>(school);
+
+			return View(schoolVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteSchool")]
+		[ActionName("DeleteSchool")]
+		public async Task<IActionResult> DeleteSchool(long id)
+		{
+			await _schoolService.GetSchoolAsync(id);
+
+			return RedirectToAction("Schools");
+		}
+
+		[HttpGet]
 		[ActionName("AddTeacher")]
 		[Route("AddTeacher")]
 		public IActionResult AddTeacher()
@@ -105,7 +145,7 @@ namespace ITCenterBack.Controllers
             {
                 // путь к папке images
                 string path = "/images/" + uploadedFile.FileName;
-                // сохраняем файл в папку Files в каталоге wwwroot
+                // сохраняем файл в папку в каталоге wwwroot
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(fileStream);
@@ -120,6 +160,33 @@ namespace ITCenterBack.Controllers
             }
 
 			return View(viewModel);
+		}
+
+		[HttpGet]
+		[Route("DeleteTeacher")]
+		[ActionName("DeleteTeacher")]
+		public async Task<IActionResult> DeleteTeacherGetAsync(long id)
+		{
+			var teacher = await _teacherService.GetTeacher(id);
+
+			if (teacher is null)
+			{
+				return NotFound();
+            }
+
+			var teacherVM = _mapper.Map<TeacherViewModel>(teacher);
+
+            return View(teacherVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteTeacher")]
+		[ActionName("DeleteTeacher")]
+		public async Task<IActionResult> DeleteTeacher(long id)
+		{
+			await _teacherService.DeleteTeacherAsync(id);
+
+			return RedirectToAction("Teachers");
 		}
 
 		[HttpGet]
@@ -153,6 +220,93 @@ namespace ITCenterBack.Controllers
             }
                
 			return View(viewModel);
+		}
+
+		[HttpGet]
+		[Route("DeleteCourse")]
+		[ActionName("DeleteCourse")]
+		public async Task<IActionResult> DeleteCourseGetAsync(long id)
+		{
+			var course = await _courseService.GetCourseAsync(id);
+
+			if (course is null)
+			{
+				return NotFound();
+			}
+
+			var courseVM = _mapper.Map<CourseViewModel>(course);
+
+			return View(courseVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteCourse")]
+		[ActionName("DeleteCourse")]
+		public async Task<IActionResult> DeleteCourseAsync(long id)
+		{
+			await _courseService.DeleteCourseAsync(id);
+
+			return RedirectToAction("Courses");
+		}
+
+		[HttpGet]
+		[ActionName("AddNews")]
+		[Route("AddNews")]
+		public IActionResult AddNews()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ActionName("AddNews")]
+		[Route("AddNews")]
+		public async Task<IActionResult> PostAddNewsAsync([FromForm] AddNewsViewModel viewModel, IFormFile uploadedFile)
+		{
+			if (uploadedFile != null)
+			{
+				string path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+
+				if (!string.IsNullOrEmpty(viewModel.Title))
+				{
+					await _newsService.CreateNewsAsync(viewModel.Title, viewModel.Text, path);
+
+					return RedirectToAction("News");
+				}
+			}
+
+			return View(viewModel);
+		}
+
+		[HttpGet]
+		[Route("DeleteNews")]
+		[ActionName("DeleteNews")]
+		public async Task<IActionResult> DeleteNewsGetAsync(long id)
+		{
+			var news = await _newsService.GetNewsAsync(id);
+
+			if (news is null)
+			{
+				return NotFound();
+			}
+
+			var newsVM = _mapper.Map<NewsViewModel>(news);
+
+			return View(newsVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteNews")]
+		[ActionName("DeleteNews")]
+		public async Task<IActionResult> DeleteNewsAsync(long id)
+		{
+			await _newsService.DeleteNewsAsync(id);
+
+			return RedirectToAction("News");
 		}
 	}
 }

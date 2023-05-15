@@ -1,7 +1,9 @@
-﻿@model List<ITCenterBack.ViewModels.CourseViewModel>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.CourseViewModel>
 @{
 	Layout = "/Views/Shared/_AdminLayout.cshtml";
-	ViewBag.Title = "Преподаватели";
+	ViewBag.Title = "Курсы";
 }
 
 <div class="admin-page__content">
@@ -14,20 +16,26 @@
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
-					<tr><th>Картинка</th><th>Название</th></tr>
+					<tr>
+						<th>Картинка</th>
+						<th>Название</th>
+						<th>Возраст</th>
+						<th>Требования</th>
+						<th>Описание</th>
+					</tr>
 				</thead>
 				<tbody>
 					@foreach (var t in Model)
 					{
 						<tr>
-							<td>@t.Image</td>
+							<td> <img src=@t.Image alt="images"></td>
 							<td>@t.Name</td>
 							<td>@t.Age</td>
 							<td>@t.Requirements</td>
-							<td>@t.Description</td>
+							<td>@string.Concat((@t.Description).AsSpan(0, 90), "...")</td>
 							<td>
-								<button class="file-button" type="file">Удалить</button>
-								<button class="file-button" type="file">Редактировать</button>
+								<a asp-action="DeleteCourse" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
+								<a asp-action="UpdateCourse" asp-route-id="@t.Id" class="file-button" type="file">Редактировать</a>
 							</td>
 						</tr>
 					}

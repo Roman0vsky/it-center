@@ -15,6 +15,7 @@ namespace ITCenterBack.Data
         public DbSet<Application> Applications { get; set; }
         public DbSet<Schedule> Schedule { get; set; }
         public DbSet<Time> Times { get; set; }
+        public DbSet<SocialLink> SocialLinks { get; set; }
 
         public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {

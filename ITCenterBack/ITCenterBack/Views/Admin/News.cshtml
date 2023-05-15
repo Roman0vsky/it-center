@@ -1,0 +1,41 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.NewsViewModel>
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Новости";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Новости</h2>
+			</div>
+			<a class="secondary-button" href=@Url.Content("/api/Admin/AddNews")>Добавить</a>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr><th>Название</th></tr>
+				</thead>
+				<tbody>
+					@foreach (var t in Model)
+					{
+						<tr>
+							<td>@t.Title</td>
+							<td>@t.ShortText</td>
+							<td>@t.PublicationDate</td>
+							<td>
+								<a asp-action="DeleteNews" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
+								<a asp-action="UpdateNews" asp-route-id="@t.Id" class="file-button" type="file">Редактировать</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

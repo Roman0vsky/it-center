@@ -13,10 +13,17 @@ namespace ITCenterBack.Services
             _newsRepository = newsRepository;
         }
 
-        public async Task CreateNewsAsync(News news)
+        public async Task CreateNewsAsync(string title, string text, string image)
         {
-            if (news is not null)
+            if (string.IsNullOrWhiteSpace(title))
             {
+                var news = new News
+                {
+                    Title = title,
+                    Text = text,
+                    Image = image
+                };
+
                 await _newsRepository.CreateAsync(news);
             }
 

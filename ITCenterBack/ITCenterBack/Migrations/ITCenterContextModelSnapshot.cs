@@ -142,6 +142,10 @@ namespace ITCenterBack.Migrations
                     b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("News");
@@ -166,6 +170,14 @@ namespace ITCenterBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Schedule");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Description = "АКТУАЛЬНОЕ РАСПИСАНИЕ ВСЕГДА МОЖНО НАЙТИ\r\n НА СТЕНДЕ НАПРОТИВ ДЕКАНАТА (АУД. 316).",
+                            Image = "/images/shedule.png"
+                        });
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.School", b =>
@@ -182,6 +194,27 @@ namespace ITCenterBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Schools");
+                });
+
+            modelBuilder.Entity("ITCenterBack.Models.SocialLink", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialLinks");
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.Teacher", b =>
@@ -315,10 +348,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "196aed1e-5db7-4493-acf8-d8c3e3ad2213",
+                            ConcurrencyStamp = "fb2785c2-a7c9-46e0-9ddb-d161a68d7794",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEC13kOdxM8VLN1pcSV/Pmk4BBGExpZewsLZi9YnxsjrzaZqj6+hckA5ySml6E1wZsw==",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL7xAj4xkw9vlCX1MkO2q40Xsu5dnFM7mi3SIsQQB061jcazJz+r81/GqbumaPSTCg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -358,7 +392,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "71cf5982-eb9b-400f-a2d9-809cef774426",
+                            ConcurrencyStamp = "8fa351fe-3571-496c-9070-f4e66105d198",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });

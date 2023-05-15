@@ -39,10 +39,10 @@
                             </a>
                         </div>
 
-                        @*@if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
-                        {*@
+                        @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
+                        {
                         <a class="secondary-button" href=@Url.Content("/api/Admin/UpdateSchedule")>Добавить</a>
-                        @*}*@
+                        }
 
                     </div>
                 </div>
