@@ -14,7 +14,7 @@ namespace ITCenterBack.Services
 
         public async Task CreateCourseAsync(string name, string age, string requirements, string description, string image)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if (!string.IsNullOrWhiteSpace(name))
             {
                 var course = new Course()
                 {

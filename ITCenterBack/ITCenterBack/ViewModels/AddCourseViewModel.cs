@@ -1,4 +1,5 @@
 ﻿using ITCenterBack.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ITCenterBack.ViewModels
 {
@@ -7,7 +8,9 @@ namespace ITCenterBack.ViewModels
 		public string Name { get; set; }
 		public string Image { get; set; }
 		public string Age { get; set; }
+		[DataType(DataType.MultilineText)]
 		public string Description { get; set; }
+		[DataType(DataType.MultilineText)]
 		public string Requirements { get; set; }
         public CourseType CourseType { get; set; }
     }

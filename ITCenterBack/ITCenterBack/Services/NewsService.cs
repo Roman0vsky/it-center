@@ -15,7 +15,7 @@ namespace ITCenterBack.Services
 
         public async Task CreateNewsAsync(string title, string text, string image)
         {
-            if (string.IsNullOrWhiteSpace(title))
+            if (!string.IsNullOrWhiteSpace(title))
             {
                 var news = new News
                 {
