@@ -20,16 +20,20 @@ namespace ITCenterBack.Controllers
         private readonly ISchoolService _schoolService;
         private readonly INewsService _newsService;
         private readonly ITeacherService _teacherService;
+		private readonly ISocialLinkService _linkService;
+        private readonly IImagesService _imagesService;
         private readonly IWebHostEnvironment _appEnvironment;
 
-        public AdminController(IMapper mapper, ICourseService courseService, ISchoolService schoolService, INewsService newsService, 
-			ITeacherService teacherService, IWebHostEnvironment appEnvironment)
+        public AdminController(IMapper mapper, ICourseService courseService, ISchoolService schoolService, INewsService newsService, ITeacherService teacherService, 
+			ISocialLinkService linkService, IImagesService imagesService, IWebHostEnvironment appEnvironment)
         {
             _mapper = mapper;
             _courseService = courseService;
             _schoolService = schoolService;
             _newsService = newsService;
             _teacherService = teacherService;
+            _linkService = linkService;
+            _imagesService = imagesService;
             _appEnvironment = appEnvironment;
         }
 
@@ -75,6 +79,40 @@ namespace ITCenterBack.Controllers
 			var newsVM = _mapper.Map<List<NewsViewModel>>(news);
 
 			return View(newsVM);
+		}
+
+		[HttpGet]
+		[Route("Links")]
+		[ActionName("Links")]
+		public async Task<IActionResult> LinksAsync()
+		{
+			var links = await _linkService.GetAllSocialLinksAsync();
+			var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+			return View(linksVM);
+		}
+
+		[HttpGet]
+		[ActionName("AddLink")]
+		[Route("AddLink")]
+		public IActionResult AddLink()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ActionName("AddLink")]
+		[Route("AddLink")]
+		public async Task<IActionResult> PostAddLinkAsync([FromForm] AddSocialLinkViewModel viewModel)
+		{
+			if (!string.IsNullOrEmpty(viewModel.Name) && !string.IsNullOrWhiteSpace(viewModel.Url))
+			{
+				await _linkService.CreateSocialLinkAsync(viewModel.Name, viewModel.Url);
+
+				return RedirectToAction("Links");
+			}
+
+			return View(viewModel);
 		}
 
 		[HttpGet]
@@ -340,6 +378,76 @@ namespace ITCenterBack.Controllers
 			await _newsService.DeleteNewsAsync(id);
 
 			return RedirectToAction("News");
+		}
+
+
+		//Slider images
+		[HttpGet]
+        [Route("SliderImages")]
+        [ActionName("SliderImages")]
+        public async Task<IActionResult> SliderImagesAsync()
+		{
+			var images = await _imagesService.GetSliderImages();
+			var imagesVM = _mapper.Map<List<SliderImageViewModel>>(images);
+
+			return View(imagesVM);
+        }
+
+		[HttpGet]
+		[ActionName("AddSliderImage")]
+		[Route("AddSliderImage")]
+		public IActionResult AddSliderImage()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ActionName("AddSliderImage")]
+		[Route("AddSliderImage")]
+		public async Task<IActionResult> PostAddSliderImageAsync(IFormFile uploadedFile)
+		{
+			if (uploadedFile != null)
+			{
+				string path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+
+				await _imagesService.AddSliderImage(path);
+
+				return RedirectToAction("SliderImages");
+			}
+
+			return View();
+		}
+
+		[HttpGet]
+		[Route("DeleteSliderImage")]
+		[ActionName("DeleteSliderImage")]
+		public async Task<IActionResult> DeleteSliderImageGetAsync(long id)
+		{
+			var sliderImage = await _imagesService.GetSliderImage(id);
+
+			if (sliderImage is null)
+			{
+				return NotFound();
+			}
+
+			var courseVM = _mapper.Map<CourseViewModel>(sliderImage);
+
+			return View(courseVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteSliderImage")]
+		[ActionName("DeleteSliderImage")]
+		public async Task<IActionResult> DeleteSliderImageAsync(long id)
+		{
+			await _imagesService.DeleteSliderImage(id);
+
+			return RedirectToAction("SliderImages");
 		}
 	}
 }

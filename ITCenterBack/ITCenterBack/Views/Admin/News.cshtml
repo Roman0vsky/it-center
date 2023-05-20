@@ -16,14 +16,28 @@
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
-					<tr><th>Название</th></tr>
+					<tr><th>Картинка</th>
+						<th>Заголовок</th>
+						<th>Сокращенный текст</th>
+						<th>Дата публикации</th>
+					</tr>
 				</thead>
 				<tbody>
 					@foreach (var t in Model)
 					{
 						<tr>
+							<td> <img src=@t.Image alt="images"></td>
 							<td>@t.Title</td>
-							<td>@t.ShortText</td>
+							<td>
+								@if (t.Text.Length > 90)
+								{
+									@string.Concat((@t.Text).AsSpan(0, 90), "...")
+								}
+								else
+								{
+									@t.Text
+								}
+							</td>
 							<td>@t.PublicationDate</td>
 							<td>
 								<a asp-action="DeleteNews" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>

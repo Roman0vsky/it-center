@@ -12,6 +12,8 @@ namespace ITCenterBack.Utilities
             CreateMap<Teacher, TeacherViewModel>();
             CreateMap<School, SchoolViewModel>();
             CreateMap<News, NewsViewModel>();
+			CreateMap<SocialLink, SocialLinkViewModel>();
+            CreateMap<SliderImage, SliderImageViewModel>();
             //CreateMap<List<Teacher>, TeachersViewModel>();
         }
     }

@@ -17,33 +17,57 @@ namespace ITCenterBack.Controllers
         private readonly IAccountService _accountService;
         private readonly ISchoolService _schoolService;
         private readonly INewsService _newsService;
-        private readonly IMapper _mapper;
+		private readonly ISocialLinkService _linkService;
+		private readonly IImagesService _imagesService;
+		private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
-        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, 
-            INewsService newsService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
-        {
-            _courseService = courseService;
-            _accountService = accountService;
-            _schoolService = schoolService;
-            _newsService = newsService;
-            _mapper = mapper;
-            _jwtConfig = jwtConfig;
-        }
+		public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, 
+            ISocialLinkService linkService, IImagesService imagesService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
+		{
+			_courseService = courseService;
+			_accountService = accountService;
+			_schoolService = schoolService;
+			_newsService = newsService;
+			_linkService = linkService;
+			_imagesService = imagesService;
+			_mapper = mapper;
+			_jwtConfig = jwtConfig;
+		}
 
-        [Route("Index")]
+		private async Task<HeaderViewModel> HeaderInfoAsync ()
+        {
+			var courses = await _courseService.GetAllCoursesAsync();
+			var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+
+            var links = await _linkService.GetAllSocialLinksAsync();
+            var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+            var header = new HeaderViewModel
+            {
+                Courses = coursesVM,
+                Links = linksVM
+            };
+
+            return header;
+		}
+
+		[Route("Index")]
         public async Task<IActionResult> IndexAsync(CourseType courseType = CourseType.All)
         {
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
+            var sliderImages = await _imagesService.GetSliderImages();
+            var sliderImagesVM = _mapper.Map<List<SliderImageViewModel>>(sliderImages);
+
+			var header = await HeaderInfoAsync();
+
             var page = new IndexViewModel
             {
-                Header = new HeaderViewModel
-                {
-                    Courses = coursesVM
-                }
-            };
+                Header = header,
+                SliderImages = sliderImagesVM
+			};
 
             switch(courseType)
             {
@@ -85,13 +109,12 @@ namespace ITCenterBack.Controllers
             var schools = await _schoolService.GetAllSchoolsAsync();
             var schoolsVM = _mapper.Map<List<SchoolViewModel>>(schools);
 
+            var header = await HeaderInfoAsync();
+
             var page = new ContactsViewModel
             {
-                Header = new HeaderViewModel
-                {
-                    Courses = coursesVM
-                },
-                Schools = schoolsVM,
+                Header = header,
+				Schools = schoolsVM,
                 Courses = coursesVM
             };
 
@@ -110,16 +133,12 @@ namespace ITCenterBack.Controllers
         [Route("Schedule")]
         public async Task<IActionResult> ScheduleAsync()
         {
-            var courses = await _courseService.GetAllCoursesAsync();
-            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+            var header = await HeaderInfoAsync();
 
             var page = new ScheduleViewModel
             {
-                Header = new HeaderViewModel
-                {
-                    Courses = coursesVM
-                }
-            };
+                Header = header
+			};
 
             return View(page);
         }

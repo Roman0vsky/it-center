@@ -57,27 +57,17 @@
                                     Подписывайтесь
                                 </a>
                                 <ul class="dropdown-menu no-border-radius">
+
+                                @foreach (var link in Model.Links)
+                                {
                                     <li class="dropdown_seventh colored">
-                                        <a href="https://vk.com/abiturvsu">
+                                        <a href=@link.Url>
                                             <ion-icon name="logo-vk"></ion-icon>
-                                            ВКонтакте
+                                            @link.Name
                                         </a>
                                     </li>
-                                    <li class="dropdown_seventh colored">
-                                        <a href="https://www.instagram.com/tvu.vsu/">
-                                            <ion-icon name="logo-instagram"></ion-icon> Instagram
-                                        </a>
-                                    </li>
-                                    <li class="dropdown_seventh colored">
-                                        <a href="https://www.youtube.com/channel/UCo18_krqqaEWSb6_cbHnupQ">
-                                            <ion-icon name="logo-youtube"></ion-icon> Youtube
-                                        </a>
-                                    </li>
-                                    <li class="dropdown_seventh colored">
-                                        <a href="https://www.facebook.com/vsu.by">
-                                            <ion-icon name="logo-facebook"></ion-icon> Facebook
-                                        </a>
-                                    </li>
+                                }
+
                                 </ul>
                             </li>
                         </ul>

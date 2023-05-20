@@ -2,10 +2,10 @@
 
 namespace ITCenterBack.Models
 {
-    public class Time
+    public class SliderImage
     {
         [Key]
         public long Id { get; set; }
-        public string TimeInterval { get; set; }
+        public string Image { get; set; }
     }
 }

@@ -10,7 +10,7 @@
 			<div class="admin-form__item">
 				<h2 class="heading">Добавить направление </h2>
 			</div>
-			@using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post))
+			@using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{
 				<div class="admin-form__item">
 					<label class="input__label">

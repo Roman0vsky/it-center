@@ -96,6 +96,36 @@ namespace ITCenterBack.Data
                     Image = "/images/shedule.png"
 				}
 				);
+
+			//Slider images
+			modelBuilder.Entity<SliderImage>().HasData(
+				new SliderImage
+				{
+					Id = 1,
+					Image = "/assets/for_new/img/home-clubs/2.jpg"
+				}
+				);
+			modelBuilder.Entity<SliderImage>().HasData(
+				new SliderImage
+				{
+					Id = 2,
+					Image = "/assets/for_new/img/home-clubs/3.jpg"
+				}
+				);
+			modelBuilder.Entity<SliderImage>().HasData(
+				new SliderImage
+				{
+					Id = 3,
+					Image = "/assets/for_new/img/home-clubs/4.jpg"
+				}
+				);
+			modelBuilder.Entity<SliderImage>().HasData(
+				new SliderImage
+				{
+					Id = 4,
+					Image = "/assets/for_new/img/home-clubs/5.jpg"
+				}
+				);
 		}
     }
 }

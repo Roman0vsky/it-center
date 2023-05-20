@@ -20,12 +20,20 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkQ291cnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddLink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkTGluay5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddNews.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkTmV3cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddSchool.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU2Nob29sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddSliderImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRkU2xpZGVySW1hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/AddTeacher.cshtml]
@@ -44,8 +52,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlQ291cnNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/DeleteNews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlTmV3cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/DeleteSchool.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlU2Nob29sLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/DeleteSliderImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGVsZXRlU2xpZGVySW1hZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/DeleteTeacher.cshtml]
@@ -58,6 +74,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/Schools.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Nob29scy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/SliderImages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2xpZGVySW1hZ2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/SocialLinks.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU29jaWFsTGlua3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kyky225/Desktop/vsu diploma/it-center/ITCenterBack/ITCenterBack/Views/Admin/Teachers.cshtml]

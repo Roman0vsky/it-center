@@ -15,11 +15,13 @@ namespace ITCenterBack.Controllers
     public class CourseController : Controller
     {
         private readonly ICourseService _courseService;
+        private readonly ISocialLinkService _linkService;
         private readonly IMapper _mapper;
 
-        public CourseController(ICourseService courseService, IMapper mapper)
+        public CourseController(ICourseService courseService, ISocialLinkService linkService, IMapper mapper)
         {
             _courseService = courseService;
+            _linkService = linkService;
             _mapper = mapper;
         }
 
@@ -36,13 +38,13 @@ namespace ITCenterBack.Controllers
                 var courses = await _courseService.GetAllCoursesAsync();
                 var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-                var page = new CourseDetailsViewModel
+                var links = await _linkService.GetAllSocialLinksAsync();
+                var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+                var page = new HeaderViewModel
                 {
-                    Header = new HeaderViewModel
-                    {
-                        Courses = coursesVM
-                    },
-                    Course = courseVM
+                    Courses = coursesVM,
+                    Links = linksVM
                 };
 
                 return View(page);

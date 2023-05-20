@@ -19,22 +19,13 @@
 
                         <div class="slider-container">
                             <div class="slides">
-                                <div class="slide">
-                                    <img src="/assets/for_new/img/home-clubs/2.jpg" alt="firstIMG">
-                                    <div class="slider__bg"></div>
-                                </div>
-                                <div class="slide">
-                                    <img src="/assets/for_new/img/home-clubs/3.jpg" alt="secondIMG">
-                                    <div class="slider__bg"></div>
-                                </div>
-                                <div class="slide">
-                                    <img src="/assets/for_new/img/home-clubs/4.jpg" alt="thirdIMG">
-                                    <div class="slider__bg"></div>
-                                </div>
-                                <div class="slide">
-                                    <img src="/assets/for_new/img/home-clubs/5.jpg" alt="thirdIMG">
-                                    <div class="slider__bg"></div>
-                                </div>
+                                @foreach (var images in Model.SliderImages)
+                                {
+                                    <div class="slide">
+                                        <img src=@images.Image >
+                                        <div class="slider__bg"></div>
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div class="tp-caption tp-shape tp-shapewrapper" id="slide-1699-layer-10" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full"
@@ -221,7 +212,16 @@
                         <div class="news__wrapp">
                             <div class="news__content">
                                 <div class="news__title">@news.Title</div>
-                                <div class="news__text">@news.Text</div>
+                                <div class="news__text">
+                                    @if(news.Text.Length > 90)
+                                    {
+                                        @string.Concat((@news.Text).AsSpan(0, 90), "...")
+                                    }
+                                    else
+                                    {
+                                        @news.Text
+                                    }
+                                </div>
                             </div>
                             <div class="btn-container top-s-space news__btn">
                                 <a href=@Url.Content("/api/News/Details/" + @news.Id) class="btn btn-black has-radius-small">Читать далее</a>
@@ -231,6 +231,7 @@
                 }
 
                 
+
             </div>
         </section>
 

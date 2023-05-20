@@ -1,0 +1,39 @@
+﻿@model ITCenterBack.ViewModels.AddSocialLinkViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить ссылку";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Ссылки </h2>
+			</div>
+
+			@using (Html.BeginForm("AddLink", "Admin", FormMethod.Post))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Название <hr />
+						@Html.EditorFor(model => model.Name)
+					</label>
+					<label class="input__label">
+						Ссылка <hr />
+						@Html.EditorFor(model => model.Url)
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Links")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

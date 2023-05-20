@@ -12,13 +12,15 @@ namespace ITCenterBack.Controllers
     {
         private readonly ITeacherService _teacherService;
         private readonly ICourseService _courseService;
+        private readonly ISocialLinkService _linkService;
         private readonly IMapper _mapper;
 
-        public TeacherController(ITeacherService teacherService, IMapper mapper, ICourseService courseService)
+        public TeacherController(ITeacherService teacherService, ICourseService courseService, ISocialLinkService linkService, IMapper mapper)
         {
             _teacherService = teacherService;
-            _mapper = mapper;
             _courseService = courseService;
+            _linkService = linkService;
+            _mapper = mapper;
         }
 
         [Route("AllTeachers")]
@@ -30,13 +32,13 @@ namespace ITCenterBack.Controllers
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-            var page = new AllTeachersViewModel
+            var links = await _linkService.GetAllSocialLinksAsync();
+            var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+            var page = new HeaderViewModel
             {
-                Header = new HeaderViewModel
-                {
-                    Courses = coursesVM,
-                },
-                Teachers = teachersVM
+                Courses = coursesVM,
+                Links = linksVM
             };
 
             return View(page);

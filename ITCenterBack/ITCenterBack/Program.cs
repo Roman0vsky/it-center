@@ -34,7 +34,9 @@ builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ISchoolService, SchoolService>();
-builder.Services.AddScoped<IScheduleService, ScheduleService>();
+//builder.Services.AddScoped<IScheduleService, ScheduleService>();
+builder.Services.AddScoped<ISocialLinkService, SocialLinkService>();
+builder.Services.AddScoped<IImagesService, ImagesService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages()

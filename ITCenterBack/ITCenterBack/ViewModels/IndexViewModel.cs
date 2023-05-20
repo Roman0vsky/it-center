@@ -5,5 +5,6 @@
         public HeaderViewModel Header { get; set; }
         public List<CourseViewModel> Courses { get; set; }
         public List<NewsViewModel> News { get; set; }
+        public List<SliderImageViewModel> SliderImages { get; set; }
     }
 }

@@ -14,15 +14,17 @@ namespace ITCenterBack.Controllers
 		//private readonly ISchoolService _schoolService;
 		//private readonly ITeacherService _teacherService;
 		private readonly INewsService _newsService;
+        private readonly ISocialLinkService _linkService;
 
-		public NewsController(IMapper mapper, ICourseService courseService, INewsService newsService)
-		{
-			_mapper = mapper;
-			_courseService = courseService;
-			_newsService = newsService;
-		}
+        public NewsController(IMapper mapper, ICourseService courseService, INewsService newsService, ISocialLinkService linkService)
+        {
+            _mapper = mapper;
+            _courseService = courseService;
+            _newsService = newsService;
+            _linkService = linkService;
+        }
 
-		[Route("Details/{id}")]
+        [Route("Details/{id}")]
 		[ActionName("Details")]
 		public async Task<IActionResult> DetailsAsync(long id)
 		{
@@ -34,16 +36,16 @@ namespace ITCenterBack.Controllers
 				var courses = await _courseService.GetAllCoursesAsync();
 				var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-				var page = new NewsDetailsViewModel
-				{
-					Header = new HeaderViewModel
-					{
-						Courses = coursesVM
-					},
-					News = newsVM
-				};
+                var links = await _linkService.GetAllSocialLinksAsync();
+                var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-				return View(page);
+                var page = new HeaderViewModel
+                {
+                    Courses = coursesVM,
+                    Links = linksVM
+                };
+
+                return View(page);
 			}
 
 			return NotFound();
