@@ -28,7 +28,7 @@
 							<td> <img src=@t.Image alt="images"></td>
 							<td>@t.Image</td>
 							<td>
-								<a asp-action="DeleteSliderImage" class="file-button" type="file">Удалить</a>
+								<a asp-action="DeleteSliderImage" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
 							</td>
 						</tr>
 					}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4vRwbCFpAcBS2ZFbkgDa7uUytIJ9WCpgawKqzkMZaY8=",
+  "Hash": "qy9oKhK+snlc+ptuCaHB6Nb5dgvfgi3ojykF9gkmoxs=",
   "Source": "ITCenterBack",
   "BasePath": "_content/ITCenterBack",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\innowise.png"
+    },
+    {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\it-center-main\\itcenter\\assets\\components\\ajaxform\\js\\default.js",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/img/it-center-main/itcenter/assets/components/ajaxform/js/default.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\it-center-main\\itcenter\\assets\\components\\ajaxform\\js\\default.js"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\iTechArt.png",

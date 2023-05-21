@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using System.Net.WebSockets;
 
 namespace ITCenterBack.Controllers
 {
@@ -435,15 +436,79 @@ namespace ITCenterBack.Controllers
 				return NotFound();
 			}
 
-			var courseVM = _mapper.Map<CourseViewModel>(sliderImage);
+			var sliderVM = _mapper.Map<SliderImageViewModel>(sliderImage);
 
-			return View(courseVM);
+			return View(sliderVM);
 		}
 
 		[HttpPost]
 		[Route("DeleteSliderImage")]
 		[ActionName("DeleteSliderImage")]
 		public async Task<IActionResult> DeleteSliderImageAsync(long id)
+		{
+			await _imagesService.DeleteSliderImage(id);
+
+			return RedirectToAction("SliderImages");
+		}
+
+		//Social links
+		[HttpGet]
+		[Route("SocialLinks")]
+		[ActionName("SocialLinks")]
+		public async Task<IActionResult> SocialLinksAsync()
+		{
+			var link = await _linkService.GetAllSocialLinksAsync();
+			var linkVM = _mapper.Map<List<SocialLinkViewModel>>(link);
+
+			return View(linkVM);
+		}
+
+		[HttpGet]
+		[ActionName("AddSocialLinks")]
+		[Route("AddSocialLinks")]
+		public IActionResult AddSocialLinks()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[ActionName("AddSocialLink")]
+		[Route("AddSocialLink")]
+		public async Task<IActionResult> PostAddSocialLinkAsync([FromForm] AddSocialLinkViewModel viewModel)
+		{
+			if (!string.IsNullOrWhiteSpace(viewModel.Name) && !string.IsNullOrWhiteSpace(viewModel.Url))
+			{
+				await _linkService.CreateSocialLinkAsync(viewModel.Name, viewModel.Url);
+
+				return RedirectToAction("SocialLinks");
+			}
+
+			return View(viewModel);
+		}
+		  
+		///
+
+		[HttpGet]
+		[Route("DeleteSocialLink")]
+		[ActionName("DeleteSocialLink")]
+		public async Task<IActionResult> DeleteSocialLinkGetAsync(long id)
+		{
+			var sliderImage = await _imagesService.GetSliderImage(id);
+
+			if (sliderImage is null)
+			{
+				return NotFound();
+			}
+
+			var sliderVM = _mapper.Map<SliderImageViewModel>(sliderImage);
+
+			return View(sliderVM);
+		}
+
+		[HttpPost]
+		[Route("DeleteSocialLink")]
+		[ActionName("DeleteSocialLink")]
+		public async Task<IActionResult> DeleteSocialLinkAsync(long id)
 		{
 			await _imagesService.DeleteSliderImage(id);
 

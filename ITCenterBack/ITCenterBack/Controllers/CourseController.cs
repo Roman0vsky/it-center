@@ -25,7 +25,7 @@ namespace ITCenterBack.Controllers
             _mapper = mapper;
         }
 
-        //[HttpGet]
+        [HttpGet]
         [Route("Details/{id}")]
         //[ActionName("Details")]
         public async Task<IActionResult> DetailsAsync(long id)
@@ -41,10 +41,16 @@ namespace ITCenterBack.Controllers
                 var links = await _linkService.GetAllSocialLinksAsync();
                 var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-                var page = new HeaderViewModel
+                var header = new HeaderViewModel
                 {
                     Courses = coursesVM,
                     Links = linksVM
+                };
+
+                var page = new CourseDetailsViewModel
+                {
+                    Course = courseVM,
+                    Header = header
                 };
 
                 return View(page);
