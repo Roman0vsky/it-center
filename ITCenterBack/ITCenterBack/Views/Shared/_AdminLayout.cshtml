@@ -51,7 +51,7 @@
 						</a>
 						<ul class="control-panel__list">
 							<li class="control-panel__list-item">
-								<a class="control-panel__list-link control-panel__inner-link" href=@Url.Content("/api/Admin/Links")>
+								<a class="control-panel__list-link control-panel__inner-link" href=@Url.Content("/api/Admin/SocialLinks")>
 									<div class="control-panel__list-img-wrapper">
 									</div>Ссылки
 								</a>
@@ -68,9 +68,15 @@
 
 						</li>
 						<li class="control-panel__list-item">
-							<a class="control-panel__list-link" href="#">
+							<a class="control-panel__list-link" href=@Url.Content("/api/Time/AvaliableTime")>
 								<div class="control-panel__list-img-wrapper">
 								</div>Дни записи
+							</a>
+						</li>
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href=@Url.Content("/api/Time/Time")>
+								<div class="control-panel__list-img-wrapper">
+								</div>Время записи
 							</a>
 						</li>
 						<li class="control-panel__list-item">

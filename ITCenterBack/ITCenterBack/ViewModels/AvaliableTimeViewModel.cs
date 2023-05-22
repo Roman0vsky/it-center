@@ -1,10 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ITCenterBack.Models;
 
-namespace ITCenterBack.Models
+namespace ITCenterBack.ViewModels
 {
-	public class AvaliableTime
+	public class AvaliableTimeViewModel
 	{
-		[Key]
 		public long Id { get; set; }
 		public bool IsAvaliable { get; set; }
 		public DayOfWeek Day { get; set; }

@@ -6,6 +6,7 @@ namespace ITCenterBack.Models
     {
         [Key]
         public long Id { get; set; }
-        public string TimeInterval { get; set; }
-    }
+		public DateTime From { get; set; }
+		public DateTime To { get; set; }
+	}
 }

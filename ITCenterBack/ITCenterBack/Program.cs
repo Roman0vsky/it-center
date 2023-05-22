@@ -26,6 +26,8 @@ builder.Services.AddScoped<IRepository<News>, NewsRepository>();
 builder.Services.AddScoped<IRepository<School>, SchoolRepository>();
 builder.Services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
 builder.Services.AddScoped<IRepository<SocialLink>, SocialLinkRepository>();
+builder.Services.AddScoped<IRepository<Time>, TimeRepository>();
+builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
@@ -37,6 +39,8 @@ builder.Services.AddScoped<ISchoolService, SchoolService>();
 //builder.Services.AddScoped<IScheduleService, ScheduleService>();
 builder.Services.AddScoped<ISocialLinkService, SocialLinkService>();
 builder.Services.AddScoped<IImagesService, ImagesService>();
+builder.Services.AddScoped<ITimeService, TimeService>();
+builder.Services.AddScoped<IAvaliableTimeService, AvaliableTimeService>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages()

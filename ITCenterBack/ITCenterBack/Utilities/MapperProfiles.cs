@@ -14,7 +14,9 @@ namespace ITCenterBack.Utilities
             CreateMap<News, NewsViewModel>();
 			CreateMap<SocialLink, SocialLinkViewModel>();
             CreateMap<SliderImage, SliderImageViewModel>();
-            //CreateMap<List<Teacher>, TeachersViewModel>();
-        }
+            CreateMap<Time, TimeViewModel>();
+			CreateMap<AvaliableTime, AvaliableTimeViewModel>();
+			//CreateMap<List<Teacher>, TeachersViewModel>();
+		}
     }
 }

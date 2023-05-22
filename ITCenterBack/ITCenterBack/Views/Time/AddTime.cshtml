@@ -1,0 +1,39 @@
+﻿@model ITCenterBack.ViewModels.AddTimeViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить время";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Время </h2>
+			</div>
+
+			@using (Html.BeginForm("AddTime", "Time", FormMethod.Post))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						С <hr />
+						@Html.EditorFor(model => model.From)
+					</label>
+					<label class="input__label">
+						По <hr />
+						@Html.EditorFor(model => model.To)
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Time")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

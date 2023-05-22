@@ -31,9 +31,9 @@ namespace ITCenterBack.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Application>> GetAll()
+        public async Task<List<Application>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _applicationRepository.GetAllAsync();
         }
 
         public Task UpdateApplication()

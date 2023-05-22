@@ -485,24 +485,22 @@ namespace ITCenterBack.Controllers
 
 			return View(viewModel);
 		}
-		  
-		///
 
 		[HttpGet]
 		[Route("DeleteSocialLink")]
 		[ActionName("DeleteSocialLink")]
 		public async Task<IActionResult> DeleteSocialLinkGetAsync(long id)
 		{
-			var sliderImage = await _imagesService.GetSliderImage(id);
+			var link = await _linkService.GetSocialLinkAsync(id);
 
-			if (sliderImage is null)
+			if (link is null)
 			{
 				return NotFound();
 			}
 
-			var sliderVM = _mapper.Map<SliderImageViewModel>(sliderImage);
+			var linkVM = _mapper.Map<SocialLinkViewModel>(link);
 
-			return View(sliderVM);
+			return View(linkVM);
 		}
 
 		[HttpPost]
@@ -510,9 +508,9 @@ namespace ITCenterBack.Controllers
 		[ActionName("DeleteSocialLink")]
 		public async Task<IActionResult> DeleteSocialLinkAsync(long id)
 		{
-			await _imagesService.DeleteSliderImage(id);
+			await _linkService.DeleteSocialLinkAsync(id);
 
-			return RedirectToAction("SliderImages");
+			return RedirectToAction("SocialLinks");
 		}
 	}
 }

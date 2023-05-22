@@ -1,0 +1,43 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.TimeViewModel>
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Время записи";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Время записи</h2>
+			</div>
+			<a class="secondary-button" href=@Url.Content("/api/Time/AddTime")>Добавить</a>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr>
+						<th>С</th>
+						<th>По</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var t in Model)
+					{
+						<tr>
+							<td>@t.From.TimeOfDay</td>
+							<td>@t.To.TimeOfDay</td>
+							<td>
+								<a asp-action="DeleteTime" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
+							</td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

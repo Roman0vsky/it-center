@@ -32,7 +32,16 @@
 							<td>@t.Name</td>
 							<td>@t.Age</td>
 							<td>@t.Requirements</td>
-							<td>@string.Concat((@t.Description).AsSpan(0, 90), "...")</td>
+							<td>
+								@if (t.Description.Length > 90)
+								{
+									@string.Concat((@t.Description).AsSpan(0, 90), "...")
+								}
+								else
+								{
+									@t.Description
+								}
+								</td>
 							<td>
 								<a asp-action="DeleteCourse" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
 								<a asp-action="UpdateCourse" asp-route-id="@t.Id" class="file-button" type="file">Редактировать</a>
