@@ -14147,7 +14147,7 @@ table {
 	margin: 5px;
 }
 .pagination a.active {
-  background-color: #4CAF50;
+  background-color: #0275d8;
   color: white;
 }
 .pagination a:hover:not(.active) {
@@ -14170,6 +14170,10 @@ table {
 	.news__date {
 		font-size: 14px;
 	}
+	.pagination a {
+		font-size: 14px;
+		width: 50px;
+	}
 }
 @media screen and (max-width: 600px) {
 	.news {
@@ -14190,6 +14194,11 @@ table {
 		justify-content: center;
 		flex-direction: column;
 	}
+	.pagination a {
+		font-size: 12px;
+		width: 40px;
+		margin: 2px;
+	}
 }
 @media screen and (max-width: 400px) {
 	.news__title {
@@ -14200,6 +14209,10 @@ table {
 	}
 	.news__date {
 		font-size: 12px;
+	}
+	.pagination a {
+		font-size: 10px;
+		width: 40px;
 	}
 }
 
