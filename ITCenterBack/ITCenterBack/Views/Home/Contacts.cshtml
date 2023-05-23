@@ -26,19 +26,22 @@
         </div>
     </section>
     <div class="contact__wrapper">
-        <form class="contact">
+        <form class="contact" method="post">
             <div class="contact__title">Информация о слушателе</div>
             @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__fio", placeholder = "ФИО"}})
             <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
-            <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
+            @Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})
+            @*<select class="choose-school__select" name="choose-school__select" id="choose-school__select">
                 <option class="choose-school__option" value=" "></option>
+
+                @Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})
 
                 @foreach (var t in Model.Schools)
                 {
                     <option class="choose-school__option" value=@t.Id>@t.Name</option>
                 }
 
-            </select>
+            </select>*@
             <div class="contact__write-school-text">
                 Или напишите ниже самостоятельно, если не нашли в списке
             </div>
