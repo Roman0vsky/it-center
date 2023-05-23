@@ -1,4 +1,5 @@
 ﻿using ITCenterBack.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ITCenterBack.ViewModels
 {
@@ -6,7 +7,7 @@ namespace ITCenterBack.ViewModels
     {
         public HeaderViewModel Header { get; set; }
         public List<CourseViewModel> Courses { get; set; }
-        public List<SchoolViewModel> Schools { get; set; }
+        public SelectList Schools { get; set; }
         public string? SchoolName { get; set; }
         public int Class { get; set; }
         public string PhoneNumber { get; set; }

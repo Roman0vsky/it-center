@@ -5,6 +5,7 @@ using ITCenterBack.Utilities;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Options;
 
 namespace ITCenterBack.Controllers
@@ -19,23 +20,25 @@ namespace ITCenterBack.Controllers
         private readonly INewsService _newsService;
 		private readonly ISocialLinkService _linkService;
 		private readonly IImagesService _imagesService;
+        private readonly IApplicationService _applicationService;
 		private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
-		public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, 
-            ISocialLinkService linkService, IImagesService imagesService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
-		{
-			_courseService = courseService;
-			_accountService = accountService;
-			_schoolService = schoolService;
-			_newsService = newsService;
-			_linkService = linkService;
-			_imagesService = imagesService;
-			_mapper = mapper;
-			_jwtConfig = jwtConfig;
-		}
+        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
+            IImagesService imagesService, IApplicationService applicationService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
+        {
+            _courseService = courseService;
+            _accountService = accountService;
+            _schoolService = schoolService;
+            _newsService = newsService;
+            _linkService = linkService;
+            _imagesService = imagesService;
+            _applicationService = applicationService;
+            _mapper = mapper;
+            _jwtConfig = jwtConfig;
+        }
 
-		private async Task<HeaderViewModel> HeaderInfoAsync ()
+        private async Task<HeaderViewModel> HeaderInfoAsync ()
         {
 			var courses = await _courseService.GetAllCoursesAsync();
 			var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
@@ -114,7 +117,7 @@ namespace ITCenterBack.Controllers
             var page = new ContactsViewModel
             {
                 Header = header,
-				Schools = schoolsVM,
+				Schools = new SelectList(schoolsVM, "Id", "Name"),
                 Courses = coursesVM
             };
 
@@ -125,6 +128,9 @@ namespace ITCenterBack.Controllers
         [ActionName("Contacts")]
         public async Task<IActionResult> PostContactsAsync([FromForm] ContactsViewModel viewModel)
         {
+            //await _applicationService.CreateApplication();
+
+
             return View(viewModel);
         }
 
