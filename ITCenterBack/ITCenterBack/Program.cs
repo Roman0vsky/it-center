@@ -29,6 +29,7 @@ builder.Services.AddScoped<IRepository<SocialLink>, SocialLinkRepository>();
 builder.Services.AddScoped<IRepository<Time>, TimeRepository>();
 builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>();
 builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
+builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));

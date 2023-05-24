@@ -1,13 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ITCenterBack.Models;
 
-namespace ITCenterBack.Models
+namespace ITCenterBack.ViewModels
 {
-    public class Application
+    public class ApplicationViewModel
     {
-        [Key]
         public long Id { get; set; }
-        public School School { get; set; }
-        public long? SchoolId { get; set; }
         public string? SchoolName { get; set; }
         public int Class { get; set; }
         public string ListenerFullName { get; set; }

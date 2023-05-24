@@ -39,11 +39,17 @@ namespace ITCenterBack.Controllers
                 var links = await _linkService.GetAllSocialLinksAsync();
                 var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-                var page = new HeaderViewModel
+                var header = new HeaderViewModel
                 {
                     Courses = coursesVM,
                     Links = linksVM
                 };
+
+				var page = new NewsDetailsViewModel
+				{
+					Header = header,
+					News = newsVM
+				};
 
                 return View(page);
 			}

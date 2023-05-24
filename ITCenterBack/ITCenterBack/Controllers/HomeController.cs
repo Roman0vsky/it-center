@@ -117,7 +117,7 @@ namespace ITCenterBack.Controllers
             var page = new ContactsViewModel
             {
                 Header = header,
-				Schools = new SelectList(schoolsVM, "Id", "Name"),
+				Schools = schoolsVM, /*new SelectList(schoolsVM, "Id", "Name"),*/
                 Courses = coursesVM
             };
 
@@ -126,12 +126,44 @@ namespace ITCenterBack.Controllers
 
         [HttpPost]
         [ActionName("Contacts")]
-        public async Task<IActionResult> PostContactsAsync([FromForm] ContactsViewModel viewModel)
+        [Route("Contacts")]
+        public async Task<IActionResult> PostContactsAsync()
         {
-            //await _applicationService.CreateApplication();
+            string fio = Request.Form["contact_fio"];
+            string schoolName = Request.Form["choose-school__select"];
+            string schoolNameAlt = Request.Form["school-number"];
+            var classNumber = int.Parse(Request.Form["class-number"]);
+            string repPhone = Request.Form["rep-phone"];
+            string repFio = Request.Form["rep-fio"];
+            var coursesId = Request.Form["courses"].Select(long.Parse).ToList();
+            
+
+            if (string.IsNullOrWhiteSpace(schoolName))
+            {
+                await _applicationService.CreateApplication(schoolNameAlt, classNumber, fio, repFio, repPhone, null, coursesId);
+                return RedirectToAction("Contacts");
+            }
+
+            await _applicationService.CreateApplication(schoolName, classNumber, fio, repFio, repPhone, null, coursesId);
+
+            return RedirectToAction("Contacts");
+
+            //string schoolName;
+
+            //if(!string.IsNullOrWhiteSpace(viewModel.Schools.SelectedValue.ToString()))
+            //{
+            //    schoolName = viewModel.Schools.SelectedValue.ToString();
+            //}
+            //else
+            //{
+            //    schoolName = viewModel.SchoolName;
+            //}
 
 
-            return View(viewModel);
+            //await _applicationService.CreateApplication(schoolName, viewModel.Class, viewModel.PhoneNumber, viewModel.ListenerFullName, viewModel.RepresentativeFullName,
+            //    viewModel.RepresentativePhoneNumber, null, null);
+
+            //return View(viewModel);
         }
 
         [HttpGet]

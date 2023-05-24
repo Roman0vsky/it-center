@@ -28,32 +28,40 @@
     <div class="contact__wrapper">
         <form class="contact" method="post">
             <div class="contact__title">Информация о слушателе</div>
-            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__fio", placeholder = "ФИО"}})
+            <input required placeholder="ФИО" type="text" class="contact__fio" name="contact_fio">
+            @*@Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__fio", placeholder = "ФИО"}})*@
             <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
-            @Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})
-            @*<select class="choose-school__select" name="choose-school__select" id="choose-school__select">
+            @*@Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new { @class = "choose-school__select"})*@
+            <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
                 <option class="choose-school__option" value=" "></option>
 
-                @Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})
+                @*@Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})*@
 
                 @foreach (var t in Model.Schools)
                 {
                     <option class="choose-school__option" value=@t.Id>@t.Name</option>
                 }
 
-            </select>*@
+            </select>
             <div class="contact__write-school-text">
                 Или напишите ниже самостоятельно, если не нашли в списке
             </div>
-            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__write-school-input", placeholder = "Введите Номер школы/гимназии"}})
-            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__choose-grade", min="1", max="11", placeholder = "Введите Класс"}})
+            <input placeholder="Введите Номер школы/гимназии" type="text"
+                   class="contact__write-school-input" name="school-number">
+            <input placeholder="Введите Класс" type="number" min="1" max="11" class="contact__choose-grade" name="class-number">
+            @*@Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__write-school-input", placeholder = "Введите Номер школы/гимназии"}})
+            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__choose-grade", min="1", max="11", placeholder = "Введите Класс"}})*@
             <div class="contact__parents-title">Информация о законном представителе</div>
             <div class="contact__parents-text">
                 Представитель - это родственник, на кого будет оформляться
                 договор. <br>Это может быть мама, папа, бабушка или дедушка
             </div>
-            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__parents-phone", placeholder = "Введите Телефон представителя"}})
-            @Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__parents-fio", placeholder = "Введите ФИО представителя"}})
+            <input required placeholder="Введите Телефон представителя" type="number"
+                   class="contact__parents-phone" name="rep-phone">
+            <input required placeholder="Введите ФИО представителя" type="text"
+                   class="contact__parents-fio" name="rep-fio">
+            @*@Html.EditorFor(model => model.RepresentativePhoneNumber, new { htmlAttributes = new { @class = "contact__parents-phone", placeholder = "Введите Телефон представителя"}})
+            @Html.EditorFor(model => model.RepresentativeFullName, new { htmlAttributes = new { @class = "contact__parents-fio", placeholder = "Введите ФИО представителя"}})*@
             <div class="contact__choose-courses-title">Запись на курсы</div>
             <div class="contact__choose-courses-text">
                 Необходимо выбрать время для интересующих Вас курсов.
@@ -67,7 +75,7 @@
                 {
                     <div class="contact__course">
                         <label for="contact__course-input">@t.Name (@t.Age)</label>
-                        <input type="checkbox" id="contact__course-input" value="@t.Id">
+                        <input type="checkbox" id="contact__course-input" value="@t.Id" name="courses">
                     </div>
                 }
 
@@ -117,7 +125,7 @@
                             <td class="check_td disabled"><input id="input12" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input13" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input14" type="checkbox"></td>
-                            <td class="check_td"><input id="input15" type="checkbox"></td>
+                            <td class="check_td"><label for="input15" class="passive" onclick="toogleCheckbox(this)"><input id="input15" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input16" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -127,7 +135,7 @@
                             <td class="check_td disabled"><input id="input22" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input23" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input24" type="checkbox"></td>
-                            <td class="check_td"><input id="input25" type="checkbox"></td>
+                            <td class="check_td"><label for="input25" class="passive" onclick="toogleCheckbox(this)"><input id="input25" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input26" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -137,7 +145,7 @@
                             <td class="check_td disabled"><input id="input32" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input33" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input34" type="checkbox"></td>
-                            <td class="check_td"><input id="input35" type="checkbox"></td>
+                            <td class="check_td"><label for="input35" class="passive" onclick="toogleCheckbox(this)"><input id="input35" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input36" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -147,7 +155,7 @@
                             <td class="check_td disabled"><input id="input42" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input43" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input44" type="checkbox"></td>
-                            <td class="check_td"><input id="input45" type="checkbox"></td>
+                            <td class="check_td"><label for="input45" class="passive" onclick="toogleCheckbox(this)"><input id="input45" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input46" type="checkbox"></td>
                         </tr>
                         <tr>

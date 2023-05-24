@@ -1,0 +1,57 @@
+﻿@model ITCenterBack.ViewModels.ApplicationDetailsViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Подробности заявки";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Подробности</h2>
+			</div>
+			<div class="admin-form__item">
+				<label class="input__label">
+					Фио <br />
+					@Model.ListenerFullName <hr />
+				</label>
+				<label class="input__label">
+					Школа<br />
+					@Model.SchoolName <hr />
+				</label>
+				<label class="input__label">
+					Класс <br />
+					@Model.Class <hr />
+				</label>
+				<label class="input__label">
+					Телефон представителя<br />
+					@Model.RepresentativePhoneNumber <hr />
+				</label>
+				<label class="input__label">
+					ФИО представителя<br />
+					@Model.RepresentativePhoneNumber <hr />
+				</label>
+				<label class="input__label">
+					ФИО представителя<br />
+					@foreach(var course in Model.Courses)
+					{
+						@course 
+						< br />
+					}
+					<hr />
+				</label>
+			</div>
+
+			@using (Html.BeginForm())
+			{
+				@Html.AntiForgeryToken()
+				<div class="form-actions no-color">
+					@Html.ActionLink("Назад", "Applications")
+				</div>
+			}
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

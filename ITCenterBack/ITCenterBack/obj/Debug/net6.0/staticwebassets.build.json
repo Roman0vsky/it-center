@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4vRwbCFpAcBS2ZFbkgDa7uUytIJ9WCpgawKqzkMZaY8=",
+  "Hash": "xV2xZP4r5JJ+Uh+3+xabejHO97B0gJp+PXHQphx8qzM=",
   "Source": "ITCenterBack",
   "BasePath": "_content/ITCenterBack",
   "Mode": "Default",
@@ -357,6 +357,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\6717.jpg"
     },
     {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\ЛАЦИТ.png",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/img/ЛАЦИТ.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\ЛАЦИТ.png"
+    },
+    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\admin-panel\\edit-3.svg",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -561,23 +578,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\arduino\\arduino.svg"
     },
     {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\c\\c.svg",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/img/courses/c/c.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\c\\c.svg"
-    },
-    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\c-sharp\\c-sharp.svg",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -593,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\c-sharp\\c-sharp.svg"
+    },
+    {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\c\\c.svg",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/img/courses/c/c.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\c\\c.svg"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\design\\starter-graphics.svg",
@@ -680,23 +697,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\scratch\\scratch.svg"
     },
     {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\unity\\unity.svg",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/img/courses/unity/unity.svg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\unity\\unity.svg"
-    },
-    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\unity-lab\\unity-lab.svg",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -712,6 +712,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\unity-lab\\unity-lab.svg"
+    },
+    {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\unity\\unity.svg",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/img/courses/unity/unity.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\courses\\unity\\unity.svg"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\courses\\video\\video-editing.svg",
@@ -3689,12 +3706,12 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\works\\WEB\\small\\5.jpg"
     },
     {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\img\\ЛАЦИТ.png",
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\js\\jquery-3.3.1.min.js",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
       "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/img/ЛАЦИТ.png",
+      "RelativePath": "assets/for_new/js/jquery-3.3.1.min.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3703,7 +3720,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\img\\ЛАЦИТ.png"
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\js\\jquery-3.3.1.min.js"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\js\\jquery.main.js",
@@ -3721,23 +3738,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\js\\jquery.main.js"
-    },
-    {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\js\\jquery-3.3.1.min.js",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/js/jquery-3.3.1.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\js\\jquery-3.3.1.min.js"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\js\\mega-menu.js",
@@ -3842,23 +3842,6 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\animate\\animate.css"
     },
     {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\bootstrap\\js\\bootstrap.min.js",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/vendors/bootstrap/js/bootstrap.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\bootstrap\\js\\bootstrap.min.js"
-    },
-    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\bootstrap-datepicker\\css\\bootstrap-datepicker.css",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -3925,6 +3908,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\bootstrap-slider-master\\src\\js\\bootstrap-slider.js"
+    },
+    {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\bootstrap\\js\\bootstrap.min.js",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/vendors/bootstrap/js/bootstrap.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\bootstrap\\js\\bootstrap.min.js"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\counter-up\\jquery.counterup.min.js",
@@ -4420,6 +4420,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rateyo\\jquery.rateyo.js"
     },
     {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution-addons\\snow\\revolution.addon.snow.min.js",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/vendors/rev-slider/revolution-addons/snow/revolution.addon.snow.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution-addons\\snow\\revolution.addon.snow.min.js"
+    },
+    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\coloredbg.png",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -4435,40 +4452,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\coloredbg.png"
-    },
-    {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile.png",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/vendors/rev-slider/revolution/assets/gridtile.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile.png"
-    },
-    {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3.png",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/vendors/rev-slider/revolution/assets/gridtile_3x3.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3.png"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3_white.png",
@@ -4488,6 +4471,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3_white.png"
     },
     {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3.png",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/vendors/rev-slider/revolution/assets/gridtile_3x3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_3x3.png"
+    },
+    {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_white.png",
       "SourceId": "ITCenterBack",
       "SourceType": "Discovered",
@@ -4503,6 +4503,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile_white.png"
+    },
+    {
+      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile.png",
+      "SourceId": "ITCenterBack",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
+      "BasePath": "_content/ITCenterBack",
+      "RelativePath": "assets/for_new/vendors/rev-slider/revolution/assets/gridtile.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\gridtile.png"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\assets\\loader.gif",
@@ -4860,23 +4877,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution\\js\\jquery.themepunch.tools.min.js"
-    },
-    {
-      "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution-addons\\snow\\revolution.addon.snow.min.js",
-      "SourceId": "ITCenterBack",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\",
-      "BasePath": "_content/ITCenterBack",
-      "RelativePath": "assets/for_new/vendors/rev-slider/revolution-addons/snow/revolution.addon.snow.min.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\assets\\for_new\\vendors\\rev-slider\\revolution-addons\\snow\\revolution.addon.snow.min.js"
     },
     {
       "Identity": "C:\\Users\\kyky225\\Desktop\\vsu diploma\\it-center\\ITCenterBack\\ITCenterBack\\wwwroot\\assets\\for_new\\vendors\\stellar\\jquery.stellar.min.js",

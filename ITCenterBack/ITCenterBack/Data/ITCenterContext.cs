@@ -8,7 +8,8 @@ namespace ITCenterBack.Data
 {
     public class ITCenterContext : IdentityDbContext<User, IdentityRole<long>, long>
     {
-        public DbSet<Course> Courses { get; set; }
+		
+		public DbSet<Course> Courses { get; set; }
         public DbSet<News> News { get; set; } 
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<School> Schools { get; set; }
@@ -18,8 +19,10 @@ namespace ITCenterBack.Data
         public DbSet<AvaliableTime> AvaliableTimes { get; set; }
         public DbSet<SocialLink> SocialLinks { get; set; }
         public DbSet<SliderImage> SliderImages { get; set; }
+        public DbSet<CourseApplication> CourseApplications { get; set; }
+		public DbSet<ApplicationTime> ApplicationTimes { get; set; }
 
-        public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
+		public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
             //Database.EnsureCreated();
         }
