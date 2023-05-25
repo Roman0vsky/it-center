@@ -29,6 +29,7 @@ builder.Services.AddScoped<IRepository<SocialLink>, SocialLinkRepository>();
 builder.Services.AddScoped<IRepository<Time>, TimeRepository>();
 builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>();
 builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
+builder.Services.AddScoped<IRepository<ApplicationTime>, ApplicationTimeRepository>();
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 
 //Services

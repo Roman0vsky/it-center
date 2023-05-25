@@ -12,31 +12,37 @@
 			</div>
 			<div class="admin-form__item">
 				<label class="input__label">
-					Фио <br />
+					Фио: <br />
+					<br />
 					@Model.ListenerFullName <hr />
 				</label>
 				<label class="input__label">
-					Школа<br />
+					Школа:<br />
+					<br />
 					@Model.SchoolName <hr />
 				</label>
 				<label class="input__label">
-					Класс <br />
+					Класс: <br />
+					<br />
 					@Model.Class <hr />
 				</label>
 				<label class="input__label">
-					Телефон представителя<br />
+					Телефон представителя:<br />
+					<br />
 					@Model.RepresentativePhoneNumber <hr />
 				</label>
 				<label class="input__label">
-					ФИО представителя<br />
+					ФИО представителя:<br />
+					<br />
 					@Model.RepresentativePhoneNumber <hr />
 				</label>
 				<label class="input__label">
-					ФИО представителя<br />
+					Курсы:<br />
+					<br />
 					@foreach(var course in Model.Courses)
 					{
-						@course 
-						< br />
+						@course;
+						<br />
 					}
 					<hr />
 				</label>
@@ -46,6 +52,8 @@
 			{
 				@Html.AntiForgeryToken()
 				<div class="form-actions no-color">
+					@*<input type="submit" value="Удалить" class="file-button" />
+					|*@
 					@Html.ActionLink("Назад", "Applications")
 				</div>
 			}

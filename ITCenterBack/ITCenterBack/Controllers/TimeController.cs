@@ -14,11 +14,13 @@ namespace ITCenterBack.Controllers
     {
         private readonly IMapper _mapper;
         private readonly ITimeService _timeService;
+        private readonly IAvaliableTimeService _avaliableTimeService;
 
-        public TimeController(IMapper mapper, ITimeService timeService)
+        public TimeController(IMapper mapper, ITimeService timeService, IAvaliableTimeService avaliableTimeService)
         {
             _mapper = mapper;
             _timeService = timeService;
+            _avaliableTimeService = avaliableTimeService;
         }
 
         [HttpGet]
@@ -75,6 +77,22 @@ namespace ITCenterBack.Controllers
             await _timeService.DeleteTimeAsync(id);
 
             return RedirectToAction("Time");
+        }
+
+        [HttpGet]
+        [ActionName("AvaliableTime")]
+        [Route("AvaliableTime")]
+        public async Task<IActionResult> AvaliableTimeAsync()
+        {
+            var time = await _timeService.GetTimesAsync();
+            var timeVM = _mapper.Map<List<TimeViewModel>>(time);
+
+            var page = new AvaliableTimeViewModel
+            {
+                Time = timeVM
+            };
+
+            return View(page);
         }
     }
 }

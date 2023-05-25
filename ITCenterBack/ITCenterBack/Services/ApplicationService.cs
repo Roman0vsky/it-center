@@ -32,7 +32,19 @@ namespace ITCenterBack.Services
                 RepresentativePhoneNumber = representativePhoneNumber
             };
 
-            await _applicationRepository.CreateAsync(application);
+			//if (string.IsNullOrEmpty(schoolId))
+			//{
+   //             application.SchoolName = schoolName;
+			//}
+   //         else
+   //         {
+   //             var id = long.Parse(schoolId);
+   //             var school = await _schoolRepository.GetByIdAsync(id);
+
+   //             application.SchoolName = school.Name;
+   //         }
+
+			await _applicationRepository.CreateAsync(application);
 
             foreach (var id in coursesId)
             {
@@ -47,8 +59,42 @@ namespace ITCenterBack.Services
             //throw new NotImplementedException();
         }
 
-        //to do
-        public Task DeleteApplication(long id)
+		public async Task CreateApplication(long? schoolId, int clas, string listenerFullName, string representativeFullName, string representativePhoneNumber, List<Time> times, List<long> coursesId)
+		{
+			var application = new Application()
+			{
+				Class = clas,
+				ListenerFullName = listenerFullName,
+				RepresentativeFullName = representativeFullName,
+				RepresentativePhoneNumber = representativePhoneNumber
+			};
+
+			var school = new School();
+
+			if (schoolId.HasValue)
+            {
+                school = await _schoolRepository.GetByIdAsync((long)schoolId);
+			}
+
+			application.SchoolName = school.Name;
+
+			await _applicationRepository.CreateAsync(application);
+
+			foreach (var id in coursesId)
+			{
+				await _courseApplRepository.CreateAsync(
+					new CourseApplication
+					{
+						CourseId = id,
+						ApplicationId = application.Id
+					});
+			}
+
+			//throw new NotImplementedException();
+		}
+
+		//to do
+		public Task DeleteApplication(long id)
         {
             throw new NotImplementedException();
         }

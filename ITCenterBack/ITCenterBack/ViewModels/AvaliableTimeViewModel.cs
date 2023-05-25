@@ -7,7 +7,6 @@ namespace ITCenterBack.ViewModels
 		public long Id { get; set; }
 		public bool IsAvaliable { get; set; }
 		public DayOfWeek Day { get; set; }
-		public long TimeId { get; set; }
-		public Time Time { get; set; }
+		public List<TimeViewModel> Time { get; set; }
 	}
 }
