@@ -16,13 +16,19 @@
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
-					<tr><th>ФИО Преподавателя</th><th>Должность</th></tr>
+					<tr>
+						<th>Изображение</th>
+						<th>ФИО Преподавателя</th>
+						<th>Должность</th>
+					</tr>
 				</thead>
 				<tbody>
 					@foreach (var t in Model)
 					{
 						<tr>
-							<td>@t.Name</td><td>@t.Description</td>
+							<td> <img src=@t.Image alt="images"></td>
+							<td>@t.Name</td>
+							<td>@t.Description</td>
 								<td>
 								<a asp-action="DeleteTeacher" asp-route-id="@t.Id" class="file-button">Удалить</a> |
 								<a asp-action="UpdateTeacher" asp-route-id="@t.Id" class="file-button">Редактировать</a> 
