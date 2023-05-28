@@ -223,8 +223,11 @@
                                     }
                                 </div>
                             </div>
-                            <div class="btn-container top-s-space news__btn">
-                                <a href=@Url.Content("/api/News/Details/" + @news.Id) class="btn btn-black has-radius-small">Читать далее</a>
+                            <div class="news__wrapper-date">
+                                <span class="news__date">@news.PublicationDate</span>
+                                <div class="btn-container top-s-space news__btn">
+                                    <a href=@Url.Content("/api/News/Details/" + @news.Id) class="btn btn-black has-radius-small">Читать далее</a>
+                                </div>
                             </div>
                         </div>
                     </div>
