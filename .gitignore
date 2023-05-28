@@ -273,4 +273,5 @@ __pycache__/
 
 #directories
 ITCenterBack/ITCenterBack/bin/*
+ITCenterBack/ITCenterBack/obj/*
 ITCenterBack/.vs/*
