@@ -7,10 +7,12 @@ namespace ITCenterBack.Services
     public class TimeService : ITimeService
     {
         private readonly IRepository<Time> _timeRepository;
+        private readonly IRepository<AvaliableTime> _avaliableTimeRepository;
 
-        public TimeService(IRepository<Time> timeRepository)
+        public TimeService(IRepository<Time> timeRepository, IRepository<AvaliableTime> avaliableTimeRepository)
         {
             _timeRepository = timeRepository;
+            _avaliableTimeRepository = avaliableTimeRepository;
         }
 
         public async Task CreateTimeAsync(DateTime from, DateTime to)
@@ -22,6 +24,21 @@ namespace ITCenterBack.Services
             };
 
             await _timeRepository.CreateAsync(time);
+
+            //avaliable time create
+
+            //var avTime = new AvaliableTime
+            //{
+            //    IsAvaliable = false,
+            //    TimeId = time.Id
+            //};
+
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    avTime.Day = (DayOfWeek)i;
+
+            //    await _avaliableTimeRepository.CreateAsync(avTime);
+            //}
         }
 
         public async Task DeleteTimeAsync(long id)

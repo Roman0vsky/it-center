@@ -121,6 +121,7 @@ namespace ITCenterBack.Services
             }
 
             applicationVM.SchoolName = application.SchoolName;
+            applicationVM.ListenerFullName = application.ListenerFullName;
             applicationVM.RepresentativePhoneNumber = application.RepresentativePhoneNumber;
             applicationVM.RepresentativeFullName = application.RepresentativeFullName;
             applicationVM.Courses = courses;

@@ -7,7 +7,8 @@ namespace ITCenterBack.Models
 		[Key]
 		public long Id { get; set; }
 		public Application Application { get; set; }
-		public long ApplicationId { get; set; }
+        public DayOfWeek Day { get; set; }
+        public long ApplicationId { get; set; }
 		public Time Time { get; set; }
 		public long TimeId { get; set; }
 	}

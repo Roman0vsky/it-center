@@ -1,0 +1,40 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model ITCenterBack.ViewModels.ScheduleViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Расписание";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Расписание</h2>
+			</div>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr>
+						<th>Изображение</th>
+						<th>Описание</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr>
+						<td><img src=@Model.Image alt="images"></td>
+							<td>@Model.Description</td>
+							<td>
+							<a class="secondary-button" href=@Url.Content("/api/Admin/UpdateScheduleDescription")>Обновить подпись</a> | 
+							<a class="secondary-button" href=@Url.Content("/api/Admin/UpdateScheduleImage")>Обновить изображение</a>
+							</td>
+						</tr>
+
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

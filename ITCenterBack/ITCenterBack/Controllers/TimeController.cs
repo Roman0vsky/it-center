@@ -4,6 +4,7 @@ using ITCenterBack.Interfaces;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace ITCenterBack.Controllers
 {
@@ -26,7 +27,7 @@ namespace ITCenterBack.Controllers
         [HttpGet]
         [Route("Time")]
         [ActionName("Time")]
-        public async Task<IActionResult> SocialLinksAsync()
+        public async Task<IActionResult> TimeAsync()
         {
             var time = await _timeService.GetTimesAsync();
             var timeVM = _mapper.Map<List<TimeViewModel>>(time);
@@ -86,11 +87,98 @@ namespace ITCenterBack.Controllers
         {
             var time = await _timeService.GetTimesAsync();
             var timeVM = _mapper.Map<List<TimeViewModel>>(time);
+            
+            var avaliableTime = await _avaliableTimeService.GetAllSlotsAsync();
 
             var page = new AvaliableTimeViewModel
             {
+                AvaliableTimes = avaliableTime,
                 Time = timeVM
             };
+
+            return View(page);
+        }
+
+        [HttpPost]
+        [ActionName("AvaliableTime")]
+        [Route("AvaliableTime")]
+        public async Task<IActionResult> SetAvaliableTimeAsync()
+        {
+            var time = await _timeService.GetTimesAsync();
+            var timeVM = _mapper.Map<List<TimeViewModel>>(time);
+            var avaliableTime = await _avaliableTimeService.GetAllSlotsAsync();
+            var timeList = Request.Form["time"];
+            //List<long> hourIds = new();
+            //List<int> dayIndexes = new();
+
+            var page = new AvaliableTimeViewModel
+            {
+                AvaliableTimes = avaliableTime,
+                Time = timeVM
+            };
+
+            Regex regex = new Regex(@"\d+");
+
+            if (!string.IsNullOrWhiteSpace(timeList))
+            {
+                await _avaliableTimeService.DisableAllAsync();
+
+                int hourIndex;
+                int dayIndex;
+
+                for (int i = 0; i < timeList.Count(); i++)
+                {
+                    MatchCollection matches = regex.Matches(timeList[i]);
+
+                    if (matches.Count > 0)
+                    {
+                        hourIndex = int.Parse(matches[0].Value);
+                        dayIndex = int.Parse(matches[1].Value) + 1;
+
+                        foreach(var avTime in avaliableTime)
+                        {
+                            if(avTime.TimeId == time[hourIndex].Id && avTime.Day == (DayOfWeek)dayIndex)
+                            {
+                                await _avaliableTimeService.SetAvaliableSlotAsync(avTime.Id);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+                //for (int i = 0; i < timeList.Count(); i++)
+                //{
+                //    MatchCollection matches = regex.Matches(timeList[i]);
+
+                //    if (matches.Count > 0)
+                //    {
+                //        hourId = long.Parse(matches[0].Value);
+                //        dayIndex = int.Parse(matches[1].Value);
+
+                //        hourIds.Add(hourId);
+                //        dayIndexes.Add(dayIndex);
+                //    }
+                //}
+
+                
+
+                //foreach(var avTime in avaliableTime)
+                //{
+                //    for (int i = 0; i < time.Count(); i++)
+                //    {
+                //        for (int j = 0; j < 7; j++)
+                //        {
+                //            if(avTime.TimeId == time[i].Id && avTime.Day == (DayOfWeek)(j + 1))
+                //            {
+
+                //            }
+                //        }
+                //    }
+                //}
+
+            }
 
             return View(page);
         }

@@ -18,6 +18,22 @@ namespace ITCenterBack.Repositories
         {
             await _context.Times.AddAsync(item);
             await _context.SaveChangesAsync();
+
+            var avTime = new List<AvaliableTime>();
+
+            for(int i = 1; i <= 7; i++)
+            {
+                avTime.Add(new AvaliableTime()
+                {
+                    IsAvaliable = false,
+                    TimeId = item.Id,
+                    TimeFrom = item.From,
+                    Day = (DayOfWeek)i
+                });
+            }
+
+            await _context.AvaliableTimes.AddRangeAsync(avTime);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(long id)

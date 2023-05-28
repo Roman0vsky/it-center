@@ -69,6 +69,9 @@ namespace ITCenterBack.Migrations
                     b.Property<long>("ApplicationId")
                         .HasColumnType("bigint");
 
+                    b.Property<int>("Day")
+                        .HasColumnType("int");
+
                     b.Property<long>("TimeId")
                         .HasColumnType("bigint");
 
@@ -94,6 +97,9 @@ namespace ITCenterBack.Migrations
 
                     b.Property<bool>("IsAvaliable")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("TimeFrom")
+                        .HasColumnType("datetime2");
 
                     b.Property<long>("TimeId")
                         .HasColumnType("bigint");
@@ -444,11 +450,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "92b9b757-4866-4fe9-bcc5-27e5cf94dfeb",
+                            ConcurrencyStamp = "ca4aaec6-e03e-4a69-b2c7-56d20cec70ed",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGgzoF4pE76dETGXuXiyU358zFUIS8E/Ry6oew/gYarZQbwq33m4375ErzOYdBYNYw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEO6mn7DxnWvCHHCDNW53QoJOc7hLYDZ6/N0CPJwv7NICM43J5wmv0H5wRlC0nHS3Ag==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -488,7 +494,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "fa4d53f9-3598-4d62-957d-7573dc154f96",
+                            ConcurrencyStamp = "bbbd5270-bca9-4817-a4fa-5a96d5458807",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });

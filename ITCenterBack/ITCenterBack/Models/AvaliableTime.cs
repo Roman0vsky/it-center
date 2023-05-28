@@ -10,5 +10,6 @@ namespace ITCenterBack.Models
 		public DayOfWeek Day { get; set; }
 		public long TimeId { get; set; }
 		public Time Time { get; set; }
+		public DateTime TimeFrom { get; set; }
 	}
 }

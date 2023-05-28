@@ -15,7 +15,7 @@ namespace ITCenterBack.Services
             _context = context;
         }
 
-        public async Task AddSliderImage(string image)
+        public async Task AddSliderImageAsync(string image)
         {
             var slider = new SliderImage
             {
@@ -26,7 +26,7 @@ namespace ITCenterBack.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteSliderImage(long id)
+        public async Task DeleteSliderImageAsync(long id)
         {
             var slider = await _context.SliderImages.FirstOrDefaultAsync(m => m.Id == id);
 
@@ -38,22 +38,22 @@ namespace ITCenterBack.Services
             };
         }
 
-        public async Task<Schedule> GetSchedule(long id)
+        public async Task<Schedule> GetScheduleAsync()
         {
             return await _context.Schedule.FirstAsync();
         }
 
-        public async Task<SliderImage> GetSliderImage(long id)
+        public async Task<SliderImage> GetSliderImageAsync(long id)
         {
             return await _context.SliderImages.FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<List<SliderImage>> GetSliderImages()
+        public async Task<List<SliderImage>> GetSliderImagesAsync()
         {
             return await _context.SliderImages.ToListAsync();
         }
 
-        public async Task UpdateScheduleDescription(string description)
+        public async Task UpdateScheduleDescriptionAsync(string description)
         {
             var scheldue = await _context.Schedule.FirstAsync();
 
@@ -76,7 +76,7 @@ namespace ITCenterBack.Services
             }
         }
 
-        public async Task UpdateScheduleImage(string image)
+        public async Task UpdateScheduleImageAsync(string image)
         {
             var scheldue = await _context.Schedule.FirstAsync();
 

@@ -10,7 +10,7 @@
             <div class="admin-form__item">
                 <h2 class="heading">Время записи</h2>
             </div>
-
+            <form method="post">
             <table class="table_schedule">
                 <tbody>
                     <tr>
@@ -29,78 +29,55 @@
                         <tr>
                             <td>@Model.Time[i].From.TimeOfDay - @Model.Time[i].To.TimeOfDay</td>
 
-                            @for(int j = 0; j < 7; j++)
-                            {
-                                <td class="check_td"><input id="@string.Concat("input", i, j)" type="checkbox"></td>
-                            }
+                                @for (int j = 0; j < 7; j++)
+                                {
+                                    @if ((i * 7 + j) <= Model.AvaliableTimes.Count())
+                                    {
+                                        @if (Model.AvaliableTimes[i * 7 + j].TimeId == Model.Time[i].Id && Model.AvaliableTimes[i * 7 + j].IsAvaliable)
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" checked="checked" name="time"></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                    }
+
+
+                                    @*@if ((j * Model.Time.Count() + i) <= Model.AvaliableTimes.Count())
+                                    {
+                                        @if (Model.AvaliableTimes[j * Model.Time.Count() + i].TimeId == Model.Time[i].Id && Model.AvaliableTimes[j * Model.Time.Count() + i].IsAvaliable)
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" checked="checked" name="time"></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                    }*@
+
+                                    @*@if (Model.AvaliableTimes[j].TimeId == Model.Time[i].Id && Model.AvaliableTimes[j].IsAvaliable)
+                                    {
+                                        <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" checked="checked" name="time"></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="check_td"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                    }*@
+                                }
                         </tr>
                     }
-                    
-                    @*
-
-                    <tr>
-                        <td>8.00 - 9.25</td>
-                        <td class="check_td"><input id="input00" type="checkbox"></td>
-                        <td class="check_td"><input id="input01" type="checkbox"></td>
-                        <td class="check_td"><input id="input02" type="checkbox"></td>
-                        <td class="check_td"><input id="input03" type="checkbox"></td>
-                        <td class="check_td"><input id="input04" type="checkbox"></td>
-                        <td class="check_td"><input id="input05" type="checkbox"></td>
-                        <td class="check_td"><input id="input06" type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>9.35 - 11.00</td>
-                        <td class="check_td"><input id="input10" type="checkbox"></td>
-                        <td class="check_td"><input id="input11" type="checkbox"></td>
-                        <td class="check_td"><input id="input12" type="checkbox"></td>
-                        <td class="check_td"><input id="input13" type="checkbox"></td>
-                        <td class="check_td"><input id="input14" type="checkbox"></td>
-                        <td class="check_td"><input id="input15" type="checkbox"></td>
-                        <td class="check_td"><input id="input16" type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>11.30 - 12.55</td>
-                        <td class="check_td"><input id="input20" type="checkbox"></td>
-                        <td class="check_td"><input id="input21" type="checkbox"></td>
-                        <td class="check_td"><input id="input22" type="checkbox"></td>
-                        <td class="check_td"><input id="input23" type="checkbox"></td>
-                        <td class="check_td"><input id="input24" type="checkbox"></td>
-                        <td class="check_td"><input id="input25" type="checkbox"></td>
-                        <td class="check_td"><input id="input26" type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>13.05 - 14.30</td>
-                        <td class="check_td"><input id="input30" type="checkbox"></td>
-                        <td class="check_td"><input id="input31" type="checkbox"></td>
-                        <td class="check_td"><input id="input32" type="checkbox"></td>
-                        <td class="check_td"><input id="input33" type="checkbox"></td>
-                        <td class="check_td"><input id="input34" type="checkbox"></td>
-                        <td class="check_td"><input id="input35" type="checkbox"></td>
-                        <td class="check_td"><input id="input36" type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>14.40 - 16.05</td>
-                        <td class="check_td"><input id="input40" type="checkbox"></td>
-                        <td class="check_td"><input id="input41" type="checkbox"></td>
-                        <td class="check_td"><input id="input42" type="checkbox"></td>
-                        <td class="check_td"><input id="input43" type="checkbox"></td>
-                        <td class="check_td"><input id="input44" type="checkbox"></td>
-                        <td class="check_td"><input id="input45" type="checkbox"></td>
-                        <td class="check_td"><input id="input46" type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>16.35 - 18.00</td>
-                        <td class="check_td"><input id="input50" type="checkbox"></td>
-                        <td class="check_td"><input id="input51" type="checkbox"></td>
-                        <td class="check_td"><input id="input52" type="checkbox"></td>
-                        <td class="check_td"><input id="input53" type="checkbox"></td>
-                        <td class="check_td"><input id="input54" type="checkbox"></td>
-                        <td class="check_td"><input id="input55" type="checkbox"></td>
-                        <td class="check_td"><input id="input56" type="checkbox"></td>
-                    </tr>*@
                    
                 </tbody>
             </table>
+
+            <br></br>
+
+            <div class="admin-form__item buttons">
+                <input class="primary-button" type="submit" value="Сохранить" />
+            </div>
+
+            </form>
 
             <div class="admin-form__item"></div>
             <div class="admin-form__item"></div>

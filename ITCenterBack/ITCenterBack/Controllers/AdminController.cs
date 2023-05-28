@@ -388,7 +388,7 @@ namespace ITCenterBack.Controllers
         [ActionName("SliderImages")]
         public async Task<IActionResult> SliderImagesAsync()
 		{
-			var images = await _imagesService.GetSliderImages();
+			var images = await _imagesService.GetSliderImagesAsync();
 			var imagesVM = _mapper.Map<List<SliderImageViewModel>>(images);
 
 			return View(imagesVM);
@@ -416,7 +416,7 @@ namespace ITCenterBack.Controllers
 					await uploadedFile.CopyToAsync(fileStream);
 				}
 
-				await _imagesService.AddSliderImage(path);
+				await _imagesService.AddSliderImageAsync(path);
 
 				return RedirectToAction("SliderImages");
 			}
@@ -429,7 +429,7 @@ namespace ITCenterBack.Controllers
 		[ActionName("DeleteSliderImage")]
 		public async Task<IActionResult> DeleteSliderImageGetAsync(long id)
 		{
-			var sliderImage = await _imagesService.GetSliderImage(id);
+			var sliderImage = await _imagesService.GetSliderImageAsync(id);
 
 			if (sliderImage is null)
 			{
@@ -446,7 +446,7 @@ namespace ITCenterBack.Controllers
 		[ActionName("DeleteSliderImage")]
 		public async Task<IActionResult> DeleteSliderImageAsync(long id)
 		{
-			await _imagesService.DeleteSliderImage(id);
+			await _imagesService.DeleteSliderImageAsync(id);
 
 			return RedirectToAction("SliderImages");
 		}
@@ -511,6 +511,74 @@ namespace ITCenterBack.Controllers
 			await _linkService.DeleteSocialLinkAsync(id);
 
 			return RedirectToAction("SocialLinks");
+		}
+
+
+		//schedule UpdateScheduleDescription
+
+		[HttpGet]
+		[Route("UpdateSchedule")]
+		[ActionName("UpdateSchedule")]
+		public async Task<IActionResult> UpdateScheduleAsync()
+		{
+			var schedule = await _imagesService.GetScheduleAsync();
+			var scheduleVM = _mapper.Map<ScheduleViewModel>(schedule);
+
+			return View(scheduleVM);
+		}
+
+		[HttpGet]
+		[ActionName("UpdateScheduleDescription")]
+		[Route("UpdateScheduleDescription")]
+		public IActionResult GetUpdateScheduleDescription()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("UpdateScheduleDescription")]
+		[ActionName("UpdateScheduleDescription")]
+		public async Task<IActionResult> UpdateScheduleDescriptionAsync([FromForm] UpdateScheduleDescription viewModel)
+		{
+			if(!string.IsNullOrWhiteSpace(viewModel.Description))
+			{
+				await _imagesService.UpdateScheduleDescriptionAsync(viewModel.Description);
+			}			
+
+			return RedirectToAction("UpdateSchedule");
+		}
+
+		[HttpGet]
+		[ActionName("UpdateScheduleImage")]
+		[Route("UpdateScheduleImage")]
+		public async Task<IActionResult> GetUpdateScheduleImageAsync()
+		{
+			var schedule = await _imagesService.GetScheduleAsync();
+
+			var scheduleVM = _mapper.Map<ScheduleViewModel>(schedule);
+
+			return View(scheduleVM);
+		}
+
+		[HttpPost]
+		[Route("UpdateScheduleImage")]
+		[ActionName("UpdateScheduleImage")]
+		public async Task<IActionResult> UpdateScheduleImageAsync(IFormFile uploadedFile)
+		{
+			if (uploadedFile != null)
+			{
+				// путь к папке images/schedule
+				string path = "/images/schedule" + uploadedFile.FileName;
+				// сохраняем файл в папку в каталоге wwwroot
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+
+				await _imagesService.UpdateScheduleImageAsync(path);
+			}
+
+			return RedirectToAction("UpdateSchedule");
 		}
 	}
 }

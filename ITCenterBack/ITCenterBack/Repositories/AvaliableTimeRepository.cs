@@ -34,7 +34,7 @@ namespace ITCenterBack.Repositories
 
 		public async Task<List<AvaliableTime>> GetAllAsync()
 		{
-			return await _context.AvaliableTimes.OrderBy(p => p.Day).ToListAsync();
+			return await _context.AvaliableTimes.OrderBy(p => p.TimeFrom.TimeOfDay).ThenBy(p => p.Day).ToListAsync();
 		}
 
 		public async Task<AvaliableTime> GetByIdAsync(long id)

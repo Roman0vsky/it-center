@@ -14,21 +14,33 @@ namespace ITCenterBack.Services
 			_timeRepository = timeRepository;
 		}
 
-        public async Task CreateSlotsForTimeAsync(long timeId)
+        public async Task DisableAllAsync()
         {
-            var time = new AvaliableTime
-            {
-                IsAvaliable = false,
-                TimeId = timeId
-            };
+            var time = await _avaliableTimeRepository.GetAllAsync();
 
-            for(int i = 0; i < 7; i++)
+            foreach(var t in time)
             {
-                time.Day = (DayOfWeek)i;
+                t.IsAvaliable = false;
 
-                await _avaliableTimeRepository.CreateAsync(time);
+                await _avaliableTimeRepository.UpdateAsync(t);
             }
         }
+
+        //public async Task CreateSlotsForTimeAsync(long timeId)
+        //{
+        //    var time = new AvaliableTime
+        //    {
+        //        IsAvaliable = false,
+        //        TimeId = timeId
+        //    };
+
+        //    for(int i = 0; i < 7; i++)
+        //    {
+        //        time.Day = (DayOfWeek)i;
+
+        //        await _avaliableTimeRepository.CreateAsync(time);
+        //    }
+        //}
 
         public async Task DisableSlotAsync(long id)
         {

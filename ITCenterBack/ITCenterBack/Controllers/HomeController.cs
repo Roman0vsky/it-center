@@ -61,7 +61,7 @@ namespace ITCenterBack.Controllers
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
 
-            var sliderImages = await _imagesService.GetSliderImages();
+            var sliderImages = await _imagesService.GetSliderImagesAsync();
             var sliderImagesVM = _mapper.Map<List<SliderImageViewModel>>(sliderImages);
 
 			var header = await HeaderInfoAsync();
@@ -136,7 +136,6 @@ namespace ITCenterBack.Controllers
             string repPhone = Request.Form["rep-phone"];
             string repFio = Request.Form["rep-fio"];
             var coursesId = Request.Form["courses"].Select(long.Parse).ToList();
-            
 
             if (schoolId.HasValue)
             {
@@ -171,12 +170,27 @@ namespace ITCenterBack.Controllers
         [Route("Schedule")]
         public async Task<IActionResult> ScheduleAsync()
         {
+            var schedule = await _imagesService.GetScheduleAsync();
+
             var header = await HeaderInfoAsync();
 
             var page = new ScheduleViewModel
             {
                 Header = header
 			};
+
+            if(schedule is not null)
+            {
+                if(!string.IsNullOrWhiteSpace(schedule.Description))
+                {
+					page.Description = schedule.Description;
+				}
+
+				if (!string.IsNullOrWhiteSpace(schedule.Image))
+				{
+					page.Image = schedule.Image; ;
+				}
+            }
 
             return View(page);
         }

@@ -17,6 +17,7 @@ namespace ITCenterBack.Utilities
             CreateMap<Time, TimeViewModel>();
 			CreateMap<AvaliableTime, AvaliableTimeViewModel>();
 			CreateMap<Application, ApplicationViewModel>();
+			CreateMap<Schedule, ScheduleViewModel>();
 			//CreateMap<List<Teacher>, TeachersViewModel>();
 		}
     }
