@@ -272,5 +272,5 @@ __pycache__/
 .vscode/
 
 #directories
-ITCenterBack/ITCenterBack/bin/
-ITCenterBack/.vs/
+ITCenterBack/ITCenterBack/bin/*
+ITCenterBack/.vs/*
