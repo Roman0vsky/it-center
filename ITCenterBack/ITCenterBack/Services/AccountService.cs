@@ -53,13 +53,13 @@ namespace ITCenterBack.Services
             var user = await _userManager.FindByNameAsync(userName);
             //if (user is null)
             //{
-            //    throw new Exception($"User with provided email {email} was not found");
+            //    throw new Exception($"User was not found");
             //}
 
-            //if (!await _userManager.CheckPasswordAsync(user, password))
-            //{
-            //    throw new Exception();
-            //}
+            if (!await _userManager.CheckPasswordAsync(user, password))
+            {
+                return "";
+            }
 
             var userRoles = await _userManager.GetRolesAsync(user);
             var userClaims = GetClaims(user, userRoles);
