@@ -21,11 +21,14 @@ namespace ITCenterBack.Controllers
 		private readonly ISocialLinkService _linkService;
 		private readonly IImagesService _imagesService;
         private readonly IApplicationService _applicationService;
-		private readonly IMapper _mapper;
+        private readonly ITimeService _timeService;
+        private readonly IAvaliableTimeService _avTimeService;
+        private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
-        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
-            IImagesService imagesService, IApplicationService applicationService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
+        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, 
+            ISocialLinkService linkService, IImagesService imagesService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, 
+            IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
         {
             _courseService = courseService;
             _accountService = accountService;
@@ -34,6 +37,8 @@ namespace ITCenterBack.Controllers
             _linkService = linkService;
             _imagesService = imagesService;
             _applicationService = applicationService;
+            _timeService = timeService;
+            _avTimeService = avTimeService;
             _mapper = mapper;
             _jwtConfig = jwtConfig;
         }
@@ -114,11 +119,19 @@ namespace ITCenterBack.Controllers
 
             var header = await HeaderInfoAsync();
 
+            var time = await _timeService.GetTimesAsync();
+            var timeVM = _mapper.Map<List<TimeViewModel>>(time);
+
+            var avTime = await _avTimeService.GetAllSlotsAsync();
+            var avTimeVM = _mapper.Map<List<AvaliableTimesViewModel>>(avTime);
+
             var page = new ContactsViewModel
             {
                 Header = header,
 				Schools = schoolsVM, /*new SelectList(schoolsVM, "Id", "Name"),*/
-                Courses = coursesVM
+                Courses = coursesVM,
+                Time = timeVM,
+                AvaliableTime = avTimeVM
             };
 
             return View(page);

@@ -30,6 +30,7 @@ builder.Services.AddScoped<IRepository<Time>, TimeRepository>();
 builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>();
 builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
 builder.Services.AddScoped<IRepository<ApplicationTime>, ApplicationTimeRepository>();
+builder.Services.AddScoped<IRepository<AboutUs>, AboutUsRepository>();
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 
 //Services

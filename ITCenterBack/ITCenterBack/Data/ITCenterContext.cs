@@ -21,8 +21,9 @@ namespace ITCenterBack.Data
         public DbSet<SliderImage> SliderImages { get; set; }
         public DbSet<CourseApplication> CourseApplications { get; set; }
 		public DbSet<ApplicationTime> ApplicationTimes { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
 
-		public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
+        public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
             //Database.EnsureCreated();
         }

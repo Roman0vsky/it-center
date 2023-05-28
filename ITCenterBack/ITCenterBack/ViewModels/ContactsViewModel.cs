@@ -14,7 +14,7 @@ namespace ITCenterBack.ViewModels
         public string ListenerFullName { get; set; }
         public string RepresentativeFullName { get; set; }
         public string RepresentativePhoneNumber { get; set; }
-        public List<Time> Time { get; set; }
-        public List<AvaliableTime> AvaliableTime { get; set; }
+        public List<TimeViewModel> Time { get; set; }
+        public List<AvaliableTimesViewModel> AvaliableTime { get; set; }
     }
 }

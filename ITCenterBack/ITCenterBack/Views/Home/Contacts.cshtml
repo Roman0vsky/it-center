@@ -84,6 +84,7 @@
                 <br>
                 <p class="schedule__text">Мы предлагаем Вам указать возможное время посещения занятий.</p>
                 <table class="table_schedule">
+
                     <tbody>
                         <tr>
                             <td>Время</td>
@@ -96,17 +97,44 @@
                             <td>Вс</td>
                         </tr>
 
-                        @*@foreach(var time in Model.Time)
+                        @for (int i = 0; i < Model.Time.Count(); i++)
                         {
                             <tr>
-                                <td>@time.From - @time.To</td>
-                                @for(int i = 1; i <= 7; i++)
+                                <td>@Model.Time[i].From.TimeOfDay.Hours:@Model.Time[i].From.TimeOfDay.Minutes
+                                    -
+                                    @Model.Time[i].To.TimeOfDay.Hours:@Model.Time[i].To.TimeOfDay.Minutes
+                                </td>
+
+                                @for (int j = 0; j < 7; j++)
                                 {
-                                    @if()
+                                    @if ((i * 7 + j) <= Model.AvaliableTime.Count())
+                                    {
+                                        @if (Model.AvaliableTime[i * 7 + j].TimeId == Model.Time[i].Id && Model.AvaliableTime[i * 7 + j].IsAvaliable)
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="check_td disabled"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                    }
                                 }
                             </tr>
-                        }*@
+                        }
 
+                    </tbody>
+
+                    @*<tbody>
+                        <tr>
+                            <td>Время</td>
+                            <td>Пн</td>
+                            <td>Вт</td>
+                            <td>Ср</td>
+                            <td>Чт</td>
+                            <td>Пт</td>
+                            <td>Сб</td>
+                            <td>Вс</td>
+                        </tr>
 
                         <tr>
                             <td>8.00 - 9.25</td>
@@ -125,9 +153,9 @@
                             <td class="check_td disabled"><input id="input12" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input13" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input14" type="checkbox"></td>
-                            <td class="check_td">@*<label for="input15" class="passive" onclick="toogleCheckbox(this)">*@<input id="input15" type="checkbox" @*checked="checked"*@></label></td>
-                            <td class="check_td disabled"><input id="input16" type="checkbox"></td>
-                        </tr>
+                            <td class="check_td">@*<label for="input15" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input15" type="checkbox" @*checked="checked"*@>@*</label></td>
+                            <td class="check_td disabled"><input id="input16" type="checkbox"></td>*@
+                        @*</tr>
                         <tr>
                             <td>11.30 - 12.55</td>
                             <td class="check_td disabled"><input id="input20" type="checkbox"></td>
@@ -135,7 +163,7 @@
                             <td class="check_td disabled"><input id="input22" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input23" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input24" type="checkbox"></td>
-                            <td class="check_td">@*<label for="input25" class="passive" onclick="toogleCheckbox(this)">*@<input id="input25" type="checkbox"></label></td>
+                            <td class="check_td">*@@*<label for="input25" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input25" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input26" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -145,7 +173,7 @@
                             <td class="check_td disabled"><input id="input32" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input33" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input34" type="checkbox"></td>
-                            <td class="check_td">@*<label for="input35" class="passive" onclick="toogleCheckbox(this)">*@<input id="input35" type="checkbox"></label></td>
+                            <td class="check_td">*@@*<label for="input35" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input35" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input36" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -155,7 +183,7 @@
                             <td class="check_td disabled"><input id="input42" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input43" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input44" type="checkbox"></td>
-                            <td class="check_td">@*<label for="input45" class="passive" onclick="toogleCheckbox(this)">*@<input id="input45" type="checkbox"></label></td>
+                            <td class="check_td">*@@*<label for="input45" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input45" type="checkbox"></label></td>
                             <td class="check_td disabled"><input id="input46" type="checkbox"></td>
                         </tr>
                         <tr>
@@ -168,7 +196,7 @@
                             <td class="check_td disabled"><input id="input55" type="checkbox"></td>
                             <td class="check_td disabled"><input id="input56" type="checkbox"></td>
                         </tr>
-                    </tbody>
+                    </tbody>*@
                 </table>
 
             </section>

@@ -110,7 +110,7 @@ namespace ITCenterBack.Controllers
 			{
 				await _linkService.CreateSocialLinkAsync(viewModel.Name, viewModel.Url);
 
-				return RedirectToAction("Links");
+				return RedirectToAction("SocialLinks");
 			}
 
 			return View(viewModel);
