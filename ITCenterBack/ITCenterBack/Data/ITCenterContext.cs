@@ -26,7 +26,7 @@ namespace ITCenterBack.Data
 
 		public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

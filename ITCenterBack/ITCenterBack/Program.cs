@@ -11,11 +11,15 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ITCenterContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
+    opt.UseMySql(
+        builder.Configuration.GetConnectionString("DatabaseConnection"),
+        new MySqlServerVersion(new Version(10, 11, 3)))
+    );
 
 builder.Services.AddSession();
 
