@@ -13,14 +13,18 @@
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
-					<tr><th>ФИО Преподавателя</th><th>Должность</th></tr>
+					<tr>
+						<th>ФИО Преподавателя</th>
+						<th>Должность</th>
+						<th>Изображение</th>
+					</tr>
 				</thead>
 				<tbody>
-						<tr>
-							<td>@Model.Name</td>
-							<td>@Model.Description</td>
-						</tr>
-
+					<tr>
+						<td>@Model.Name</td>
+						<td>@Model.Description</td>
+						<td><img src=@Model.Image alt="images"></td>
+					</tr>
 				</tbody>
 			</table>
 

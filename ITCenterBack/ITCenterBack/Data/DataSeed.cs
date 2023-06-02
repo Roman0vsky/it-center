@@ -126,6 +126,69 @@ namespace ITCenterBack.Data
 					Image = "/assets/for_new/img/home-clubs/5.jpg"
 				}
 				);
+
+			//about us
+			modelBuilder.Entity<AboutUs>().HasData(
+				new AboutUs
+				{
+                    Id = 1,
+                    Description = "<span class=\"formula\">IT-центр</span> - открывает детям двери в мир IT, не забывая об их росте как личности и прививая им важные социальные ценности. " +
+                    "Мы больше, чем просто компьютерные курсы для детей. Мы предоставляем не только обучение программированию или робототехнике, но и все возможности для роста," +
+                    " общения и развития.<br>\r\n" +
+                    "<span class=\"formula\">IT-центр</span> - стиль жизни и образ мышления, среда роста и творчества. Современный рынок цифровых продуктов - " +
+                    "это уже не поле для деятельности специалистов-одиночек, это полигон борьбы глобальных проектов. Мы готовим специалистов, нацеленных на командную работу и общий успех!\r\n                                        ",
+                    Url = "https://www.youtube.com/embed/KrreehNgcgA"
+				}
+				);
+
+			//links
+			modelBuilder.Entity<SocialLink>().HasData(
+				new SocialLink
+				{
+                    Id = 1,
+					Name = "ВКонтакте",
+                    Url = "https://vk.com/abiturvsu"
+				}
+				);
+			modelBuilder.Entity<SocialLink>().HasData(
+				new SocialLink
+				{   
+                    Id = 2,
+					Name = "Instagram",
+					Url = "https://www.instagram.com/tvu.vsu/"
+				}
+				);
+			modelBuilder.Entity<SocialLink>().HasData(
+				new SocialLink
+				{
+					Id = 3,
+					Name = "Youtube",
+					Url = "https://www.youtube.com/channel/UCo18_krqqaEWSb6_cbHnupQ"
+				}
+				);
+			modelBuilder.Entity<SocialLink>().HasData(
+				new SocialLink
+				{
+					Id = 4,
+					Name = "Facebook",
+					Url = "https://www.facebook.com/vsu.by"
+				}
+				);
+
+			//info
+			modelBuilder.Entity<Info>().HasData(
+				new Info
+				{
+					Id = 1,
+					NameOfTheCenter = "IT-центр",
+                    NameOfUniversity = "ВГУ имени П.М.Машерова",
+                    AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
+                    SliderBigText = "IT-центр",
+                    SliderSmallText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
+                    HeaderLogo = "assets/for_new/img/icons/logo.svg",
+                    FooterLogo = "images/gllg.png"
+				}
+				);
 		}
     }
 }

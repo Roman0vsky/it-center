@@ -29,8 +29,7 @@ builder.Services.AddScoped<IRepository<SocialLink>, SocialLinkRepository>();
 builder.Services.AddScoped<IRepository<Time>, TimeRepository>();
 builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>();
 builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
-builder.Services.AddScoped<IRepository<ApplicationTime>, ApplicationTimeRepository>();
-builder.Services.AddScoped<IRepository<AboutUs>, AboutUsRepository>();
+builder.Services.AddScoped<IApplicationTimeRepository, ApplicationTimeRepository>();
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 
 //Services
@@ -46,6 +45,9 @@ builder.Services.AddScoped<IImagesService, ImagesService>();
 builder.Services.AddScoped<ITimeService, TimeService>();
 builder.Services.AddScoped<IAvaliableTimeService, AvaliableTimeService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IAboutUsService, AboutUsService>();
+builder.Services.AddScoped<IInfoService, InfoService>();
+//builder.Services.AddScoped<IApplicationTimeService, ApplicationTimeService>();
 
 
 builder.Services.AddControllersWithViews();

@@ -34,7 +34,7 @@ namespace ITCenterBack.Repositories
 
         public async Task<List<News>> GetAllAsync()
         {
-            return await _context.News.ToListAsync();
+            return await _context.News.OrderBy(p => p.PublicationDate).ToListAsync();
         }
 
         public async Task<News> GetByIdAsync(long id)

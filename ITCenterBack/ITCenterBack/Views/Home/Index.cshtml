@@ -35,11 +35,16 @@
                             <!-- Клуб -->
                         </div>
                         <div class="slider-main-title text-white tp-caption tp-resizeme rs-parallaxlevel-1 formula" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['top','top','middle','middle']" data-voffset="['227','240','24','39']" data-width="['1200','960','720','540']" data-textalign="left" data-fontsize="['160','88','64','48']" data-fontweight="900" data-letterspacing="['25','10','5','0']" data-lineheight="['184','100','72','60']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[19,31,24,25]" style="margin-left:-.07em">
-                            IT-центр
+                            @Model.Info.SliderBigText
                         </div>
                         <div class="slider-text text-white tp-caption tp-resizeme rs-parallaxlevel-2" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['top','top','middle','middle']" data-voffset="['435','360','88','86']" data-width="['600','555','555','480']" data-textalign="left" data-fontsize="['16','14','14','14']" data-lineheight="['30','30','22','22']" data-fontweight="400" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[25,25,25,25]">
-                            УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ "ВГУ ИМЕНИ П.М.МАШЕРОВА"
+                            @Model.Info.SliderSmallText
                         </div>
+                        @*<div class="slider-text text-white tp-caption tp-resizeme rs-parallaxlevel-2" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['top','top','middle','middle']" data-voffset="['435','360','88','86']" data-width="['700','700','700','700']" data-textalign="left" data-fontsize="['20','20','14','14']" data-lineheight="['30','30','22','22']" data-fontweight="400" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[25,25,25,25]">
+                            “МИР будущего” <br>
+                            УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ "ВГУ ИМЕНИ П.М.МАШЕРОВА"
+                        </div>*@
+
                         <div class="tp-caption rev-btn  rs-parallaxlevel-1" id="slide-163-layer-2" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['220','170','149','137']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeOut;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="1250" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-164","delay":""}]' data-responsive_offset="on" data-paddingtop="[0,0,0,0]" data-paddingright="[25,25,25,25]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[25,25,25,25]">
                             <a class="btn btn-primary has-radius-small" href=@Url.Content("/api/Home/Contacts")>Записаться</a>
                         </div>
@@ -59,7 +64,7 @@
                         <div class="col-wrap">
                             <div class="block-heading" style="text-align:center">
                                 <h3 class="block-top-heading">Добро пожаловать в</h3>
-                                <h2 class="block-main-heading formula">IT-центр</h2>
+                                <h2 class="block-main-heading formula">@Model.Info.NameOfTheCenter</h2>
                                 <span class="block-sub-heading">Не просто курсы...</span>
                                 <div class="divider"><img src="/assets/for_new/img/divider.png" alt="images description"></div>
                             </div>
@@ -172,8 +177,7 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="bottom-space-small-only">
                             <p>
-                                <span class="formula">IT-центр</span> - открывает детям двери в мир IT, не забывая об их росте как личности и прививая им важные социальные ценности. Мы больше, чем просто компьютерные курсы для детей. Мы предоставляем не только обучение программированию или робототехнике, но и все возможности для роста, общения и развития.<br>
-                                <span class="formula">IT-центр</span> - стиль жизни и образ мышления, среда роста и творчества. Современный рынок цифровых продуктов - это уже не поле для деятельности специалистов-одиночек, это полигон борьбы глобальных проектов. Мы готовим специалистов, нацеленных на командную работу и общий успех!
+                                @Model.AboutUs.Description
                             </p>
 
 
@@ -181,7 +185,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12">
                         <div class="bottom-s-space">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/KrreehNgcgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="100%" height="315" src=@Model.AboutUs.Url title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>

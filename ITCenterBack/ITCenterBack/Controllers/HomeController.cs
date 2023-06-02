@@ -1,12 +1,14 @@
 ﻿using AutoMapper;
 using ITCenterBack.Interfaces;
 using ITCenterBack.Models;
+using ITCenterBack.Services;
 using ITCenterBack.Utilities;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Options;
+using System.Text.RegularExpressions;
 
 namespace ITCenterBack.Controllers
 {
@@ -23,27 +25,31 @@ namespace ITCenterBack.Controllers
         private readonly IApplicationService _applicationService;
         private readonly ITimeService _timeService;
         private readonly IAvaliableTimeService _avTimeService;
-        private readonly IMapper _mapper;
+		private readonly IAboutUsService _aboutUsService;
+		private readonly IInfoService _infoService;
+		private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
-        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, 
-            ISocialLinkService linkService, IImagesService imagesService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, 
-            IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
-        {
-            _courseService = courseService;
-            _accountService = accountService;
-            _schoolService = schoolService;
-            _newsService = newsService;
-            _linkService = linkService;
-            _imagesService = imagesService;
-            _applicationService = applicationService;
-            _timeService = timeService;
-            _avTimeService = avTimeService;
-            _mapper = mapper;
-            _jwtConfig = jwtConfig;
-        }
+		public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
+            IImagesService imagesService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, IAboutUsService aboutUsService, 
+            IInfoService infoService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
+		{
+			_courseService = courseService;
+			_accountService = accountService;
+			_schoolService = schoolService;
+			_newsService = newsService;
+			_linkService = linkService;
+			_imagesService = imagesService;
+			_applicationService = applicationService;
+			_timeService = timeService;
+			_avTimeService = avTimeService;
+			_aboutUsService = aboutUsService;
+			_infoService = infoService;
+			_mapper = mapper;
+			_jwtConfig = jwtConfig;
+		}
 
-        private async Task<HeaderViewModel> HeaderInfoAsync ()
+		private async Task<HeaderViewModel> HeaderInfoAsync ()
         {
 			var courses = await _courseService.GetAllCoursesAsync();
 			var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
@@ -69,12 +75,20 @@ namespace ITCenterBack.Controllers
             var sliderImages = await _imagesService.GetSliderImagesAsync();
             var sliderImagesVM = _mapper.Map<List<SliderImageViewModel>>(sliderImages);
 
+            var aboutUs = await _aboutUsService.GetAboutUs();
+            var aboutUsVM = _mapper.Map<AboutUsViewModel>(aboutUs);
+
+            var info = await _infoService.GetInfoAsync();
+            var infoVM = _mapper.Map<InfoViewModel>(info);
+
 			var header = await HeaderInfoAsync();
 
             var page = new IndexViewModel
             {
                 Header = header,
-                SliderImages = sliderImagesVM
+                SliderImages = sliderImagesVM,
+                AboutUs = aboutUsVM,
+                Info = infoVM
 			};
 
             switch(courseType)
@@ -150,13 +164,50 @@ namespace ITCenterBack.Controllers
             string repFio = Request.Form["rep-fio"];
             var coursesId = Request.Form["courses"].Select(long.Parse).ToList();
 
+            var time = await _timeService.GetTimesAsync();
+            var avaliableTime = await _avTimeService.GetAllSlotsAsync();
+
+            var avTimeList = new List<AvaliableTime>();
+
+            var timeList = Request.Form["time"];
+
+            Regex regex = new Regex(@"\d+");
+
+            if (!string.IsNullOrWhiteSpace(timeList))
+            {
+                int hourIndex;
+                int dayIndex;
+
+                for (int i = 0; i < timeList.Count(); i++)
+                {
+                    MatchCollection matches = regex.Matches(timeList[i]);
+
+                    if (matches.Count > 0)
+                    {
+                        hourIndex = int.Parse(matches[0].Value);
+                        dayIndex = int.Parse(matches[1].Value) + 1;
+
+                        foreach (var avTime in avaliableTime)
+                        {
+                            if (avTime.TimeId == time[hourIndex].Id && avTime.Day == (DayOfWeek)dayIndex)
+                            {
+                                avTimeList.Add(avTime);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+
+            }
+
             if (schoolId.HasValue)
             {
-                await _applicationService.CreateApplication(schoolNameAlt, classNumber, fio, repFio, repPhone, null, coursesId);
+                await _applicationService.CreateApplication(schoolNameAlt, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
                 return RedirectToAction("Contacts");
             }
 
-            await _applicationService.CreateApplication(schoolId, classNumber, fio, repFio, repPhone, null, coursesId);
+            await _applicationService.CreateApplication(schoolId, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
 
             return RedirectToAction("Contacts");
 

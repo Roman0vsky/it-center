@@ -1,6 +1,9 @@
 ﻿using ITCenterBack.Interfaces;
 using ITCenterBack.Models;
 using ITCenterBack.ViewModels;
+using ITCenterBack.ViewModels.SecondaryViewModels;
+using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace ITCenterBack.Services
 {
@@ -8,20 +11,26 @@ namespace ITCenterBack.Services
     {
         private readonly IRepository<Application> _applicationRepository;
         private readonly IRepository<Course> _courseRepository;
+        private readonly IApplicationTimeRepository _appTimeRepository;
         private readonly IRepository<School> _schoolRepository;
-        private readonly ICourseApplicationRepository _courseApplRepository;
+        private readonly IRepository<AvaliableTime> _avTimeRepository;
+		private readonly IRepository<Time> _timeRepository;
+		private readonly ICourseApplicationRepository _courseApplRepository;
 
-        public ApplicationService(IRepository<Application> applicationRepository, IRepository<Course> courseRepository, IRepository<School> schoolRepository, ICourseApplicationRepository courseApplRepository)
-        {
-            _applicationRepository = applicationRepository;
-            _courseRepository = courseRepository;
-            _schoolRepository = schoolRepository;
-            _courseApplRepository = courseApplRepository;
-        }
+		public ApplicationService(IRepository<Application> applicationRepository, IRepository<Course> courseRepository, IApplicationTimeRepository appTimeRepository, 
+            IRepository<School> schoolRepository, IRepository<AvaliableTime> avTimeRepository, IRepository<Time> timeRepository, ICourseApplicationRepository courseApplRepository)
+		{
+			_applicationRepository = applicationRepository;
+			_courseRepository = courseRepository;
+			_appTimeRepository = appTimeRepository;
+			_schoolRepository = schoolRepository;
+			_avTimeRepository = avTimeRepository;
+			_timeRepository = timeRepository;
+			_courseApplRepository = courseApplRepository;
+		}
 
-        //to do
-        public async Task CreateApplication(string? schoolName, int clas, string listenerFullName, string representativeFullName, 
-            string representativePhoneNumber, List<Time> times, List<long> coursesId)
+		public async Task CreateApplication(string? schoolName, int clas, string listenerFullName, string representativeFullName, 
+            string representativePhoneNumber, List<AvaliableTime> times, List<long> coursesId)
         {
             var application = new Application()
             {
@@ -32,34 +41,13 @@ namespace ITCenterBack.Services
                 RepresentativePhoneNumber = representativePhoneNumber
             };
 
-			//if (string.IsNullOrEmpty(schoolId))
-			//{
-   //             application.SchoolName = schoolName;
-			//}
-   //         else
-   //         {
-   //             var id = long.Parse(schoolId);
-   //             var school = await _schoolRepository.GetByIdAsync(id);
-
-   //             application.SchoolName = school.Name;
-   //         }
-
 			await _applicationRepository.CreateAsync(application);
 
-            foreach (var id in coursesId)
-            {
-                await _courseApplRepository.CreateAsync(
-                    new CourseApplication
-                    {
-                        CourseId = id,
-                        ApplicationId = application.Id
-                    });
-            }
-
-            //throw new NotImplementedException();
+            await CreateCoursesAndTimeConnectionsAsync(times, coursesId, application);
         }
 
-		public async Task CreateApplication(long? schoolId, int clas, string listenerFullName, string representativeFullName, string representativePhoneNumber, List<Time> times, List<long> coursesId)
+		public async Task CreateApplication(long? schoolId, int clas, string listenerFullName, string representativeFullName, string representativePhoneNumber, 
+            List<AvaliableTime> times, List<long> coursesId)
 		{
 			var application = new Application()
 			{
@@ -80,18 +68,33 @@ namespace ITCenterBack.Services
 
 			await _applicationRepository.CreateAsync(application);
 
-			foreach (var id in coursesId)
-			{
-				await _courseApplRepository.CreateAsync(
-					new CourseApplication
-					{
-						CourseId = id,
-						ApplicationId = application.Id
-					});
-			}
+            await CreateCoursesAndTimeConnectionsAsync(times, coursesId, application);
+        }
 
-			//throw new NotImplementedException();
-		}
+        private async Task CreateCoursesAndTimeConnectionsAsync(List<AvaliableTime> times, List<long> coursesId, Application application)
+        {
+            foreach (var id in coursesId)
+            {
+                await _courseApplRepository.CreateAsync(
+                    new CourseApplication
+                    {
+                        CourseId = id,
+                        ApplicationId = application.Id
+                    });
+            }
+
+            foreach (var t in times)
+            {
+                await _appTimeRepository.CreateAsync(
+                    new ApplicationTime
+                    {
+                        TimeId = t.TimeId,
+                        ApplicationId = application.Id,
+                        Day = t.Day
+                    }
+                    );
+            }
+        }
 
 		//to do
 		public Task DeleteApplication(long id)
@@ -110,14 +113,37 @@ namespace ITCenterBack.Services
 
             var application = await _applicationRepository.GetByIdAsync(id);
             var coursesApp = await _courseApplRepository.GetByApplicationId(id);
+            var timeApp = await _appTimeRepository.GetByApplicationIdAsync(id);
             var courses = new List<string>();
+            //var times = new List<Time>();
+            //var days = new List<DayOfWeek>();
             Course course;
+            Time time;
 
-            foreach (var courseApp in coursesApp)
+            var daysTimes = new List<TimeDayViewModel>();
+
+			foreach (var courseApp in coursesApp)
             {
                 course = await _courseRepository.GetByIdAsync(courseApp.CourseId);
+                if(course is not null)
+                {
+					courses.Add(course.Name);
+				}
+            }
 
-                courses.Add(course.Name);
+            foreach (var t in timeApp)
+            {
+                time = await _timeRepository.GetByIdAsync(t.TimeId);
+
+                if(time is not null)
+                {
+                    daysTimes.Add(new TimeDayViewModel
+                    {
+                        TimeFrom = time.From,
+                        TimeTo = time.To,
+                        Day = CultureInfo.GetCultureInfo("ru-RU").DateTimeFormat.GetDayName(t.Day)
+				    });
+				}
             }
 
             applicationVM.SchoolName = application.SchoolName;
@@ -126,6 +152,7 @@ namespace ITCenterBack.Services
             applicationVM.RepresentativeFullName = application.RepresentativeFullName;
             applicationVM.Courses = courses;
             applicationVM.Class = application.Class;
+            applicationVM.DayTime = daysTimes;
 
             return applicationVM;
         }
