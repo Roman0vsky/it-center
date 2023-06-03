@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://localhost:44379/api/Admin/AddCourse -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Добавить направление - Админ панель</title>
+	<meta name="keywords">
+	<meta name="description"><!-- build:css1 css/vendor.css -->
+	<!-- endbuild -->
+	<!-- build:css2 css/styles.css -->
+	<link rel="stylesheet" href="./assets/for_new/css/main.css"><!-- endbuild -->
+	<link href="./Добавить направление - Админ панель_files/css" rel="stylesheet">
+<style id="inert-style">
+[inert] {
+  pointer-events: none;
+  cursor: default;
+}
+
+[inert], [inert] * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+</style></head>
+
+<body class="admin-page">
+
+	<div class="admin-page__left-panel">
+		<div class="control-panel">
+			<div class="control-panel__container">
+				<div class="control-panel__title-wrapper">
+					<h2 class="control-panel__title">IT-центр</h2>
+					<p class="control-panel__subtitle">админ-панель управления</p>
+				</div>
+				<ul class="control-panel__list">
+
+					<ul class="control-panel__list">
+
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Admin/Teachers">
+								<div class="control-panel__list-img-wrapper">
+								</div>Преподаватели
+							</a>
+						</li>
+						
+
+					</ul>
+
+					
+
+					<ul class="control-panel__list">
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Admin/News">
+								<div class="control-panel__list-img-wrapper">
+								</div>Новости
+							</a>
+						</li>
+
+						
+						<ul class="control-panel__list">
+							<li class="control-panel__list-item">
+								<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Admin/SocialLinks">
+									<div class="control-panel__list-img-wrapper">
+									</div>Ссылки
+								</a>
+							</li>
+							<li class="control-panel__list-item">
+								<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Admin/SliderImages">
+									<div class="control-panel__list-img-wrapper">
+									</div>Слайдер
+								</a>
+							</li>
+							<li class="control-panel__list-item">
+								<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Admin/UpdateSchedule">
+									<div class="control-panel__list-img-wrapper">
+									</div>Расписание
+								</a>
+							</li>
+							<li class="control-panel__list-item">
+								<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/AboutUs/About">
+									<div class="control-panel__list-img-wrapper">
+									</div>О нас
+								</a>
+							</li>
+							<li class="control-panel__list-item">
+								<a class="control-panel__list-link control-panel__inner-link" href="https://localhost:44379/api/Info/Info">
+									<div class="control-panel__list-img-wrapper">
+									</div>Информация
+								</a>
+							</li>
+						</ul>
+						
+
+						
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href="https://localhost:44379/api/Time/AvaliableTime">
+								<div class="control-panel__list-img-wrapper">
+								</div>Дни записи
+							</a>
+						</li>
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href="https://localhost:44379/api/Time/Time">
+								<div class="control-panel__list-img-wrapper">
+								</div>Время записи
+							</a>
+						</li>
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href="https://localhost:44379/api/Admin/Schools">
+								<div class="control-panel__list-img-wrapper">
+								</div>Школы
+							</a>
+						</li>
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href="https://localhost:44379/api/Admin/Courses">
+								<div class="control-panel__list-img-wrapper">
+								</div>Курсы
+							</a>
+						</li>
+						<li class="control-panel__list-item">
+							<a class="control-panel__list-link" href="https://localhost:44379/api/Application/Applications">
+								<div class="control-panel__list-img-wrapper">
+								</div>Заявки
+							</a>
+						</li>
+
+			</ul></ul></div>
+			<ul class="control-panel__list">
+				<li class="control-panel__list-item">
+					<a class="control-panel__list-link" href="https://localhost:44379/api/Home/Index">
+						<div class="control-panel__list-img-wrapper">
+						</div>На главную
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить направление </h2>
+			</div>
+<form action="https://localhost:44379/api/Admin/AddCourse" enctype="multipart/form-data" method="post">				<div class="admin-form__item">
+					<label class="input__label">
+						Введите название направления <br>
+						<input class="text-box single-line" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" type="text" value=""> <hr>
+					</label>
+					<label class="input__label">
+						Введите возраст <br>
+						<input class="text-box single-line" data-val="true" data-val-required="The Age field is required." id="Age" name="Age" type="text" value=""> <hr>
+					</label>
+					<label class="input__label">
+						Тип курса <hr>
+						<select class="form-control" data-val="true" data-val-required="The CourseType field is required." id="CourseType" name="CourseType">
+							<option>Выбрать тип ...</option>
+						<option value="0">All</option>
+<option value="1">Development</option>
+<option value="2">Design</option>
+<option value="3">Robotics</option>
+<option value="4">Other</option>
+</select>
+					</label>
+					<label class="input__label">
+						Введите требования <hr>
+						<textarea class="text-box multi-line" data-val="true" data-val-required="The Requirements field is required." id="Requirements" name="Requirements"></textarea>
+					</label>
+					<label class="input__label">
+						Введите описание <hr>
+						<textarea class="text-box multi-line" data-val="true" data-val-required="The Description field is required." id="Description" name="Description"></textarea>
+					</label>
+					<label class="input__label">
+						Изображение <hr>
+						<div class="editor-field">
+							<input class="uploud-file" type="file" name="uploadedFile">
+						</div>
+					</label>
+				</div>
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить">
+				</div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8CuPh-VpYkxGg9HtoAfTbh-HmCRKU8B9yc8DoEuOhObbzAv1P2L3AFB9MHY04R0bxDExp2XZhF5C6y-yooQ1WlVBwgT3ZmjKVLZRWoISo6InU5Epw3q2Gi1isQ4NIfv3C7oaUcm7mHVIT9D6Uvwy6m9O-JGDQPJR0U5hoFKlRnTHinvZUn9Yf-kiAwIkT5_UFA"></form>
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href="https://localhost:44379/api/Admin/Courses">Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>
+
+	<!-- build:js1 js/jquery.js -->
+	<script src="./Добавить направление - Админ панель_files/jquery-3.3.1.min.js.Без названия"></script>
+	<!-- endbuild -->
+	<!-- build:js2 js/vendor.js -->
+	<!-- endbuild -->
+	<!-- build:js3 js/main.js -->
+	<script src="./Добавить направление - Админ панель_files/main.js.Без названия"></script>
+	<!-- endbuild -->
+
+<!-- Visual Studio Browser Link -->
+<script type="text/javascript" src="./Добавить направление - Админ панель_files/browserLink" async="async" id="__browserLink_initializationData" data-requestid="8f0a4aaeb2054c04a64da97de7a356e4" data-requestmappingfromserver="false" data-connecturl="http://localhost:59114/6836a99932f9432c89b5ca527d5ba52e/browserLink"></script>
+<!-- End Browser Link -->
+
+<script src="./Добавить направление - Админ панель_files/aspnetcore-browser-refresh.js.Без названия"></script>
+
+
+<live-preview-root><template shadowrootmode="open">
+    
+</template></live-preview-root></body></html>

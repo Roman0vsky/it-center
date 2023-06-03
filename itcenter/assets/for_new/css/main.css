@@ -4335,6 +4335,10 @@ em.state-invalid {
 	transform: rotate(-160deg);
 }
 
+.aligion {
+	max-width: 67.86rem;
+}
+
 /*------------------------------------------------------------------
 5. Buttons / .btn
 -------------------------------------------------------------------*/
@@ -6202,9 +6206,9 @@ pre {
   }
   
 .admin-form {
-	max-width: 900px;
 	background: #ffffff;
 	padding: 20px 30px 34px 30px;
+	width: 1480px;
   }
   
   .admin-form + .admin-form {
@@ -8719,12 +8723,15 @@ a.full-width-icon:hover .social-text {
 }
 table {
     border-collapse: collapse;
+	width: 100%;
    }
    th {
     background: #f7f7f7; 
     text-align: left; 
+	padding-left: 10px;
    }
    td, th {
+	padding-left: 10px;
     border: 1px solid #000; / Параметры границы /
     padding: 4px; / Поля в ячейках */
    }
@@ -11942,6 +11949,10 @@ table {
 		color: #fff;
 	}
 
+	.main-header.header-white.transparent .navbar .navbar-nav > li > h4 {
+		color: #fff;
+	}
+
 	.main-header.header-white.transparent .navbar-pos-search a.x-search-trigger,.main-header.header-white.transparent .navbar-pos-search .navbar-link {
 		color: #fff;
 	}
@@ -11963,6 +11974,10 @@ table {
 	}
 
 	.main-header.header-white.transparent.sticky-nav .navbar .navbar-nav > li > a {
+		color: #55565b;
+	}
+
+	.main-header.header-white.transparent.sticky-nav .navbar .navbar-nav > li > h4 {
 		color: #55565b;
 	}
 
@@ -13898,7 +13913,7 @@ table {
 	color: #fff;
 	border-radius: 5px;
 }
-.dropdown_sixth:hover {
+.dropdown_sixth{
 	background: #FF848B;
 	color: #fff;
 	border-radius: 5px;
@@ -13908,7 +13923,14 @@ table {
 	color: #fff;
 	border-radius: 5px;
 }
-
+.dropdown_eight {
+	display: flex; 
+	flex-direction: column;
+}
+.dropdown_eight h4 {
+	font-size: 20px;
+	color: #fff
+}
 @media only screen and (min-width: 991px) {
 
 }	
@@ -14353,6 +14375,35 @@ table {
 .contact__submit {
 	font-size: 18px;
 	margin: 20px 0;
+}
+.text-box{
+  margin-top: 5px;
+  min-width: 100%;
+  max-width: 100%;
+}
+.multi-line{
+	height: 80px;
+}
+.single-line{
+	height: 40px;
+}
+.file-button{
+	font-size:20px;
+}
+.secondary-button{
+	font-size:20px;
+}
+.primary-button{
+	width: 125px;
+    height: 40px;
+    font-size: 19px;
+}
+.uploud-file{
+	font-size: 20px;
+	margin-top: 11px;
+}
+.table-text{
+	margin-top: 15px;
 }
 @media screen and (max-width: 800px) {
 	.contact__fio,
