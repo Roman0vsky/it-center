@@ -185,8 +185,8 @@ namespace ITCenterBack.Data
                     AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
                     SliderBigText = "IT-центр",
                     SliderSmallText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
-                    HeaderLogo = "assets/for_new/img/icons/logo.svg",
-                    FooterLogo = "images/gllg.png"
+                    HeaderLogo = "/assets/for_new/img/icons/logo.svg",
+                    FooterLogo = "/images/gllg.png"
 				}
 				);
 		}

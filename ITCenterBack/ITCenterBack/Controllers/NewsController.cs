@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ITCenterBack.Interfaces;
+using ITCenterBack.Services;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,16 +16,18 @@ namespace ITCenterBack.Controllers
 		//private readonly ITeacherService _teacherService;
 		private readonly INewsService _newsService;
         private readonly ISocialLinkService _linkService;
+		private readonly IInfoService _infoService;
 
-        public NewsController(IMapper mapper, ICourseService courseService, INewsService newsService, ISocialLinkService linkService)
-        {
-            _mapper = mapper;
-            _courseService = courseService;
-            _newsService = newsService;
-            _linkService = linkService;
-        }
+		public NewsController(IMapper mapper, ICourseService courseService, INewsService newsService, ISocialLinkService linkService, IInfoService infoService)
+		{
+			_mapper = mapper;
+			_courseService = courseService;
+			_newsService = newsService;
+			_linkService = linkService;
+			_infoService = infoService;
+		}
 
-        [Route("Details/{id}")]
+		[Route("Details/{id}")]
 		[ActionName("Details")]
 		public async Task<IActionResult> DetailsAsync(long id)
 		{
@@ -39,16 +42,29 @@ namespace ITCenterBack.Controllers
                 var links = await _linkService.GetAllSocialLinksAsync();
                 var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-                var header = new HeaderViewModel
+				var info = await _infoService.GetInfoAsync();
+				var infoVM = _mapper.Map<InfoViewModel>(info);
+
+                var footer = new FooterViewModel
                 {
-                    Courses = coursesVM,
-                    Links = linksVM
+                    Links = linksVM,
+                    Logo = infoVM.FooterLogo,
+                    Adress = infoVM.AdressOfUniversity,
+                    NameOfUniversity = infoVM.NameOfUniversity
                 };
+
+                var header = new HeaderViewModel
+				{
+					Courses = coursesVM,
+					Links = linksVM,
+					Logo = infoVM.HeaderLogo
+				};
 
 				var page = new NewsDetailsViewModel
 				{
 					Header = header,
-					News = newsVM
+					News = newsVM,
+					Footer = footer
 				};
 
                 return View(page);
@@ -70,16 +86,29 @@ namespace ITCenterBack.Controllers
             var links = await _linkService.GetAllSocialLinksAsync();
             var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-            var header = new HeaderViewModel
+			var info = await _infoService.GetInfoAsync();
+			var infoVM = _mapper.Map<InfoViewModel>(info);
+
+			var header = new HeaderViewModel
+			{
+				Courses = coursesVM,
+				Links = linksVM,
+				Logo = infoVM.HeaderLogo
+			};
+
+            var footer = new FooterViewModel
             {
-                Courses = coursesVM,
-                Links = linksVM
+                Links = linksVM,
+                Logo = infoVM.FooterLogo,
+                Adress = infoVM.AdressOfUniversity,
+                NameOfUniversity = infoVM.NameOfUniversity
             };
 
             var page = new AllNewsViewModel
             {
                 Header = header,
-                News = newsVM
+                News = newsVM,
+				Footer = footer
             };
 
             return View(page);

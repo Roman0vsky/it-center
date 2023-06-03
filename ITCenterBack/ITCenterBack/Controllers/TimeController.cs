@@ -147,37 +147,6 @@ namespace ITCenterBack.Controllers
                     }
                 }
 
-
-                //for (int i = 0; i < timeList.Count(); i++)
-                //{
-                //    MatchCollection matches = regex.Matches(timeList[i]);
-
-                //    if (matches.Count > 0)
-                //    {
-                //        hourId = long.Parse(matches[0].Value);
-                //        dayIndex = int.Parse(matches[1].Value);
-
-                //        hourIds.Add(hourId);
-                //        dayIndexes.Add(dayIndex);
-                //    }
-                //}
-
-                
-
-                //foreach(var avTime in avaliableTime)
-                //{
-                //    for (int i = 0; i < time.Count(); i++)
-                //    {
-                //        for (int j = 0; j < 7; j++)
-                //        {
-                //            if(avTime.TimeId == time[i].Id && avTime.Day == (DayOfWeek)(j + 1))
-                //            {
-
-                //            }
-                //        }
-                //    }
-                //}
-
             }
 
             return View(page);

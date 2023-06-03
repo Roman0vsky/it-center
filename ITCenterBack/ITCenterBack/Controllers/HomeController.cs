@@ -57,13 +57,17 @@ namespace ITCenterBack.Controllers
             var links = await _linkService.GetAllSocialLinksAsync();
             var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
 
-            var header = new HeaderViewModel
-            {
-                Courses = coursesVM,
-                Links = linksVM
-            };
+			var info = await _infoService.GetInfoAsync();
+			var infoVM = _mapper.Map<InfoViewModel>(info);
 
-            return header;
+			var header = new HeaderViewModel
+			{
+				Courses = coursesVM,
+				Links = linksVM,
+				Logo = infoVM.HeaderLogo
+			};
+
+			return header;
 		}
 
 		[Route("Index")]
@@ -83,12 +87,24 @@ namespace ITCenterBack.Controllers
 
 			var header = await HeaderInfoAsync();
 
+            var links = await _linkService.GetAllSocialLinksAsync();
+            var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+            var footer = new FooterViewModel
+            {
+                Links = linksVM,
+                Logo = infoVM.FooterLogo,
+                Adress = infoVM.AdressOfUniversity,
+                NameOfUniversity = infoVM.NameOfUniversity
+            };
+
             var page = new IndexViewModel
             {
                 Header = header,
                 SliderImages = sliderImagesVM,
                 AboutUs = aboutUsVM,
-                Info = infoVM
+                Info = infoVM,
+                Footer = footer
 			};
 
             switch(courseType)
@@ -133,6 +149,20 @@ namespace ITCenterBack.Controllers
 
             var header = await HeaderInfoAsync();
 
+            var info = await _infoService.GetInfoAsync();
+            var infoVM = _mapper.Map<InfoViewModel>(info);
+
+            var links = await _linkService.GetAllSocialLinksAsync();
+            var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+            var footer = new FooterViewModel
+            {
+                Links = linksVM,
+                Logo = infoVM.FooterLogo,
+                Adress = infoVM.AdressOfUniversity,
+                NameOfUniversity = infoVM.NameOfUniversity
+            };
+
             var time = await _timeService.GetTimesAsync();
             var timeVM = _mapper.Map<List<TimeViewModel>>(time);
 
@@ -145,7 +175,8 @@ namespace ITCenterBack.Controllers
 				Schools = schoolsVM, /*new SelectList(schoolsVM, "Id", "Name"),*/
                 Courses = coursesVM,
                 Time = timeVM,
-                AvaliableTime = avTimeVM
+                AvaliableTime = avTimeVM,
+                Footer = footer
             };
 
             return View(page);
@@ -210,23 +241,6 @@ namespace ITCenterBack.Controllers
             await _applicationService.CreateApplication(schoolId, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
 
             return RedirectToAction("Contacts");
-
-            //string schoolName;
-
-            //if(!string.IsNullOrWhiteSpace(viewModel.Schools.SelectedValue.ToString()))
-            //{
-            //    schoolName = viewModel.Schools.SelectedValue.ToString();
-            //}
-            //else
-            //{
-            //    schoolName = viewModel.SchoolName;
-            //}
-
-
-            //await _applicationService.CreateApplication(schoolName, viewModel.Class, viewModel.PhoneNumber, viewModel.ListenerFullName, viewModel.RepresentativeFullName,
-            //    viewModel.RepresentativePhoneNumber, null, null);
-
-            //return View(viewModel);
         }
 
         [HttpGet]
@@ -238,9 +252,24 @@ namespace ITCenterBack.Controllers
 
             var header = await HeaderInfoAsync();
 
+            var info = await _infoService.GetInfoAsync();
+            var infoVM = _mapper.Map<InfoViewModel>(info);
+
+            var links = await _linkService.GetAllSocialLinksAsync();
+            var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
+
+            var footer = new FooterViewModel
+            {
+                Links = linksVM,
+                Logo = infoVM.FooterLogo,
+                Adress = infoVM.AdressOfUniversity,
+                NameOfUniversity = infoVM.NameOfUniversity
+            };
+
             var page = new ScheduleViewModel
             {
-                Header = header
+                Header = header,
+                Footer = footer
 			};
 
             if(schedule is not null)

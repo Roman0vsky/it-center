@@ -8,5 +8,6 @@
         public List<SliderImageViewModel> SliderImages { get; set; }
         public AboutUsViewModel AboutUs { get; set; }
         public InfoViewModel Info { get; set; }
+        public FooterViewModel Footer { get; set; }
     }
 }

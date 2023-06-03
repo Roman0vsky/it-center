@@ -16,5 +16,6 @@ namespace ITCenterBack.ViewModels
         public string RepresentativePhoneNumber { get; set; }
         public List<TimeViewModel> Time { get; set; }
         public List<AvaliableTimesViewModel> AvaliableTime { get; set; }
+        public FooterViewModel Footer { get; set; }
     }
 }
