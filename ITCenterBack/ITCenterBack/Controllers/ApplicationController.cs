@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ITCenterBack.Constants;
 using ITCenterBack.Interfaces;
+using ITCenterBack.Models;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -45,5 +46,55 @@ namespace ITCenterBack.Controllers
 
 			return View(applicationsVM);
 		}
+
+		[HttpGet]
+		[Route("Delete/{id}")]
+		[ActionName("Delete")]
+		public async Task<IActionResult> DeleteAsync(long id)
+		{
+			var application = await _applicationService.GetApplication(id);
+
+			if (application is not null)
+			{
+				return View(application);
+			}
+
+			return NotFound();
+		}
+
+		[HttpPost]
+		[Route("Delete/{id}")]
+		[ActionName("Delete")]
+		public async Task<IActionResult> PostDeleteAsync(long id)
+		{
+			await _applicationService.DeleteApplication(id);
+
+			return RedirectToAction("Applications");
+		}
+
+		//[HttpGet]
+		//[ActionName("UpdateApplication")]
+		//[Route("UpdateApplication")]
+		//public async Task<IActionResult> GetUpdateApplicationAsync(long id)
+		//{
+		//	var application = await _applicationService.GetApplication(id);
+
+		//	if (application is null)
+		//	{
+		//		return NotFound();
+		//	}
+
+		//	return View(application);
+		//}
+
+		//[HttpPost]
+		//[Route("UpdateApplication")]
+		//[ActionName("UpdateApplication")]
+		//public async Task<IActionResult> UpdateApplicationAsync([FromForm] ApplicationDetailsViewModel viewModel)
+		//{
+
+
+		//	return RedirectToAction("Applications");
+		//}
 	}
 }

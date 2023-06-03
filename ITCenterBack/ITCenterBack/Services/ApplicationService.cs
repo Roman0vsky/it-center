@@ -97,10 +97,10 @@ namespace ITCenterBack.Services
         }
 
 		//to do
-		public Task DeleteApplication(long id)
+		public async Task DeleteApplication(long id)
         {
-            throw new NotImplementedException();
-        }
+			await _applicationRepository.DeleteAsync(id);
+		}
 
         public async Task<List<Application>> GetAll()
         {

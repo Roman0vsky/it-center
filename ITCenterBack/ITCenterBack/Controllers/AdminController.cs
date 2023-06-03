@@ -285,7 +285,7 @@ namespace ITCenterBack.Controllers
 
                 if (!string.IsNullOrEmpty(viewModel.Name))
                 {
-                    await _courseService.CreateCourseAsync(viewModel.Name, viewModel.Age, viewModel.Description, viewModel.Requirements, path);
+                    await _courseService.CreateCourseAsync(viewModel.Name, viewModel.Age, viewModel.Requirements, viewModel.Description, viewModel.CourseType, path);
 
                     return RedirectToAction("Courses");
                 }
@@ -513,10 +513,44 @@ namespace ITCenterBack.Controllers
 			return RedirectToAction("SocialLinks");
 		}
 
+        [HttpGet]
+        [ActionName("UpdateSocialLink")]
+        [Route("UpdateSocialLink")]
+        public async Task<IActionResult> GetUpdateSocialLinkAsync(long id)
+        {
+			var link = await _linkService.GetSocialLinkAsync(id);
 
-		//schedule UpdateScheduleDescription
+            if (link is null)
+            {
+                return NotFound();
+            }
 
-		[HttpGet]
+            var linkVM = _mapper.Map<SocialLinkViewModel>(link);
+
+            return View(linkVM);
+        }
+
+        [HttpPost]
+        [Route("UpdateSocialLink")]
+        [ActionName("UpdateSocialLink")]
+        public async Task<IActionResult> UpdateSocialLinkAsync([FromForm] SocialLinkViewModel viewModel)
+        {
+            var link = await _linkService.GetSocialLinkAsync(viewModel.Id);
+
+            if (link is null)
+            {
+                return NotFound();
+            }
+
+			await _linkService.UpdateSocialLinkAsync(viewModel.Id, viewModel.Name, viewModel.Url);
+
+            return RedirectToAction("SocialLinks");
+        }
+
+
+        //schedule UpdateScheduleDescription
+
+        [HttpGet]
 		[Route("UpdateSchedule")]
 		[ActionName("UpdateSchedule")]
 		public async Task<IActionResult> UpdateScheduleAsync()

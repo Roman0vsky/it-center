@@ -73,23 +73,5 @@ namespace ITCenterBack.Controllers
 
             return NotFound();
         }
-
-        //public async Task<IActionResult> AllCoursesAsync()
-        //{
-        //    var courses = await _courseService.GetAllCoursesAsync();
-        //    var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
-
-        //    return View();
-        //}
-
-        //public async Task<IActionResult> _HeaderAsync()
-        //{
-        //    var courses = await _courseService.GetAllCoursesAsync();
-        //    var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
-
-        //    ViewBag.Courses = coursesVM;
-
-        //    return View();
-        //}
     }
 }

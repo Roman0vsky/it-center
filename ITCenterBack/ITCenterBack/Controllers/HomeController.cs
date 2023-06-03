@@ -188,7 +188,7 @@ namespace ITCenterBack.Controllers
         public async Task<IActionResult> PostContactsAsync()
         {
             string fio = Request.Form["contact_fio"];
-            long? schoolId = long.Parse(Request.Form["choose-school__select"]);
+            var schoolId = Request.Form["choose-school__select"];
             string schoolNameAlt = Request.Form["school-number"];
             var classNumber = int.Parse(Request.Form["class-number"]);
             string repPhone = Request.Form["rep-phone"];
@@ -232,13 +232,15 @@ namespace ITCenterBack.Controllers
 
             }
 
-            if (schoolId.HasValue)
+            if (string.IsNullOrWhiteSpace(schoolId))
             {
                 await _applicationService.CreateApplication(schoolNameAlt, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
                 return RedirectToAction("Contacts");
             }
 
-            await _applicationService.CreateApplication(schoolId, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
+            long id = long.Parse(schoolId);
+
+			await _applicationService.CreateApplication(id, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
 
             return RedirectToAction("Contacts");
         }
