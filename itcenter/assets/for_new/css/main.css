@@ -14472,14 +14472,29 @@ table {
 		font-size: 10px;
 	}
 }
-.slider-main-title1 {
-	color: black;
-	position: absolute;
-	top: 0px;
-}
+
 .slider-text1 {
-	color: black;
   position: absolute;
-	top: 0px;
-	z-index: 10;
+	top: 280px;
+	left: 400px;
+	font-size: 32px;
+}
+.slider-main-title1 {
+	position: absolute;
+	top: 390px;
+	left: 400px;
+	font-size: 128px;
+}
+.slider-text3 {
+	color: white;
+  position: absolute;
+	top: 540px;
+	left: 400px;
+	font-size: 56px;
+}
+.slider-btn1 {
+	position: absolute;
+	top: 670px;
+	left: 400px;
+	padding: 0;
 }
