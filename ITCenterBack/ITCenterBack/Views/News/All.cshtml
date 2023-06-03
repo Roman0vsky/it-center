@@ -1,0 +1,57 @@
+﻿@model ITCenterBack.ViewModels.AllNewsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Все новости | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
+<main>
+    <section class="content-block">
+        <div class="container news-container">
+            <div class="news-all__container">
+                <div class="block-heading bottom-space text-center">
+                    <div id="gal-hr"></div>
+                    <h2 class="block-main-heading formula">Новости</h2>
+                    <div class="divider">
+                        <img src="/assets/for_new/img/divider.png" alt="images description">
+                    </div>
+                </div>
+                @foreach (var news in Model.News)
+                {
+                    <div class="news">
+                        <img class="news__img" src=@news.Image alt="news">
+                        <div class="news__wrapp">
+                            <div class="news__content">
+                                <div class="news__title">@news.Title</div>
+                                <div class="news__text">
+                                    @if (news.Text.Length > 90)
+                                    {
+                                        @string.Concat((@news.Text).AsSpan(0, 90), "...")
+                                    }
+                                    else
+                                    {
+                                        @news.Text
+                                    }
+                                </div>
+                            </div>
+                            <div class="news__wrapper-date">
+                                <span class="news__date">@news.PublicationDate</span>
+                                <div class="btn-container top-s-space news__btn">
+                                    <a href=@Url.Content("/api/News/Details/" + @news.Id) class="btn btn-black has-radius-small">Читать далее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @*<div class="pagination">
+                <a href="#">&laquo;</a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&raquo;</a>
+            </div>*@
+        </div>
+    </section>
+</main>

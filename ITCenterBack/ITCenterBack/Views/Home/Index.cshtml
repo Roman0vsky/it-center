@@ -176,7 +176,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="bottom-space-small-only">
-                            <p>
+                            <p style="white-space:pre-line;">
                                 @Model.AboutUs.Description
                             </p>
 
@@ -201,6 +201,7 @@
 
         <section class="content-block">
             <div class="container">
+                <div class="news__container">
                 <div class="block-heading bottom-space text-center">
                     <div id="gal-hr"></div>
                     <h2 class="block-main-heading formula">Новости</h2>
@@ -236,9 +237,8 @@
                         </div>
                     </div>
                 }
-
-                
-
+                <a href=@Url.Content("/api/News/All") class="btn btn-black has-radius-small all-news-btn">Читать все новости</a>
+                </div>
             </div>
         </section>
 
