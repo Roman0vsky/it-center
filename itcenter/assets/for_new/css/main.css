@@ -14421,3 +14421,14 @@ table {
 		font-size: 10px;
 	}
 }
+.slider-main-title1 {
+	color: black;
+	position: absolute;
+	top: 0px;
+}
+.slider-text1 {
+	color: black;
+  position: absolute;
+	top: 0px;
+	z-index: 10;
+}
