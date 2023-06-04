@@ -6089,8 +6089,11 @@ pre {
   }
   
   .control-panel__list-item {
-	margin: 0;
-	padding: 0;
+	margin-left: 30px;
+  }
+  .control-panel__additional-menu {
+	margin-left: 60px;
+	list-style-type:none;
   }
   
   .control-panel__list-link {
