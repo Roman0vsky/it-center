@@ -14312,6 +14312,7 @@ table {
 .contact__parents-phone[type="number"] {
 	-moz-appearance: textfield;
 }
+
 .contact__parents-fio {
 	font-size: 18px;
 	padding: 6px 12px;

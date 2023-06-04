@@ -38,6 +38,15 @@
     <link media="all" rel="stylesheet" href="assets/for_new/css/custom.html">
     <link rel="stylesheet" href="assets/components/ajaxform/css/default.css" type="text/css" />
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+$(function() {
+function change () {
+     this.value.indexOf(this.defaultValue) && (this.value = this.defaultValue);
+}
+$(".user_linkedin_1").on("input", change);
+});
+  </script>
 
 <body>
     <div class="preloader" id="pageLoad">
@@ -222,10 +231,11 @@
                         <div class="contact__parents-title">Информация о законном представителе</div>
                         <div class="contact__parents-text">Представитель - это родственник, на кого будет оформляться
                             договор. <br>Это может быть мама, папа, бабушка или дедушка</div>
-                        <input required placeholder="Введите Телефон представителя" type="number"
-                            class="contact__parents-phone">
-                        <input required placeholder="Введите ФИО представителя" type="text"
+                        <input required placeholder="Введите ФИО представителя"  type="text"
                             class="contact__parents-fio">
+                            <br>
+                        <input required type="tel" value="+375" class="user_linkedin_1 contact__parents-phone" minlength="13" maxlength="13">
+
                         <div class="contact__choose-courses-title">Запись на курсы</div>
                         <div class="contact__choose-courses-text">Необходимо выбрать время для интересующих Вас курсов.
                             <br>
