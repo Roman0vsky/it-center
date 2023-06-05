@@ -8735,11 +8735,6 @@ table {
     text-align: left; 
 	padding-left: 10px;
    }
-   td, th {
-	padding-left: 10px;
-    border: 1px solid #000; / Параметры границы /
-    padding: 4px; / Поля в ячейках */
-   }
 .no-gutter-slide .owl-dots .owl-dot.active span,.no-gutter-slide .owl-dots .owl-dot:hover span {
 	background: #575757;
 }
