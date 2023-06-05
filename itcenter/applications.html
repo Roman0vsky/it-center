@@ -78,7 +78,7 @@ $(".user_linkedin_1").on("input", change);
                                         <a class="dropdown-toggle formula" href="./index.html" data-title="Home"> IT-центр </a>
                                     </li>
                                     <li class="dropdown dropdown_second" data-animation="fadeIn">
-                                        <a class="dropdown-toggle" href="#about-hr" data-title="Home"> О нас </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home"> О нас </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown_third colored"><a href="./adminestrach.html"> Администрация</a></li>
                                             <li class="dropdown_third colored"><a href="./person.html"> Преподаватели</a></li>
@@ -87,25 +87,16 @@ $(".user_linkedin_1").on("input", change);
    
                                         </ul>
                                     </li>
-                                    <li class="dropdown dropdown_third" data-animation="fadeIn">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home"> Направления </a>
+                                   <li class="dropdown dropdown_third" data-animation="fadeIn">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home"> Секции</a>
                                         <ul class="dropdown-menu no-border-radius">
                                            
-                                            <li class="dropdown_third colored"><a href="my-pc.html"> Робототехника LEGO </a></li>
-                                            <li class="dropdown_third colored"><a href="grafic-design.html"> Основы графики </a></li>
-                                            <li class="dropdown_third colored"><a href="3d-graph.html">3D-моделирование и 3D-печать</a></li>
-                                            <li class="dropdown_third colored"><a href="scratch.html"> Scratch-программирование  </a></li>
-                                            <li class="dropdown_third colored"><a href="web-design.html">Web-программирование </a></li>
-                                            <li class="dropdown_third colored"><a href="c-prog.html"> Алгоритмизация и программирование </a></li>
-                                            <li class="dropdown_third colored"><a href="python.html"> Python </a></li>
-                                            <li class="dropdown_third colored"><a href="english-it.html"> Английский для IT </a></li>
-                                            <li class="dropdown_third colored"><a href="c-sh-prog.html"> Подготовка к ЦТ по физике </a></li>
-                                            <li class="dropdown_third colored"><a href="unity-lab.html"> Подготовка к ЦТ по математике  </a></li>
-                                            <li class="dropdown_third colored"><a href="unity-dev.html"> Виртуальная и дополненная реальность </a></li>
-                                            <li class="dropdown_third colored"><a href="arduino-robots.html"> Робототехника на Arduino </a></li>
-                                            <li class="dropdown_third colored"><a href="web-prog.html"> Java для продолжающих </a></li>
+                                            <li class="dropdown_third colored"><a href="section.html">Математика</a></li>
+                                            <li class="dropdown_third colored"><a href="section2.html">Информатика и программирование</a></li>
+                                            <li class="dropdown_third colored"><a href="fiz-mat.html">Физика и робототехника</a></li>
                                         </ul>
                                     </li>
+
 
                                     <li class="dropdown_fourth">
                                         <a href="schedule.html"> Расписание</a>
@@ -159,7 +150,8 @@ $(".user_linkedin_1").on("input", change);
                     <form class="contact">
                         <div class="contact__title">Информация о слушателе</div>
                         <input required placeholder="ФИО" type="text" class="contact__fio">
-                        <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
+                        <div class="contact__choose-school choose-school">
+                            Выберите школу/гимназию из списка</div>
                         <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
                             <option class="choose-school__option" value=" "></option>
                             <option class="choose-school__option" value="1">Гимназия № 1</option>
@@ -221,8 +213,8 @@ $(".user_linkedin_1").on("input", change);
                             class="contact__write-school-input">
                         <input placeholder="Введите Класс" type="number" min="1" max="11" class="contact__choose-grade">
                         <div class="contact__parents-title">Информация о законном представителе</div>
-                        <div class="contact__parents-text">Представитель - это родственник, на кого будет оформляться
-                            договор. <br>Это может быть мама, папа, бабушка или дедушка</div>
+                        <div class="contact__parents-text"><p> Представитель - это родственник, на кого будет оформляться
+                            договор. <br>Это может быть мама, папа, бабушка или дедушка</p></div>
                         <input required placeholder="Введите ФИО представителя"  type="text"
                             class="contact__parents-fio">
                             <br>
@@ -230,10 +222,11 @@ $(".user_linkedin_1").on("input", change);
                         class="user_linkedin_1 contact__parents-phone" minlength="18" maxlength="18">
                         
                         <div class="contact__choose-courses-title">Запись на курсы</div>
-                        <div class="contact__choose-courses-text">Необходимо выбрать время для интересующих Вас курсов.
+                        <div class="contact__choose-courses-text"><p>
+                            Необходимо выбрать время для интересующих Вас курсов.
                             <br>
                             Если дисциплина Вас не интересует, то можно просто пропустить. <br>
-                            При выборе курсов обращайте внимание на рекомендованные классы (на 2021/2022 уч. год)!
+                            При выборе курсов обращайте внимание на рекомендованные классы (на 2021/2022 уч. год)!</p>
                         </div>
                         <div class="contact__courses">
                             <div class="contact__course">
