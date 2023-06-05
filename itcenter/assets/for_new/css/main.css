@@ -4205,7 +4205,7 @@ em.state-invalid {
 	font-size: 1.875rem;
 	line-height: 1.2;
 	font-family: 'Josefin Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color: #fff;
+	color: #55565b;
 	display: block;
 	font-weight: 300;
 	margin-bottom: 1.25rem;
@@ -6415,15 +6415,17 @@ pre {
   }
 .card-project {
 	padding: 20px 20px 30px 20px;
-	max-width: 970px;
+	max-width: 1970px;
 	background-color: #FFFFFF;
 	-webkit-box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
 			box-shadow: 0px 10px 40px rgba(126, 155, 189, 0.3);
   }
   
   .card-project__img-wrapper {
+	width: auto;
+	height: auto;
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
   }
   
   .card-project__technology {
