@@ -3,7 +3,6 @@ using System;
 using ITCenterBack.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
@@ -12,17 +11,42 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITCenterBack.Migrations
 {
     [DbContext(typeof(ITCenterContext))]
-    [Migration("20230528123904_avTimeFix")]
-    partial class avTimeFix
+    [Migration("20230606102451_seedupd")]
+    partial class seedupd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.16")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            modelBuilder.Entity("ITCenterBack.Models.AboutUs", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutUs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Description = "IT-центр - открывает детям двери в мир IT, не забывая об их росте как личности и прививая им важные социальные ценности. Мы больше, чем просто компьютерные курсы для детей. Мы предоставляем не только обучение программированию или робототехнике, но и все возможности для роста, общения и развития.\r\nIT-центр - стиль жизни и образ мышления, среда роста и творчества. Современный рынок цифровых продуктов - это уже не поле для деятельности специалистов-одиночек, это полигон борьбы глобальных проектов. Мы готовим специалистов, нацеленных на командную работу и общий успех!\r\n                                        ",
+                            Url = "https://www.youtube.com/embed/KrreehNgcgA"
+                        });
+                });
 
             modelBuilder.Entity("ITCenterBack.Models.Application", b =>
                 {
@@ -30,28 +54,26 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<int>("Class")
                         .HasColumnType("int");
 
                     b.Property<string>("ListenerFullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RepresentativeFullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RepresentativePhoneNumber")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<long?>("SchoolId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("SchoolName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -65,8 +87,6 @@ namespace ITCenterBack.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<long>("ApplicationId")
                         .HasColumnType("bigint");
@@ -92,16 +112,14 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<int>("Day")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAvaliable")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("TimeFrom")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<long>("TimeId")
                         .HasColumnType("bigint");
@@ -119,25 +137,23 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Age")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<int>("CourseType")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Requirements")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -182,8 +198,6 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<long>("ApplicationId")
                         .HasColumnType("bigint");
 
@@ -199,26 +213,76 @@ namespace ITCenterBack.Migrations
                     b.ToTable("CourseApplications");
                 });
 
+            modelBuilder.Entity("ITCenterBack.Models.Info", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("AdressOfUniversity")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FooterLogo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HeaderLogo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfTheCenter")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfUniversity")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SliderBigText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SliderSmallText")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Info");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
+                            FooterLogo = "/images/gllg.png",
+                            HeaderLogo = "/assets/for_new/img/icons/logo.svg",
+                            NameOfTheCenter = "IT-центр",
+                            NameOfUniversity = "ВГУ имени П.М.Машерова",
+                            SliderBigText = "IT-центр",
+                            SliderSmallText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\""
+                        });
+                });
+
             modelBuilder.Entity("ITCenterBack.Models.News", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("PublicationDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -231,15 +295,13 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -260,14 +322,259 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.ToTable("Schools");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Гимназия № 1 имени Ж.И.Алфёрова"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Гимназия № 2"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Гимназия № 3 имени А.С.Пушкина"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "Гимназия № 4"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Name = "Гимназия № 5 имени И.И.Людникова"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            Name = "Гимназия № 7 имени П.Е.Кондратенко"
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            Name = "Гимназия № 8"
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            Name = "Гимназия № 9 имени А.П.Белобородова"
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            Name = "Средняя школа № 2 имени Ф.Т.Блохина"
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            Name = "Средняя школа № 3 имени Л.Н.Белицкого"
+                        },
+                        new
+                        {
+                            Id = 11L,
+                            Name = "Средняя школа № 4"
+                        },
+                        new
+                        {
+                            Id = 12L,
+                            Name = "Средняя школа № 5 имени Г.И.Богомазова"
+                        },
+                        new
+                        {
+                            Id = 13L,
+                            Name = "Средняя школа № 6 имени А.Е.Белохвостикова"
+                        },
+                        new
+                        {
+                            Id = 14L,
+                            Name = "Средняя школа № 7"
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            Name = "Средняя школа № 8 имени А.М.Испенкова"
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            Name = "Средняя школа № 9"
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            Name = "Средняя школа № 10 имени А.К.Горовца"
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            Name = "Средняя школа № 11"
+                        },
+                        new
+                        {
+                            Id = 19L,
+                            Name = "Средняя школа № 12 имени Л.Н.Филипенко"
+                        },
+                        new
+                        {
+                            Id = 20L,
+                            Name = "Средняя школа № 14"
+                        },
+                        new
+                        {
+                            Id = 21L,
+                            Name = "Средняя школа № 15 имени М.Я.Чуманихиной"
+                        },
+                        new
+                        {
+                            Id = 22L,
+                            Name = "Средняя школа № 16 имени М.И.Дружинина"
+                        },
+                        new
+                        {
+                            Id = 23L,
+                            Name = "Средняя школа № 17 имени И.Р.Бумагина"
+                        },
+                        new
+                        {
+                            Id = 24L,
+                            Name = "Средняя школа № 18 имени В.С.Сметанина"
+                        },
+                        new
+                        {
+                            Id = 25L,
+                            Name = "Средняя школа № 19"
+                        },
+                        new
+                        {
+                            Id = 26L,
+                            Name = "Средняя школа № 21 имени В.А.Демидова"
+                        },
+                        new
+                        {
+                            Id = 27L,
+                            Name = "Средняя школа № 22"
+                        },
+                        new
+                        {
+                            Id = 28L,
+                            Name = "Средняя школа № 23 имени О.Р.Тувальского"
+                        },
+                        new
+                        {
+                            Id = 29L,
+                            Name = "Средняя школа № 24 имени М.Ф.Маскаева"
+                        },
+                        new
+                        {
+                            Id = 30L,
+                            Name = "Средняя школа № 25"
+                        },
+                        new
+                        {
+                            Id = 31L,
+                            Name = "Средняя школа № 27"
+                        },
+                        new
+                        {
+                            Id = 32L,
+                            Name = "Средняя школа № 28 имени Е.С.Зеньковой"
+                        },
+                        new
+                        {
+                            Id = 33L,
+                            Name = "Средняя школа № 29 имени В.В.Пименова"
+                        },
+                        new
+                        {
+                            Id = 34L,
+                            Name = "Средняя школа № 30"
+                        },
+                        new
+                        {
+                            Id = 35L,
+                            Name = "Средняя школа № 31 имени В.З.Хоружей"
+                        },
+                        new
+                        {
+                            Id = 36L,
+                            Name = "Средняя школа № 33 имени И.Д.Черняховского"
+                        },
+                        new
+                        {
+                            Id = 37L,
+                            Name = "Средняя школа № 34"
+                        },
+                        new
+                        {
+                            Id = 38L,
+                            Name = "Средняя школа № 35"
+                        },
+                        new
+                        {
+                            Id = 39L,
+                            Name = "Средняя школа № 38"
+                        },
+                        new
+                        {
+                            Id = 40L,
+                            Name = "Средняя школа № 40 имени М.М.Громова"
+                        },
+                        new
+                        {
+                            Id = 41L,
+                            Name = "Средняя школа № 41"
+                        },
+                        new
+                        {
+                            Id = 42L,
+                            Name = "Средняя школа № 42 имени Д.Ф.Райцева"
+                        },
+                        new
+                        {
+                            Id = 43L,
+                            Name = "Средняя школа № 43 имени М.Ф.Шмырёва"
+                        },
+                        new
+                        {
+                            Id = 44L,
+                            Name = "Средняя школа № 44"
+                        },
+                        new
+                        {
+                            Id = 45L,
+                            Name = "Средняя школа № 45 имени В.Ф.Маргелова"
+                        },
+                        new
+                        {
+                            Id = 46L,
+                            Name = "Средняя школа № 46 имени И.Х.Баграмяна"
+                        },
+                        new
+                        {
+                            Id = 47L,
+                            Name = "Средняя школа № 47 имени Е.Ф.Ивановского"
+                        },
+                        new
+                        {
+                            Id = 48L,
+                            Name = "Специальная  школа № 26"
+                        },
+                        new
+                        {
+                            Id = 49L,
+                            Name = "Витебская специальная школа-интернат"
+                        });
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.SliderImage", b =>
@@ -276,11 +583,9 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -315,19 +620,43 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.ToTable("SocialLinks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "ВКонтакте",
+                            Url = "https://vk.com/mf_vsu"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Instagram",
+                            Url = "https://www.instagram.com/fmiit_vsu/"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Телеграм",
+                            Url = "https://t.me/fmiit_vsu"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "Сайт факультета",
+                            Url = "https://fmiit.vsu.by/"
+                        });
                 });
 
             modelBuilder.Entity("ITCenterBack.Models.Teacher", b =>
@@ -336,16 +665,17 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -357,6 +687,7 @@ namespace ITCenterBack.Migrations
                             Id = 1L,
                             Description = "Робототехника LEGO EV3",
                             Image = "/images/Shpakov.jpg",
+                            Link = "https://vsu.by/universitet/ob-universitete/236-universitet/personalii/4140-shpakov-sergej-andreevich.html",
                             Name = "Шпаков С А"
                         });
                 });
@@ -367,13 +698,11 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<DateTime>("From")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("To")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -386,54 +715,52 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
@@ -442,8 +769,7 @@ namespace ITCenterBack.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
 
@@ -452,11 +778,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca4aaec6-e03e-4a69-b2c7-56d20cec70ed",
+                            ConcurrencyStamp = "974e2ae3-0076-413c-8676-5c77f93c4668",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEO6mn7DxnWvCHHCDNW53QoJOc7hLYDZ6/N0CPJwv7NICM43J5wmv0H5wRlC0nHS3Ag==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDfmuwJUtfAKffzz8xO3eBZdE8SjWjIT6Ukd2F96Yyz21idrF6qDoojjqdY/iHfrAw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -469,26 +795,23 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedName")
                         .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
 
@@ -496,7 +819,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "bbbd5270-bca9-4817-a4fa-5a96d5458807",
+                            ConcurrencyStamp = "5d15f7d2-2f4b-43b3-b298-f3e0ed73b3f5",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
@@ -508,13 +831,11 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
@@ -532,13 +853,11 @@ namespace ITCenterBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -553,13 +872,13 @@ namespace ITCenterBack.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<long>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -599,13 +918,13 @@ namespace ITCenterBack.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 

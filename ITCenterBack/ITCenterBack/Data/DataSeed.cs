@@ -65,8 +65,9 @@ namespace ITCenterBack.Data
                     Id = 1,
                     Name = "Шпаков С А",
                     Description = "Робототехника LEGO EV3",
-                    Image = "/images/Shpakov.jpg"
-                }
+                    Image = "/images/Shpakov.jpg",
+					Link = "https://vsu.by/universitet/ob-universitete/236-universitet/personalii/4140-shpakov-sergej-andreevich.html"
+				}
                 );
 
             //Admin
@@ -147,7 +148,7 @@ namespace ITCenterBack.Data
 				{
                     Id = 1,
 					Name = "ВКонтакте",
-                    Url = "https://vk.com/abiturvsu"
+                    Url = "https://vk.com/mf_vsu"
 				}
 				);
 			modelBuilder.Entity<SocialLink>().HasData(
@@ -155,23 +156,23 @@ namespace ITCenterBack.Data
 				{   
                     Id = 2,
 					Name = "Instagram",
-					Url = "https://www.instagram.com/tvu.vsu/"
+					Url = "https://www.instagram.com/fmiit_vsu/"
 				}
 				);
 			modelBuilder.Entity<SocialLink>().HasData(
 				new SocialLink
 				{
 					Id = 3,
-					Name = "Youtube",
-					Url = "https://www.youtube.com/channel/UCo18_krqqaEWSb6_cbHnupQ"
+					Name = "Телеграм",
+					Url = "https://t.me/fmiit_vsu"
 				}
 				);
 			modelBuilder.Entity<SocialLink>().HasData(
 				new SocialLink
 				{
 					Id = 4,
-					Name = "Facebook",
-					Url = "https://www.facebook.com/vsu.by"
+					Name = "Сайт факультета",
+					Url = "https://fmiit.vsu.by/"
 				}
 				);
 
@@ -189,6 +190,351 @@ namespace ITCenterBack.Data
                     FooterLogo = "/images/gllg.png"
 				}
 				);
+
+            //Schools
+            modelBuilder.Entity<School>().HasData(
+                new School
+                {
+                    Id = 1,
+                    Name = "Гимназия № 1 имени Ж.И.Алфёрова"
+				}
+                );
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 2,
+					Name = "Гимназия № 2"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 3,
+					Name = "Гимназия № 3 имени А.С.Пушкина"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 4,
+					Name = "Гимназия № 4"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 5,
+					Name = "Гимназия № 5 имени И.И.Людникова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 6,
+					Name = "Гимназия № 7 имени П.Е.Кондратенко"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 7,
+					Name = "Гимназия № 8"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 8,
+					Name = "Гимназия № 9 имени А.П.Белобородова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 9,
+					Name = "Средняя школа № 2 имени Ф.Т.Блохина"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 10,
+					Name = "Средняя школа № 3 имени Л.Н.Белицкого"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 11,
+					Name = "Средняя школа № 4"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 12,
+					Name = "Средняя школа № 5 имени Г.И.Богомазова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 13,
+					Name = "Средняя школа № 6 имени А.Е.Белохвостикова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 14,
+					Name = "Средняя школа № 7"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 15,
+					Name = "Средняя школа № 8 имени А.М.Испенкова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 16,
+					Name = "Средняя школа № 9"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 17,
+					Name = "Средняя школа № 10 имени А.К.Горовца"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 18,
+					Name = "Средняя школа № 11"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 19,
+					Name = "Средняя школа № 12 имени Л.Н.Филипенко"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 20,
+					Name = "Средняя школа № 14"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 21,
+					Name = "Средняя школа № 15 имени М.Я.Чуманихиной"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 22,
+					Name = "Средняя школа № 16 имени М.И.Дружинина"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 23,
+					Name = "Средняя школа № 17 имени И.Р.Бумагина"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 24,
+					Name = "Средняя школа № 18 имени В.С.Сметанина"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 25,
+					Name = "Средняя школа № 19"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 26,
+					Name = "Средняя школа № 21 имени В.А.Демидова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 27,
+					Name = "Средняя школа № 22"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 28,
+					Name = "Средняя школа № 23 имени О.Р.Тувальского"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 29,
+					Name = "Средняя школа № 24 имени М.Ф.Маскаева"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 30,
+					Name = "Средняя школа № 25"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 31,
+					Name = "Средняя школа № 27"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 32,
+					Name = "Средняя школа № 28 имени Е.С.Зеньковой"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 33,
+					Name = "Средняя школа № 29 имени В.В.Пименова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 34,
+					Name = "Средняя школа № 30"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 35,
+					Name = "Средняя школа № 31 имени В.З.Хоружей"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 36,
+					Name = "Средняя школа № 33 имени И.Д.Черняховского"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 37,
+					Name = "Средняя школа № 34"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 38,
+					Name = "Средняя школа № 35"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 39,
+					Name = "Средняя школа № 38"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 40,
+					Name = "Средняя школа № 40 имени М.М.Громова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 41,
+					Name = "Средняя школа № 41"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 42,
+					Name = "Средняя школа № 42 имени Д.Ф.Райцева"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 43,
+					Name = "Средняя школа № 43 имени М.Ф.Шмырёва"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 44,
+					Name = "Средняя школа № 44"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 45,
+					Name = "Средняя школа № 45 имени В.Ф.Маргелова"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 46,
+					Name = "Средняя школа № 46 имени И.Х.Баграмяна"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 47,
+					Name = "Средняя школа № 47 имени Е.Ф.Ивановского"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 48,
+					Name = "Специальная  школа № 26"
+				}
+				);
+			modelBuilder.Entity<School>().HasData(
+				new School
+				{
+					Id = 49,
+					Name = "Витебская специальная школа-интернат"
+				}
+				);
 		}
-    }
+	}
 }
