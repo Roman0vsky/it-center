@@ -13913,8 +13913,8 @@ td, th {
 	color: #fff;
 	border-radius: 5px;
 }
-.dropdown_fifth:hover {
-	background: #FF70A6;
+.dropdown_fin:hover {
+	background:#d16478;
 	color: #fff;
 	border-radius: 5px;
 }
@@ -13960,7 +13960,7 @@ td, th {
 
 @media only screen and (max-width: 991px) {
 	.main-header.header-white .navbar .navbar-nav li.dropdown_first a:hover {
-    background: #70D6FF;
+    background: #70ffd2;
 		color: #fff;
 	}
 	.main-header.header-white .navbar .navbar-nav li.dropdown_second a:hover {
@@ -13975,6 +13975,11 @@ td, th {
     background: #DC8ABD;
 		color: #fff;
 	}
+	
+	.main-header.header-white .navbar .navbar-nav li.dropdown_fin a:hover {
+		background: #d16478;
+			color: #fff;
+		}
 	.main-header.header-white .navbar .navbar-nav li.dropdown_fifth a:hover {
     background: #FF70A6;
 		color: #fff;
