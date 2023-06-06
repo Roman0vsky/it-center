@@ -9,44 +9,44 @@
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
 <main class="no-banner">
     <!-- visual/banner of the page -->
     <section class="visual visual-sub visual-no-bg">
-        <div class="visual-inner no-overlay " style="
-                    margin-bottom: 7%;
-                ">
+        <div class="visual-inner no-overlay bg-gray-light">
             <div class="centered">
                 <div class="container">
                     <div class="visual-text visual-center">
                         <h1 class="visual-title visual-sub-title">Расписание</h1>
-                        <div class="breadcrumb-block">
-                            <ol class="breadcrumb">
-
-                                <li class="breadcrumb-item active">
-                                    @Model.Description
-                                </li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-                <div class="page-portfolio__cards">
-
-                    <div class="card-project">
-                        <div class="card-project__img-wrapper">
-                            <a href=@Model.Image>
-                                <img src=@Model.Image />
-                                <div class="card-project__technology">New</div>
-                            </a>
-                        </div>
-
-                        @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
-                        {
-                        <a class="secondary-button" href=@Url.Content("/api/Admin/UpdateSchedule")>Добавить</a>
-                        }
-
+                        <h5>
+                            @Model.Description
+                        </h5>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="centered">
+            <br>
+            <div class="page-portfolio__cards">
+
+                <div class="card-project">
+                    <div class="card-project__img-wrapper">
+                        <a href=@Model.Image>
+                            <img src=@Model.Image />
+
+                        </a>
+                    </div>
+                    @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
+                    {
+                        <a class="secondary-button" href=@Url.Content("/api/Admin/UpdateSchedule")>Добавить</a>
+                    }
+                </div>
+            </div>
+
+
+
+        </div>
         </div>
     </section>
 

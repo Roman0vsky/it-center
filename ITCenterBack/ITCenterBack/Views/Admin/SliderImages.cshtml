@@ -18,15 +18,14 @@
 				<thead>
 					<tr>
 						<th>Картинка</th>
-						<th>Название</th>
 					</tr>
 				</thead>
 				<tbody>
+
 					@foreach (var t in Model)
 					{
 						<tr>
 							<td> <img src=@t.Image alt="images"></td>
-							<td>@t.Image</td>
 							<td>
 								<a asp-action="DeleteSliderImage" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
 							</td>

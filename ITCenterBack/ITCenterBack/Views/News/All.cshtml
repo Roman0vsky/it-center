@@ -6,17 +6,20 @@
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
 
-<main>
-    <section class="content-block">
-        <div class="container news-container">
-            <div class="news-all__container">
-                <div class="block-heading bottom-space text-center">
-                    <div id="gal-hr"></div>
-                    <h2 class="block-main-heading formula">Новости</h2>
-                    <div class="divider">
-                        <img src="/assets/for_new/img/divider.png" alt="images description">
+<main class="no-banner">
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">Новости</h1>
+
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container news-container">
+            <div class="news-all__container">
                 @foreach (var news in Model.News)
                 {
                     <div class="news">
@@ -25,14 +28,16 @@
                             <div class="news__content">
                                 <div class="news__title">@news.Title</div>
                                 <div class="news__text">
-                                    @if (news.Text.Length > 90)
-                                    {
-                                        @string.Concat((@news.Text).AsSpan(0, 90), "...")
-                                    }
-                                    else
-                                    {
-                                        @news.Text
-                                    }
+                                    <p>
+                                        @if (news.Text.Length > 90)
+                                        {
+                                            @string.Concat((@news.Text).AsSpan(0, 90), "...")
+                                        }
+                                        else
+                                        {
+                                            @news.Text
+                                        }
+                                    </p>
                                 </div>
                             </div>
                             <div class="news__wrapper-date">
@@ -45,14 +50,9 @@
                     </div>
                 }
             </div>
-            @*<div class="pagination">
-                <a href="#">&laquo;</a>
-                <a class="active" href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">&raquo;</a>
-            </div>*@
+            <br>
         </div>
+        <br>
     </section>
 </main>
 
