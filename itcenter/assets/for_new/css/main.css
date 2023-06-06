@@ -13894,41 +13894,49 @@ td, th {
 }
 
 .dropdown_first:hover {
+	cursor: pointer;
 	background: #70D6FF;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_second:hover {
+	cursor: pointer;
 	background: #94BDE9;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_third:hover {
+	cursor: pointer;
 	background: #B8A3D3;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_fourth:hover {
+	cursor: pointer;
 	background: #DC8ABD;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_fin:hover {
+	cursor: pointer;
 	background:#d16478;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_sixth{
+	cursor: pointer;
 	background: #FF848B;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_seventh:hover {
+	cursor: pointer;
 	background: #FF9770;
 	color: #fff;
 	border-radius: 5px;
 }
 .dropdown_eight {
+	cursor: pointer;
 	display: flex; 
 	flex-direction: column;
 }
