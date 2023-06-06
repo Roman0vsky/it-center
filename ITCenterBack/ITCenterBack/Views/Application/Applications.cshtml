@@ -1,0 +1,49 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.ApplicationViewModel>
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Заявки";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Заявки</h2>
+			</div>
+			@*<a class="secondary-button" href=@Url.Content("/api/Admin/AddNews")>Добавить</a>*@
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr>
+						<th>Фио</th>
+						<th>Школа</th>
+						<th>Класс</th>
+						<th>Телефон представителя</th>
+						<th>ФИО представителя</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var t in Model)
+					{
+						<tr>
+							<td>@t.ListenerFullName</td>
+							<td>@t.SchoolName</td>
+							<td>@t.Class</td>
+							<td>@t.RepresentativePhoneNumber</td>
+							<td>@t.RepresentativeFullName</td>
+							<td>
+								<a asp-action="Details" asp-route-id="@t.Id" class="file-button" type="file">Подробнее</a>
+								<a asp-action="Delete" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

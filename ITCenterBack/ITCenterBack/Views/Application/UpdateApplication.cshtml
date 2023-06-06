@@ -1,0 +1,63 @@
+﻿@*@model ITCenterBack.ViewModels.ApplicationDetailsViewModel
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Заявка";
+}
+
+<div class="admin-page__content">
+    <div class="admin-page__content-form">
+        <div class="admin-form">
+            <div class="admin-form__item">
+                <h2 class="heading">Время записи</h2>
+            </div>
+            <form method="post">
+                <table class="table_schedule">
+                    <tbody>
+                        <tr>
+                            <td>Время</td>
+                            <td>Пн</td>
+                            <td>Вт</td>
+                            <td>Ср</td>
+                            <td>Чт</td>
+                            <td>Пт</td>
+                            <td>Сб</td>
+                            <td>Вс</td>
+                        </tr>
+
+                        @for (int i = 0; i < Model.Time.Count(); i++)
+                        {
+                            <tr>
+                                <td>@Model.Time[i].From.TimeOfDay - @Model.Time[i].To.TimeOfDay</td>
+
+                                @for (int j = 0; j < 7; j++)
+                                {
+                                    @if ((i * 7 + j) <= Model.AvaliableTimes.Count())
+                                    {
+                                        @if (Model.AvaliableTimes[i * 7 + j].TimeId == Model.Time[i].Id && Model.AvaliableTimes[i * 7 + j].IsAvaliable)
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" checked="checked" name="time"></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                    }
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+                <br></br>
+
+                <div class="admin-form__item buttons">
+                    <input class="primary-button" type="submit" value="Сохранить" />
+                </div>
+
+            </form>
+
+            <div class="admin-form__item"></div>
+            <div class="admin-form__item"></div>
+        </div>
+    </div>
+</div>*@

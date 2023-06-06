@@ -1,0 +1,208 @@
+﻿@model ITCenterBack.ViewModels.ContactsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Контакты | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">Контакты</h1>
+                        <div class="breadcrumb-block">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href=@Url.Content("/api/Home/Index")> Главная </a></li>
+                                <li class="breadcrumb-item active"> Контакты </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="contact__wrapper">
+        <form class="contact" method="post">
+            <div class="contact__title">Информация о слушателе</div>
+            <input required placeholder="ФИО" type="text" class="contact__fio" name="contact_fio">
+            @*@Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__fio", placeholder = "ФИО"}})*@
+            <div class="contact__choose-school choose-school">Выберите школу/гимназию из списка</div>
+            @*@Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new { @class = "choose-school__select"})*@
+            <select class="choose-school__select" name="choose-school__select" id="choose-school__select">
+                <option class="choose-school__option" value=" "></option>
+
+                @*@Html.DropDownListFor(model => model.Schools, ViewBag.Schools as SelectList, " ", new {htmlAttributes = new { @class = "choose-school__select"}})*@
+
+                @foreach (var t in Model.Schools)
+                {
+                    <option class="choose-school__option" value=@t.Id>@t.Name</option>
+                }
+
+            </select>
+            <div class="contact__write-school-text">
+                Или напишите ниже самостоятельно, если не нашли в списке
+            </div>
+            <input placeholder="Введите Номер школы/гимназии" type="text"
+                   class="contact__write-school-input" name="school-number">
+            <input placeholder="Введите Класс" type="number" min="1" max="11" class="contact__choose-grade" name="class-number">
+            @*@Html.EditorFor(model => model.SchoolName, new { htmlAttributes = new { @class = "contact__write-school-input", placeholder = "Введите Номер школы/гимназии"}})
+            @Html.EditorFor(model => model.ListenerFullName, new { htmlAttributes = new { @class = "contact__choose-grade", min="1", max="11", placeholder = "Введите Класс"}})*@
+            <div class="contact__parents-title">Информация о законном представителе</div>
+            <div class="contact__parents-text">
+                Представитель - это родственник, на кого будет оформляться
+                договор. <br>Это может быть мама, папа, бабушка или дедушка
+            </div>
+            <input required placeholder="Введите Телефон представителя" type="number"
+                   class="contact__parents-phone" name="rep-phone">
+            <input required placeholder="Введите ФИО представителя" type="text"
+                   class="contact__parents-fio" name="rep-fio">
+            @*@Html.EditorFor(model => model.RepresentativePhoneNumber, new { htmlAttributes = new { @class = "contact__parents-phone", placeholder = "Введите Телефон представителя"}})
+            @Html.EditorFor(model => model.RepresentativeFullName, new { htmlAttributes = new { @class = "contact__parents-fio", placeholder = "Введите ФИО представителя"}})*@
+            <div class="contact__choose-courses-title">Запись на курсы</div>
+            <div class="contact__choose-courses-text">
+                Необходимо выбрать время для интересующих Вас курсов.
+                <br>
+                Если дисциплина Вас не интересует, то можно просто пропустить. <br>
+                При выборе курсов обращайте внимание на рекомендованные классы (на 2021/2022 уч. год)!
+            </div>
+            <div class="contact__courses">
+
+                @foreach (var t in Model.Courses)
+                {
+                    <div class="contact__course">
+                        <label for="contact__course-input">@t.Name (@t.Age)</label>
+                        <input type="checkbox" id="contact__course-input" value="@t.Id" name="courses">
+                    </div>
+                }
+
+            </div>
+            <section id="schedule_want">
+                <br>
+                <p class="schedule__text">Мы предлагаем Вам указать возможное время посещения занятий.</p>
+                <table class="table_schedule">
+
+                    <tbody>
+                        <tr>
+                            <td>Время</td>
+                            <td>Пн</td>
+                            <td>Вт</td>
+                            <td>Ср</td>
+                            <td>Чт</td>
+                            <td>Пт</td>
+                            <td>Сб</td>
+                            <td>Вс</td>
+                        </tr>
+
+                        @for (int i = 0; i < Model.Time.Count(); i++)
+                        {
+                            <tr>
+                                <td>@Model.Time[i].From.TimeOfDay.Hours:@Model.Time[i].From.TimeOfDay.Minutes
+                                    -
+                                    @Model.Time[i].To.TimeOfDay.Hours:@Model.Time[i].To.TimeOfDay.Minutes
+                                </td>
+
+                                @for (int j = 0; j < 7; j++)
+                                {
+                                    @if ((i * 7 + j) <= Model.AvaliableTime.Count())
+                                    {
+                                        @if (Model.AvaliableTime[i * 7 + j].TimeId == Model.Time[i].Id && Model.AvaliableTime[i * 7 + j].IsAvaliable)
+                                        {
+                                            <td class="check_td"><input value="@string.Concat("time",  i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="check_td disabled"><input value="@string.Concat("time", i, "day", j)" type="checkbox" name="time"></td>
+                                        }
+                                    }
+                                }
+                            </tr>
+                        }
+
+                    </tbody>
+
+                    @*<tbody>
+                        <tr>
+                            <td>Время</td>
+                            <td>Пн</td>
+                            <td>Вт</td>
+                            <td>Ср</td>
+                            <td>Чт</td>
+                            <td>Пт</td>
+                            <td>Сб</td>
+                            <td>Вс</td>
+                        </tr>
+
+                        <tr>
+                            <td>8.00 - 9.25</td>
+                            <td class="check_td disabled"><input id="input00" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input01" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input02" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input03" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input04" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input05" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input06" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>9.35 - 11.00</td>
+                            <td class="check_td disabled"><input id="input10" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input11" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input12" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input13" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input14" type="checkbox"></td>
+                            <td class="check_td">@*<label for="input15" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input15" type="checkbox" @*checked="checked"*@>@*</label></td>
+                            <td class="check_td disabled"><input id="input16" type="checkbox"></td>*@
+                        @*</tr>
+                        <tr>
+                            <td>11.30 - 12.55</td>
+                            <td class="check_td disabled"><input id="input20" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input21" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input22" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input23" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input24" type="checkbox"></td>
+                            <td class="check_td">*@@*<label for="input25" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input25" type="checkbox"></label></td>
+                            <td class="check_td disabled"><input id="input26" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>13.05 - 14.30</td>
+                            <td class="check_td disabled"><input id="input30" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input31" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input32" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input33" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input34" type="checkbox"></td>
+                            <td class="check_td">*@@*<label for="input35" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input35" type="checkbox"></label></td>
+                            <td class="check_td disabled"><input id="input36" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>14.40 - 16.05</td>
+                            <td class="check_td disabled"><input id="input40" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input41" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input42" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input43" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input44" type="checkbox"></td>
+                            <td class="check_td">*@@*<label for="input45" class="passive" onclick="toogleCheckbox(this)">*@@*<input id="input45" type="checkbox"></label></td>
+                            <td class="check_td disabled"><input id="input46" type="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>16.35 - 18.00</td>
+                            <td class="check_td disabled"><input id="input50" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input51" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input52" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input53" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input54" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input55" type="checkbox"></td>
+                            <td class="check_td disabled"><input id="input56" type="checkbox"></td>
+                        </tr>
+                    </tbody>*@
+                </table>
+
+            </section>
+            <button class="contact__submit btn btn-black has-radius-small" type="submit">Записаться</button>
+        </form>
+    </div>
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

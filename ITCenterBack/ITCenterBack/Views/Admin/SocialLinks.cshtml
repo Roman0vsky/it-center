@@ -1,0 +1,42 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<ITCenterBack.ViewModels.SocialLinkViewModel>
+
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Ссылки";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Ссылки</h2>
+			</div>
+			<a class="secondary-button" href=@Url.Content("/api/Admin/AddLink")>Добавить</a>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr><th>Название</th><th>Ссылка</th></tr>
+				</thead>
+				<tbody>
+					@foreach (var t in Model)
+					{
+						<tr>
+							<td>@t.Name</td>
+							<td>@t.Url</td>
+							<td>
+								<a asp-action="DeleteSocialLink" asp-route-id="@t.Id" class="file-button">Удалить</a> |
+								<a asp-action="UpdateSocialLink" asp-route-id="@t.Id" class="file-button">Редактировать</a>
+							</td>
+						</tr>
+					}
+
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

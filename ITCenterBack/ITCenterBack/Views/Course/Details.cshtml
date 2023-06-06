@@ -1,0 +1,85 @@
+﻿@model ITCenterBack.ViewModels.CourseDetailsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = @Model.Course.Name + " | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg" style-"display:flex">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">@Model.Course.Name</h1>
+                        <div class="breadcrumb-block">
+                            <ol class="breadcrumb">
+                                <li class="formula breadcrumb-item"><a href="index.html">IT-центр</a></li>
+                                <li class="breadcrumb-item">Направления</li>
+                                <li class="breadcrumb-item active">@Model.Course.Name</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/visual/banner of the page -->
+    <!-- main content wrapper -->
+    <div class="content-wrapper">
+        <section class="content-block">
+            <div class="container">
+                <div class="row portfolio-gallery">
+                    <div class="bottom-space-medium-only col-lg-6">
+                        <div class="img-block shine-effect image-zoom">
+                            <img src=@Model.Course.Image alt="images">
+                        </div>
+                    </div>
+                    <div class="v-align-col col-lg-5 offset-lg">
+                        <div class="inner">
+                            <ul class="content-list info-list bottom-space">
+                                <li class="row">
+                                    <div class="col">
+                                        <span class="custom-icon-home">
+                                            <ion-icon name="accessibility-outline"></ion-icon>
+                                        </span>
+                                        <span class="text title">Возраст:</span>
+                                    </div>
+                                    <div class="col">
+                                        <p>@Model.Course.Age</p>
+                                    </div>
+                                </li>
+                                <li class="row">
+                                    <div class="col">
+                                        <span class="custom-icon-home">
+                                            <ion-icon name="book-outline"></ion-icon>
+                                        </span>
+                                        <span class="text title">Требования:</span>
+                                    </div>
+                                    <div class="col">
+                                        <p>@Model.Course.Requirements</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="text-block">
+                                <h2 class="text-block-title">Описание:</h2>
+                                <p>@Model.Course.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="content-block  black-overlay-6">
+                    <div id="gal-hr"></div>
+                    <div class="container">
+                        <div class="inner-wrapper">
+                            <div class="demo-wrapper">
+                                <div class="bottom-s-space text-center text-uppercase">
+                                </div>
+                </section>
+            </div>
+            <!--/main content wrapper -->
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

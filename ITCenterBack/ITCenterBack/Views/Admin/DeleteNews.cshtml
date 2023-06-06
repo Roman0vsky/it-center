@@ -1,0 +1,46 @@
+﻿@model ITCenterBack.ViewModels.NewsViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Удалить новость";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Удаление</h2>
+			</div>
+			<div class="admin-form__item">
+				<label class="input__label">
+					Заголовок <br />
+					@Model.Title <hr />
+				</label>
+				<label class="input__label">
+					Дата публикации<br />
+					@Model.PublicationDate <hr />
+				</label>
+				<label class="input__label">
+					Текст поста <br />
+					@Model.Text <hr />
+				</label>
+				<label class="input__label">
+					Картинка<br />
+					<img src=@Model.Image alt="images"> <hr />
+				</label>
+			</div>
+
+			@using (Html.BeginForm())
+			{
+				@Html.AntiForgeryToken()
+				<div class="form-actions no-color">
+					<input type="submit" value="Удалить" class="file-button" />
+					|
+					@Html.ActionLink("Назад", "News")
+				</div>
+			}
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

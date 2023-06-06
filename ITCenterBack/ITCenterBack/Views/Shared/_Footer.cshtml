@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@model ITCenterBack.ViewModels.FooterViewModel
+@{
+}
+
+<footer class="footer footer-v1">
+    <div class="footer-main" style="padding-top:1rem; padding-bottom:0px">
+        <div class="container">
+            <div class="row align-center">
+                <div class="col-md-4 flexmid">
+                    <div class="footer-logo alcentr">
+                        <img src=@Model.Logo alt="image-description">
+                    </div>
+                </div>
+                <div class="col-md-4 flexmid">
+                    <div class="footer-nav inline-nav text-center">
+                        <ul>
+                            <li><a class="formula" href=@Url.Content("/api/Home/Index")>IT-центр</a></li>
+                            <li><a href=@Url.Content("/api/Home/Index#about-hr")>О нас</a></li>
+                            <li><a href=@Url.Content("/api/Home/Contacts")>Контакты</a></li>
+                            @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
+                            {
+                                <li><a href=@Url.Content("/api/Admin/Schools")>Админ панель</a></li>
+                            }
+                            else
+                            {
+                                <li><a href=@Url.Content("/api/Home/Login")>Вход</a></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 text-right flexmid">
+                    <ul class="social-network with-text">
+                        @foreach(var l in Model.Links)
+                        {
+                            <li><a href=@l.Url><ion-icon name="logo"></ion-icon> @l.Name </a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom text-center">
+        <div class="container">
+            <p class="text-center">@Model.Adress <span class="formula"> </p>
+            <p class="text-center">@Model.NameOfUniversity <span class="formula"></p>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,80 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model ITCenterBack.ViewModels.InfoViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Информация";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Информация</h2>
+			</div>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr>
+						<th>Описание</th>
+						<th>Содержание</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Большой текст на слайдере</td>
+						<td>@Model.SliderBigText</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderBigText")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Маленький текст на слайдере</td>
+						<td>@Model.SliderSmallText</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderSmallText")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Название центра</td>
+						<td>@Model.NameOfTheCenter</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateNameOfTheCenter")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Название университета</td>
+						<td>@Model.NameOfUniversity</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateNameOfUniversity")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Адрес университета</td>
+						<td>@Model.AdressOfUniversity</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateAdressOfUniversity")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Логотип вверху</td>
+						<td><img width="150" height="160" src=@Model.HeaderLogo alt="images"></td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateHeaderLogo")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Логотип внизу</td>
+						<td><img width="150" height="160" src=@Model.FooterLogo alt="images"></td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateFooterLogo")>Обновить</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model ITCenterBack.ViewModels.AddSchoolViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить школу";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить школу </h2>
+			</div>
+			@using (Html.BeginForm("AddSchool", "Admin", FormMethod.Post))
+			{
+				<div class="admin-form__item">
+				<label class="input__label">
+					Введите название школы или гимназии <hr/>
+					@Html.EditorFor(model => model.Name)
+				</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+			
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Schools")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

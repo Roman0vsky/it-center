@@ -1,0 +1,36 @@
+﻿@model ITCenterBack.ViewModels.SliderImageViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить изображение";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить направление </h2>
+			</div>
+			@using (Html.BeginForm("AddSliderImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Изображение <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/SliderImages")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

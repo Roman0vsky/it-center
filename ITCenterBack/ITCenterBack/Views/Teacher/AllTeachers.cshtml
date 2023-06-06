@@ -1,0 +1,29 @@
+@model ITCenterBack.ViewModels.AllTeachersViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Преподаватели | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <div class="centered__persons">
+            <h1 class="visual-title visual-sub-title">Преподаватели</h1>
+
+            <div class="persons">
+                @foreach (var t in Model.Teachers)
+                {
+                    <div class="person">
+                        <img class="person__avatar" src=@t.Image alt=@t.Name>
+                        <span class="person__name">@t.Name</span>
+                        <span class="person__specialization">@t.Description</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

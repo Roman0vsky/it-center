@@ -1,0 +1,45 @@
+﻿@model ITCenterBack.ViewModels.AddTeacherViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить преподавателя";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Преподавателя </h2>
+			</div>
+
+			@using (Html.BeginForm("AddTeacher", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Введите Имя преподавателя <hr />
+						@Html.EditorFor(model => model.Name)
+					</label>
+					<label class="input__label">
+						Курсы, которые ведет преподаватель <hr />
+						@Html.EditorFor(model => model.Description)
+					</label>
+					<label class="input__label">
+						Изображение преподавателя <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Teachers")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

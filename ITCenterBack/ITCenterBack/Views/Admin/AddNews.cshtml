@@ -1,0 +1,44 @@
+﻿@model ITCenterBack.ViewModels.AddNewsViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить школу";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить новость </h2>
+			</div>
+			@using (Html.BeginForm("AddNews", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Заголовок <hr />
+						@Html.EditorFor(model => model.Title)
+					</label>
+					<label class="input__label">
+						Текст <hr />
+						@Html.EditorFor(model => model.Text)
+					</label>
+					<label class="input__label">
+						Изображение <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Admin/News")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

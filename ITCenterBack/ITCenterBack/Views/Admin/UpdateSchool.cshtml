@@ -1,0 +1,45 @@
+﻿@model ITCenterBack.ViewModels.SchoolViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Редактировать школу";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			@using (Html.BeginForm())
+			{
+				@Html.HiddenFor(model => model.Id)
+
+				<div class="admin-form__item">
+					<h2 class="heading">Редактировать</h2>
+				</div>
+				<table>
+					<colgroup id="a" span="5"></colgroup>
+					<thead>
+						<tr>
+							<th>
+								Название
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>@Html.EditorFor(model => model.Name)</td>
+						</tr>
+					</tbody>
+				</table>
+			
+				@Html.AntiForgeryToken()
+				<div class="form-actions no-color">
+					<input type="submit" value="Сохранить" class="file-button" />
+					|
+					@Html.ActionLink("Назад", "Schools")
+				</div>
+			}
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>
