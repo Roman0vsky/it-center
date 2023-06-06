@@ -2,33 +2,33 @@
 @{
 }
 
-    <header class="fixed-top main-header header-white transparent with-side-panel-ico" id="waituk-main-header">
-        <div id="nav-section">
-            <div class="bottom-header container-fluid mega-menus" id="mega-menus">
-                <nav class="navbar navbar-toggleable-md no-border-radius no-margin mega-menu-multiple"
-                 id="navbar-inner-container">
-                    <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse"
-                        data-target="#mega-menu">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+<header class="fixed-top main-header header-white transparent with-side-panel-ico" id="waituk-main-header">
+    <div id="nav-section">
+        <div class="bottom-header container-fluid mega-menus" id="mega-menus">
+            <nav class="navbar navbar-toggleable-md no-border-radius no-margin mega-menu-multiple" id="navbar-inner-container">
+                <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse" data-target="#mega-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand mr-auto m-sm-auto" href=@Url.Content("/api/Home/Index")>
-                        <img class="mobile-logo"
-                         src=@Model.Logo alt="IT-центр">
                     <img class="mobile-logo" src=@Model.Logo alt="IT-центр">
-                    </a>
-                    <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown dropdown_first" data-animation="fadeIn">
-                            <a class="dropdown-toggle formula" href=@Url.Content("/api/Home/Index") data-title="Home"> IT-центр </a>
-                            </li>
-                            <li class="dropdown dropdown_second" data-animation="fadeIn">
-                            <a class="dropdown-toggle" href=@Url.Content("/api/Home/Index#about-hr") data-title="Home"> О нас </a>
-                            </li>
-                            <li class="dropdown dropdown_third" data-animation="fadeIn">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home">
-                                    Направления
-                                </a>
-                                <ul class="dropdown-menu no-border-radius">
+                    <img class="mobile-logo" src=@Model.Logo alt="IT-центр">
+                </a>
+                <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown_first" data-animation="fadeIn">
+                            <a class="dropdown-toggle formula" data-title="Home" href=@Url.Content("/api/Home/Index")> IT-центр </a>
+                        </li>
+                        <li class="dropdown dropdown_second" data-animation="fadeIn">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> О нас </a>
+                            <ul class="dropdown-menu no-border-radius">
+                                <li class="dropdown_third colored"><a href="/adminestrach.html"> Администрация</a></li>
+                                <li class="dropdown_third colored"><a href=@Url.Content("/api/Teacher/AllTeachers")> Преподаватели</a></li>
+                                <li class="dropdown_third colored"><a href="/kontakt.html"> Контакты</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown_third" data-animation="fadeIn">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> Секции</a>
+                            <ul class="dropdown-menu no-border-radius">
                                 @foreach (var t in Model.Courses)
                                 {
                                     <li class="dropdown_third colored">
@@ -37,27 +37,22 @@
                                         </a>
                                     </li>
                                 }
-                                </ul>
-                            </li>
+                            </ul>
+                        </li>
 
-                            <li class="dropdown_fourth">
+                        <li class="dropdown_fourth">
                             <a href=@Url.Content("/api/Home/Schedule")> Расписание</a>
-                            </li>
+                        </li>
+                        <li class="dropdown_fin">
+                            <a href=@Url.Content("/api/News/All")> Новости</a>
+                        </li>
+                        <!-- любой текст  <li class="dropdown_fifth">
+                              <a href="person.html"> Преподаватели</a>
+                          </li> -->
 
-                            <li class="dropdown_fifth">
-                            <a href=@Url.Content("/api/Teacher/AllTeachers")> Преподаватели</a>
-                            </li>
-
-                            <li class="dropdown_sixth">
-                            <a href=@Url.Content("/api/Home/Contacts")> Контакты </a>
-                            </li>
-
-                            <li class="dropdown dropdown_seventh" data-animation="fadeIn">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-title="Home">
-                                    Подписывайтесь
-                                </a>
-                                <ul class="dropdown-menu no-border-radius">
-
+                        <li class="dropdown dropdown_seventh" data-animation="fadeIn">
+                            <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> Подписывайтесь </a>
+                            <ul class="dropdown-menu no-border-radius">
                                 @foreach (var link in Model.Links)
                                 {
                                     <li class="dropdown_seventh colored">
@@ -67,12 +62,20 @@
                                         </a>
                                     </li>
                                 }
+                            </ul>
+                        </li>
 
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+                        <li class="dropdown_sixth">
+                            <a href=@Url.Content("/api/Home/Contacts")> Записаться на курс </a>
+                        </li>
+                        <li class="dropdown_eight">
+                            <h4>8 (0212) 37-58-36 </h4>
+                            <h4>email: fmiit@vsu.by </h4>
+                            <h4>+375 (33) 317-95-02</h4>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </header>
+    </div>
+</header>
