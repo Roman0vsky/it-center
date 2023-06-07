@@ -34,7 +34,7 @@
 				<label class="input__label">
 					ФИО представителя:<br />
 					<br />
-					@Model.RepresentativePhoneNumber <hr />
+					@Model.RepresentativeFullName <hr />
 				</label>
 				<label class="input__label">
 					Курсы:<br />
@@ -46,16 +46,19 @@
 					}
 					<hr />
 				</label>
-				<label class="input__label">
-					Время записи:<br />
-					<br />
-					@foreach (var time in Model.DayTime)
-					{
-						<p>Время: @time.TimeFrom.TimeOfDay - @time.TimeTo.TimeOfDay</p>
-						<p>День: @time.Day</p>
-					}
-					<hr />
-				</label>
+				@if (Model.DayTime is not null)
+				{
+					<label class="input__label">
+						Время записи:<br />
+						<br />
+						@foreach (var time in Model.DayTime)
+						{
+							<p>Время: @time.TimeFrom.TimeOfDay - @time.TimeTo.TimeOfDay</p>
+							<p>День: @time.Day</p>
+						}
+						<hr />
+					</label>
+				}
 			</div>
 
 			@using (Html.BeginForm())
