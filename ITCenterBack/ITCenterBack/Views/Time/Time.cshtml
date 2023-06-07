@@ -25,8 +25,8 @@
 					@foreach (var t in Model)
 					{
 						<tr>
-							<td>@t.From.TimeOfDay</td>
-							<td>@t.To.TimeOfDay</td>
+							<td>@t.From.TimeOfDay.ToString(@"hh\:mm")</td>
+							<td>@t.To.TimeOfDay.ToString(@"hh\:mm")</td>
 							<td>
 								<a asp-action="DeleteTime" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
 							</td>
