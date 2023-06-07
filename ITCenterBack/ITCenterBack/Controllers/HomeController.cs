@@ -137,9 +137,9 @@ namespace ITCenterBack.Controllers
         }
 
         [HttpGet]
-        [ActionName("Contacts")]
-        [Route("Contacts")]
-        public async Task<IActionResult> ContactsAsync()
+        [ActionName("Apllication")]
+        [Route("Apllication")]
+        public async Task<IActionResult> ApllicationAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
@@ -183,9 +183,9 @@ namespace ITCenterBack.Controllers
         }
 
         [HttpPost]
-        [ActionName("Contacts")]
-        [Route("Contacts")]
-        public async Task<IActionResult> PostContactsAsync()
+        [ActionName("Apllication")]
+        [Route("Apllication")]
+        public async Task<IActionResult> PostApllicationAsync()
         {
             string fio = Request.Form["contact_fio"];
             var schoolId = Request.Form["choose-school__select"];
@@ -235,14 +235,14 @@ namespace ITCenterBack.Controllers
             if (string.IsNullOrWhiteSpace(schoolId))
             {
                 await _applicationService.CreateApplication(schoolNameAlt, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
-                return RedirectToAction("Contacts");
+                return RedirectToAction("Apllication");
             }
 
             long id = long.Parse(schoolId);
 
 			await _applicationService.CreateApplication(id, classNumber, fio, repFio, repPhone, avTimeList, coursesId);
 
-            return RedirectToAction("Contacts");
+            return RedirectToAction("Apllication");
         }
 
         [HttpGet]
