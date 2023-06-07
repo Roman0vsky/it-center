@@ -1,7 +1,7 @@
 ﻿@model ITCenterBack.ViewModels.ContactsViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Контакты | IT - центр";
+    ViewBag.Title = "Записаться | IT - центр";
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
@@ -13,11 +13,11 @@
             <div class="centered">
                 <div class="container">
                     <div class="visual-text visual-center">
-                        <h1 class="visual-title visual-sub-title">Контакты</h1>
+                        <h1 class="visual-title visual-sub-title">Запись на курсы</h1>
                         <div class="breadcrumb-block">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href=@Url.Content("/api/Home/Index")> Главная </a></li>
-                                <li class="breadcrumb-item active"> Контакты </li>
+                                <li class="breadcrumb-item active"> Запись на курсы </li>
                             </ol>
                         </div>
                     </div>
@@ -56,10 +56,10 @@
                 Представитель - это родственник, на кого будет оформляться
                 договор. <br>Это может быть мама, папа, бабушка или дедушка
             </div>
-            <input required placeholder="Введите Телефон представителя" type="number"
-                   class="contact__parents-phone" name="rep-phone">
             <input required placeholder="Введите ФИО представителя" type="text"
                    class="contact__parents-fio" name="rep-fio">
+            <input required placeholder="Введите Телефон представителя" type="tel" id="tel"
+                   class="user_linkedin_1 contact__parents-phone" minlength="18" maxlength="18" name="rep-phone">
             @*@Html.EditorFor(model => model.RepresentativePhoneNumber, new { htmlAttributes = new { @class = "contact__parents-phone", placeholder = "Введите Телефон представителя"}})
             @Html.EditorFor(model => model.RepresentativeFullName, new { htmlAttributes = new { @class = "contact__parents-fio", placeholder = "Введите ФИО представителя"}})*@
             <div class="contact__choose-courses-title">Запись на курсы</div>
