@@ -22,17 +22,24 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>Большой текст на слайдере</td>
-						<td>@Model.SliderBigText</td>
+						<td>Первый текст слайдера</td>
+						<td>@Model.SliderFirstText</td>
 						<td>
-							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderBigText")>Обновить</a>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderFirstText")>Обновить</a>
 						</td>
 					</tr>
 					<tr>
-						<td>Маленький текст на слайдере</td>
-						<td>@Model.SliderSmallText</td>
+						<td>Второй текст слайдера</td>
+						<td>@Model.SliderSecondText</td>
 						<td>
-							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderSmallText")>Обновить</a>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderSecondText")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Третий текст слайдера</td>
+						<td>@Model.SliderThirdText</td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSliderThirdText")>Обновить</a>
 						</td>
 					</tr>
 					<tr>
@@ -68,6 +75,27 @@
 						<td><img width="150" height="160" src=@Model.FooterLogo alt="images"></td>
 						<td>
 							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateFooterLogo")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Первый номер телефона</td>
+						<td><img width="150" height="160" src=@Model.PhoneNumber1 alt="images"></td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateFirstPhoneNumber")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Второй номер телефона</td>
+						<td><img width="150" height="160" src=@Model.PhoneNumber2 alt="images"></td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateSecondPhoneNumber")>Обновить</a>
+						</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><img width="150" height="160" src=@Model.Email alt="images"></td>
+						<td>
+							<a class="secondary-button" href=@Url.Content("/api/Info/UpdateEmail")>Обновить</a>
 						</td>
 					</tr>
 				</tbody>

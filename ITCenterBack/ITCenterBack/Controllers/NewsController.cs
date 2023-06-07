@@ -54,7 +54,7 @@ namespace ITCenterBack.Controllers
 				{
 					Courses = coursesVM,
 					Links = linksVM,
-                    LInfo = infoVM
+                    Info = infoVM
                 };
 
 				var page = new NewsDetailsViewModel

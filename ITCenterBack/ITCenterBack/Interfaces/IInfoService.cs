@@ -12,6 +12,9 @@ namespace ITCenterBack.Interfaces
 		Task UpdateFooterLogoAsync(string logo);
 		Task UpdateNameOfUniversityAsync(string name);
 		Task UpdateAdressOfUniversityAsync(string adress);
+		Task UpdateFirstPhoneNumberAsync(string phone);
+		Task UpdateSecondPhoneNumberAsync(string phone);
+		Task UpdateEmailAsync(string email);
 		Task<Info> GetInfoAsync();
 	}
 }

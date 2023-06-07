@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITCenterBack.Migrations
 {
     [DbContext(typeof(ITCenterContext))]
-    [Migration("20230606102451_seedupd")]
-    partial class seedupd
+    [Migration("20230607142250_entitiesupd")]
+    partial class entitiesupd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -220,31 +220,36 @@ namespace ITCenterBack.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("AdressOfUniversity")
-                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Email")
                         .HasColumnType("longtext");
 
                     b.Property<string>("FooterLogo")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("HeaderLogo")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NameOfTheCenter")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("NameOfUniversity")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("SliderBigText")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber1")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("SliderSmallText")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber2")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SliderFirstText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SliderSecondText")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("SliderThirdText")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
@@ -256,12 +261,16 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
+                            Email = "fmiit@vsu.by",
                             FooterLogo = "/images/gllg.png",
                             HeaderLogo = "/assets/for_new/img/icons/logo.svg",
                             NameOfTheCenter = "IT-центр",
                             NameOfUniversity = "ВГУ имени П.М.Машерова",
-                            SliderBigText = "IT-центр",
-                            SliderSmallText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\""
+                            PhoneNumber1 = "8 (0212) 37-58-36",
+                            PhoneNumber2 = "+375 (33) 317-95-02",
+                            SliderFirstText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
+                            SliderSecondText = "IT-центр",
+                            SliderThirdText = "\"Мир будущего\""
                         });
                 });
 
@@ -778,11 +787,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "974e2ae3-0076-413c-8676-5c77f93c4668",
+                            ConcurrencyStamp = "4f6d01a4-1b3b-46f0-bcb6-20b095721013",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDfmuwJUtfAKffzz8xO3eBZdE8SjWjIT6Ukd2F96Yyz21idrF6qDoojjqdY/iHfrAw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBeHFJ5suK7sB7c2L1Clvv24knYmBEoU3jMWHM5MRq42rj3kYj6KbVkLM9+FePNEsg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -819,7 +828,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "5d15f7d2-2f4b-43b3-b298-f3e0ed73b3f5",
+                            ConcurrencyStamp = "4047a365-7d85-41d3-b954-5a2499b93baa",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });

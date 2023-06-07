@@ -46,6 +46,58 @@ namespace ITCenterBack.Services
 			}
 		}
 
+		public async Task UpdateEmailAsync(string email)
+		{
+			var info = await _context.Info.FirstOrDefaultAsync();
+
+			if (!string.IsNullOrWhiteSpace(email))
+			{
+				if (info is null)
+				{
+					info = new Info
+					{
+						Email = email
+					};
+
+					_context.Info.Add(info);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					info.Email = email;
+
+					_context.Info.Update(info);
+					await _context.SaveChangesAsync();
+				}
+			}
+		}
+
+		public async Task UpdateFirstPhoneNumberAsync(string phone)
+		{
+			var info = await _context.Info.FirstOrDefaultAsync();
+
+			if (!string.IsNullOrWhiteSpace(phone))
+			{
+				if (info is null)
+				{
+					info = new Info
+					{
+						PhoneNumber1 = phone
+					};
+
+					_context.Info.Add(info);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					info.PhoneNumber1 = phone;
+
+					_context.Info.Update(info);
+					await _context.SaveChangesAsync();
+				}
+			}
+		}
+
 		public async Task UpdateFooterLogoAsync(string logo)
 		{
 			var info = await _context.Info.FirstOrDefaultAsync();
@@ -143,6 +195,32 @@ namespace ITCenterBack.Services
 				else
 				{
 					info.NameOfUniversity = name;
+
+					_context.Info.Update(info);
+					await _context.SaveChangesAsync();
+				}
+			}
+		}
+
+		public async Task UpdateSecondPhoneNumberAsync(string phone)
+		{
+			var info = await _context.Info.FirstOrDefaultAsync();
+
+			if (!string.IsNullOrWhiteSpace(phone))
+			{
+				if (info is null)
+				{
+					info = new Info
+					{
+						PhoneNumber2 = phone
+					};
+
+					_context.Info.Add(info);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					info.PhoneNumber2 = phone;
 
 					_context.Info.Update(info);
 					await _context.SaveChangesAsync();

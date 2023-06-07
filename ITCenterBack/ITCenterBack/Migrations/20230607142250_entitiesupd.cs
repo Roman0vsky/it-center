@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ITCenterBack.Migrations
 {
-    public partial class seedupd : Migration
+    public partial class entitiesupd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -114,19 +114,27 @@ namespace ITCenterBack.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SliderBigText = table.Column<string>(type: "longtext", nullable: false)
+                    SliderFirstText = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    SliderSmallText = table.Column<string>(type: "longtext", nullable: false)
+                    SliderSecondText = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NameOfTheCenter = table.Column<string>(type: "longtext", nullable: false)
+                    SliderThirdText = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    HeaderLogo = table.Column<string>(type: "longtext", nullable: false)
+                    NameOfTheCenter = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    FooterLogo = table.Column<string>(type: "longtext", nullable: false)
+                    HeaderLogo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NameOfUniversity = table.Column<string>(type: "longtext", nullable: false)
+                    FooterLogo = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    AdressOfUniversity = table.Column<string>(type: "longtext", nullable: false)
+                    NameOfUniversity = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    AdressOfUniversity = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PhoneNumber1 = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    PhoneNumber2 = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Email = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -490,12 +498,12 @@ namespace ITCenterBack.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1L, "5d15f7d2-2f4b-43b3-b298-f3e0ed73b3f5", "Administrator", "Administrator" });
+                values: new object[] { 1L, "4047a365-7d85-41d3-b954-5a2499b93baa", "Administrator", "Administrator" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "974e2ae3-0076-413c-8676-5c77f93c4668", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEDfmuwJUtfAKffzz8xO3eBZdE8SjWjIT6Ukd2F96Yyz21idrF6qDoojjqdY/iHfrAw==", null, false, null, false, "admin" });
+                values: new object[] { 1L, 0, "4f6d01a4-1b3b-46f0-bcb6-20b095721013", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEBeHFJ5suK7sB7c2L1Clvv24knYmBEoU3jMWHM5MRq42rj3kYj6KbVkLM9+FePNEsg==", null, false, null, false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Courses",
@@ -509,8 +517,8 @@ namespace ITCenterBack.Migrations
 
             migrationBuilder.InsertData(
                 table: "Info",
-                columns: new[] { "Id", "AdressOfUniversity", "FooterLogo", "HeaderLogo", "NameOfTheCenter", "NameOfUniversity", "SliderBigText", "SliderSmallText" },
-                values: new object[] { 1L, "Республика Беларусь 210038, г. Витебск, Московский проспект 33", "/images/gllg.png", "/assets/for_new/img/icons/logo.svg", "IT-центр", "ВГУ имени П.М.Машерова", "IT-центр", "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"" });
+                columns: new[] { "Id", "AdressOfUniversity", "Email", "FooterLogo", "HeaderLogo", "NameOfTheCenter", "NameOfUniversity", "PhoneNumber1", "PhoneNumber2", "SliderFirstText", "SliderSecondText", "SliderThirdText" },
+                values: new object[] { 1L, "Республика Беларусь 210038, г. Витебск, Московский проспект 33", "fmiit@vsu.by", "/images/gllg.png", "/assets/for_new/img/icons/logo.svg", "IT-центр", "ВГУ имени П.М.Машерова", "8 (0212) 37-58-36", "+375 (33) 317-95-02", "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"", "IT-центр", "\"Мир будущего\"" });
 
             migrationBuilder.InsertData(
                 table: "Schedule",

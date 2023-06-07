@@ -217,5 +217,68 @@ namespace ITCenterBack.Controllers
 
 			return RedirectToAction("Info");
 		}
+
+		[HttpGet]
+		[Route("UpdateFirstPhoneNumber")]
+		[ActionName("UpdateFirstPhoneNumber")]
+		public IActionResult UpdateFirstPhoneNumber()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("UpdateFirstPhoneNumber")]
+		[ActionName("UpdateFirstPhoneNumber")]
+		public async Task<IActionResult> UpdateFirstPhoneNumberAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		{
+			if (!string.IsNullOrWhiteSpace(viewModel.Description))
+			{
+				await _infoService.UpdateFirstPhoneNumberAsync(viewModel.Description);
+			}
+
+			return RedirectToAction("Info");
+		}
+
+		[HttpGet]
+		[Route("UpdateSecondPhoneNumber")]
+		[ActionName("UpdateSecondPhoneNumber")]
+		public IActionResult UpdateSecondPhoneNumber()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("UpdateSecondPhoneNumber")]
+		[ActionName("UpdateSecondPhoneNumber")]
+		public async Task<IActionResult> UpdateSecondPhoneNumberAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		{
+			if (!string.IsNullOrWhiteSpace(viewModel.Description))
+			{
+				await _infoService.UpdateSecondPhoneNumberAsync(viewModel.Description);
+			}
+
+			return RedirectToAction("Info");
+		}
+
+		[HttpGet]
+		[Route("UpdateEmail")]
+		[ActionName("UpdateEmail")]
+		public IActionResult UpdateEmail()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("UpdateEmail")]
+		[ActionName("UpdateEmail")]
+		public async Task<IActionResult> UpdateEmailAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		{
+			if (!string.IsNullOrWhiteSpace(viewModel.Description))
+			{
+				await _infoService.UpdateEmailAsync(viewModel.Description);
+			}
+
+			return RedirectToAction("Info");
+		}
 	}
 }
