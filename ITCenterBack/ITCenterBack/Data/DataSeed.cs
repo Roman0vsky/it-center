@@ -184,11 +184,15 @@ namespace ITCenterBack.Data
 					NameOfTheCenter = "IT-центр",
                     NameOfUniversity = "ВГУ имени П.М.Машерова",
                     AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
-                    SliderBigText = "IT-центр",
-                    SliderSmallText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
+                    SliderFirstText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
+                    SliderSecondText = "IT-центр",
+					SliderThirdText = "\"Мир будущего\"",
                     HeaderLogo = "/assets/for_new/img/icons/logo.svg",
-                    FooterLogo = "/images/gllg.png"
-				}
+                    FooterLogo = "/images/gllg.png",
+					PhoneNumber1 = "8 (0212) 37-58-36",
+					PhoneNumber2 = "+375 (33) 317-95-02",
+					Email = "fmiit@vsu.by"
+                }
 				);
 
             //Schools

@@ -10,7 +10,7 @@
             <div class="row align-center">
                 <div class="col-md-4 flexmid">
                     <div class="footer-logo alcentr">
-                        <img src=@Model.Logo alt="image-description">
+                        <img src=@Model.Info.FooterLogo alt="image-description">
                     </div>
                 </div>
                 <div class="col-md-4 flexmid">
@@ -32,9 +32,9 @@
                 </div>
                 <div class="col-md-4 text-right flexmid">
                     <li class="dropdown_eight">
-                        <h4>8 (0212) 37-58-36</h4>
-                        <h4>email: fmiit@vsu.by </h4>
-                        <h4>+375 (33) 317-95-02</h4>
+                        <h4>@Model.Info.PhoneNumber1</h4>
+                        <h4>email: @Model.Info.Email </h4>
+                        <h4>@Model.Info.PhoneNumber2</h4>
                     </li>
                 </div>
             </div>
@@ -42,8 +42,8 @@
     </div>
     <div class="footer-bottom text-center">
         <div class="container">
-            <p class="text-center">@Model.Adress <span class="formula"> </p>
-            <p class="text-center">@Model.NameOfUniversity. Все права защищены. <span class="formula"></p>
+            <p class="text-center">@Model.Info.AdressOfUniversity <span class="formula"> </p>
+            <p class="text-center">@Model.Info.NameOfUniversity. Все права защищены. <span class="formula"></p>
         </div>
     </div>
 </footer>

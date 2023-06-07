@@ -10,8 +10,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand mr-auto m-sm-auto" href=@Url.Content("/api/Home/Index")>
-                    <img class="mobile-logo" src=@Model.Logo alt="IT-центр">
-                    <img class="mobile-logo" src=@Model.Logo alt="IT-центр">
+                    <img class="mobile-logo" src=@Model.Info.HeaderLogo alt="IT-центр">
+                    <img class="mobile-logo" src=@Model.Info.HeaderLogo alt="IT-центр">
                 </a>
                 <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
                     <ul class="nav navbar-nav">
@@ -69,9 +69,9 @@
                             <a href=@Url.Content("/api/Home/Apllication")> Записаться на курс </a>
                         </li>
                         <li class="dropdown_eight">
-                            <h4>8 (0212) 37-58-36 </h4>
-                            <h4>email: fmiit@vsu.by </h4>
-                            <h4>+375 (33) 317-95-02</h4>
+                            <h4>@Model.Info.PhoneNumber1 </h4>
+                            <h4>email: @Model.Info.Email </h4>
+                            <h4>@Model.Info.PhoneNumber2</h4>
                         </li>
                     </ul>
                 </div>

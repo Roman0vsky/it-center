@@ -37,48 +37,69 @@ namespace ITCenterBack.Controllers
 		}
 
 		[HttpGet]
-		[Route("UpdateSliderBigText")]
-		[ActionName("UpdateSliderBigText")]
-		public IActionResult UpdateSliderBigText()
+		[Route("UpdateSliderFirstText")]
+		[ActionName("UpdateSliderFirstText")]
+		public IActionResult UpdateSliderFirstText()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		[Route("UpdateSliderBigText")]
-		[ActionName("UpdateSliderBigText")]
-		public async Task<IActionResult> UpdateSliderBigTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		[Route("UpdateSliderFirstText")]
+		[ActionName("UpdateSliUpdateSliderFirstTextderBigText")]
+		public async Task<IActionResult> UpdateSliderFirstTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
-				await _infoService.UpdateSliderBigTextAsync(viewModel.Description);
+				await _infoService.UpdateSliderFirstTextAsync(viewModel.Description);
 			}
 
 			return RedirectToAction("Info");
 		}
 
 		[HttpGet]
-		[Route("UpdateSliderSmallText")]
-		[ActionName("UpdateSliderSmallText")]
-		public IActionResult UpdateSliderSmallText()
+		[Route("UpdateSliderSecondText")]
+		[ActionName("UpdateSliderSecondText")]
+		public IActionResult UpdateSliderSecondText()
 		{
 			return View();
 		}
 
 		[HttpPost]
-		[Route("UpdateSliderSmallText")]
-		[ActionName("UpdateSliderSmallText")]
-		public async Task<IActionResult> UpdateSliderSmallTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		[Route("UpdateSliderSecondText")]
+		[ActionName("UpdateSliderSecondText")]
+		public async Task<IActionResult> UpdateSliderSecondTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
-				await _infoService.UpdateSliderSmallTextAsync(viewModel.Description);
+				await _infoService.UpdateSliderSecondTextAsync(viewModel.Description);
 			}
 
 			return RedirectToAction("Info");
 		}
 
-		[HttpGet]
+        [HttpGet]
+        [Route("UpdateSliderThirdText")]
+        [ActionName("UpdateSliderThirdText")]
+        public IActionResult UpdateSliderThirdText()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("UpdateSliderThirdText")]
+        [ActionName("UpdateSliderThirdText")]
+        public async Task<IActionResult> UpdateSliderThirdTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+        {
+            if (!string.IsNullOrWhiteSpace(viewModel.Description))
+            {
+                await _infoService.UpdateSliderThirdTextAsync(viewModel.Description);
+            }
+
+            return RedirectToAction("Info");
+        }
+
+        [HttpGet]
 		[Route("UpdateNameOfTheCenter")]
 		[ActionName("UpdateNameOfTheCenter")]
 		public IActionResult UpdateNameOfTheCenter()

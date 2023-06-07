@@ -45,15 +45,12 @@ namespace ITCenterBack.Controllers
 			{
 				Courses = coursesVM,
 				Links = linksVM,
-				Logo = infoVM.HeaderLogo
-			};
+                Info = infoVM
+            };
 
             var footer = new FooterViewModel
             {
-                Links = linksVM,
-                Logo = infoVM.FooterLogo,
-                Adress = infoVM.AdressOfUniversity,
-                NameOfUniversity = infoVM.NameOfUniversity
+                Info = infoVM
             };
 
             var page = new AllTeachersViewModel

@@ -64,7 +64,7 @@ namespace ITCenterBack.Controllers
 			{
 				Courses = coursesVM,
 				Links = linksVM,
-				Logo = infoVM.HeaderLogo
+				Info = infoVM
 			};
 
 			return header;
@@ -92,10 +92,7 @@ namespace ITCenterBack.Controllers
 
             var footer = new FooterViewModel
             {
-                Links = linksVM,
-                Logo = infoVM.FooterLogo,
-                Adress = infoVM.AdressOfUniversity,
-                NameOfUniversity = infoVM.NameOfUniversity
+                Info = infoVM
             };
 
             var page = new IndexViewModel
@@ -157,10 +154,7 @@ namespace ITCenterBack.Controllers
 
             var footer = new FooterViewModel
             {
-                Links = linksVM,
-                Logo = infoVM.FooterLogo,
-                Adress = infoVM.AdressOfUniversity,
-                NameOfUniversity = infoVM.NameOfUniversity
+                Info = infoVM
             };
 
             var time = await _timeService.GetTimesAsync();
@@ -262,10 +256,7 @@ namespace ITCenterBack.Controllers
 
             var footer = new FooterViewModel
             {
-                Links = linksVM,
-                Logo = infoVM.FooterLogo,
-                Adress = infoVM.AdressOfUniversity,
-                NameOfUniversity = infoVM.NameOfUniversity
+                Info = infoVM
             };
 
             var page = new ScheduleViewModel

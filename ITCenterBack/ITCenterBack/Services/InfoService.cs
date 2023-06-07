@@ -150,7 +150,7 @@ namespace ITCenterBack.Services
 			}
 		}
 
-		public async Task UpdateSliderBigTextAsync(string text)
+		public async Task UpdateSliderFirstTextAsync(string text)
 		{
 			var info = await _context.Info.FirstOrDefaultAsync();
 
@@ -160,7 +160,7 @@ namespace ITCenterBack.Services
 				{
 					info = new Info
 					{
-						SliderBigText = text
+						SliderFirstText = text
 					};
 
 					_context.Info.Add(info);
@@ -168,7 +168,7 @@ namespace ITCenterBack.Services
 				}
 				else
 				{
-					info.SliderBigText = text;
+					info.SliderFirstText = text;
 
 					_context.Info.Update(info);
 					await _context.SaveChangesAsync();
@@ -176,7 +176,7 @@ namespace ITCenterBack.Services
 			}
 		}
 
-		public async Task UpdateSliderSmallTextAsync(string text)
+		public async Task UpdateSliderSecondTextAsync(string text)
 		{
 			var info = await _context.Info.FirstOrDefaultAsync();
 
@@ -186,7 +186,7 @@ namespace ITCenterBack.Services
 				{
 					info = new Info
 					{
-						SliderSmallText = text
+						SliderSecondText = text
 					};
 
 					_context.Info.Add(info);
@@ -194,12 +194,38 @@ namespace ITCenterBack.Services
 				}
 				else
 				{
-					info.SliderSmallText = text;
+					info.SliderSecondText = text;
 
 					_context.Info.Update(info);
 					await _context.SaveChangesAsync();
 				}
 			}
 		}
-	}
+
+        public async Task UpdateSliderThirdTextAsync(string text)
+        {
+            var info = await _context.Info.FirstOrDefaultAsync();
+
+            if (!string.IsNullOrWhiteSpace(text))
+            {
+                if (info is null)
+                {
+                    info = new Info
+                    {
+                        SliderThirdText = text
+                    };
+
+                    _context.Info.Add(info);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    info.SliderThirdText = text;
+
+                    _context.Info.Update(info);
+                    await _context.SaveChangesAsync();
+                }
+            }
+        }
+    }
 }
