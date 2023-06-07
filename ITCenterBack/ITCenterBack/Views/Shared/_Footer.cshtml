@@ -17,7 +17,7 @@
                     <div class="footer-nav inline-nav text-center">
                         <ul>
                             <li><a class="formula" href=@Url.Content("/api/Home/Index")>IT-центр</a></li>
-                            <li><a href="applications.html">Контакты</a></li>
+                            <li><a href=@Url.Content("/api/Home/Contacts")>Контакты</a></li>
                             @if ((await AuthorizationService.AuthorizeAsync(User, ITCenterBack.Constants.AccountPolicies.ElevatedRights)).Succeeded)
                             {
                                 <li><a href=@Url.Content("/api/Admin/Schools")>Админ панель</a></li>

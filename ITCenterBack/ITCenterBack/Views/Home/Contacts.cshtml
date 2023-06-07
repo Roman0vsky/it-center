@@ -1,0 +1,76 @@
+﻿@model ITCenterBack.ViewModels.ContactsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Контакты | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">Контакты</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/visual/banner of the page -->
+    <!-- main content wrapper -->
+    <div class="content-wrapper">
+        <section class="content-block pb-0">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="row align-items-start">
+                        <div class="col-lg-6">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2278.315216600009!2d30.22274747711864!3d55.17775593613546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c57143a61e40fd%3A0x5960681ffa5e4d72!2z0JLQuNGC0LXQsdGB0LrQuNC5INCz0L7RgdGD0LTQsNGA0YHRgtCy0LXQvdC90YvQuSDRg9C90LjQstC10YDRgdC40YLQtdGCINC40LzQtdC90Lgg0J8u0JwuINCc0LDRiNC10YDQvtCy0LA!5e0!3m2!1sru!2sby!4v1685854058316!5m2!1sru!2sby" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                        </div>
+                        <div class="col-lg-6 col-xl-5 offset-xl-1">
+                            <div class="info-slot">
+                                <div class="icon"><span class="custom-icon-map-marker"></span></div>
+                                <div class="text">
+                                    Для записи и консультации:
+                                    <br><a style="color:#575757" href="">@Model.Footer.Info.AdressOfUniversity</a>
+                                </div>
+                            </div>
+                            <div class="info-slot">
+                                <div class="icon"><span class="custom-icon-headset"></span></div>
+                                <div class="text">
+                                    По вопросам:
+                                    <br><a style="color:#575757" href=>@Model.Footer.Info.PhoneNumber2</a>
+                                </div>
+                            </div>
+                            <div class="info-slot">
+                                <div class="icon"><span class="custom-icon-message"></span></div>
+                                <div class="text">
+                                    Email: @Model.Footer.Info.Email
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--<div class="map-holder embed-responsive-21by9 grayscaled-map">
+            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0605547231917!2d-0.33554378354576586!3d51.47540277962994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760cf99dee6c25%3A0xc9d2780dbbcbb933!2sLondon+Rd%2C+Isleworth+TW7%2C+UK!5e0!3m2!1sen!2snp!4v1473394388477" height="450" style="border:0"></iframe>
+        </div>-->
+        <aside class="content-block">
+            <div class="container">
+                <div class="logo-container">
+
+                    <!--<div class="slide-item">
+                            <img src="assets/for_new/img/logo-03.png" alt="images description">
+                        </div>-->
+                </div>
+            </div>
+    </div>
+    </aside>
+    </div>
+    <!--/main content wrapper -->
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

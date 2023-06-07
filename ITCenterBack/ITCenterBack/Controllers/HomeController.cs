@@ -163,7 +163,7 @@ namespace ITCenterBack.Controllers
             var avTime = await _avTimeService.GetAllSlotsAsync();
             var avTimeVM = _mapper.Map<List<AvaliableTimesViewModel>>(avTime);
 
-            var page = new ContactsViewModel
+            var page = new MakeApplicationViewModel
             {
                 Header = header,
 				Schools = schoolsVM, /*new SelectList(schoolsVM, "Id", "Name"),*/
@@ -285,7 +285,32 @@ namespace ITCenterBack.Controllers
         [ActionName("Schedule")]
         public IActionResult PostScheduleAsync()
         {
+
             return View();
+        }
+
+        [HttpGet]
+        [ActionName("Contacts")]
+        [Route("Contacts")]
+        public async Task<IActionResult> ContactsAsync()
+        {
+            var header = await HeaderInfoAsync();
+
+            var info = await _infoService.GetInfoAsync();
+            var infoVM = _mapper.Map<InfoViewModel>(info);
+
+            var footer = new FooterViewModel
+            {
+                Info = infoVM
+            };
+
+            var page = new ContactsViewModel
+            {
+                Header = header,
+                Footer = footer
+            };
+
+            return View(page);
         }
 
         [HttpGet]
