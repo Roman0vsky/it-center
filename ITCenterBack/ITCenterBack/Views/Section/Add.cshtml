@@ -1,0 +1,46 @@
+﻿@using ITCenterBack.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ITCenterBack.ViewModels.AddSectionViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить секцию";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить секцию </h2>
+			</div>
+			@using (Html.BeginForm("AddCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Введите название <br />
+						@Html.EditorFor(model => model.Name) <hr />
+					</label>
+					<label class="input__label">
+						Введите описание <hr />
+						@Html.EditorFor(model => model.Description)
+					</label>
+					<label class="input__label">
+						Изображение <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Section/All")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

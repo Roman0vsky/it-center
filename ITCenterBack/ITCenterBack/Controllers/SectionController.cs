@@ -119,5 +119,34 @@ namespace ITCenterBack.Controllers
 
 			return View(viewModel);
 		}
+
+		[HttpGet]
+		[Route("Delete")]
+		[ActionName("Delete")]
+		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+		public async Task<IActionResult> DeleteCourseGetAsync(long id)
+		{
+			var section = await _sectionService.GetSectionAsync(id);
+
+			if (section is null)
+			{
+				return NotFound();
+			}
+
+			var sectionVM = _mapper.Map<SectionViewModel>(section);
+
+			return View(sectionVM);
+		}
+
+		[HttpPost]
+		[Route("Delete")]
+		[ActionName("Delete")]
+		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+		public async Task<IActionResult> DeleteCourseAsync(long id)
+		{
+			await _sectionService.DeleteSectionAsync(id);
+
+			return RedirectToAction("All");
+		}
 	}
 }
