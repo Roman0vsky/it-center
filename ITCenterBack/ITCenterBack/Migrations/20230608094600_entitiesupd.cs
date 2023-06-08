@@ -196,6 +196,25 @@ namespace ITCenterBack.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Sections",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Image = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sections", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "SliderImages",
                 columns: table => new
                 {
@@ -498,12 +517,12 @@ namespace ITCenterBack.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1L, "4047a365-7d85-41d3-b954-5a2499b93baa", "Administrator", "Administrator" });
+                values: new object[] { 1L, "f6085058-66ae-49d6-b949-1561e110ec0e", "Administrator", "Administrator" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "4f6d01a4-1b3b-46f0-bcb6-20b095721013", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEBeHFJ5suK7sB7c2L1Clvv24knYmBEoU3jMWHM5MRq42rj3kYj6KbVkLM9+FePNEsg==", null, false, null, false, "admin" });
+                values: new object[] { 1L, 0, "be8eb96f-1517-408a-8521-7be1e0272dfb", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEJIPW903WoPFvIMD9wez5DjCvGqd4vsVi/kkxdwgqxdYF+p2oCK5gudcxIJCUAHi9A==", null, false, null, false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Courses",
@@ -579,6 +598,16 @@ namespace ITCenterBack.Migrations
                     { 47L, "Средняя школа № 47 имени Е.Ф.Ивановского" },
                     { 48L, "Специальная  школа № 26" },
                     { 49L, "Витебская специальная школа-интернат" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Sections",
+                columns: new[] { "Id", "Description", "Image", "Name" },
+                values: new object[,]
+                {
+                    { 1L, "На занятиях по математике слушатели IT-академии занимаются\r\n\r\n решением задач игрового, логического и занимательного характера с целью выявления и развития математических способностей и углубления интереса к математике, а также повышения общего уровня математических знаний, умений и навыков.\r\n Кроме того в рамках курсов подробно разбираются задачи различных математических олимпиад, турниров и конкурсов.\r\n Продемонстрировать полученные умения и навыки учащиеся могут приняв участие в следующих мероприятиях:\r\nМеждународный математический Турнир городов (по г.Витебску)\r\n Республиканский турнир юных математиков\r\n Районные и областные этапы республиканской олимпиады школьников по математике и многих других мероприятиях\r\n Слушатели, проявившие себя с наилучшей стороны, могут принять участие в работе Республиканской летней научно-исследовательской школы “Бригантина”.\r\n Для учащихся 10-11 классов в рамках работы секции проводятся курсы подготовки к ЦТ.\r\n", "/assets/for_new/img/courses/c/c.svg", "Математика" },
+                    { 2L, "В рамках секции информатики и программирования занятия проводятся по следующим направлениям:\r\n\r\n Scratch-программирование: курс предназначен для самых юных слушателей TI-академии и направлен на изучение основ алгоритмизации и программирования на базе языка Scratch.\r\nJava для начинающих: язык программирования Java является одним из наиболее популярных и распространенных в мире на текущий момент. В рамках данного курса ученики познакомятся с его синтаксисом и изучат способы его применения для решения задач.\r\nWeb-программирование: курс посвящен изучению таких технологий как HTML/CSS/JS, которые применяются при разработке сайтов и клиентской частей интернет-приложений.\r\n Компьютерная графика и web-дизайн: данный курс будет полезен всем, кто занимается художественным творчеством и желает использовать компьютер как инструмент в художественной деятельности.\r\n Кроме того, учащиеся IT-академии имеют возможность проявить себя, принимая участие в различных мероприятиях и соревнованиях по информатике и программированию как республиканского так и международного уровня.\r\n", "/assets/for_new/img/courses/c/c.svg", "Информатика и программирование" },
+                    { 3L, "За время учебы на курсах «физика и робототехника» слушатели развивают умения и навыки работы с техническими устройствами на примере образовательной робототехники на базе платформ Lego, Arduino и Festo Robotino.\r\n\r\n Платформа LEGO Mindstorms EV3 является наиболее популярной при изучении робототехники. С помощью различных сочетаний программных блоков, моторов и датчиков можно заставить модели ходить, говорить, захватывать предметы, думать, стрелять и выполнять любые действия, которые только можно придумать.\r\n Arduino – это небольшая плата с собственным процессором и памятью. В Arduino можно загрузить программу, которая будет управлять различными устройствами по заданному алгоритму. Таким образом можно создать множество уникальных и классных механизмов, сделанных своими руками и по собственной задумке.\r\n Помимо этого слушатели изучают теоретические основы робототехники. Рассматриваются такие темы как механика и электричество. А также во время курсов ученики имеют возможность посетить планетарий университета, оснащенный современными телескопами, и узнать больше о Солнечной системе и Вселенной.\r\n", "/assets/for_new/img/courses/c/c.svg", "Физика и робототехника" }
                 });
 
             migrationBuilder.InsertData(
@@ -718,6 +747,9 @@ namespace ITCenterBack.Migrations
 
             migrationBuilder.DropTable(
                 name: "Schedule");
+
+            migrationBuilder.DropTable(
+                name: "Sections");
 
             migrationBuilder.DropTable(
                 name: "SliderImages");
