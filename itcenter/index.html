@@ -63,27 +63,81 @@
     <div id="wrapper" class="no-overflow-x">
         <div class="page-wrapper">
             <!-- header of the page -->
-            <header class="fixed-top main-header header-white transparent with-side-panel-ico" id="waituk-main-header">
+            <header class="fixed-top main-header header-white transparent with-side-panel-ico sticky-nav" id="waituk-main-header">
                 <div id="nav-section">
                     <div class="bottom-header container-fluid mega-menus" id="mega-menus">
+                        <style>
+                            .ddd{
+                                display: flex;
+                                justify-content: space-evenly;
+                                flex-direction: row;
+                                width: 100%;
+                                align-items: center;
+                            }
+                            .aaaa{
+                                display: none;
+                            }
+                            @media (max-width: 1024px){
+                                 .ddd{
+                                    display: none;
+                                 }
+                                 .aaaa{
+                                    margin-top: 10px;
+                                    display: flex;
+                                    justify-content: center;
+                                 }
+                            }
+                        </style>
+                    <div class="ddd">
+                        <div>
+                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img class="mobile-logo"  src="assets/for_new/img/icons/logo.svg" alt="IT-центр">  </a>  
+                        </div>  
+                        <div
+                        style="
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        "
+                        >
+                            <h6>Учреждение образования "Витебский государственный университет имени П.М.Машерова"</h6> 
+                            <h3>Образовательный IT-Центр</h3>
+                            <div style="display: flex; flex-direction: row;">
+                                <h4 class="h4-hider">Математика</h4>
+                                <h4 class="h4-hider">&nbsp Информатика</h4> 
+                                <h4 class="h4-hider">&nbsp Робототехника</h4> 
+                            </div>
+                            <h4>Будущего</h4>
+                            
+                        </div>
+                        <div
+                        style="
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        ">
+                             <h4>8 (0212) 37-58-36 </h4>
+                            <h4>email: fmiit@vsu.by </h4> 
+                            <h4>+375 (33) 317-95-02</h4> 
+                        </div>
+                    </div>
+                    <div class="aaaa">
+                        <h3>IT-Центр</h3>
+                    </div>
                         <nav class="navbar navbar-toggleable-md no-border-radius no-margin mega-menu-multiple" id="navbar-inner-container">
                             <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse" data-target="#mega-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img class="mobile-logo"  src="assets/for_new/img/icons/logo.svg" alt="IT-центр"> <img class="mobile-logo" src="assets/for_new/img/icons/logo.svg" alt="IT-центр"> </a>
                             <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown dropdown_first" data-animation="fadeIn">
-                                        <a class="dropdown-toggle formula" data-title="Home"> IT-центр </a>
+                                        <a class="dropdown-toggle formula" data-title="Home" href="index.html">ГЛАВНАЯ</a>
                                     </li>
                                     <li class="dropdown dropdown_second" data-animation="fadeIn">
                                         <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> О нас </a>
                                         <ul class="dropdown-menu no-border-radius">
-                                            <li class="dropdown_third colored"><a href="./adminestrach.html"> Администрация</a></li>
-                                            <li class="dropdown_third colored"><a href="./person.html"> Преподаватели</a></li>
-                                            <li class="dropdown_third colored"><a href="./kontakt.html"> Контакты</a></li>
-
-   
+                                            <li class="dropdown_second colored"><a href="./adminestrach.html"> Администрация</a></li>
+                                            <li class="dropdown_second colored"><a href="./person.html"> Преподаватели</a></li>
+                                            <li class="dropdown_second colored"><a href="./kontakt.html"> Контакты</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown dropdown_third" data-animation="fadeIn">
@@ -119,11 +173,7 @@
                                     <li class="dropdown_sixth">
                                         <a href="applications.html"> Записаться на курс </a>
                                     </li>
-                                    <li class="dropdown_eight">
-                                       <h4>8 (0212) 37-58-36 </h4>
-                                       <h4>email: fmiit@vsu.by </h4> 
-                                       <h4>+375 (33) 317-95-02</h4> 
-                                    </li>
+                                
                                 </ul>
                             </div>
                         </nav>
@@ -164,19 +214,7 @@
                                         data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="background-color:rgba(0, 0, 0, 0);"> </div>-->
                                         <!-- <div class="slider-sub-title text-white tp-caption tp-resizeme rs-parallaxlevel-0" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['top','top','middle','middle']" data-voffset="['145','190','-30','-3']" data-width="['1200','960','720','540']" data-textalign="left" data-fontsize="['30','28','24','20']" data-lineheight="['50','50','50','50']" data-letterspacing="5" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[25,25,25,25]">
                                         </div> -->
-                                        <div class="slider-text-wrapper">
-                                            <div class="slider-text text-white tp-caption tp-resizeme slider-text1 show-text-animation slider-text1_v1" data-x="['left','left','left','left']" data-y="['top','top','middle','middle']" data-voffset="['435','360','88','86']" data-width="['600','555','555','480']" data-textalign="left" data-fontsize="['16','14','14','14']" data-lineheight="['30','30','22','22']" data-fontweight="400" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[25,25,25,25]">
-                                            УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ "ВГУ ИМЕНИ П.М.МАШЕРОВА"
-                                            </div>
-                                           
-                                            <div class="slider-main-title text-white tp-caption tp-resizeme slider-main-title1 show-text-animation" data-x="['left','left','left','left']" data-y="['top','top','middle','middle']" data-voffset="['227','240','24','39']" data-width="['1200','960','720','540']" data-textalign="left" data-fontsize="['160','88','64','48']" data-fontweight="900" data-letterspacing="['25','10','5','0']" data-lineheight="['184','100','72','60']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="z:0;rX:0deg;rY:0;rZ:0;sX:1.5;sY:1.5;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="1000" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-paddingright="[25,25,25,25]" data-paddingleft="[19,31,24,25]" style="margin-left:-.07em">
-                                            IT-центр
-                                            </div>
-                                            <div class="slider-text3 show-text-animation">"Мир будущего"</div>                                        
-                                            <div class="tp-caption rev-btn slider-btn1 show-text-animation" id="slide-163-layer-2" data-x="['left','left','left','left']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['220','170','149','137']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeOut;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" data-transform_out="y:[175%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-mask_out="x:inherit;y:inherit;" data-start="1250" data-splitin="none" data-splitout="none" data-actions='[{"event":"click","action":"jumptoslide","slide":"rs-164","delay":""}]' data-responsive_offset="on" data-paddingtop="[0,0,0,0]" data-paddingright="[25,25,25,25]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[25,25,25,25]">
-                                                <a class="btn btn-primary has-radius-small" href="applications.html">Записаться</a>
-                                            </div>
-                                        </div>
+                
                                     <!-- </li>
                                 </ul> -->
                             <!-- </div> -->
