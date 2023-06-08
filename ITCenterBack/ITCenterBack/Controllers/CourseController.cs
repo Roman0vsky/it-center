@@ -2,6 +2,7 @@
 using ITCenterBack.Constants;
 using ITCenterBack.Interfaces;
 using ITCenterBack.Models;
+using ITCenterBack.Services;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,28 +18,31 @@ namespace ITCenterBack.Controllers
         private readonly ICourseService _courseService;
         private readonly ISocialLinkService _linkService;
         private readonly IInfoService _infoService;
+        private readonly ISectionService _sectionService;
         private readonly IMapper _mapper;
 
-		public CourseController(ICourseService courseService, ISocialLinkService linkService, IInfoService infoService, IMapper mapper)
-		{
-			_courseService = courseService;
-			_linkService = linkService;
-			_infoService = infoService;
-			_mapper = mapper;
-		}
+        public CourseController(ICourseService courseService, ISocialLinkService linkService, IInfoService infoService, ISectionService sectionService, IMapper mapper)
+        {
+            _courseService = courseService;
+            _linkService = linkService;
+            _infoService = infoService;
+            _sectionService = sectionService;
+            _mapper = mapper;
+        }
 
-		[HttpGet]
+        [HttpGet]
         [Route("Details/{id}")]
         //[ActionName("Details")]
         public async Task<IActionResult> DetailsAsync(long id)
         {
             var course = await _courseService.GetCourseAsync(id);
+
             if (course is not null)
             {
                 var courseVM = _mapper.Map<CourseViewModel>(course);
 
-                var courses = await _courseService.GetAllCoursesAsync();
-                var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+                var sections = await _sectionService.GetAllSections();
+                var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 
                 var links = await _linkService.GetAllSocialLinksAsync();
                 var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
@@ -48,7 +52,7 @@ namespace ITCenterBack.Controllers
 
                 var header = new HeaderViewModel
                 {
-                    Courses = coursesVM,
+                    Sections = sectionsVM,
                     Links = linksVM,
                     Info = infoVM
                 };

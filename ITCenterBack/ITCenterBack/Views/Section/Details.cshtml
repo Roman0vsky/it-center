@@ -1,0 +1,61 @@
+﻿@model ITCenterBack.ViewModels.SectionDetailsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = @Model.Section.Name + " | IT - центр";
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">@Model.Section.Name</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <section class="content-block">
+                <div class="container">
+                    <div class="row portfolio-gallery">
+                        <div class="bottom-space-medium-only col-lg-6">
+                            <div class="img-block shine-effect image-zoom">
+                                <img src=@Model.Section.Image alt="images">
+                            </div>
+                        </div>
+                        <div class="v-align-col col-lg-5 offset-lg">
+                            <div class="inner">
+                                <ul class="content-list info-list bottom-space">
+                                    <li class="row">
+                                        <div class="col">
+
+                                </ul>
+                                <div class="text-block">
+                                    <h2 class="text-block-title">Описание:</h2>
+                                    <p>
+                                        @Model.Section.Description
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="content-block  black-overlay-6">
+                        <div id="gal-hr"></div>
+                        <div class="container">
+                            <div class="inner-wrapper">
+                                <div class="demo-wrapper">
+                                    <div class="bottom-s-space text-center text-uppercase">
+                                    </div>
+                    </section>
+                </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

@@ -14,26 +14,29 @@ namespace ITCenterBack.Controllers
         private readonly ITeacherService _teacherService;
         private readonly ICourseService _courseService;
         private readonly ISocialLinkService _linkService;
-		private readonly IInfoService _infoService;
+        private readonly ISectionService _sectionService;
+        private readonly IInfoService _infoService;
 		private readonly IMapper _mapper;
 
-		public TeacherController(ITeacherService teacherService, ICourseService courseService, ISocialLinkService linkService, IInfoService infoService, IMapper mapper)
-		{
-			_teacherService = teacherService;
-			_courseService = courseService;
-			_linkService = linkService;
-			_infoService = infoService;
-			_mapper = mapper;
-		}
+        public TeacherController(ITeacherService teacherService, ICourseService courseService, ISocialLinkService linkService, ISectionService sectionService, 
+            IInfoService infoService, IMapper mapper)
+        {
+            _teacherService = teacherService;
+            _courseService = courseService;
+            _linkService = linkService;
+            _sectionService = sectionService;
+            _infoService = infoService;
+            _mapper = mapper;
+        }
 
-		[Route("AllTeachers")]
+        [Route("AllTeachers")]
         public async Task<IActionResult> AllTeachersAsync()
         {
             var teachers = await _teacherService.GetAllAsync();
             var teachersVM = _mapper.Map<List<TeacherViewModel>>(teachers);
 
-            var courses = await _courseService.GetAllCoursesAsync();
-            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+            var sections = await _sectionService.GetAllSections();
+            var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 
             var links = await _linkService.GetAllSocialLinksAsync();
             var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
@@ -43,7 +46,7 @@ namespace ITCenterBack.Controllers
 
 			var header = new HeaderViewModel
 			{
-				Courses = coursesVM,
+				Sections = sectionsVM,
 				Links = linksVM,
                 Info = infoVM
             };

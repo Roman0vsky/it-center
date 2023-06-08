@@ -35,6 +35,7 @@ builder.Services.AddScoped<IRepository<AvaliableTime>, AvaliableTimeRepository>(
 builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationTimeRepository, ApplicationTimeRepository>();
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
+builder.Services.AddScoped<IRepository<Section>, SectionRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
@@ -51,6 +52,7 @@ builder.Services.AddScoped<IAvaliableTimeService, AvaliableTimeService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IAboutUsService, AboutUsService>();
 builder.Services.AddScoped<IInfoService, InfoService>();
+builder.Services.AddScoped<ISectionService, SectionService>();
 //builder.Services.AddScoped<IApplicationTimeService, ApplicationTimeService>();
 
 

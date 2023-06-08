@@ -2,7 +2,7 @@
 {
     public class HeaderViewModel
     {
-        public List<CourseViewModel> Courses { get; set; }
+        public List<SectionViewModel> Sections { get; set; }
         public List<SocialLinkViewModel> Links { get; set; }
         public InfoViewModel Info { get; set; }
     }

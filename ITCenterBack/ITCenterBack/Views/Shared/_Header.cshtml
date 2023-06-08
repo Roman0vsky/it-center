@@ -29,10 +29,10 @@
                         <li class="dropdown dropdown_third" data-animation="fadeIn">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> Секции</a>
                             <ul class="dropdown-menu no-border-radius">
-                                @foreach (var t in Model.Courses)
+                                @foreach (var t in Model.Sections)
                                 {
                                     <li class="dropdown_third colored">
-                                        <a href=@Url.Content("/api/Course/Details/" + @t.Id)>
+                                        <a href=@Url.Content("/api/Section/Details/" + @t.Id)>
                                             @t.Name
                                         </a>
                                     </li>

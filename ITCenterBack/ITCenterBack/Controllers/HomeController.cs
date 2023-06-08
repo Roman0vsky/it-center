@@ -22,6 +22,7 @@ namespace ITCenterBack.Controllers
         private readonly INewsService _newsService;
 		private readonly ISocialLinkService _linkService;
 		private readonly IImagesService _imagesService;
+        private readonly ISectionService _sectionService;
         private readonly IApplicationService _applicationService;
         private readonly ITimeService _timeService;
         private readonly IAvaliableTimeService _avTimeService;
@@ -30,29 +31,30 @@ namespace ITCenterBack.Controllers
 		private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
-		public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
-            IImagesService imagesService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, IAboutUsService aboutUsService, 
-            IInfoService infoService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
-		{
-			_courseService = courseService;
-			_accountService = accountService;
-			_schoolService = schoolService;
-			_newsService = newsService;
-			_linkService = linkService;
-			_imagesService = imagesService;
-			_applicationService = applicationService;
-			_timeService = timeService;
-			_avTimeService = avTimeService;
-			_aboutUsService = aboutUsService;
-			_infoService = infoService;
-			_mapper = mapper;
-			_jwtConfig = jwtConfig;
-		}
-
-		private async Task<HeaderViewModel> HeaderInfoAsync ()
+        public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
+            IImagesService imagesService, ISectionService sectionService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, 
+            IAboutUsService aboutUsService, IInfoService infoService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
         {
-			var courses = await _courseService.GetAllCoursesAsync();
-			var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+            _courseService = courseService;
+            _accountService = accountService;
+            _schoolService = schoolService;
+            _newsService = newsService;
+            _linkService = linkService;
+            _imagesService = imagesService;
+            _sectionService = sectionService;
+            _applicationService = applicationService;
+            _timeService = timeService;
+            _avTimeService = avTimeService;
+            _aboutUsService = aboutUsService;
+            _infoService = infoService;
+            _mapper = mapper;
+            _jwtConfig = jwtConfig;
+        }
+
+        private async Task<HeaderViewModel> HeaderInfoAsync ()
+        {
+            var sections = await _sectionService.GetAllSections();
+            var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 
             var links = await _linkService.GetAllSocialLinksAsync();
             var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
@@ -62,7 +64,7 @@ namespace ITCenterBack.Controllers
 
 			var header = new HeaderViewModel
 			{
-				Courses = coursesVM,
+				Sections = sectionsVM,
 				Links = linksVM,
 				Info = infoVM
 			};

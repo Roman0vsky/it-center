@@ -12,22 +12,23 @@ namespace ITCenterBack.Controllers
 	{
 		private readonly IMapper _mapper;
 		private readonly ICourseService _courseService;
-		//private readonly ISchoolService _schoolService;
-		//private readonly ITeacherService _teacherService;
-		private readonly INewsService _newsService;
+        private readonly ISectionService _sectionService;
+        private readonly INewsService _newsService;
         private readonly ISocialLinkService _linkService;
 		private readonly IInfoService _infoService;
 
-		public NewsController(IMapper mapper, ICourseService courseService, INewsService newsService, ISocialLinkService linkService, IInfoService infoService)
-		{
-			_mapper = mapper;
-			_courseService = courseService;
-			_newsService = newsService;
-			_linkService = linkService;
-			_infoService = infoService;
-		}
+        public NewsController(IMapper mapper, ICourseService courseService, ISectionService sectionService, INewsService newsService, ISocialLinkService linkService, 
+            IInfoService infoService)
+        {
+            _mapper = mapper;
+            _courseService = courseService;
+            _sectionService = sectionService;
+            _newsService = newsService;
+            _linkService = linkService;
+            _infoService = infoService;
+        }
 
-		[Route("Details/{id}")]
+        [Route("Details/{id}")]
 		[ActionName("Details")]
 		public async Task<IActionResult> DetailsAsync(long id)
 		{
@@ -36,8 +37,8 @@ namespace ITCenterBack.Controllers
 			{
 				var newsVM = _mapper.Map<NewsViewModel>(news);
 
-				var courses = await _courseService.GetAllCoursesAsync();
-				var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+                var sections = await _sectionService.GetAllSections();
+                var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 
                 var links = await _linkService.GetAllSocialLinksAsync();
                 var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
@@ -52,7 +53,7 @@ namespace ITCenterBack.Controllers
 
                 var header = new HeaderViewModel
 				{
-					Courses = coursesVM,
+					Sections = sectionsVM,
 					Links = linksVM,
                     Info = infoVM
                 };
@@ -77,8 +78,8 @@ namespace ITCenterBack.Controllers
 			var news = await _newsService.GetAllNewsAsync();
             var newsVM = _mapper.Map<List<NewsViewModel>>(news);
 
-            var courses = await _courseService.GetAllCoursesAsync();
-            var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+            var sections = await _sectionService.GetAllSections();
+            var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 
             var links = await _linkService.GetAllSocialLinksAsync();
             var linksVM = _mapper.Map<List<SocialLinkViewModel>>(links);
@@ -88,7 +89,7 @@ namespace ITCenterBack.Controllers
 
 			var header = new HeaderViewModel
 			{
-				Courses = coursesVM,
+				Sections = sectionsVM,
 				Links = linksVM,
                 Info = infoVM
             };
