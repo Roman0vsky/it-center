@@ -124,7 +124,7 @@ namespace ITCenterBack.Controllers
 		[Route("Delete")]
 		[ActionName("Delete")]
 		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
-		public async Task<IActionResult> DeleteCourseGetAsync(long id)
+		public async Task<IActionResult> DeleteGetAsync(long id)
 		{
 			var section = await _sectionService.GetSectionAsync(id);
 
@@ -142,7 +142,7 @@ namespace ITCenterBack.Controllers
 		[Route("Delete")]
 		[ActionName("Delete")]
 		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
-		public async Task<IActionResult> DeleteCourseAsync(long id)
+		public async Task<IActionResult> DeleteAsync(long id)
 		{
 			await _sectionService.DeleteSectionAsync(id);
 

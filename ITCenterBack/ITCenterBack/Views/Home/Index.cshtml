@@ -57,106 +57,60 @@
         <section class="content-block">
             <div class="container">
                 <div class="row multiple-row v-align-row">
-                    <div id="mob" class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="block-heading" style="text-align:center">
-                                <h3 class="block-top-heading">Добро пожаловать в</h3>
-                                <h2 class="block-main-heading formula">IT-центр</h2>
-                                <span class="block-sub-heading">Не просто курсы...</span>
-                                <div class="divider"><img src="/assets/for_new/img/divider.png" alt="images description"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href=@Url.Content("/api/Square/it-courses") class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="ico-box bg-gray-light has-radius-medium">
-                                <div class="icon">
-                                    <img src="/assets/for_new/img/icons/club.svg">
+                    @for(var i = 0; i <= Model.Squares.Count(); i++)
+                    {
+                        @if (i == 0)
+                        {
+                            <a href=@Url.Content("/api/Square/Details/" + @Model.Squares[i].Id) class="col-lg-4 col-md-6">
+                                <div class="col-wrap">
+                                    <div class="ico-box bg-gray-light has-radius-medium">
+                                        <div class="icon">
+                                            <img src=@Model.Squares[i].Image>
+                                        </div>
+                                        <h4 class="content-title">@Model.Squares[i].Title</h4>
+                                        <div class="des">
+                                            <p>@Model.Squares[i].TextPreview</p>
+                                        </div>
+                                        <div class="link-holder">
+                                            &nbsp;
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="content-title">Технологии обучения</h4>
-                                <div class="des">
-                                    <p>Дружелюбная атмосфера не заставит скучать</p>
-                                </div>
-                                <div class="link-holder">
-                                    &nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <div id="desc" class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="block-heading" style="text-align:center">
-                                <h3 class="block-top-heading">Добро пожаловать в</h3>
-                                <h2 class="block-main-heading formula">IT-центр</h2>
-                                <span class="block-sub-heading">Не просто курсы...</span>
-                                <div class="divider"><img src="/assets/for_new/img/divider.png" alt="images description"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href=@Url.Content("/api/Square/Person") class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="ico-box bg-gray-light has-radius-medium">
-                                <div class="icon">
-                                    <img src="/assets/for_new/img/icons/profi.svg">
-                                </div>
-                                <h4 class="content-title">Опытные преподаватели</h4>
-                                <div class="des">
-                                    <p>Чьи навыки может перенять Ваш ребенок</p>
-                                </div>
-                                <div class="link-holder">
-                                    &nbsp;
+                            </a>
+                        }
+                        @if(i == 1)
+                        {
+                            <div id="desc" class="col-lg-4 col-md-6">
+                                <div class="col-wrap">
+                                    <div class="block-heading" style="text-align:center">
+                                        <h3 class="block-top-heading">Добро пожаловать в</h3>
+                                        <h2 class="block-main-heading formula">@Model.Footer.Info.NameOfTheCenter</h2>
+                                        <span class="block-sub-heading">Не просто курсы...</span>
+                                        <div class="divider"><img src="/assets/for_new/img/divider.png" alt="images description"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                    <a href=@Url.Content("/api/Square/STEM") class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="ico-box bg-gray-light has-radius-medium">
-                                <div class="icon">
-                                    <img src="/assets/for_new/img/icons/grow.svg">
+                        }
+                        @if(i > 1)
+                        {
+                            <a href=@Url.Content("/api/Square/Details/" + @Model.Squares[i - 1].Id) class="col-lg-4 col-md-6">
+                                <div class="col-wrap">
+                                    <div class="ico-box bg-gray-light has-radius-medium">
+                                        <div class="icon">
+                                            <img src=@Model.Squares[i - 1].Image>
+                                        </div>
+                                        <h4 class="content-title">@Model.Squares[i - 1].Title</h4>
+                                        <div class="des">
+                                            <p>@Model.Squares[i - 1].TextPreview</p>
+                                        </div>
+                                        <div class="link-holder">
+                                            &nbsp;
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="content-title">STEM образование</h4>
-                                <div class="des">
-                                    <p>Каждый ребенок может достичь своей цели</p>
-                                </div>
-                                <div class="link-holder">
-                                    &nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=@Url.Content("/api/Square/CourseStudents") class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="ico-box bg-gray-light has-radius-medium">
-                                <div class="icon">
-                                    <img src="/assets/for_new/img/icons/wins.svg">
-                                </div>
-                                <h4 class="content-title">Мероприятия</h4>
-                                <div class="des">
-                                    <p>В турнирах, как внутри коликтива, так и за его пределами</p>
-                                </div>
-                                <div class="link-holder">
-                                    &nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=@Url.Content("/api/Square/FutureOrientation") class="col-lg-4 col-md-6">
-                        <div class="col-wrap">
-                            <div class="ico-box bg-gray-light has-radius-medium">
-                                <div class="icon">
-                                    <img src="/assets/for_new/img/icons/plau.svg">
-                                </div>
-                                <h4 class="content-title">Ориентация на будущее</h4>
-                                <div class="des">
-                                    <p>В хорошей компании и знакомство с интересными людьми</p>
-                                </div>
-                                <div class="link-holder">
-                                    &nbsp;
-                                </div>
-                            </div>
-                        </div>
-                    </a>
+                            </a>
+                        }
+                    }
                 </div>
             </div>
             <div id="about-hr"></div>

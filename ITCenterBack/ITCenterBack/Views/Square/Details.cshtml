@@ -1,0 +1,32 @@
+﻿@model ITCenterBack.ViewModels.SquareDetailsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.Square.Title + " | " + Model.Footer.Info.NameOfTheCenter;
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">@Model.Square.Title </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="centered">
+            <div class="container">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    @Html.Raw(Model.Square.Content)
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

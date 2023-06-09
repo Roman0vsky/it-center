@@ -28,12 +28,13 @@ namespace ITCenterBack.Controllers
         private readonly IAvaliableTimeService _avTimeService;
 		private readonly IAboutUsService _aboutUsService;
 		private readonly IInfoService _infoService;
-		private readonly IMapper _mapper;
+        private readonly ISquareService _squareService;
+        private readonly IMapper _mapper;
 		private readonly IOptions<JwtConfigurationModel> _jwtConfig;
 
         public HomeController(ICourseService courseService, IAccountService accountService, ISchoolService schoolService, INewsService newsService, ISocialLinkService linkService, 
             IImagesService imagesService, ISectionService sectionService, IApplicationService applicationService, ITimeService timeService, IAvaliableTimeService avTimeService, 
-            IAboutUsService aboutUsService, IInfoService infoService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
+            IAboutUsService aboutUsService, IInfoService infoService, ISquareService squareService, IMapper mapper, IOptions<JwtConfigurationModel> jwtConfig)
         {
             _courseService = courseService;
             _accountService = accountService;
@@ -47,6 +48,7 @@ namespace ITCenterBack.Controllers
             _avTimeService = avTimeService;
             _aboutUsService = aboutUsService;
             _infoService = infoService;
+            _squareService = squareService;
             _mapper = mapper;
             _jwtConfig = jwtConfig;
         }
@@ -87,6 +89,9 @@ namespace ITCenterBack.Controllers
             var info = await _infoService.GetInfoAsync();
             var infoVM = _mapper.Map<InfoViewModel>(info);
 
+            var squares = await _squareService.GetAllSquares();
+            var squaresVM = _mapper.Map<List<SquareViewModel>>(squares);
+
 			var header = await HeaderInfoAsync();
 
             var links = await _linkService.GetAllSocialLinksAsync();
@@ -103,7 +108,8 @@ namespace ITCenterBack.Controllers
                 SliderImages = sliderImagesVM,
                 AboutUs = aboutUsVM,
                 Info = infoVM,
-                Footer = footer
+                Footer = footer,
+                Squares = squaresVM
 			};
 
             switch(courseType)
@@ -287,7 +293,6 @@ namespace ITCenterBack.Controllers
         [ActionName("Schedule")]
         public IActionResult PostScheduleAsync()
         {
-
             return View();
         }
 

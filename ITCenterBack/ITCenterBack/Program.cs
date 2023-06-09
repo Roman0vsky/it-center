@@ -36,6 +36,7 @@ builder.Services.AddScoped<IRepository<Application>, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationTimeRepository, ApplicationTimeRepository>();
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 builder.Services.AddScoped<IRepository<Section>, SectionRepository>();
+builder.Services.AddScoped<IRepository<Square>, SquareRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
@@ -53,6 +54,7 @@ builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IAboutUsService, AboutUsService>();
 builder.Services.AddScoped<IInfoService, InfoService>();
 builder.Services.AddScoped<ISectionService, SectionService>();
+builder.Services.AddScoped<ISquareService, SquareService>();
 //builder.Services.AddScoped<IApplicationTimeService, ApplicationTimeService>();
 
 
