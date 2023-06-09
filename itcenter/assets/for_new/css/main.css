@@ -1008,7 +1008,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
 	
 	font-family: 'Josefin Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	color: #000000;
+	color: #fff
 	line-height: 1.1;
 }
 
@@ -13916,6 +13916,7 @@ td, th {
 .dropdown_eight {
 	cursor: pointer;
 	display: flex; 
+	
 	flex-direction: column;
 }
 .dropdown_eight h4 {
@@ -14448,7 +14449,7 @@ margin-bottom: 15px;
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	padding: 100px 0;
+	padding: 10px 0;
 }
 .news-page__title {
 	font-size: 34px;
