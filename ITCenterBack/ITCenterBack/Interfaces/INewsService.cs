@@ -4,7 +4,7 @@ namespace ITCenterBack.Interfaces
 {
     public interface INewsService
     {
-        Task CreateNewsAsync(string title, string text, string image);
+        Task CreateNewsAsync(string title, string shortText, string text, string image);
         Task DeleteNewsAsync(long id);
         Task UpdateNewsAsync(News news);
         Task<News> GetNewsAsync(long id);

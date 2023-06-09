@@ -24,8 +24,9 @@ namespace ITCenterBack.Data
         public DbSet<AboutUs> AboutUs { get; set; }
 		public DbSet<Info> Info { get; set; }
         public DbSet<Section> Sections { get; set; }
+		public DbSet<Square> Squares { get; set; }
 
-        public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
+		public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

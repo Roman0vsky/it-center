@@ -17,5 +17,6 @@ namespace ITCenterBack.Models
 		public string? PhoneNumber1 { get; set; }
 		public string? PhoneNumber2 { get; set; }
 		public string? Email { get; set; }
+		public string? SchoolYear { get; set; }
 	}
 }

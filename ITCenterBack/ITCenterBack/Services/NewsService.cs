@@ -13,7 +13,7 @@ namespace ITCenterBack.Services
             _newsRepository = newsRepository;
         }
 
-        public async Task CreateNewsAsync(string title, string text, string image)
+        public async Task CreateNewsAsync(string title, string shortText, string text, string image)
         {
             if (!string.IsNullOrWhiteSpace(title))
             {
@@ -21,6 +21,7 @@ namespace ITCenterBack.Services
                 {
                     Title = title,
                     Text = text,
+                    ShortText = shortText,
                     Image = image
                 };
 

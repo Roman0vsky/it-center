@@ -20,13 +20,15 @@
 					@Model.PublicationDate <hr />
 				</label>
 				<label class="input__label">
-					Текст поста <br />
-					@Model.Text <hr />
+					Превью<br />
+					<img src=@Model.Image alt="images"> <br />
+					@Model.ShortText<hr />
 				</label>
 				<label class="input__label">
-					Картинка<br />
-					<img src=@Model.Image alt="images"> <hr />
+					Новость <br />
+					@Html.Raw(Model.Text) <hr />
 				</label>
+				
 			</div>
 
 			@using (Html.BeginForm())

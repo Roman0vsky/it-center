@@ -29,14 +29,7 @@
 							<td> <img src=@t.Image alt="images"></td>
 							<td>@t.Title</td>
 							<td>
-								@if (t.Text.Length > 90)
-								{
-									@string.Concat((@t.Text).AsSpan(0, 90), "...")
-								}
-								else
-								{
-									@t.Text
-								}
+								@t.ShortText
 							</td>
 							<td>@t.PublicationDate</td>
 							<td>

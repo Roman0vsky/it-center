@@ -345,7 +345,7 @@ namespace ITCenterBack.Controllers
 
 				if (!string.IsNullOrEmpty(viewModel.Title))
 				{
-					await _newsService.CreateNewsAsync(viewModel.Title, viewModel.Text, path);
+					await _newsService.CreateNewsAsync(viewModel.Title, viewModel.ShortText, viewModel.Text, path);
 
 					return RedirectToAction("News");
 				}

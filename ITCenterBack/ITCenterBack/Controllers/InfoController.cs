@@ -280,5 +280,26 @@ namespace ITCenterBack.Controllers
 
 			return RedirectToAction("Info");
 		}
+
+		[HttpGet]
+		[Route("UpdateSchoolYear")]
+		[ActionName("UpdateSchoolYear")]
+		public IActionResult UpdateSchoolYear()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		[Route("UpdateSchoolYear")]
+		[ActionName("UpdateEmail")]
+		public async Task<IActionResult> UpdateSchoolYearAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		{
+			if (!string.IsNullOrWhiteSpace(viewModel.Description))
+			{
+				await _infoService.UpdateSchoolYearAsync(viewModel.Description);
+			}
+
+			return RedirectToAction("Info");
+		}
 	}
 }

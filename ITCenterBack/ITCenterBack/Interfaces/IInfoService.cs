@@ -15,6 +15,7 @@ namespace ITCenterBack.Interfaces
 		Task UpdateFirstPhoneNumberAsync(string phone);
 		Task UpdateSecondPhoneNumberAsync(string phone);
 		Task UpdateEmailAsync(string email);
+		Task UpdateSchoolYearAsync(string year);
 		Task<Info> GetInfoAsync();
 	}
 }

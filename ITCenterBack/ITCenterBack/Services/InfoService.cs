@@ -202,6 +202,32 @@ namespace ITCenterBack.Services
 			}
 		}
 
+		public async Task UpdateSchoolYearAsync(string year)
+		{
+			var info = await _context.Info.FirstOrDefaultAsync();
+
+			if (!string.IsNullOrWhiteSpace(year))
+			{
+				if (info is null)
+				{
+					info = new Info
+					{
+						SchoolYear = year
+					};
+
+					_context.Info.Add(info);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					info.SchoolYear = year;
+
+					_context.Info.Update(info);
+					await _context.SaveChangesAsync();
+				}
+			}
+		}
+
 		public async Task UpdateSecondPhoneNumberAsync(string phone)
 		{
 			var info = await _context.Info.FirstOrDefaultAsync();

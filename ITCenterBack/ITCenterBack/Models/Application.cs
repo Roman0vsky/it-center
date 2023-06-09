@@ -13,5 +13,6 @@ namespace ITCenterBack.Models
         public string ListenerFullName { get; set; }
         public string RepresentativeFullName { get; set; }
         public string RepresentativePhoneNumber { get; set; }
+        public DateTime Time { get; set; } = DateTime.Now;
     }
 }

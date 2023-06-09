@@ -12,9 +12,8 @@
         <div class="news-page__title">
             @Model.News.Title
         </div>
-        <img class="news-page__img" src=@Model.News.Image alt="news">
         <div class="news-page__text">
-            @Model.News.Text
+            @Html.Raw(Model.News.Text)
         </div>
     </div>
 

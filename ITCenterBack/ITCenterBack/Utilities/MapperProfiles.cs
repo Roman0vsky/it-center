@@ -21,7 +21,8 @@ namespace ITCenterBack.Utilities
 			CreateMap<AboutUs, AboutUsViewModel>();
 			CreateMap<Info, InfoViewModel>();
             CreateMap<Section, SectionViewModel>();
-            //CreateMap<List<Teacher>, TeachersViewModel>();
-        }
+			CreateMap<Square, SquareViewModel>();
+			//CreateMap<List<Teacher>, TeachersViewModel>();
+		}
     }
 }
