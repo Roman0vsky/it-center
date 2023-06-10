@@ -25,7 +25,7 @@ builder.Services.AddSession();
 
 //Repositories
 builder.Services.AddScoped<IRepository<Course>, CourseRepository>();
-builder.Services.AddScoped<IRepository<Teacher>, TeacherRepository>();
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 builder.Services.AddScoped<IRepository<News>, NewsRepository>();
 builder.Services.AddScoped<IRepository<School>, SchoolRepository>();
 builder.Services.AddScoped<IRepository<Schedule>, ScheduleRepository>();

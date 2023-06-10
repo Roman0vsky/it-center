@@ -11,5 +11,6 @@ namespace ITCenterBack.Models
         public string? ShortText { get; set; }
         public string? Text { get; set; }
         public string? Image { get; set; }
+        //public List<string>? Files { get; set; }
     }
 }

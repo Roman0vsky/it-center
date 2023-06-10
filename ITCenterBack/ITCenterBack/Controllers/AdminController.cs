@@ -6,6 +6,7 @@ using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Packaging.Signing;
 using System.IO;
 using System.Net.WebSockets;
 
@@ -43,10 +44,18 @@ namespace ITCenterBack.Controllers
 		[ActionName("Teachers")]
 		public async Task<IActionResult> TeachersAsync()
         {
-            var teachers = await _teacherService.GetAllAsync();
-            var teachersVM = _mapper.Map<List<TeacherViewModel>>(teachers);
+			var teachers = await _teacherService.GetAllAsync();
+			var teachersVM = _mapper.Map<List<TeacherViewModel>>(teachers);
 
-            return View(teachersVM);
+			var courses = new List<Course>();
+
+			foreach (var t in teachersVM)
+			{
+				courses = await _teacherService.GetCoursesAsync(t.Id);
+				t.Courses = _mapper.Map<List<CourseViewModel>>(courses);
+			}
+
+			return View(teachersVM);
         }
 
 		[HttpGet]
@@ -203,9 +212,17 @@ namespace ITCenterBack.Controllers
 		[HttpGet]
 		[ActionName("AddTeacher")]
 		[Route("AddTeacher")]
-		public IActionResult AddTeacher()
+		public async Task<IActionResult> GetAddTeacherAsync()
 		{
-			return View();
+			var courses = await _courseService.GetAllCoursesAsync();
+			var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
+
+			var page = new AddTeacherViewModel
+			{
+				Courses = coursesVM
+			};
+
+			return View(page);
 		}
 
 		[HttpPost]
@@ -223,13 +240,21 @@ namespace ITCenterBack.Controllers
                     await uploadedFile.CopyToAsync(fileStream);
                 }
 
-                if (!string.IsNullOrEmpty(viewModel.Name) && !string.IsNullOrEmpty(viewModel.Description))
-                {
-                    await _teacherService.CreateTeacherAsync(viewModel.Name, viewModel.Description, path);
+				var coursesId = Request.Form["courses"]/*.Select(long.Parse).ToList()*/;
 
-                    return RedirectToAction("Teachers");
-                }
-            }
+				if (!string.IsNullOrWhiteSpace(coursesId))
+				{
+					var ids = coursesId.Select(long.Parse).ToList();
+
+					await _teacherService.CreateTeacherAsync(viewModel.Name, viewModel.Link, path, ids);
+				}
+				else
+				{
+					await _teacherService.CreateTeacherAsync(viewModel.Name, viewModel.Link, path);
+				}
+
+				return RedirectToAction("Teachers");
+			}
 
 			return View(viewModel);
 		}
@@ -332,16 +357,24 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[ActionName("AddNews")]
 		[Route("AddNews")]
-		public async Task<IActionResult> PostAddNewsAsync([FromForm] AddNewsViewModel viewModel, IFormFile uploadedFile)
+		public async Task<IActionResult> PostAddNewsAsync([FromForm] AddNewsViewModel viewModel, IFormFile uploadedImage/*, List<IFormFile> uploadedFiles*/)
 		{
-			if (uploadedFile != null)
+			if (uploadedImage != null)
 			{
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/" + uploadedImage.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
-					await uploadedFile.CopyToAsync(fileStream);
+					await uploadedImage.CopyToAsync(fileStream);
 				}
+
+				//List<string> files = new List<string>();
+
+				//foreach (var file in uploadedFiles)
+				//{
+				//	string file = 
+				//}
+
 
 				if (!string.IsNullOrEmpty(viewModel.Title))
 				{

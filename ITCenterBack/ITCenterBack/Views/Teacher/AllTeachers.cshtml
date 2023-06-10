@@ -32,7 +32,13 @@
                     <div class="person">
                         <img class="person__avatar" src=@t.Image alt=@t.Name>
                         <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
-                        <span class="person__specialization">@t.Description</span>
+                        <span class="person__specialization">
+                            @foreach (var c in t.Courses)
+                            {
+                                @c.Name
+                                <br></br>
+                            }
+                        </span>
                     </div>
                 }
             </div>

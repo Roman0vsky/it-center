@@ -19,7 +19,7 @@
 					<tr>
 						<th>Изображение</th>
 						<th>ФИО Преподавателя</th>
-						<th>Должность</th>
+						<th>Курсы</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -28,7 +28,13 @@
 						<tr>
 							<td> <img width="150" height="160" src=@t.Image alt="images"></td>
 							<td>@t.Name</td>
-							<td>@t.Description</td>
+							<td>
+								@foreach (var c in t.Courses)
+								{
+									@c.Name
+									<br></br>
+								}
+							</td>
 								<td>
 								<a asp-action="DeleteTeacher" asp-route-id="@t.Id" class="file-button">Удалить</a> |
 								<a asp-action="UpdateTeacher" asp-route-id="@t.Id" class="file-button">Редактировать</a> 

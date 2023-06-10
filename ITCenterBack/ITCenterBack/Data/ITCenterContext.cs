@@ -21,6 +21,7 @@ namespace ITCenterBack.Data
         public DbSet<SliderImage> SliderImages { get; set; }
         public DbSet<CourseApplication> CourseApplications { get; set; }
 		public DbSet<ApplicationTime> ApplicationTimes { get; set; }
+        public DbSet<TeacherCourses> TeacherCourses { get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
 		public DbSet<Info> Info { get; set; }
         public DbSet<Section> Sections { get; set; }

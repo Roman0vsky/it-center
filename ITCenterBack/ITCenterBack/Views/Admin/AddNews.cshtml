@@ -24,7 +24,7 @@
 					<label class="input__label">
 						Изображение превью<hr />
 						<div class="editor-field">
-							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />
+							<input type="file" name="uploadedImage" accept="image/png, image/jpeg, image/gif, image/bmp" />
 						</div>
 					</label>
 
@@ -34,6 +34,13 @@
 						@Html.TextAreaFor(model => model.Text)
 						@*<textarea id="mcetextarea"></textarea>*@
 						@*@Html.EditorFor(model => model.Text)*@
+					</label>
+					<label class="input__label">
+						<br></br>
+						Документы<hr />
+						<div class="editor-field">
+							<input multiple type="file" name="uploadedFiles"/>
+						</div>
 					</label>
 				</div>
 

@@ -5,23 +5,44 @@ namespace ITCenterBack.Services
 {
     public class TeacherService : ITeacherService
     {
-        private readonly IRepository<Teacher> _teacherRepository;
+        private readonly ITeacherRepository _teacherRepository;
+        private readonly IRepository<Course> _courseRepository;
 
-        public TeacherService(IRepository<Teacher> teacherRepository)
+        public TeacherService(ITeacherRepository teacherRepository, IRepository<Course> courseRepository)
         {
             _teacherRepository = teacherRepository;
+            _courseRepository = courseRepository;
         }
 
-		public async Task CreateTeacherAsync(string name, string description, string image)
+        public async Task CreateTeacherAsync(string name, string link, string image, List<long> coursesId)
 		{
             var teacher = new Teacher
             {
                 Name = name,
-                Description = description,
+                Link = link,
                 Image = image
             };
 
-            await _teacherRepository.CreateAsync(teacher);
+            if(coursesId is not null)
+            {
+				await _teacherRepository.CreateAsync(teacher, coursesId);
+			}
+            else
+            {
+				await _teacherRepository.CreateAsync(teacher);
+			}
+		}
+
+		public async Task CreateTeacherAsync(string name, string link, string image)
+		{
+			var teacher = new Teacher
+			{
+				Name = name,
+				Link = link,
+				Image = image
+			};
+
+			await _teacherRepository.CreateAsync(teacher);
 		}
 
 		public async Task DeleteTeacherAsync(long id)
@@ -40,6 +61,19 @@ namespace ITCenterBack.Services
 
             return teachers;
         }
+
+		public async Task<List<Course>> GetCoursesAsync(long teacherId)
+		{
+            var teacherCourses = await _teacherRepository.GetCoursesAsync(teacherId);
+            var courses = new List<Course>();
+
+            foreach(var tc in teacherCourses)
+            {
+                courses.Add(await _courseRepository.GetByIdAsync(tc.CoursesId));
+            }
+
+            return courses;
+		}
 
 		public async Task<Teacher> GetTeacher(long id)
 		{

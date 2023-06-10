@@ -35,6 +35,14 @@ namespace ITCenterBack.Controllers
             var teachers = await _teacherService.GetAllAsync();
             var teachersVM = _mapper.Map<List<TeacherViewModel>>(teachers);
 
+            var courses = new List<Course>();
+
+            foreach (var t in teachersVM)
+            {
+                courses = await _teacherService.GetCoursesAsync(t.Id);
+                t.Courses = _mapper.Map<List<CourseViewModel>>(courses);
+            }
+
             var sections = await _sectionService.GetAllSections();
             var sectionsVM = _mapper.Map<List<SectionViewModel>>(sections);
 

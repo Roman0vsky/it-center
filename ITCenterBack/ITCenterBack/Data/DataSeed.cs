@@ -64,7 +64,6 @@ namespace ITCenterBack.Data
                 {
                     Id = 1,
                     Name = "Шпаков С А",
-                    Description = "Робототехника LEGO EV3",
                     Image = "/images/Shpakov.jpg",
 					Link = "https://vsu.by/universitet/ob-universitete/236-universitet/personalii/4140-shpakov-sergej-andreevich.html"
 				}

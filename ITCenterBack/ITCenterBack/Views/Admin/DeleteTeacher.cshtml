@@ -22,7 +22,13 @@
 				<tbody>
 					<tr>
 						<td>@Model.Name</td>
-						<td>@Model.Description</td>
+						<td>
+							@foreach (var c in Model.Courses)
+							{
+								@c.Name
+								<br></br>
+							}
+						</td>
 						<td><img src=@Model.Image alt="images"></td>
 					</tr>
 				</tbody>

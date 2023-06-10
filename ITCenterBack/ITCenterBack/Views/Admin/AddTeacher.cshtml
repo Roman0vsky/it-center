@@ -18,14 +18,27 @@
 						Введите Имя преподавателя <hr />
 						@Html.EditorFor(model => model.Name)
 					</label>
+					<hr />
 					<label class="input__label">
-						Курсы, которые ведет преподаватель <hr />
-						@Html.EditorFor(model => model.Description)
+						Ссылка на преподавателя на сайте факультета <hr />
+						@Html.EditorFor(model => model.Link)
 					</label>
+					<hr />
+					<label class="input__label">
+						Курсы преподавателя
+					</label>
+					@foreach (var t in Model.Courses)
+					{
+						<div>
+							<input type="checkbox" id="contact__course-input" value="@t.Id" name="courses">
+							<label for="contact__course-input">@t.Name (@t.Age)</label>
+						</div>
+					}
+					<hr />
 					<label class="input__label">
 						Изображение преподавателя <hr />
 						<div class="editor-field">
-							<input type="file" name="uploadedFile" />
+							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />
 						</div>
 					</label>
 				</div>
