@@ -5,7 +5,7 @@
 
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Расписание | IT - центр";
+    ViewBag.Title = "Расписание | " + Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>

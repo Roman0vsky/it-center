@@ -1,7 +1,7 @@
 ﻿@model ITCenterBack.ViewModels.ContactsViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Контакты | IT - центр";
+    ViewBag.Title = "Контакты | " + Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>

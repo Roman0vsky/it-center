@@ -1,7 +1,7 @@
 ﻿@model ITCenterBack.ViewModels.CourseDetailsViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = @Model.Course.Name + " | IT - центр";
+    ViewBag.Title = @Model.Course.Name + " | " + Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>

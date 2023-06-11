@@ -3,7 +3,7 @@
 @model ITCenterBack.ViewModels.IndexViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "IT - центр";
+    ViewBag.Title = Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
