@@ -291,7 +291,7 @@ namespace ITCenterBack.Controllers
 
 		[HttpPost]
 		[Route("UpdateSchoolYear")]
-		[ActionName("UpdateEmail")]
+		[ActionName("UpdateSchoolYear")]
 		public async Task<IActionResult> UpdateSchoolYearAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))

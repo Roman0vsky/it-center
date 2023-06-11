@@ -1,7 +1,7 @@
 ﻿@model ITCenterBack.ViewModels.AllNewsViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Все новости | IT - центр";
+    ViewBag.Title = "Все новости | " + Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>

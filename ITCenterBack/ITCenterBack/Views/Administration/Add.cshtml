@@ -1,0 +1,60 @@
+﻿@using ITCenterBack.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ITCenterBack.ViewModels.AddViewModels.AddAdministrationViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Добавить";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить квадрат </h2>
+			</div>
+			@using (Html.BeginForm("Add", "Administration", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				<div class="admin-form__item">
+					<label class="input__label">
+						Введите имя <br />
+						@Html.EditorFor(model => model.Name) <hr />
+					</label>
+					<label class="input__label">
+						Введите описание <hr />
+						@Html.EditorFor(model => model.Description)
+					</label>
+					<label class="input__label">
+						Введите ссылку <hr />
+						@Html.EditorFor(model => model.Link)
+					</label>
+					<label class="input__label">
+						@*Введите описание <hr />*@
+						@Html.CheckBoxFor(model => model.IsAdministrator)
+						Является ли администратором
+					</label>
+					<label class="input__label">
+						@*Введите описание <hr />*@
+						@Html.CheckBoxFor(model => model.IsHeadOfThecenter)
+						Является ли руководителем
+					</label>
+					<label class="input__label">
+						Изображение <hr />
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />
+						</div>
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Administration/All")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

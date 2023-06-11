@@ -1,0 +1,48 @@
+﻿@model ITCenterBack.ViewModels.BasicViewModels.AdministrationViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Удалить";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Удаление</h2>
+			</div>
+			<table>
+				<colgroup id="a" span="5"></colgroup>
+				<thead>
+					<tr>
+						<th>Изображение</th>
+						<th>ФИО Преподавателя</th>
+						<th>Описание</th>
+						<th>Ссылка</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img src=@Model.Image alt="images"></td>
+						<td>@Model.Name</td>
+						<td>@Model.Description</td>
+						<td>@Model.Link</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			@using (Html.BeginForm())
+			{
+				@Html.AntiForgeryToken()
+				<div class="form-actions no-color">
+					<input type="submit" value="Удалить" class="file-button" />
+					|
+					@Html.ActionLink("Назад", "All")
+				</div>
+			}
+
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

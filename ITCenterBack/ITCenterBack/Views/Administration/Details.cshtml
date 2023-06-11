@@ -1,0 +1,78 @@
+﻿@model ITCenterBack.ViewModels.DetailsViewModels.AdministrationDetailsViewModel
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Администрация | " + Model.Footer.Info.NameOfTheCenter;
+}
+
+<header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
+
+<main class="no-banner">
+    <!-- visual/banner of the page -->
+    <section class="visual visual-sub visual-no-bg">
+        <section class="visual visual-sub visual-no-bg">
+            <div class="visual-inner no-overlay bg-gray-light">
+                <div class="centered">
+                    <div class="container">
+                        <div class="visual-text visual-center">
+                            <h1 class="visual-title visual-sub-title">Администрация</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="centered__persons">
+
+            <div class="persons">
+
+                @foreach(var t in Model.Administration)
+                {
+                    @if(t.IsAdministrator)
+                    {
+                        <div class="person">
+                            <img class="person__avatar" src=@t.Image alt=@t.Name>
+                            <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+                            <span class="person__specialization">
+                                @t.Description
+                            </span>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </section>
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">Руководители секций</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="centered__persons">
+
+        <div class="persons">
+            
+            @foreach (var t in Model.Administration)
+            {
+                @if (t.IsHeadOfThecenter)
+                {
+                    <div class="person">
+                        <img class="person__avatar" src=@t.Image alt=@t.Name>
+                        <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+                        <span class="person__specialization">
+                            @t.Description
+                        </span>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+    </section>
+</main>
+
+<footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>

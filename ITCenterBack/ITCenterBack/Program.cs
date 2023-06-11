@@ -56,6 +56,7 @@ builder.Services.AddScoped<IAboutUsService, AboutUsService>();
 builder.Services.AddScoped<IInfoService, InfoService>();
 builder.Services.AddScoped<ISectionService, SectionService>();
 builder.Services.AddScoped<ISquareService, SquareService>();
+builder.Services.AddScoped<IAdministrationService, AdministrationService>();
 //builder.Services.AddScoped<IApplicationTimeService, ApplicationTimeService>();
 
 
