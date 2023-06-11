@@ -127,19 +127,51 @@
 			<div class="admin-form__item">
 				<h2 class="heading">Заявки</h2>
 			</div>
-			<label class="input__label"><input class="input input--width-label" type="text" placeholder="Название курса" />
-						<input class="input input--width-label" type="text" placeholder="ФИО" />
-			<input class="input input--width-label" type="text" placeholder="Школа/Гимназия" />
-			<input class="input input--width-label" type="text" placeholder="Класс" />
-			<input class="input input--width-label" type="text" placeholder="Телефон Преподавателя" />
-			<input class="input input--width-label" type="text" placeholder="ФИО Преподавателя"/>
-
-					</label>
-					<br>
+			<div class="admin-form__item">
+				<label class="input__label">
+					<input class="input input--width-label" type="text" placeholder="Дата" />
+					<input class="input input--width-label" type="text" placeholder="ФИО" />
+					<input class="input input--width-label" type="text" placeholder="Школа" />
+					<input class="input input--width-label" type="text" placeholder="Класс" />
+					<input class="input input--width-label" type="text" placeholder="Телефон представителя" />
+					<input class="input input--width-label" type="text" placeholder="ФИО представителя" />
+					
+						<label class="select-label">По направлению: <select class="select">
+								<option value="notes1">Математика (5-9 классы)</option>
+								<option value="notes2">Робототехника LEGO WeDo (2-4 классы)</option>
+								<option value="notes3">Scratch-программирование (5-6 кл., продвинутый уровень)</option>
+								<option value="notes4">Java для начинающих (8-11 классы)</option>
+								<option value="notes5">Компьютерная графика и веб-дизайн (6-7 классы)</option>
+								<option value="notes6">Подготовка к ЦТ по математике (9-11 классы)</option>
+								<option value="notes7">Подготовка к ЦТ по физике (9-11 классы)</option>
+								<option value="notes8">Web-программирование (7-9 классы, для начинающих)</option>
+								<option value="notes9">Алгоритмизация и программирование (8-11 кл., для начин.)</option>
+								<option value="notes10">Робототехника LEGO EV3 (5-7 классы, для начинающих)</option>
+								<option value="notes11">Робототехника Arduino (7-9 классы)</option>
+								<option value="notes12">Робототехника LEGO+Scratch (3-4 классы)</option>	
+								<option value="notes13">Python для начинающих (6-7 классы)</option>
+								<option value="notes14">Python для продолжающих (разработка игр, 7-9 классы)</option>	
+								<option value="notes15">Scratch-программирование (3-4 кл., для продолжающих)</option>	
+								<option value="notes16">Web-программирование (8-11кл., для продолжающих)</option>
+								<option value="notes17">Робототехника LEGO EV3 (6-8 кл.,для продолжающих)</option>
+								<option value="notes18">Scratch-программирование (3-4 классы, для начинающих)</option>
+								<option value="notes19">Английский для IT (5-7 классы)</option>
+								<option value="notes20">3D-моделирование и 3D-печать (8-10 классы)</option>
+								<option value="notes21">Виртуальная и дополненная реальность (7-8 классы)</option>
+								<option value="notes22">Java для продолжающих (9-11 классы)</option>
+								<option value="notes22">Математика (3-4 классы)</option>
+							</select>
+						</label>
+					
+					
+				</label>
+			</div>
+		<br>
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
 					<tr>
+						<th>Дата</th>
 						<th>ФИО</th>
 						<th>Школа</th>
 						<th>Класс</th>
@@ -149,6 +181,7 @@
 				</thead>
 				<tbody>
 						<tr>
+							<td>01.01.2023</td>
 							<td>лвр  раф п ваш вш р</td>
 							<td>ГУО "Гимназия №1 г. Витебска имени Ж.И. Алфёрова"</td>
 							<td>4</td>

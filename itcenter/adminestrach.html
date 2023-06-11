@@ -11,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Администрация | IT-центр</title>
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/for_new/img/icons/logo.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/for_new/img/icons/logo.svg">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/for_new/img/icons/logo.svg">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/gllg.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/gllg.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/gllg.png">
     <!-- Font Icons -->
     <link media="all" rel="stylesheet" href="assets/for_new/css/fonts/icomoon/icomoon.css">
     <link media="all" rel="stylesheet" href="assets/for_new/css/fonts/roxine-font-icon/roxine-font.css">
@@ -43,7 +43,7 @@
     <div class="preloader" id="pageLoad">
         <div class="holder">
             <div class="coffee_cup" style="padding-top: 13%;padding-left:1%;">
-                <img width="98%" src="assets/for_new/img/icons/logo.svg">
+                <img width="98%" src="images/gllg.png">
             </div>
         </div>
     </div>
@@ -51,34 +51,84 @@
     <div id="wrapper">
         <div class="page-wrapper">
             <!-- header of the page -->
-            <header class="fixed-top main-header header-white transparent with-side-panel-ico" id="waituk-main-header">
+            <header class="fixed-top main-header header-white transparent with-side-panel-ico sticky-nav" id="waituk-main-header">
                 <div id="nav-section">
                     <div class="bottom-header container-fluid mega-menus" id="mega-menus">
-                        <nav class="navbar navbar-toggleable-md no-border-radius no-margin mega-menu-multiple"
-                            id="navbar-inner-container">
-                            <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse"
-                                data-target="#mega-menu">
+                        <style>
+                            .ddd{
+                                display: flex;
+                                justify-content: space-evenly;
+                                flex-direction: row;
+                                width: 100%;
+                                align-items: center;
+                            }
+                            .aaaa{
+                                display: none;
+                            }
+                            @media (max-width: 1024px){
+                                 .ddd{
+                                    display: none;
+                                 }
+                                 .aaaa{
+                                    margin-top: 10px;
+                                    display: flex;
+                                    justify-content: center;
+                                 }
+                            }
+                        </style>
+                    <div class="ddd">
+                        <div>
+                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img class="mobile-logo"  src="images/gllg.png" alt="IT-центр">  </a>  
+                        </div>  
+                        <div
+                        style="
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        "
+                        >
+                            <h6>Учреждение образования "Витебский государственный университет имени П.М.Машерова"</h6> 
+                            <h3>Образовательный IT-Центр</h3>
+                            <div style="display: flex; flex-direction: row;">
+                                <h4 class="h4-hider">Математика &nbsp</h4>
+                                <h4 class="h4-hider">Информатика &nbsp</h4> 
+                                <h4 class="h4-hider">Робототехника</h4> 
+                            </div>
+                            <h4>Будущего</h4>
+                            
+                        </div>
+                        <div
+                        style="
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        ">
+                             <h4>8 (0212) 37-58-36 </h4>
+                            <h4>email: fmiit@vsu.by </h4> 
+                            <h4>+375 (33) 317-95-02</h4> 
+                        </div>
+                    </div>
+                    <div class="aaaa">
+                        <h3>IT-Центр</h3>
+                    </div>
+                        <nav class="navbar navbar-toggleable-md no-border-radius no-margin mega-menu-multiple" id="navbar-inner-container">
+                            <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse" data-target="#mega-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img class="mobile-logo" 
-                                    src="assets/for_new/img/icons/logo.svg" alt="IT-центр"> <img class="mobile-logo"
-                                    src="assets/for_new/img/icons/logo.svg" alt="IT-центр"> </a>
                             <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
-                                 <ul class="nav navbar-nav">
+                                <ul class="nav navbar-nav">
                                     <li class="dropdown dropdown_first" data-animation="fadeIn">
-                                        <a class="dropdown-toggle formula" href="./index.html" data-title="Home"> IT-центр </a>
+                                        <a class="dropdown-toggle formula" data-title="Home"href="index.html">ГЛАВНАЯ</a>
                                     </li>
                                     <li class="dropdown dropdown_second" data-animation="fadeIn">
-                                        <a class="dropdown-toggle"  data-title="Home"> О нас </a>
+                                        <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> О нас </a>
                                         <ul class="dropdown-menu no-border-radius">
-                                            <li class="dropdown_third colored"><a href="./adminestrach.html"> Администрация</a></li>
-                                            <li class="dropdown_third colored"><a href="./person.html"> Преподаватели</a></li>
-                                            <li class="dropdown_third colored"><a href="./kontakt.html"> Контакты</a></li>
-
-   
+                                            <li class="dropdown_second colored"><a href="./adminestrach.html"> Администрация</a></li>
+                                            <li class="dropdown_second colored"><a href="./person.html"> Преподаватели</a></li>
+                                            <li class="dropdown_second colored"><a href="./kontakt.html"> Контакты</a></li>
                                         </ul>
                                     </li>
-                                   <li class="dropdown dropdown_third" data-animation="fadeIn">
+                                    <li class="dropdown dropdown_third" data-animation="fadeIn">
                                         <a class="dropdown-toggle" data-toggle="dropdown" data-title="Home"> Секции</a>
                                         <ul class="dropdown-menu no-border-radius">
                                            
@@ -88,11 +138,10 @@
                                         </ul>
                                     </li>
 
-
                                     <li class="dropdown_fourth">
                                         <a href="schedule.html"> Расписание</a>
                                     </li>
-                                    <li class="dropdown_fourth">
+                                    <li class="dropdown_fin">
                                         <a href="./news-all.html"> Новости</a>
                                     </li>
                                   <!-- любой текст  <li class="dropdown_fifth">
@@ -112,11 +161,7 @@
                                     <li class="dropdown_sixth">
                                         <a href="applications.html"> Записаться на курс </a>
                                     </li>
-                                    <li class="dropdown_eight">
-                                       <h4>8 (0212) 37-58-36 </h4>
-                                       <h4>email: fmiit@vsu.by </h4> 
-                                       <h4>+375 (33) 317-95-02</h4> 
-                                    </li>
+                                
                                 </ul>
                             </div>
                         </nav>
