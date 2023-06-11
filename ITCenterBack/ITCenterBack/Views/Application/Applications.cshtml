@@ -22,6 +22,7 @@
 						<th>Класс</th>
 						<th>Телефон представителя</th>
 						<th>ФИО представителя</th>
+						<th>Дата отправки заявки</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,6 +34,7 @@
 							<td>@t.Class</td>
 							<td>@t.RepresentativePhoneNumber</td>
 							<td>@t.RepresentativeFullName</td>
+							<th>@t.Time</th>
 							<td>
 								<a asp-action="Details" asp-route-id="@t.Id" class="file-button" type="file">Подробнее</a>
 								<a asp-action="Delete" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>

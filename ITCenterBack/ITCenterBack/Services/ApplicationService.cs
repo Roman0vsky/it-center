@@ -153,6 +153,7 @@ namespace ITCenterBack.Services
             applicationVM.Courses = courses;
             applicationVM.Class = application.Class;
             applicationVM.DayTime = daysTimes;
+            applicationVM.Time = application.Time;
 
             return applicationVM;
         }

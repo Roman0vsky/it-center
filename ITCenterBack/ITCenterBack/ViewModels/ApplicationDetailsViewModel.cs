@@ -12,5 +12,6 @@ namespace ITCenterBack.ViewModels
 		public string RepresentativePhoneNumber { get; set; }
 		public List<string> Courses { get; set; }
 		public List<TimeDayViewModel> DayTime { get; set; }
-	}
+        public DateTime Time { get; set; }
+    }
 }

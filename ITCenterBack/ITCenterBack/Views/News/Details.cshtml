@@ -1,23 +1,38 @@
 ﻿@model ITCenterBack.ViewModels.NewsDetailsViewModel
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Новости | IT - центр";
+    ViewBag.Title = "Новости | " + Model.Footer.Info.NameOfTheCenter;
 }
 
 <header>@await Html.PartialAsync("/Views/Shared/_Header.cshtml", Model.Header)</header>
 
 <main>
+    <section class="visual visual-sub visual-no-bg">
+        <div class="visual-inner no-overlay bg-gray-light">
+            <div class="centered">
+                <div class="container">
+                    <div class="visual-text visual-center">
+                        <h1 class="visual-title visual-sub-title">@Model.News.Title</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="news-page__wrapper">
 
-    <div class="news-page__wrapper">
-        <div class="news-page__title">
-            @Model.News.Title
+            <br>
+
+            <div class="news-page__text">
+                @Html.Raw(Model.News.Text)
+            </div>
+
+            <div class="news__wrapper-date">
+                <br>
+                <span class="news__date">@Model.News.PublicationDate</span>
+            </div>
+            <br>
         </div>
-        <div class="news-page__text">
-            @Html.Raw(Model.News.Text)
-        </div>
-    </div>
+    </section>
 
 </main>
-    </div>
 
 <footer>@await Html.PartialAsync("/Views/Shared/_Footer.cshtml", Model.Footer)</footer>
