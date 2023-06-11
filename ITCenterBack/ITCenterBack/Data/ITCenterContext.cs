@@ -26,6 +26,7 @@ namespace ITCenterBack.Data
 		public DbSet<Info> Info { get; set; }
         public DbSet<Section> Sections { get; set; }
 		public DbSet<Square> Squares { get; set; }
+        public DbSet<Administration> Administration { get; set; }
 
 		public ITCenterContext(DbContextOptions<ITCenterContext> options) : base(options)
         {

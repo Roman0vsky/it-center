@@ -37,6 +37,7 @@ builder.Services.AddScoped<IApplicationTimeRepository, ApplicationTimeRepository
 builder.Services.AddScoped<ICourseApplicationRepository, CourseApplicationRepository>();
 builder.Services.AddScoped<IRepository<Section>, SectionRepository>();
 builder.Services.AddScoped<IRepository<Square>, SquareRepository>();
+builder.Services.AddScoped<IRepository<Administration>, AdministrationRepository>();
 
 //Services
 builder.Services.AddAutoMapper(typeof(MapperProfiles));

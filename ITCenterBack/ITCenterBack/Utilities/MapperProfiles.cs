@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ITCenterBack.Models;
 using ITCenterBack.ViewModels;
+using ITCenterBack.ViewModels.BasicViewModels;
 
 namespace ITCenterBack.Utilities
 {
@@ -22,6 +23,7 @@ namespace ITCenterBack.Utilities
 			CreateMap<Info, InfoViewModel>();
             CreateMap<Section, SectionViewModel>();
 			CreateMap<Square, SquareViewModel>();
+			CreateMap<Administration, AdministrationViewModel>();
 			//CreateMap<List<Teacher>, TeachersViewModel>();
 		}
     }
