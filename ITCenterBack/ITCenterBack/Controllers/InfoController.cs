@@ -135,7 +135,7 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/logos" + uploadedFile.FileName;
+				string path = "/images/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -163,7 +163,7 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/logos" + uploadedFile.FileName;
+				string path = "/images/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{

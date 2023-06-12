@@ -635,7 +635,7 @@ namespace ITCenterBack.Controllers
 			if (uploadedFile != null)
 			{
 				// путь к папке images/schedule
-				string path = "/images/schedule" + uploadedFile.FileName;
+				string path = "/images/" + uploadedFile.FileName;
 				// сохраняем файл в папку в каталоге wwwroot
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
