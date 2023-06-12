@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ITCenterBack.Constants;
 using ITCenterBack.Interfaces;
+using ITCenterBack.Services;
 using ITCenterBack.ViewModels;
 using ITCenterBack.ViewModels.AddViewModels;
 using Microsoft.AspNetCore.Authorization;
@@ -141,6 +142,52 @@ namespace ITCenterBack.Controllers
 		public async Task<IActionResult> DeleteAsync(long id)
 		{
 			await _squareService.DeleteSquareAsync(id);
+
+			return RedirectToAction("All");
+		}
+
+		[HttpGet]
+		[ActionName("Update")]
+		[Route("Update")]
+		public async Task<IActionResult> GetUpdateAsync(long id)
+		{
+			var square = await _squareService.GetSquareAsync(id);
+
+			if (square is null)
+			{
+				return NotFound();
+			}
+
+			var squareVM = _mapper.Map<SquareViewModel>(square);
+
+			return View(squareVM);
+		}
+
+		[HttpPost]
+		[Route("Update")]
+		[ActionName("Update")]
+		public async Task<IActionResult> UpdateAsync([FromForm] SquareViewModel viewModel, IFormFile? uploadedFile)
+		{
+			var square = await _squareService.GetSquareAsync(viewModel.Id);
+
+			if (square is null)
+			{
+				return NotFound();
+			}
+
+			string path = viewModel.Image;
+
+			if (uploadedFile != null)
+			{
+				path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+			}
+
+			await _squareService.UpdateSquareAsync(viewModel.Id, viewModel.Title, viewModel.TextPreview, viewModel.Content, path);
 
 			return RedirectToAction("All");
 		}

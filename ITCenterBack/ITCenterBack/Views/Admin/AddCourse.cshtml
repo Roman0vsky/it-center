@@ -24,14 +24,6 @@
 						@Html.EditorFor(model => model.Age) <hr />
 					</label>
 					<label class="input__label">
-						Тип курса <hr />
-						<select asp-for="CourseType"
-								class="form-control"
-								asp-items="Html.GetEnumSelectList<CourseType>()">
-							<option>Выбрать тип ...</option>
-						</select>
-					</label>
-					<label class="input__label">
 						Введите требования <hr />
 						@Html.EditorFor(model => model.Requirements)
 					</label>

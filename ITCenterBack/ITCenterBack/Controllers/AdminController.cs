@@ -310,7 +310,7 @@ namespace ITCenterBack.Controllers
 
                 if (!string.IsNullOrEmpty(viewModel.Name))
                 {
-                    await _courseService.CreateCourseAsync(viewModel.Name, viewModel.Age, viewModel.Requirements, viewModel.Description, viewModel.CourseType, path);
+                    await _courseService.CreateCourseAsync(viewModel.Name, viewModel.Age, viewModel.Requirements, viewModel.Description, path);
 
                     return RedirectToAction("Courses");
                 }

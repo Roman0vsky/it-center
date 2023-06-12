@@ -12,7 +12,7 @@ namespace ITCenterBack.Services
             _courseRepository = courseRepository;
         }
 
-        public async Task CreateCourseAsync(string name, string age, string requirements, string description, CourseType type, string image)
+        public async Task CreateCourseAsync(string name, string age, string requirements, string description, string image)
         {
             if (!string.IsNullOrWhiteSpace(name))
             {
@@ -22,8 +22,7 @@ namespace ITCenterBack.Services
                     Age = age,
                     Requirements = requirements,
                     Description = description,
-                    Image = image,
-                    CourseType = type
+                    Image = image
                 };
 
                 await _courseRepository.CreateAsync(course);

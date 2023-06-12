@@ -47,5 +47,20 @@ namespace ITCenterBack.Services
 		{
 			return await _squareRepository.GetByIdAsync(id);
 		}
+
+		public async Task UpdateSquareAsync(long id, string title, string textPreview, string content, string image)
+		{
+			var square = await _squareRepository.GetByIdAsync(id);
+
+			if(square is not null)
+			{
+				square.Title = title;
+				square.TextPreview = textPreview;
+				square.Content = content;
+				square.Image = image;
+				
+				await _squareRepository.UpdateAsync(square);
+			}
+		}
 	}
 }

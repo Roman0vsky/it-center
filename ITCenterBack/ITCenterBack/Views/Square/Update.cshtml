@@ -1,0 +1,56 @@
+﻿@using ITCenterBack.Models;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ITCenterBack.ViewModels.SquareViewModel
+@{
+	Layout = "/Views/Shared/_AdminLayout.cshtml";
+	ViewBag.Title = "Изменить квадрат";
+}
+
+<div class="admin-page__content">
+	<div class="admin-page__content-form">
+		<div class="admin-form">
+			<div class="admin-form__item">
+				<h2 class="heading">Добавить квадрат </h2>
+			</div>
+			@using (Html.BeginForm("Update", "Square", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+				@Html.HiddenFor(model => model.Id)
+
+				<div class="admin-form__item">
+					<label class="input__label">
+						Введите заголовок <br />
+						@Html.EditorFor(model => model.Title) <hr />
+					</label>
+					<label class="input__label">
+						Введите превью описания <hr />
+						@Html.EditorFor(model => model.TextPreview)
+					</label>
+					<label class="input__label">
+						Изображение в превью<hr />
+						<img src=@Model.Image alt="images">
+						@Html.HiddenFor(model => model.Image)
+						Обновить изображение
+						<div class="editor-field">
+							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />
+						</div>
+					</label>
+					<label class="input__label">
+						<br></br>
+						Содержимое <hr />
+						@Html.TextAreaFor(model => model.Content)
+					</label>
+				</div>
+
+				<div class="admin-form__item buttons">
+					<input class="primary-button" type="submit" value="Добавить" />
+				</div>
+			}
+
+			<div class="admin-form__item buttons">
+				<a class="secondary-button" href=@Url.Content("/api/Square/All")>Отмена</a>
+			</div>
+			<div class="admin-form__item"></div>
+			<div class="admin-form__item"></div>
+		</div>
+	</div>
+</div>

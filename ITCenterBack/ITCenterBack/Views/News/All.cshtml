@@ -33,16 +33,7 @@
                             <div class="news__content">
                                 <div class="news__title">@news.Title</div>
                                 <div class="news__text">
-                                    <p>
-                                        @if (news.Text.Length > 90)
-                                        {
-                                            @string.Concat((@news.Text).AsSpan(0, 90), "...")
-                                        }
-                                        else
-                                        {
-                                            @news.Text
-                                        }
-                                    </p>
+                                    @news.ShortText
                                 </div>
                             </div>
                             <div class="news__wrapper-date">

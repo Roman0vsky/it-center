@@ -24,8 +24,7 @@ namespace ITCenterBack.Data
                     "Знания, полученные на курсе «Основы компьютерной графики» обязательно пригодятся и в смежных сферах – разработке сайтов, игр, " +
                     "видеомонтаже, робототехнике",
                     Requirements = "уверенные навыки использования компьютера",
-                    Image = "/assets/for_new/img/courses/design/starter-graphics.svg",
-                    CourseType = CourseType.Design
+                    Image = "/assets/for_new/img/courses/design/starter-graphics.svg"
                 },
                 new Course
                 {
@@ -38,8 +37,7 @@ namespace ITCenterBack.Data
                     "и настраивать операционную систему, изучают основные пакеты офисных программ. В рамках курса затрагиваются такие темы, как основы обработки графики, " +
                     "информационной безопасности и алгоритмизации",
                     Requirements = "нет",
-                    Image = "/assets/for_new/img/courses/pk/my-pc.svg",
-                    CourseType = CourseType.Development
+                    Image = "/assets/for_new/img/courses/pk/my-pc.svg"
                 },
                 new Course
                 {
@@ -53,8 +51,7 @@ namespace ITCenterBack.Data
                     "физики жидкостей! Навыки, полученные при прохождении курса, расширяют возможности юных дизайнеров в сфере графического дизайна, а также открывают " +
                     "двери в такие направления, как разработка игр, архитектурную визуализацию и создание видеороликов с использованием 3D графики!",
                     Requirements = "предварительное прохождение курса \"Компьютерная графика\"",
-                    Image = "/assets/for_new/img/courses/3d/graphics-3d.svg",
-                    CourseType = CourseType.Design
+                    Image = "/assets/for_new/img/courses/3d/graphics-3d.svg"
                 }
                 );
 

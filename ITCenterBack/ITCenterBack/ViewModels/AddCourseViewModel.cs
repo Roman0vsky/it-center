@@ -11,6 +11,5 @@ namespace ITCenterBack.ViewModels
 		public string Description { get; set; }
 		[DataType(DataType.MultilineText)]
 		public string Requirements { get; set; }
-        public CourseType CourseType { get; set; }
     }
 }
