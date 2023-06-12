@@ -44,14 +44,25 @@
                         align-items: center;
                         flex-direction: column;
                         ">
-                    <h6>Учреждение образования "@Model.Info.NameOfUniversity"</h6>
-                    <h3>Образовательный IT-Центр</h3>
+                    <h6>@Model.Info.SliderFirstText</h6>
+                    <h3>@Model.Info.SliderSecondText</h3>
+
                     <div style="display: flex; flex-direction: row;">
-                        <h4 class="h4-hider">Математика &nbsp</h4>
-                        <h4 class="h4-hider">Информатика &nbsp</h4>
-                        <h4 class="h4-hider">Робототехника</h4>
+                        @for (int i = 0; i < Model.Info.SliderThirdText.Split(" ").Length; i++)
+                        {
+                            if (i < 3)
+                            {
+                                <h4 class="h4-hider">@Model.Info.SliderThirdText.Split(" ")[i] &nbsp</h4>
+                            }
+                        }
                     </div>
-                    <h4>Будущего</h4>
+                    
+                    <h4>
+                        @for (int i = 3; i < Model.Info.SliderThirdText.Split(" ").Length; i++)
+                        {
+                            @string.Concat(Model.Info.SliderThirdText.Split(" ")[i], ' ');
+                        }
+                    </h4>
 
                 </div>
                 <div style="

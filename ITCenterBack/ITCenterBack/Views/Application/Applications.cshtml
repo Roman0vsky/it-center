@@ -1,6 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-@model List<ITCenterBack.ViewModels.ApplicationViewModel>
+@model ITCenterBack.ViewModels.ApplicationsViewModel
 @{
 	Layout = "/Views/Shared/_AdminLayout.cshtml";
 	ViewBag.Title = "Заявки";
@@ -12,7 +12,24 @@
 			<div class="admin-form__item">
 				<h2 class="heading">Заявки</h2>
 			</div>
-			@*<a class="secondary-button" href=@Url.Content("/api/Admin/AddNews")>Добавить</a>*@
+			<form method="get">
+				<div class="admin-form__item">
+					<label class="input__label">
+						<input class="input input--width-label" type="text" name="fullName" placeholder="ФИО" />
+						<input class="input input--width-label" type="text" name="school" placeholder="Школа" />
+						<input class="input input--width-label" type="text" name="clas" placeholder="Класс" />
+						<input class="input input--width-label" type="text" name="phone" placeholder="Телефон представителя" />
+						<input class="input input--width-label" type="text" name="representativeFullName" placeholder="ФИО представителя" />
+
+						<select name="course" asp-items="Model.Courses" class="select"></select>
+
+						<input type="submit" value="Поиск"  />
+					</label>
+				</div>
+			</form>
+			
+			<br/>
+
 			<table>
 				<colgroup id="a" span="5"></colgroup>
 				<thead>
@@ -26,7 +43,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach (var t in Model)
+					@foreach (var t in Model.Applications)
 					{
 						<tr>
 							<td>@t.ListenerFullName</td>

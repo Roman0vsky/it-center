@@ -75,7 +75,7 @@ namespace ITCenterBack.Controllers
 		}
 
 		[Route("Index")]
-        public async Task<IActionResult> IndexAsync(CourseType courseType = CourseType.All)
+        public async Task<IActionResult> IndexAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
             var coursesVM = _mapper.Map<List<CourseViewModel>>(courses);
@@ -112,28 +112,10 @@ namespace ITCenterBack.Controllers
                 Squares = squaresVM
 			};
 
-            switch(courseType)
-            {
-                case CourseType.Design:
-                    coursesVM = coursesVM.Where(c => c.CourseType == CourseType.Design).ToList();
-                    break;
-                case CourseType.Development:
-                    coursesVM = coursesVM.Where(c => c.CourseType == CourseType.Development).ToList();
-                    break;
-                case CourseType.Robotics:
-                    coursesVM = coursesVM.Where(c => c.CourseType == CourseType.Robotics).ToList();
-                    break;
-                case CourseType.Other:
-                    coursesVM = coursesVM.Where(c => c.CourseType == CourseType.Other).ToList();
-                    break;
-                case CourseType.All:
-                    break;
-            }
-
             var news = await _newsService.GetAllNewsAsync();
             var newsVM = _mapper.Map<List<NewsViewModel>>(news);
 
-            newsVM = newsVM.OrderBy(n => n.PublicationDate).Take(3).ToList();
+            newsVM = newsVM.Take(3).ToList();
 
             page.Courses = coursesVM;
             page.News = newsVM;

@@ -5,6 +5,7 @@ using ITCenterBack.Models;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ITCenterBack.Controllers
 {
@@ -14,11 +15,13 @@ namespace ITCenterBack.Controllers
     public class ApplicationController : Controller
     {
 		private readonly IApplicationService _applicationService;
+		private readonly ICourseService _courseService;
 		private readonly IMapper _mapper;
 
-		public ApplicationController(IApplicationService applicationService, IMapper mapper)
+		public ApplicationController(IApplicationService applicationService, ICourseService courseService, IMapper mapper)
 		{
 			_applicationService = applicationService;
+			_courseService = courseService;
 			_mapper = mapper;
 		}
 
@@ -39,12 +42,61 @@ namespace ITCenterBack.Controllers
 		[HttpGet]
 		[Route("Applications")]
 		[ActionName("Applications")]
-		public async Task<IActionResult> ApplicationsAsync()
+		public async Task<IActionResult> ApplicationsAsync(string? fullName, string? school, string? clas, string? phone, string? representativeFullName, long? course)
 		{
 			var applications = await _applicationService.GetAll();
-			var applicationsVM = _mapper.Map<List<ApplicationViewModel>>(applications);
 
-			return View(applicationsVM);
+			if (!string.IsNullOrEmpty(fullName))
+			{
+				applications = applications.Where(p => p.ListenerFullName.ToLower().Contains(fullName.ToLower())).ToList();
+			}
+
+			if (!string.IsNullOrEmpty(school))
+			{
+				applications = applications.Where(p => p.SchoolName.ToLower().Contains(school.ToLower())).ToList();
+			}
+
+			if (!string.IsNullOrEmpty(clas))
+			{
+				applications = applications.Where(p => p.Class.ToString().Contains(clas.ToLower())).ToList();
+			}
+
+			if (!string.IsNullOrEmpty(phone))
+			{
+				applications = applications.Where(p => p.RepresentativePhoneNumber.ToLower().Contains(phone.ToLower())).ToList();
+			}
+
+			if (!string.IsNullOrEmpty(representativeFullName))
+			{
+				applications = applications.Where(p => p.RepresentativeFullName.ToLower().Contains(representativeFullName.ToLower())).ToList();
+			}
+
+			var applicationsVM = _mapper.Map<List<ApplicationViewModel>>(applications);
+			var courses = new ApplicationDetailsViewModel();
+
+			foreach (var appl in applicationsVM)
+			{
+				courses = await _applicationService.GetApplication(appl.Id);
+
+				appl.Courses = courses.Courses;
+			}
+
+			if(course > 0 && course != null)
+			{
+				var cours = await _courseService.GetCourseAsync(course.Value);
+
+				applicationsVM = applicationsVM.Where(p => p.Courses.Contains(cours.Name)).ToList();
+			}
+
+			var allCourses = await _courseService.GetAllCoursesAsync();
+
+			var applsVM = new ApplicationsViewModel
+			{
+				Applications = applicationsVM,
+				Courses = new SelectList(allCourses, "Id", "Name")
+			};
+
+			return View(applsVM);
 		}
 
 		[HttpGet]
