@@ -3047,7 +3047,8 @@ tbody.collapse.show {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 100px;
+  padding-left: 120px;
+  padding-right: 130px;
   margin-bottom: 0;
   list-style: none; }
   .navbar-nav .nav-link {
@@ -3190,7 +3191,9 @@ tbody.collapse.show {
       display: -webkit-flex !important;
       display: -ms-flexbox !important;
       display: flex !important;
-      width: 100%; }
+      width: 100%;
+      
+     }
     .navbar-toggleable-sm .navbar-toggler {
       display: none; } }
 
