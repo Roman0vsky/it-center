@@ -3583,7 +3583,6 @@ em.state-invalid {
 	height: -12px;
 	width: 111%;
 	margin-left: -80px;
-	
 }
 
 .main-header .navbar .navbar-brand {
@@ -14158,7 +14157,7 @@ td, th {
 .news__date {
 	margin-top: 20px;
 	font-size: 16px;
-	padding: 0px 900px 0px 0px;
+	padding: 0px 900px 10px 30px;
 
 }
 .news__btn {
