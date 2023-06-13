@@ -6384,7 +6384,7 @@ pre {
 	display: block;
 	font-family: 'Playfair Display', sans-serif;
 	font-weight: 900;
-	font-size: 10px;
+	font-size: 16px;
  
 	line-height: 1;
   }
@@ -10521,7 +10521,7 @@ td, th {
 	background-color: #000;
 	position: relative;
 	color: #7d7d7d;
-	
+	z-index: 2;
 }
 
 .footer .footer-main p {
@@ -10567,7 +10567,6 @@ td, th {
 	-webkit-transform: translate(0, -50%);
 	-o-transform: translate(0, -50%);
 	transform: translate(0, -50%);
-	
 }
 
 .footer .footer-main h4 {
@@ -10592,7 +10591,6 @@ td, th {
 .footer .footer-bottom {
 	padding: 1.875rem 0;
 	background: #212121;
-	
 }
 
 .footer .footer-bottom p {
@@ -12998,7 +12996,7 @@ td, th {
 	.main-header .navbar-toggler {
 	  
 		padding: 1.2rem 0;
-		top: 0px;
+		top: -40px;
 		margin-top: 0;
 		outline: none;
 		cursor: pointer;
@@ -14149,8 +14147,6 @@ td, th {
 .news__date {
 	margin-top: 20px;
 	font-size: 16px;
-	padding: 0px 900px 0px 0px;
-
 }
 .news__btn {
 	display: flex;
@@ -14192,7 +14188,7 @@ td, th {
 	margin: 5px;
 }
 .pagination a.active {
-  background-color: #0275d8;
+  background-color: #00CCCC;
   color: white;
 }
 .pagination a:hover:not(.active) {
@@ -14453,8 +14449,6 @@ margin-bottom: 15px;
 	align-items: center;
 	width: 100%;
 	height: 100%;
-	   position:absolute;
-
 	padding: 10px 0;
 }
 .news-page__title {
@@ -14473,7 +14467,7 @@ margin-bottom: 15px;
 	font-size: 16px;
 	max-width: 1000px;
 	width: 100%;
-	padding: 0px 0px 0px 0px;
+	padding: 0 20px;
 }
 @media screen and (max-width: 768px) {
 	.news-page__title {
