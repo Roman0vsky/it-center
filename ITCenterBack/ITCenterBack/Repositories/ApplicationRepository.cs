@@ -34,7 +34,7 @@ namespace ITCenterBack.Repositories
 
         public async Task<List<Application>> GetAllAsync()
         {
-            return await _context.Applications.ToListAsync();
+            return await _context.Applications.OrderByDescending(p => p.Time).ToListAsync();
         }
 
         public async Task<Application> GetByIdAsync(long id)
