@@ -31,6 +31,29 @@ namespace ITCenterBack.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Administration",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Image = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Name = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Link = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsAdministrator = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    IsHeadOfThecenter = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Administration", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -99,8 +122,7 @@ namespace ITCenterBack.Migrations
                     Requirements = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Image = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    CourseType = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -556,27 +578,27 @@ namespace ITCenterBack.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1L, "5aed3858-9752-4e2d-aed5-a37954749bb8", "Administrator", "Administrator" });
+                values: new object[] { 1L, "dc18968a-20fc-4ff6-90d3-a655742a692b", "Administrator", "Administrator" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1L, 0, "0af613d9-8194-4b29-8ed7-e027862bad50", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEIiKTm58mOppcSYTUzDoE7BQ6IXQA8ANBJW48C2W/jIf2Ym4mYvXd63rRb4ylrUo4A==", null, false, null, false, "admin" });
+                values: new object[] { 1L, 0, "1edff17f-bdc5-436b-8c69-1d8e57bd39cb", null, false, false, null, null, "ADMIN", "AQAAAAEAACcQAAAAEDCyszHb0b5VokYxswbyRunpu0B0Sw13aWYmOrogTSalpSW6n1mZr6huCcCmdJuAWg==", null, false, null, false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Courses",
-                columns: new[] { "Id", "Age", "CourseType", "Description", "Image", "Name", "Requirements" },
+                columns: new[] { "Id", "Age", "Description", "Image", "Name", "Requirements" },
                 values: new object[,]
                 {
-                    { 4L, "10-15 лет", 2, "В индустрии компьютерной графики множество направлений: пространственный дизайн, обработка фотографий, дизайн логотипов, разработка трехмерных моделей, анимации и прочее. Цель данного курса – подготовить юных слушателей к знакомству с миром компьютерной графики, дизайна, композиции. Основным инструментом на курсе является всемирно известный редактор графики Adobe Photoshop, а также некоторые другие инструменты для творчества. Все эти навыки пригодятся для дальнейшей работы с самыми известными и полезными программами на других направлениях – Illustrator, Blender, Figma. В процессе обучения, слушатели смогут раскрыть в себе творческий потенциал и интерес к изучению определенной сферы графического дизайна. Знания, полученные на курсе «Основы компьютерной графики» обязательно пригодятся и в смежных сферах – разработке сайтов, игр, видеомонтаже, робототехнике", "/assets/for_new/img/courses/design/starter-graphics.svg", "Основы компьютерной графики", "уверенные навыки использования компьютера" },
-                    { 5L, "8-11 лет", 1, "В современном мире, без навыков использования компьютера справиться с повседневными задачами в учебе и работе очень сложно. Курс «Мой компьютер» является первой ступеней в процессе подготовки будущего IT-специалиста, а также пригодится абсолютно любому современному человеку. На занятиях слушатели учатся уверенно использовать свой компьютер в качестве универсального инструмента для решения задач, обслуживать и настраивать операционную систему, изучают основные пакеты офисных программ. В рамках курса затрагиваются такие темы, как основы обработки графики, информационной безопасности и алгоритмизации", "/assets/for_new/img/courses/pk/my-pc.svg", "Мой компьютер - для начинающих", "нет" },
-                    { 6L, "12-17 лет", 2, "Мир трехмерной графики охватывает множество направлений - геймдизайн и разработка игр, архитектурная визуализация и рендеринг, анимация и визуальные эффекты, 3D - печать и . На направлении \"3D-графика\" студенты изучают один из самых известных и гибких редакторов - Blender. Редактор Blender - мощный инструмент для создания трехмерных моделей, обладающий огромным сообществом фанатов и профессионалов, а также наличием большого количества модулей и плагинов, которые позволяют решить абсолютно любую задачу - от симуляции трехмерной виртуальной одежды, до просчетов физики жидкостей! Навыки, полученные при прохождении курса, расширяют возможности юных дизайнеров в сфере графического дизайна, а также открывают двери в такие направления, как разработка игр, архитектурную визуализацию и создание видеороликов с использованием 3D графики!", "/assets/for_new/img/courses/3d/graphics-3d.svg", "3D графика, анимация и рендеринг", "предварительное прохождение курса \"Компьютерная графика\"" }
+                    { 4L, "10-15 лет", "В индустрии компьютерной графики множество направлений: пространственный дизайн, обработка фотографий, дизайн логотипов, разработка трехмерных моделей, анимации и прочее. Цель данного курса – подготовить юных слушателей к знакомству с миром компьютерной графики, дизайна, композиции. Основным инструментом на курсе является всемирно известный редактор графики Adobe Photoshop, а также некоторые другие инструменты для творчества. Все эти навыки пригодятся для дальнейшей работы с самыми известными и полезными программами на других направлениях – Illustrator, Blender, Figma. В процессе обучения, слушатели смогут раскрыть в себе творческий потенциал и интерес к изучению определенной сферы графического дизайна. Знания, полученные на курсе «Основы компьютерной графики» обязательно пригодятся и в смежных сферах – разработке сайтов, игр, видеомонтаже, робототехнике", "/assets/for_new/img/courses/design/starter-graphics.svg", "Основы компьютерной графики", "уверенные навыки использования компьютера" },
+                    { 5L, "8-11 лет", "В современном мире, без навыков использования компьютера справиться с повседневными задачами в учебе и работе очень сложно. Курс «Мой компьютер» является первой ступеней в процессе подготовки будущего IT-специалиста, а также пригодится абсолютно любому современному человеку. На занятиях слушатели учатся уверенно использовать свой компьютер в качестве универсального инструмента для решения задач, обслуживать и настраивать операционную систему, изучают основные пакеты офисных программ. В рамках курса затрагиваются такие темы, как основы обработки графики, информационной безопасности и алгоритмизации", "/assets/for_new/img/courses/pk/my-pc.svg", "Мой компьютер - для начинающих", "нет" },
+                    { 6L, "12-17 лет", "Мир трехмерной графики охватывает множество направлений - геймдизайн и разработка игр, архитектурная визуализация и рендеринг, анимация и визуальные эффекты, 3D - печать и . На направлении \"3D-графика\" студенты изучают один из самых известных и гибких редакторов - Blender. Редактор Blender - мощный инструмент для создания трехмерных моделей, обладающий огромным сообществом фанатов и профессионалов, а также наличием большого количества модулей и плагинов, которые позволяют решить абсолютно любую задачу - от симуляции трехмерной виртуальной одежды, до просчетов физики жидкостей! Навыки, полученные при прохождении курса, расширяют возможности юных дизайнеров в сфере графического дизайна, а также открывают двери в такие направления, как разработка игр, архитектурную визуализацию и создание видеороликов с использованием 3D графики!", "/assets/for_new/img/courses/3d/graphics-3d.svg", "3D графика, анимация и рендеринг", "предварительное прохождение курса \"Компьютерная графика\"" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Info",
                 columns: new[] { "Id", "AdressOfUniversity", "Email", "FooterLogo", "HeaderLogo", "NameOfTheCenter", "NameOfUniversity", "PhoneNumber1", "PhoneNumber2", "SchoolYear", "SliderFirstText", "SliderSecondText", "SliderThirdText" },
-                values: new object[] { 1L, "Республика Беларусь 210038, г. Витебск, Московский проспект 33", "fmiit@vsu.by", "/images/gllg.png", "/assets/for_new/img/icons/logo.svg", "IT-центр", "ВГУ имени П.М.Машерова", "8 (0212) 37-58-36", "+375 (33) 317-95-02", "2023/2024", "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"", "IT-центр", "\"Мир будущего\"" });
+                values: new object[] { 1L, "Республика Беларусь 210038, г. Витебск, Московский проспект 33", "fmiit@vsu.by", "/images/gllg.png", "/assets/for_new/img/icons/logo.svg", "IT-центр", "ВГУ имени П.М.Машерова", "8 (0212) 37-58-36", "+375 (33) 317-95-02", "2023/2024", "Учреждение образования \"Витебский государственный университет имени П.М.Машерова\"", "Образовательный IT-Центр", "Математика Информатика Робототехника Будущего" });
 
             migrationBuilder.InsertData(
                 table: "Schedule",
@@ -765,6 +787,9 @@ namespace ITCenterBack.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AboutUs");
+
+            migrationBuilder.DropTable(
+                name: "Administration");
 
             migrationBuilder.DropTable(
                 name: "ApplicationTimes");

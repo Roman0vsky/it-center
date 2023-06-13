@@ -46,6 +46,35 @@ namespace ITCenterBack.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ITCenterBack.Models.Administration", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("IsAdministrator")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("IsHeadOfThecenter")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Administration");
+                });
+
             modelBuilder.Entity("ITCenterBack.Models.Application", b =>
                 {
                     b.Property<long>("Id")
@@ -141,9 +170,6 @@ namespace ITCenterBack.Migrations
                     b.Property<string>("Age")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("CourseType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
@@ -165,7 +191,6 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 4L,
                             Age = "10-15 лет",
-                            CourseType = 2,
                             Description = "В индустрии компьютерной графики множество направлений: пространственный дизайн, обработка фотографий, дизайн логотипов, разработка трехмерных моделей, анимации и прочее. Цель данного курса – подготовить юных слушателей к знакомству с миром компьютерной графики, дизайна, композиции. Основным инструментом на курсе является всемирно известный редактор графики Adobe Photoshop, а также некоторые другие инструменты для творчества. Все эти навыки пригодятся для дальнейшей работы с самыми известными и полезными программами на других направлениях – Illustrator, Blender, Figma. В процессе обучения, слушатели смогут раскрыть в себе творческий потенциал и интерес к изучению определенной сферы графического дизайна. Знания, полученные на курсе «Основы компьютерной графики» обязательно пригодятся и в смежных сферах – разработке сайтов, игр, видеомонтаже, робототехнике",
                             Image = "/assets/for_new/img/courses/design/starter-graphics.svg",
                             Name = "Основы компьютерной графики",
@@ -175,7 +200,6 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 5L,
                             Age = "8-11 лет",
-                            CourseType = 1,
                             Description = "В современном мире, без навыков использования компьютера справиться с повседневными задачами в учебе и работе очень сложно. Курс «Мой компьютер» является первой ступеней в процессе подготовки будущего IT-специалиста, а также пригодится абсолютно любому современному человеку. На занятиях слушатели учатся уверенно использовать свой компьютер в качестве универсального инструмента для решения задач, обслуживать и настраивать операционную систему, изучают основные пакеты офисных программ. В рамках курса затрагиваются такие темы, как основы обработки графики, информационной безопасности и алгоритмизации",
                             Image = "/assets/for_new/img/courses/pk/my-pc.svg",
                             Name = "Мой компьютер - для начинающих",
@@ -185,7 +209,6 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 6L,
                             Age = "12-17 лет",
-                            CourseType = 2,
                             Description = "Мир трехмерной графики охватывает множество направлений - геймдизайн и разработка игр, архитектурная визуализация и рендеринг, анимация и визуальные эффекты, 3D - печать и . На направлении \"3D-графика\" студенты изучают один из самых известных и гибких редакторов - Blender. Редактор Blender - мощный инструмент для создания трехмерных моделей, обладающий огромным сообществом фанатов и профессионалов, а также наличием большого количества модулей и плагинов, которые позволяют решить абсолютно любую задачу - от симуляции трехмерной виртуальной одежды, до просчетов физики жидкостей! Навыки, полученные при прохождении курса, расширяют возможности юных дизайнеров в сфере графического дизайна, а также открывают двери в такие направления, как разработка игр, архитектурную визуализацию и создание видеороликов с использованием 3D графики!",
                             Image = "/assets/for_new/img/courses/3d/graphics-3d.svg",
                             Name = "3D графика, анимация и рендеринг",
@@ -273,9 +296,9 @@ namespace ITCenterBack.Migrations
                             PhoneNumber1 = "8 (0212) 37-58-36",
                             PhoneNumber2 = "+375 (33) 317-95-02",
                             SchoolYear = "2023/2024",
-                            SliderFirstText = "УЧРЕЖДЕНИЕ ОБРАЗОВАНИЯ \"ВГУ ИМЕНИ П.М.МАШЕРОВА\"",
-                            SliderSecondText = "IT-центр",
-                            SliderThirdText = "\"Мир будущего\""
+                            SliderFirstText = "Учреждение образования \"Витебский государственный университет имени П.М.Машерова\"",
+                            SliderSecondText = "Образовательный IT-Центр",
+                            SliderThirdText = "Математика Информатика Робототехника Будущего"
                         });
                 });
 
@@ -916,11 +939,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0af613d9-8194-4b29-8ed7-e027862bad50",
+                            ConcurrencyStamp = "1edff17f-bdc5-436b-8c69-1d8e57bd39cb",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEIiKTm58mOppcSYTUzDoE7BQ6IXQA8ANBJW48C2W/jIf2Ym4mYvXd63rRb4ylrUo4A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDCyszHb0b5VokYxswbyRunpu0B0Sw13aWYmOrogTSalpSW6n1mZr6huCcCmdJuAWg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -957,7 +980,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "5aed3858-9752-4e2d-aed5-a37954749bb8",
+                            ConcurrencyStamp = "dc18968a-20fc-4ff6-90d3-a655742a692b",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
