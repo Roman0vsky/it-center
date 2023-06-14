@@ -290,14 +290,14 @@ namespace ITCenterBack.Migrations
                             AdressOfUniversity = "Республика Беларусь 210038, г. Витебск, Московский проспект 33",
                             Email = "fmiit@vsu.by",
                             FooterLogo = "/images/gllg.png",
-                            HeaderLogo = "/assets/for_new/img/icons/logo.svg",
+                            HeaderLogo = "/images/gllg.png",
                             NameOfTheCenter = "IT-центр",
                             NameOfUniversity = "ВГУ имени П.М.Машерова",
                             PhoneNumber1 = "8 (0212) 37-58-36",
                             PhoneNumber2 = "+375 (33) 317-95-02",
                             SchoolYear = "2023/2024",
                             SliderFirstText = "Учреждение образования \"Витебский государственный университет имени П.М.Машерова\"",
-                            SliderSecondText = "Образовательный IT-Центр",
+                            SliderSecondText = "Образовательный IT-центр",
                             SliderThirdText = "Математика Информатика Робототехника Будущего"
                         });
                 });
@@ -794,7 +794,7 @@ namespace ITCenterBack.Migrations
                             Id = 4L,
                             Content = "<h3 style=\"display: flex;\">Учащиеся курсов IT-академии “МИР будущего” могут принимать участие в следующих мероприятиях: </h3>\r\n\r\n     <ul>\r\n      <li><p><h>Международный математический Турнир городов и Республиканский турнир юных математиков</h6></p></li>\r\n    <li><p><h>Районные и областные этапы республиканской олимпиады школьников по математике, физике и информатике</h6></p></li>\r\n  <li><p><h>Областная практическая конференция “Эврика” и республиканская практическая конференция (конкурс исследовательских работ) учащихся</h6></p></li>\r\n     <li><p><h>Республиканская летняя научно-исследовательская школа “Бригантина”</h6></p></li>\r\n  <li><p><h>Олимпиада по программированию в рамках недели факультета</h6></p></li>\r\n  <li><p><h>Областная научно-техническая конференция «Квант»</h6></p></li>\r\n   <li><p><h>Республиканский конкурс научно-технического творчества учащейся молодежи «ТехноИнтеллект»</h6></p></li>\r\n        <li><p><h>Республиканская олимпиада по робототехнике среди учащейся молодежи</h6></p></li>\r\n  <li><p><h>Областная олимпиада по программированию \"Информаша\"</h6></p></li>\r\n     <li><p><h>Областная олимпиада по информатике \"Юный программист\"</h6></p></li>\r\n    <li><p><h>Акция \"Час кода\"</h6></p></li>\r\n     </ul>    \r\n <br><br>",
                             Image = "/assets/for_new/img/icons/wins.svg",
-                            TextPreview = "В турнирах, как внутри коликтива, так и за его пределами",
+                            TextPreview = "В турнирах, как внутри коллектива, так и за его пределами",
                             Title = "Мероприятия"
                         },
                         new
@@ -939,11 +939,11 @@ namespace ITCenterBack.Migrations
                         {
                             Id = 1L,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1edff17f-bdc5-436b-8c69-1d8e57bd39cb",
+                            ConcurrencyStamp = "23ccc248-d16a-4ac0-affd-2e5b75cb48cd",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDCyszHb0b5VokYxswbyRunpu0B0Sw13aWYmOrogTSalpSW6n1mZr6huCcCmdJuAWg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELM4wxSCZWfT6HQt7vtw1mxGqqj3SH7ZIO4VjHNalH+HOhGp5y0iIAWg9sfDT2IpXg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false,
                             UserName = "admin"
@@ -980,7 +980,7 @@ namespace ITCenterBack.Migrations
                         new
                         {
                             Id = 1L,
-                            ConcurrencyStamp = "dc18968a-20fc-4ff6-90d3-a655742a692b",
+                            ConcurrencyStamp = "6f10a3a7-539f-4c34-bcbe-c60835810b71",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         });
