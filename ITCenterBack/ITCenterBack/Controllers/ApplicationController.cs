@@ -123,30 +123,5 @@ namespace ITCenterBack.Controllers
 
 			return RedirectToAction("Applications");
 		}
-
-		//[HttpGet]
-		//[ActionName("UpdateApplication")]
-		//[Route("UpdateApplication")]
-		//public async Task<IActionResult> GetUpdateApplicationAsync(long id)
-		//{
-		//	var application = await _applicationService.GetApplication(id);
-
-		//	if (application is null)
-		//	{
-		//		return NotFound();
-		//	}
-
-		//	return View(application);
-		//}
-
-		//[HttpPost]
-		//[Route("UpdateApplication")]
-		//[ActionName("UpdateApplication")]
-		//public async Task<IActionResult> UpdateApplicationAsync([FromForm] ApplicationDetailsViewModel viewModel)
-		//{
-
-
-		//	return RedirectToAction("Applications");
-		//}
 	}
 }

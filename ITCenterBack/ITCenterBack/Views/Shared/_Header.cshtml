@@ -21,20 +21,18 @@
                 }
 
                 @@media (max-width: 1024px) {
-                    .ddd
+                    .ddd {
+                        display: none;
+                    }
 
-                {
-                    display: none;
-                }
-
-                .aaaa {
-                    margin-top: 10px;
-                    display: flex;
-                    justify-content: center;
-                }
-
+                    .aaaa {
+                        margin-top: 10px;
+                        display: flex;
+                        justify-content: center;
+                    }
                 }
             </style>
+
             <div class="ddd">
                 <div>
                     <a class="navbar-brand mr-auto m-sm-auto" href=@Url.Content("/api/Home/Index")> <img class="mobile-logo" src=@Model.Info.HeaderLogo alt="IT-центр">  </a>
@@ -43,6 +41,7 @@
                         display: flex;
                         align-items: center;
                         flex-direction: column;
+                        color: #fff;
                         ">
                     <h6>@Model.Info.SliderFirstText</h6>
                     <h3>@Model.Info.SliderSecondText</h3>
@@ -69,6 +68,7 @@
                         display: flex;
                         align-items: center;
                         flex-direction: column;
+                        color: #fff;
                         ">
                     <h4>@Model.Info.PhoneNumber1 </h4>
                     <h4>email: @Model.Info.Email </h4>
