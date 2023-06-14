@@ -12,7 +12,6 @@ using System.Text.RegularExpressions;
 
 namespace ITCenterBack.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class HomeController : Controller
     {
@@ -74,7 +73,8 @@ namespace ITCenterBack.Controllers
 			return header;
 		}
 
-		[Route("Index")]
+        [Route("")]
+        [Route("api/Home/Index")]
         public async Task<IActionResult> IndexAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
@@ -125,7 +125,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Apllication")]
-        [Route("Apllication")]
+        [Route("api/Home/Apllication")]
         public async Task<IActionResult> ApllicationAsync()
         {
             var courses = await _courseService.GetAllCoursesAsync();
@@ -168,7 +168,7 @@ namespace ITCenterBack.Controllers
 
         [HttpPost]
         [ActionName("Apllication")]
-        [Route("Apllication")]
+        [Route("api/Home/Apllication")]
         public async Task<IActionResult> PostApllicationAsync()
         {
             string fio = Request.Form["contact_fio"];
@@ -231,7 +231,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Schedule")]
-        [Route("Schedule")]
+        [Route("api/Home/Schedule")]
         public async Task<IActionResult> ScheduleAsync()
         {
             var schedule = await _imagesService.GetScheduleAsync();
@@ -272,6 +272,7 @@ namespace ITCenterBack.Controllers
         }
 
         [HttpPost]
+        [Route("api/Home/Schedule")]
         [ActionName("Schedule")]
         public IActionResult PostScheduleAsync()
         {
@@ -280,7 +281,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Contacts")]
-        [Route("Contacts")]
+        [Route("api/Home/Contacts")]
         public async Task<IActionResult> ContactsAsync()
         {
             var header = await HeaderInfoAsync();
@@ -304,7 +305,7 @@ namespace ITCenterBack.Controllers
 
         [HttpGet]
         [ActionName("Login")]
-        [Route("Login")]
+        [Route("api/Home/Login")]
         public IActionResult Login()
         {
             return View();
@@ -312,7 +313,7 @@ namespace ITCenterBack.Controllers
 
         [HttpPost]
         [ActionName("Login")]
-		[Route("Login")]
+		[Route("api/Home/Login")]
 		public async Task<IActionResult> PostLoginAsync([FromForm] LoginViewModel viewModel)
         {
             var userToken = await _accountService.LoginAsync(viewModel.UserName, viewModel.Password, _jwtConfig);
