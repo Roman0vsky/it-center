@@ -7,9 +7,9 @@ namespace ITCenterBack.ViewModels
 	{
 		public string Name { get; set; }
 		public string Age { get; set; }
-		[DataType(DataType.MultilineText)]
+		[DataType(DataType.Text)]
 		public string Description { get; set; }
-		[DataType(DataType.MultilineText)]
+		[DataType(DataType.Text)]
 		public string Requirements { get; set; }
     }
 }

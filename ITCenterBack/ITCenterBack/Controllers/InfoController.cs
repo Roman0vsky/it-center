@@ -47,7 +47,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateSliderFirstText")]
 		[ActionName("UpdateSliUpdateSliderFirstTextderBigText")]
-		public async Task<IActionResult> UpdateSliderFirstTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateSliderFirstTextAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -68,7 +68,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateSliderSecondText")]
 		[ActionName("UpdateSliderSecondText")]
-		public async Task<IActionResult> UpdateSliderSecondTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateSliderSecondTextAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -89,7 +89,7 @@ namespace ITCenterBack.Controllers
         [HttpPost]
         [Route("UpdateSliderThirdText")]
         [ActionName("UpdateSliderThirdText")]
-        public async Task<IActionResult> UpdateSliderThirdTextAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+        public async Task<IActionResult> UpdateSliderThirdTextAsync([FromForm] UpdateDescriptionViewModel viewModel)
         {
             if (!string.IsNullOrWhiteSpace(viewModel.Description))
             {
@@ -110,7 +110,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateNameOfTheCenter")]
 		[ActionName("UpdateNameOfTheCenter")]
-		public async Task<IActionResult> UpdateNameOfTheCenterAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateNameOfTheCenterAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -187,7 +187,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateNameOfUniversity")]
 		[ActionName("UpdateNameOfUniversity")]
-		public async Task<IActionResult> UpdateNameOfUniversityAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateNameOfUniversityAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -208,7 +208,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateAdressOfUniversity")]
 		[ActionName("UpdateAdressOfUniversity")]
-		public async Task<IActionResult> UpdateAdressOfUniversityAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateAdressOfUniversityAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -229,7 +229,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateFirstPhoneNumber")]
 		[ActionName("UpdateFirstPhoneNumber")]
-		public async Task<IActionResult> UpdateFirstPhoneNumberAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateFirstPhoneNumberAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -250,7 +250,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateSecondPhoneNumber")]
 		[ActionName("UpdateSecondPhoneNumber")]
-		public async Task<IActionResult> UpdateSecondPhoneNumberAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateSecondPhoneNumberAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -271,7 +271,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateEmail")]
 		[ActionName("UpdateEmail")]
-		public async Task<IActionResult> UpdateEmailAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateEmailAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{
@@ -292,7 +292,7 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("UpdateSchoolYear")]
 		[ActionName("UpdateSchoolYear")]
-		public async Task<IActionResult> UpdateSchoolYearAsync([FromForm] UpdateAboutUsDescriptionViewModel viewModel)
+		public async Task<IActionResult> UpdateSchoolYearAsync([FromForm] UpdateDescriptionViewModel viewModel)
 		{
 			if (!string.IsNullOrWhiteSpace(viewModel.Description))
 			{

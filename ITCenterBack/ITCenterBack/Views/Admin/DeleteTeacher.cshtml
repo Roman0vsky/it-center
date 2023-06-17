@@ -22,13 +22,16 @@
 				<tbody>
 					<tr>
 						<td>@Model.Name</td>
-						<td>
-							@foreach (var c in Model.Courses)
-							{
-								@c.Name
-								<br></br>
-							}
-						</td>
+						@if(Model.Courses is not null)
+						{
+							<td>
+								@foreach (var c in Model.Courses)
+								{
+									@c.Name
+									<br></br>
+								}
+							</td>
+						}
 						<td><img src=@Model.Image alt="images"></td>
 					</tr>
 				</tbody>

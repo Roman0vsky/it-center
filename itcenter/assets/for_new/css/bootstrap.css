@@ -644,7 +644,7 @@ pre {
     .container {
       width: 960px;
       max-width: 100%; } }
-  @media (min-width: 1200px) {
+  @media (min-width: 1400px) {
     .container {
       width: 1260px;
       max-width: 100%; } }
