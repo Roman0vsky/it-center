@@ -30,7 +30,16 @@
                     {
                         <div class="person">
                             <img class="person__avatar" src=@t.Image alt=@t.Name>
-                            <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+
+                            @if (t.Link is not null)
+                            {
+                                <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+                            }
+                            else
+                            {
+                                <span href="#" class="person__name"><a href="#">@t.Name</a></span>
+                            }
+                            
                             <span class="person__specialization">
                                 @t.Description
                             </span>
@@ -62,7 +71,16 @@
                 {
                     <div class="person">
                         <img class="person__avatar" src=@t.Image alt=@t.Name>
-                        <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+
+                        @if (t.Link is not null)
+                        {
+                            <span href=@t.Link class="person__name"><a href=@t.Link>@t.Name</a></span>
+                        }
+                        else
+                        {
+                            <span href="#" class="person__name"><a href=@t.Link>@t.Name</a></span>
+                        }
+
                         <span class="person__specialization">
                             @t.Description
                         </span>
