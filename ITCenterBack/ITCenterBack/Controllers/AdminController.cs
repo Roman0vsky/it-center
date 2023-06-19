@@ -388,7 +388,7 @@ namespace ITCenterBack.Controllers
 				}
 			}
 
-			await _courseService.UpdateCourseAsync(viewModel.Id, viewModel.Title, viewModel.TextPreview, viewModel.Content, path);
+			await _courseService.UpdateCourseAsync(viewModel.Id, viewModel.Name, viewModel.Age, viewModel.Requirements, viewModel.Description, path);
 
 			return RedirectToAction("Courses");
 		}
