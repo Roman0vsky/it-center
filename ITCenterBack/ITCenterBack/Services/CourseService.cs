@@ -46,14 +46,20 @@ namespace ITCenterBack.Services
             return await _courseRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateCourseAsync(Course course)
+        public async Task UpdateCourseAsync(long id, string name, string age, string requirements, string description, string image)
         {
+            var course = await _courseRepository.GetByIdAsync(id);
+
             if(course is not null)
             {
+                course.Name = name;
+                course.Age = age;
+                course.Description = description;
+                course.Image = image;
+                course.Requirements = requirements;
+
                 await _courseRepository.UpdateAsync(course);
             }
-
-            //throw new Exception();
         }
     }
 }

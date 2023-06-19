@@ -2,6 +2,7 @@
 using ITCenterBack.Constants;
 using ITCenterBack.Interfaces;
 using ITCenterBack.Models;
+using ITCenterBack.Services;
 using ITCenterBack.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -342,6 +343,52 @@ namespace ITCenterBack.Controllers
 		public async Task<IActionResult> DeleteCourseAsync(long id)
 		{
 			await _courseService.DeleteCourseAsync(id);
+
+			return RedirectToAction("Courses");
+		}
+
+		[HttpGet]
+		[ActionName("UpdateCourse")]
+		[Route("UpdateCourse")]
+		public async Task<IActionResult> GetUpdateCourseAsync(long id)
+		{
+			var course = await _courseService.GetCourseAsync(id);
+
+			if (course is null)
+			{
+				return NotFound();
+			}
+
+			var courseVM = _mapper.Map<CourseViewModel>(course);
+
+			return View(courseVM);
+		}
+
+		[HttpPost]
+		[Route("UpdateCourse")]
+		[ActionName("UpdateCourse")]
+		public async Task<IActionResult> UpdateCourseAsync([FromForm] CourseViewModel viewModel, IFormFile? uploadedFile)
+		{
+			var course = await _courseService.GetCourseAsync(viewModel.Id);
+
+			if (course is null)
+			{
+				return NotFound();
+			}
+
+			string path = viewModel.Image;
+
+			if (uploadedFile != null)
+			{
+				path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+			}
+
+			await _courseService.UpdateCourseAsync(viewModel.Id, viewModel.Title, viewModel.TextPreview, viewModel.Content, path);
 
 			return RedirectToAction("Courses");
 		}

@@ -1,32 +1,36 @@
 ﻿@using ITCenterBack.Models;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model ITCenterBack.ViewModels.SquareViewModel
+@model ITCenterBack.ViewModels.CourseViewModel
 @{
 	Layout = "/Views/Shared/_AdminLayout.cshtml";
-	ViewBag.Title = "Изменить квадрат";
+	ViewBag.Title = "Изменить курс";
 }
 
 <div class="admin-page__content">
 	<div class="admin-page__content-form">
 		<div class="admin-form">
 			<div class="admin-form__item">
-				<h2 class="heading">Изменить квадрат </h2>
+				<h2 class="heading">Добавить квадрат </h2>
 			</div>
-			@using (Html.BeginForm("Update", "Square", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			@using (Html.BeginForm("UpdateCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{
 				@Html.HiddenFor(model => model.Id)
 
 				<div class="admin-form__item">
 					<label class="input__label">
-						Введите заголовок <br />
-						@Html.EditorFor(model => model.Title) <hr />
+						Введите название <br />
+						@Html.EditorFor(model => model.Name) <hr />
 					</label>
 					<label class="input__label">
-						Введите превью описания <hr />
-						@Html.EditorFor(model => model.TextPreview)
+						Введите требования по классам <hr />
+						@Html.EditorFor(model => model.Age)
 					</label>
 					<label class="input__label">
-						Изображение в превью<hr />
+						Введите требования <hr />
+						@Html.EditorFor(model => model.Age)
+					</label>
+					<label class="input__label">
+						Изображение<hr />
 						<img src=@Model.Image alt="images">
 						@Html.HiddenFor(model => model.Image)
 						Обновить изображение
@@ -36,8 +40,8 @@
 					</label>
 					<label class="input__label">
 						<br></br>
-						Содержимое <hr />
-						@Html.TextAreaFor(model => model.Content)
+						Jgbcfybt <hr />
+						@Html.TextAreaFor(model => model.Description)
 					</label>
 				</div>
 
@@ -47,7 +51,7 @@
 			}
 
 			<div class="admin-form__item buttons">
-				<a class="secondary-button" href=@Url.Content("/api/Square/All")>Отмена</a>
+				<a class="secondary-button" href=@Url.Content("/api/Admin/Courses")>Отмена</a>
 			</div>
 			<div class="admin-form__item"></div>
 			<div class="admin-form__item"></div>
