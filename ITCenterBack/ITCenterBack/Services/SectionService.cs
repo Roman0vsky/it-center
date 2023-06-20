@@ -1,5 +1,7 @@
 ﻿using ITCenterBack.Interfaces;
 using ITCenterBack.Models;
+using ITCenterBack.Repositories;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ITCenterBack.Services
 {
@@ -45,6 +47,20 @@ namespace ITCenterBack.Services
         public async Task<Section> GetSectionAsync(long id)
         {
             return await _sectionRepository.GetByIdAsync(id);
+        }
+
+        public async Task UpdateSectionAsync(long id, string name, string description, string image)
+        {
+            var section = await _sectionRepository.GetByIdAsync(id);
+
+            if (section is not null)
+            {
+                section.Description = description;
+                section.Image = image;
+                section.Name = name;
+
+                await _sectionRepository.UpdateAsync(section);
+            }
         }
     }
 }

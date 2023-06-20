@@ -1,9 +1,9 @@
 ﻿@using ITCenterBack.Models;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model ITCenterBack.ViewModels.CourseViewModel
+@model ITCenterBack.ViewModels.NewsViewModel
 @{
 	Layout = "/Views/Shared/_AdminLayout.cshtml";
-	ViewBag.Title = "Изменить курс";
+	ViewBag.Title = "Изменить новость";
 }
 
 <div class="admin-page__content">
@@ -12,22 +12,19 @@
 			<div class="admin-form__item">
 				<h2 class="heading">Добавить квадрат </h2>
 			</div>
-			@using (Html.BeginForm("UpdateCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			@using (Html.BeginForm("UpdateNews", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{
 				@Html.HiddenFor(model => model.Id)
+				@Html.HiddenFor(model => model.PublicationDate)
 
 				<div class="admin-form__item">
 					<label class="input__label">
-						Введите название <br />
-						@Html.EditorFor(model => model.Name) <hr />
+						Введите заголовок <br />
+						@Html.EditorFor(model => model.Title) <hr />
 					</label>
 					<label class="input__label">
-						Введите требования по классам <hr />
-						@Html.EditorFor(model => model.Age)
-					</label>
-					<label class="input__label">
-						Введите требования <hr />
-						@Html.EditorFor(model => model.Requirements)
+						Введите текст превью <hr />
+						@Html.EditorFor(model => model.ShortText)
 					</label>
 					<label class="input__label">
 						Изображение<hr />
@@ -40,8 +37,8 @@
 					</label>
 					<label class="input__label">
 						<br></br>
-						Описание <hr />
-						@Html.TextAreaFor(model => model.Description)
+						Текст <hr />
+						@Html.TextAreaFor(model => model.Text)
 					</label>
 				</div>
 

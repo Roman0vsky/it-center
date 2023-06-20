@@ -29,17 +29,18 @@
 							<td> <img src=@t.Image alt="images"></td>
 							<td>@t.Name</td>
 							<td>
-								@if (t.Description.Length > 90)
+								@if (t.Description.Length > 120)
 								{
-									@string.Concat((@t.Description).AsSpan(0, 90), "...")
+									@Html.Raw(string.Concat((@t.Description).AsSpan(0, 120), "..."))
 								}
 								else
 								{
-									@t.Description
+									@Html.Raw(@t.Description)
 								}
 							</td>
 							<td>
 								<a asp-action="Delete" asp-route-id="@t.Id" class="file-button" type="file">Удалить</a>
+								<a asp-action="Update" asp-route-id="@t.Id" class="file-button" type="file">Изменить</a>
 							</td>
 						</tr>
 					}

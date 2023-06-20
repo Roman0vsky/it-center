@@ -148,5 +148,53 @@ namespace ITCenterBack.Controllers
 
 			return RedirectToAction("All");
 		}
-	}
+
+        [HttpGet]
+        [ActionName("Update")]
+        [Route("Update")]
+        [Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+        public async Task<IActionResult> GetUpdateAsync(long id)
+        {
+            var section = await _sectionService.GetSectionAsync(id);
+
+            if (section is null)
+            {
+                return NotFound();
+            }
+
+            var sectionVM = _mapper.Map<SectionViewModel>(section);
+
+            return View(sectionVM);
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        [ActionName("Update")]
+        [Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+        public async Task<IActionResult> UpdateAsync([FromForm] SectionViewModel viewModel, IFormFile? uploadedFile)
+        {
+            var section = await _sectionService.GetSectionAsync(viewModel.Id);
+
+            if (section is null)
+            {
+                return NotFound();
+            }
+
+            string path = viewModel.Image;
+
+            if (uploadedFile != null)
+            {
+                path = "/images/" + uploadedFile.FileName;
+
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream);
+                }
+            }
+
+            await _sectionService.UpdateSectionAsync(viewModel.Id, viewModel.Name, viewModel.Description, path);
+
+            return RedirectToAction("All");
+        }
+    }
 }

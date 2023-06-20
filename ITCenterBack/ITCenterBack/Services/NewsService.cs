@@ -48,14 +48,20 @@ namespace ITCenterBack.Services
             return await _newsRepository.GetByIdAsync(id);
         }
 
-        public async Task UpdateNewsAsync(News news)
+        public async Task UpdateNewsAsync(long id, DateTime date, string title, string shortText, string text, string image)
         {
+            var news = await _newsRepository.GetByIdAsync(id);
+
             if (news is not null)
             {
+                news.Text = text;
+                news.ShortText = shortText;
+                news.PublicationDate = date;
+                news.Image = image;
+                news.Title = title;
+
                 await _newsRepository.UpdateAsync(news);
             }
-
-            //throw new Exception();
         }
     }
 }

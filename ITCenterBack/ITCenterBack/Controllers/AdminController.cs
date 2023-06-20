@@ -415,14 +415,6 @@ namespace ITCenterBack.Controllers
 					await uploadedImage.CopyToAsync(fileStream);
 				}
 
-				//List<string> files = new List<string>();
-
-				//foreach (var file in uploadedFiles)
-				//{
-				//	string file = 
-				//}
-
-
 				if (!string.IsNullOrEmpty(viewModel.Title))
 				{
 					await _newsService.CreateNewsAsync(viewModel.Title, viewModel.ShortText, viewModel.Text, path);
@@ -457,6 +449,52 @@ namespace ITCenterBack.Controllers
 		public async Task<IActionResult> DeleteNewsAsync(long id)
 		{
 			await _newsService.DeleteNewsAsync(id);
+
+			return RedirectToAction("News");
+		}
+
+		[HttpGet]
+		[ActionName("UpdateNews")]
+		[Route("UpdateNews")]
+		public async Task<IActionResult> GetUpdateNewsAsync(long id)
+		{
+			var news = await _newsService.GetNewsAsync(id);
+
+			if (news is null)
+			{
+				return NotFound();
+			}
+
+			var newsVM = _mapper.Map<NewsViewModel>(news);
+
+			return View(newsVM);
+		}
+
+		[HttpPost]
+		[Route("UpdateNews")]
+		[ActionName("UpdateNews")]
+		public async Task<IActionResult> UpdateNewsAsync([FromForm] NewsViewModel viewModel, IFormFile? uploadedFile)
+		{
+			var news = await _newsService.GetNewsAsync(viewModel.Id);
+
+			if (news is null)
+			{
+				return NotFound();
+			}
+
+			string path = viewModel.Image;
+
+			if (uploadedFile != null)
+			{
+				path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+			}
+
+			await _newsService.UpdateNewsAsync(viewModel.Id, viewModel.PublicationDate, viewModel.Title, viewModel.ShortText, viewModel.Text, path);
 
 			return RedirectToAction("News");
 		}

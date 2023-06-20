@@ -149,7 +149,8 @@ namespace ITCenterBack.Controllers
 		[HttpGet]
 		[ActionName("Update")]
 		[Route("Update")]
-		public async Task<IActionResult> GetUpdateAsync(long id)
+        [Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+        public async Task<IActionResult> GetUpdateAsync(long id)
 		{
 			var square = await _squareService.GetSquareAsync(id);
 
@@ -166,7 +167,8 @@ namespace ITCenterBack.Controllers
 		[HttpPost]
 		[Route("Update")]
 		[ActionName("Update")]
-		public async Task<IActionResult> UpdateAsync([FromForm] SquareViewModel viewModel, IFormFile? uploadedFile)
+        [Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+        public async Task<IActionResult> UpdateAsync([FromForm] SquareViewModel viewModel, IFormFile? uploadedFile)
 		{
 			var square = await _squareService.GetSquareAsync(viewModel.Id);
 
