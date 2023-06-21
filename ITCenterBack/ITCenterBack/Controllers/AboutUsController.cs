@@ -23,14 +23,6 @@ namespace ITCenterBack.Controllers
 			_aboutUsService = aboutUsService;
 		}
 
-		//[HttpGet]
-  //      [Route("About")]
-  //      [ActionName("About")]
-		//public IActionResult About()
-		//{
-		//	return View();
-		//}
-
 		[HttpGet]
         [Route("About")]
         [ActionName("About")]

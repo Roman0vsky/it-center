@@ -316,7 +316,7 @@ namespace ITCenterBack.Controllers
 		[Route("api/Home/Login")]
 		public async Task<IActionResult> PostLoginAsync([FromForm] LoginViewModel viewModel)
         {
-            var userToken = await _accountService.LoginAsync(viewModel.UserName, viewModel.Password, _jwtConfig);
+			var userToken = await _accountService.LoginAsync(viewModel.UserName, viewModel.Password, _jwtConfig);
 			HttpContext.Session.SetString("Token", userToken);
 
             return Redirect("/api/Admin/Schools");
