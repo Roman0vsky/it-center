@@ -5150,11 +5150,13 @@ em.state-invalid {
 }
 
 .masonary-block .gallery-item figure {
-	margin: 0;
+	margin: 10px;
 }
 
 .masonary-block .gallery-item figure img {
 	width: 100%;
+	margin: 20px;
+	margin-bottom: 10px;
 }
 
 .masonary-block figure {
@@ -14069,6 +14071,7 @@ td, th {
 	font-size: 32px;
 	font-weight: bold;
 	line-height: 1.5;
+	text-align: center;
 }
 .person__specialization {
 	font-size: 20px;

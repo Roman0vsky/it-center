@@ -738,7 +738,7 @@ pre {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  max-width: 40%; }
+  max-width: 65%; }
 
 .col-auto {
   -webkit-box-flex: 0;

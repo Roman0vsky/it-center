@@ -79,5 +79,19 @@ namespace ITCenterBack.Services
 		{
 			return await _teacherRepository.GetByIdAsync(id);
 		}
+
+		public async Task UpdateTeacherAsync(long id, string name, string link, string image)
+		{
+            var teacher = await _teacherRepository.GetByIdAsync(id);
+
+            if(teacher is not null)
+            {
+                teacher.Link = link;
+                teacher.Image = image;
+                teacher.Name = name;
+
+                await _teacherRepository.UpdateAsync(teacher);
+            }
+		}
 	}
 }

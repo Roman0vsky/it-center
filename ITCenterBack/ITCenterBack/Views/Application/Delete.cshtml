@@ -41,9 +41,12 @@
 					<br />
 					@foreach (var course in Model.Courses)
 					{
-						@course
-						;
-						<br />
+						@if (course is not null)
+						{
+							@course
+							;
+							<br />
+						}
 					}
 					<hr />
 				</label>
@@ -52,8 +55,11 @@
 					<br />
 					@foreach (var time in Model.DayTime)
 					{
-						<p>Время: @time.TimeFrom.TimeOfDay - @time.TimeTo.TimeOfDay</p>
-						<p>День: @time.Day</p>
+						@if (time is not null)
+						{
+							<p>Время: @time.TimeFrom.TimeOfDay - @time.TimeTo.TimeOfDay</p>
+							<p>День: @time.Day</p>
+						}
 					}
 					<hr />
 				</label>

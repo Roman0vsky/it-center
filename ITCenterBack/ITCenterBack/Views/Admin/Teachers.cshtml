@@ -31,13 +31,17 @@
 							<td>
 								@foreach (var c in t.Courses)
 								{
-									@c.Name
-									<br></br>
+									@if(c is not null)
+									{
+										@c.Name
+										<br />
+									}
 								}
 							</td>
 								<td>
-								<a asp-action="DeleteTeacher" asp-route-id="@t.Id" class="file-button">Удалить</a> 
-								</td>
+								<a asp-action="DeleteTeacher" asp-route-id="@t.Id" class="file-button">Удалить</a>
+								<a asp-action="UpdateTeacher" asp-route-id="@t.Id" class="file-button">Редактировать</a>
+							</td>
 						</tr>
 					}
 					

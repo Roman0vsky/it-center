@@ -10,7 +10,7 @@
 	<div class="admin-page__content-form">
 		<div class="admin-form">
 			<div class="admin-form__item">
-				<h2 class="heading">Добавить квадрат </h2>
+				<h2 class="heading">Изменить курс </h2>
 			</div>
 			@using (Html.BeginForm("UpdateCourse", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{
@@ -33,6 +33,7 @@
 						Изображение<hr />
 						<img src=@Model.Image alt="images">
 						@Html.HiddenFor(model => model.Image)
+						<br/>
 						Обновить изображение
 						<div class="editor-field">
 							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />

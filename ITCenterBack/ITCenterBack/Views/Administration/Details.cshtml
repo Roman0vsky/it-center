@@ -26,7 +26,7 @@
 
                 @foreach(var t in Model.Administration)
                 {
-                    @if(t.IsAdministrator)
+                    @if(t.IsAdministrator && t is not null)
                     {
                         <div class="person">
                             <img class="person__avatar" src=@t.Image alt=@t.Name>
@@ -39,9 +39,12 @@
                             {
                                 <span href="#" class="person__name"><a href="#">@t.Name</a></span>
                             }
-                            
+
                             <span class="person__specialization">
-                                @t.Description
+                                @if (!string.IsNullOrEmpty(t.Description))
+                                {
+                                    @t.Description
+                                }
                             </span>
                         </div>
                     }
@@ -67,7 +70,7 @@
             
             @foreach (var t in Model.Administration)
             {
-                @if (t.IsHeadOfThecenter)
+                @if (t.IsHeadOfThecenter && t is not null)
                 {
                     <div class="person">
                         <img class="person__avatar" src=@t.Image alt=@t.Name>
@@ -82,7 +85,10 @@
                         }
 
                         <span class="person__specialization">
-                            @t.Description
+                            @if (!string.IsNullOrEmpty(t.Description))
+                            {
+                                @t.Description
+                            }
                         </span>
                     </div>
                 }

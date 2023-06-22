@@ -42,11 +42,19 @@
                         }
 
                         <span class="person__specialization">
-                            @foreach (var c in t.Courses)
+
+                            @if(t.Courses is not null)
                             {
-                                @c.Name
-                                <br></br>
+                                @foreach (var c in t.Courses)
+                                {
+                                    @if(c is not null)
+                                    {
+                                        @c.Name
+                                        <br />
+                                    }
+                                }
                             }
+
                         </span>
 
                     </div>

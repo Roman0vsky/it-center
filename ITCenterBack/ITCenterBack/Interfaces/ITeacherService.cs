@@ -7,6 +7,7 @@ namespace ITCenterBack.Interfaces
         Task<List<Teacher>> GetAllAsync();
         Task CreateTeacherAsync(string name, string link, string image, List<long> coursesId);
 		Task CreateTeacherAsync(string name, string link, string image);
+		Task UpdateTeacherAsync(long id, string name, string link, string image);
 		Task DeleteTeacherAsync(long id);
 		Task<List<Course>> GetCoursesAsync(long teacherId);
 		Task<Teacher> GetTeacher(long id);

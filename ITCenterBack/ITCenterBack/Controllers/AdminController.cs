@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using NuGet.Packaging.Signing;
 using System.IO;
 using System.Net.WebSockets;
+using System.Xml.Linq;
 
 namespace ITCenterBack.Controllers
 {
@@ -286,6 +287,54 @@ namespace ITCenterBack.Controllers
 
 			return RedirectToAction("Teachers");
 		}
+
+		[HttpGet]
+		[ActionName("UpdateTeacher")]
+		[Route("UpdateTeacher")]
+		public async Task<IActionResult> GetUpdateTeacherAsync(long id)
+		{
+			var teacher = await _teacherService.GetTeacher(id);
+
+			if (teacher is null)
+			{
+				return NotFound();
+			}
+
+			var teacherVM = _mapper.Map<TeacherViewModel>(teacher);
+
+			return View(teacherVM);
+		}
+
+		[HttpPost]
+		[Route("UpdateTeacher")]
+		[ActionName("UpdateTeacher")]
+		public async Task<IActionResult> UpdateTeacherAsync([FromForm] TeacherViewModel viewModel, IFormFile? uploadedFile)
+		{
+			var teacher = await _teacherService.GetTeacher(viewModel.Id);
+
+			if (teacher is null)
+			{
+				return NotFound();
+			}
+
+			string path = viewModel.Image;
+
+			if (uploadedFile != null)
+			{
+				path = "/images/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+			}
+
+			await _teacherService.UpdateTeacherAsync(viewModel.Id, viewModel.Name, viewModel.Link, path);
+
+			return RedirectToAction("Teachers");
+		}
+
+		//courses
 
 		[HttpGet]
 		[ActionName("AddCourse")]
