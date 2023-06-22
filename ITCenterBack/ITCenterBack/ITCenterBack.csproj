@@ -38,7 +38,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\images\courses\" />
+    <Folder Include="wwwroot\images\administration\" />
+    <Folder Include="wwwroot\images\square\" />
+    <Folder Include="wwwroot\images\schedule\" />
+    <Folder Include="wwwroot\images\slider\" />
+    <Folder Include="wwwroot\images\news\" />
+    <Folder Include="wwwroot\images\teachers\" />
+    <Folder Include="wwwroot\images\sections\" />
   </ItemGroup>
 
 </Project>

@@ -102,14 +102,14 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/sections/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
 					await uploadedFile.CopyToAsync(fileStream);
 				}
 
-				if (!string.IsNullOrEmpty(viewModel.Name))
+				if (!string.IsNullOrEmpty(viewModel.Name) && !string.IsNullOrEmpty(viewModel.Description))
 				{
 					await _sectionService.CreateSectionAsync(viewModel.Name, viewModel.Description, path);
 
@@ -184,7 +184,7 @@ namespace ITCenterBack.Controllers
 
             if (uploadedFile != null)
             {
-                path = "/images/" + uploadedFile.FileName;
+                path = "/images/sections/" + uploadedFile.FileName;
 
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {

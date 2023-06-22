@@ -99,14 +99,14 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/square/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
 					await uploadedFile.CopyToAsync(fileStream);
 				}
 
-				if (!string.IsNullOrEmpty(viewModel.Title) && !string.IsNullOrEmpty(viewModel.TextPreview))
+				if (!string.IsNullOrEmpty(viewModel.Title) && !string.IsNullOrEmpty(viewModel.TextPreview) && !string.IsNullOrEmpty(viewModel.Content))
 				{
 					await _squareService.AddSquareAsync(viewModel.Title, viewModel.TextPreview, viewModel.Content, path);
 
@@ -181,7 +181,7 @@ namespace ITCenterBack.Controllers
 
 			if (uploadedFile != null)
 			{
-				path = "/images/" + uploadedFile.FileName;
+				path = "/images/square/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{

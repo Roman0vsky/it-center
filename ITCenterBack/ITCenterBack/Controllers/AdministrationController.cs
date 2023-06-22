@@ -102,7 +102,7 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/administration/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -145,6 +145,54 @@ namespace ITCenterBack.Controllers
 		public async Task<IActionResult> DeleteAsync(long id)
 		{
 			await _administrationService.DeleteAdministrationAsync(id);
+
+			return RedirectToAction("All");
+		}
+
+		[HttpGet]
+		[ActionName("Update")]
+		[Route("Update")]
+		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+		public async Task<IActionResult> GetUpdateAsync(long id)
+		{
+			var admin = await _administrationService.GetAdministrationAsync(id);
+
+			if (admin is null)
+			{
+				return NotFound();
+			}
+
+			var adminVM = _mapper.Map<AdministrationViewModel>(admin);
+
+			return View(adminVM);
+		}
+
+		[HttpPost]
+		[Route("Update")]
+		[ActionName("Update")]
+		[Authorize(Policy = AccountPolicies.ElevatedRights, AuthenticationSchemes = "Identity.Application,Bearer")]
+		public async Task<IActionResult> UpdateAsync([FromForm] AdministrationViewModel viewModel, IFormFile? uploadedFile)
+		{
+			var admin = await _administrationService.GetAdministrationAsync(viewModel.Id);
+
+			if (admin is null)
+			{
+				return NotFound();
+			}
+
+			string path = viewModel.Image;
+
+			if (uploadedFile != null)
+			{
+				path = "/images/administration/" + uploadedFile.FileName;
+
+				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+				{
+					await uploadedFile.CopyToAsync(fileStream);
+				}
+			}
+
+			await _administrationService.UpdateAdministrationAsync(viewModel.Id, viewModel.Name, viewModel.Description, viewModel.Link, path);
 
 			return RedirectToAction("All");
 		}

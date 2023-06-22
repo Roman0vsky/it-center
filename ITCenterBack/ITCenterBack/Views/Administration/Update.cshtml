@@ -1,44 +1,45 @@
 ﻿@using ITCenterBack.Models;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model ITCenterBack.ViewModels.NewsViewModel
+@model ITCenterBack.ViewModels.BasicViewModels.AdministrationViewModel
 @{
 	Layout = "/Views/Shared/_AdminLayout.cshtml";
-	ViewBag.Title = "Изменить новость";
+	ViewBag.Title = "Изменить администрацию";
 }
 
 <div class="admin-page__content">
 	<div class="admin-page__content-form">
 		<div class="admin-form">
 			<div class="admin-form__item">
-				<h2 class="heading">Изменить новость </h2>
+				<h2 class="heading">Редактировать </h2>
 			</div>
-			@using (Html.BeginForm("UpdateNews", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			@using (Html.BeginForm("Update", "Administration", FormMethod.Post, new { enctype = "multipart/form-data" }))
 			{
 				@Html.HiddenFor(model => model.Id)
-				@Html.HiddenFor(model => model.PublicationDate)
+				@Html.HiddenFor(model => model.IsHeadOfThecenter)
+				@Html.HiddenFor(model => model.IsAdministrator)
 
 				<div class="admin-form__item">
 					<label class="input__label">
-						Введите заголовок <br />
-						@Html.EditorFor(model => model.Title) <hr />
+						Введите имя <br />
+						@Html.EditorFor(model => model.Name) <hr />
 					</label>
 					<label class="input__label">
-						Введите текст превью <hr />
-						@Html.EditorFor(model => model.ShortText)
+						Введите ссылку <br />
+						@Html.EditorFor(model => model.Link) <hr />
 					</label>
 					<label class="input__label">
-						Изображение<hr />
+						Введите описание <br />
+						@Html.EditorFor(model => model.Description) <hr />
+					</label>
+					<label class="input__label">
+						Изображение <hr />
 						<img src=@Model.Image alt="images">
 						@Html.HiddenFor(model => model.Image)
+						<br />
 						Обновить изображение
 						<div class="editor-field">
 							<input type="file" name="uploadedFile" accept="image/png, image/jpeg, image/gif, image/bmp" />
 						</div>
-					</label>
-					<label class="input__label">
-						<br></br>
-						Текст <hr />
-						@Html.TextAreaFor(model => model.Text)
 					</label>
 				</div>
 
@@ -48,7 +49,7 @@
 			}
 
 			<div class="admin-form__item buttons">
-				<a class="secondary-button" href=@Url.Content("/api/Admin/News")>Отмена</a>
+				<a class="secondary-button" href=@Url.Content("/api/Administration/All")>Отмена</a>
 			</div>
 			<div class="admin-form__item"></div>
 			<div class="admin-form__item"></div>

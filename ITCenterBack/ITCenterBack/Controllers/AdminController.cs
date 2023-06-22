@@ -235,7 +235,7 @@ namespace ITCenterBack.Controllers
             if (uploadedFile != null)
             {
                 // путь к папке images
-                string path = "/images/" + uploadedFile.FileName;
+                string path = "/images/teachers/" + uploadedFile.FileName;
                 // сохраняем файл в папку в каталоге wwwroot
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
@@ -321,7 +321,7 @@ namespace ITCenterBack.Controllers
 
 			if (uploadedFile != null)
 			{
-				path = "/images/" + uploadedFile.FileName;
+				path = "/images/teachers/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -351,7 +351,7 @@ namespace ITCenterBack.Controllers
 		{
             if (uploadedFile != null)
 			{
-                string path = "/images/" + uploadedFile.FileName;
+                string path = "/images/courses/" + uploadedFile.FileName;
                 
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
@@ -429,7 +429,7 @@ namespace ITCenterBack.Controllers
 
 			if (uploadedFile != null)
 			{
-				path = "/images/" + uploadedFile.FileName;
+				path = "/images/courses/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -457,7 +457,7 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedImage != null)
 			{
-				string path = "/images/" + uploadedImage.FileName;
+				string path = "/images/news/" + uploadedImage.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -535,7 +535,7 @@ namespace ITCenterBack.Controllers
 
 			if (uploadedFile != null)
 			{
-				path = "/images/" + uploadedFile.FileName;
+				path = "/images/news/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -576,7 +576,7 @@ namespace ITCenterBack.Controllers
 		{
 			if (uploadedFile != null)
 			{
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/slider/" + uploadedFile.FileName;
 
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{
@@ -769,7 +769,7 @@ namespace ITCenterBack.Controllers
 			if (uploadedFile != null)
 			{
 				// путь к папке images/schedule
-				string path = "/images/" + uploadedFile.FileName;
+				string path = "/images/schedule/" + uploadedFile.FileName;
 				// сохраняем файл в папку в каталоге wwwroot
 				using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
 				{

@@ -8,5 +8,6 @@ namespace ITCenterBack.Interfaces
 		Task<List<Administration>> GetAllAdministrationAsync();
 		Task CreateAdministrationAsync(string name, string description, string image, string link, bool isAdmin, bool isHeadOfCourse);
 		Task DeleteAdministrationAsync(long id);
+		Task UpdateAdministrationAsync(long id, string name, string description, string link, string image);
 	}
 }

@@ -49,5 +49,20 @@ namespace ITCenterBack.Services
 		{
 			return await _administrationRepository.GetAllAsync();
 		}
+
+		public async Task UpdateAdministrationAsync(long id, string name, string description, string link, string image)
+		{
+			var administration = await _administrationRepository.GetByIdAsync(id);
+
+			if(administration is not null)
+			{
+				administration.Name = name;
+				administration.Description = description;
+				administration.Link = link;
+				administration.Image = image;
+
+				await _administrationRepository.UpdateAsync(administration);
+			}
+		}
 	}
 }
